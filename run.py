@@ -312,7 +312,7 @@ def licen():
     try :
         os.system ('clear')
         logoku()
-        Console().print(Panel(f"""[{color_text}01{P2}] Dapatkan Api key\n[{color_text}02{P2}] Masukan Api Key\n[{color_text}03{P2}] Keluar [bold red][Exit][bold white]""",width=80,style=f"{color_panel}",title="[bold red]>[bold yellow]>[bold green]>[hot_pink2] (License) [bold green]<[bold yellow]<[bold red]<"))
+        Console().print(Panel(f"""[{color_text}01{P2}] Dapatkan Api key\n[{color_text}02{P2}] Masukan Api Key\n[{color_text}03{P2}] Keluar [bold red][Exit][bold white]""",width=60,style=f"{color_panel}",title="License"))
         masuk = console.input(f" {H2}• {P2}pilih menu : ")
         if masuk in ['1','01']:
             beli_bang()
