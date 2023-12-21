@@ -290,12 +290,12 @@ def clear():
     os.system('clear')
 #------------------[ LOGO-LAKNAT ]-----------------#
 def logoku():
-    prints(Panel(f"""\t{P2}╔╗──╔══╦═══╦═══╦═╗─╔╦═══╦══╗
-\t║║──╚╣╠╣╔═╗║╔══╣║╚╗║║╔═╗╠╣╠╝
-\t║║───║║║╚══╣╚══╣╔╗╚╝║╚══╗║║
-\t║║─╔╗║║╚══╗║╔══╣║╚╗║╠══╗║║║
-\t║╚═╝╠╣╠╣╚═╝║╚══╣║─║║║╚═╝╠╣╠╗
-\t╚═══╩══╩═══╩═══╩╝─╚═╩═══╩══╝""",title="Selamat Datang",width=60,style=f"{color_panel}"))
+    prints(Panel(f"""{P2}╔╗──╔══╦═══╦═══╦═╗─╔╦═══╦══╗
+║║──╚╣╠╣╔═╗║╔══╣║╚╗║║╔═╗╠╣╠╝
+║║───║║║╚══╣╚══╣╔╗╚╝║╚══╗║║
+║║─╔╗║║╚══╗║╔══╣║╚╗║╠══╗║║║
+║╚═╝╠╣╠╣╚═╝║╚══╣║─║║║╚═╝╠╣╠╗
+╚═══╩══╩═══╩═══╩╝─╚═╩═══╩══╝""",title="Selamat Datang",width=60,style=f"{color_panel}"))
                  
 def banner():
     Console().print(Panel("""
@@ -312,12 +312,12 @@ def licen():
     try :
         os.system ('clear')
         logoku()
-        Console().print(Panel(f"""[{color_text}01{P2}] Dapatkan Api key\n[{color_text}02{P2}] Masukan Api Key\n[{color_text}03{P2}] Keluar [bold red][Exit][bold white]""",width=60,style=f"{color_panel}",title="License"))
+        Console().print(Panel(f"""{P2}[{color_text}01{P2}] Masukan Api Key\n[{color_text}02{P2}] Dapatkan Api Key\n[{color_text}03{P2}] Keluar [bold red][Exit][bold white]""",width=60,style=f"{color_panel}",title="License"))
         masuk = console.input(f" {H2}• {P2}pilih menu : ")
         if masuk in ['1','01']:
-            beli_bang()
-        elif masuk in ['2','02']:
             key()
+        elif masuk in ['2','02']:
+            beli_bang()
         elif masuk in ['3','03']:
             exit ()
         else :
@@ -388,7 +388,7 @@ def menu(my_name,my_id):
         lisen = open('.key.txt','r').read()
         met = ses.get('https://app.cryptolens.io/api/key/Activate?token=WyI3MDI1Mjg4MCIsIjR2cXpqby8xdU5uZnhIc3VDRlpaYzRTSDdXRjViM1lzZUN2bFRnSVAiXQ==&ProductId=23140&Key='+lisen).json()
         men = met['licenseKey']
-        key = men['key'][0:11]
+        key = men['key'][0:5]
         tahun = men['expires'][0:4]
         buln = men['expires'][5:7]
         tanggal = men['expires'][8:10]
