@@ -194,7 +194,7 @@ kom5 = ("Jadikan Aku Anak Buah Mu Bang @[100043537611609:]")
 kom6 = (" Izin Share Ya Bang\n-\nhttps://www.facebook.com/100043537611609/posts/878169396977639/?app=fbl\n-\nSemangat Ya Bang ❤") 
 #--------------------[ CONVERTER-BULAN ]--------------#
 dic = {'1':'January','2':'February','3':'March','4':'April','5':'May','6':'June','7':'July','8':'August','9':'September','10':'October','11':'November','12':'December'}
-dic2 = {'01':'January','02':'February','03':'March','04':'April','05':'May','06':'June','07':'July','08':'August','09':'September','10':'October','11':'November','12':'Devember'}
+dic2 = {'01':'January','02':'February','03':'March','04':'April','05':'May','06':'June','07':'July','08':'August','09':'September','10':'October','11':'November','12':'December'}
 tgl = datetime.datetime.now().day
 bln = dic[(str(datetime.datetime.now().month))]
 thn = datetime.datetime.now().year
@@ -245,7 +245,7 @@ def cek():
 
 ###----------[ BUY LISENSI ]---------- ###	
 def beli_bang():
-    Console().print(Panel(f"[{color_text}01{P2}]. 1 minggu max pemakaian 1 device\n[{color_text}02{P2}]. 1 bulan max pemakaian 5 device\n[{color_text}03{P2}]. open source full update",width=60,style=f"{color_table}"))
+    Console().print(Panel(f"{P2}[{color_text}01{P2}]. 1 minggu max pemakaian 1 device\n[{color_text}02{P2}]. 1 bulan max pemakaian 5 device\n[{color_text}03{P2}]. open source full update",width=60,style=f"{color_table}"))
     zxc = console.input(f" {H2}•{P2} pilih lisensi : ")
     if zxc in [""]:
         Console().print(f" {H2}•{P2} pilih yang bener broo jangan kosong")
@@ -431,7 +431,7 @@ def menu(my_name,my_id):
     prints(Panel(f"{P2}{negara}",padding=(0,22),width=60,style=f"{color_panel}"))
     dia.append(Panel(f'{P2}lisensi : {H2}{key}-****-****\n{P2}join    : {H2}{tanggal1} {bulan1} {tahun1}\n{P2}expired : {H2}{tanggal} {bulan} {tahun}\n{P2}premium : {prem}',width=30,title=f"{P2}Lisensi",style=f"{color_panel}"))
     #dia.append(Panel(f'{P2}IP      : {H2}{ip}\n{P2}premium : {H2}Premium\n{P2}Negara  : {H2}{negara}',width=30,style=f"{color_panel}"))
-    dia.append(panel(f'{P2}Name   : {H2}{my_name}\n{P2}Idz    : {H2}{my_id}\n{P2}Teman  : {H2}{(len(temanku))}\n{P2}Waktu  : {H2}{waktucok()}',title=f"{P2}Bio Data",width=30,style=f"{color_panel}"))
+    dia.append(panel(f'{P2}Name   : {H2}{my_name}\n{P2}Idz    : {H2}{my_id}\n{P2}Teman  : {H2}{(len(temanku))}\n{P2}IP     : {H2}{ip}',title=f"{P2}Bio Data",width=30,style=f"{color_panel}"))
     console.print(Columns(dia))
     prints(Panel(f"""{P2}[{color_text}01{P2}]. crack dari id publik   [{color_text}05{P2}]. crack pencarian nama
 [{color_text}02{P2}]. crack dari id Masal    [{color_text}06{P2}]. Dump ID Publik
