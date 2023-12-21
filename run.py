@@ -899,7 +899,7 @@ def setting():
     else:
         print(' [+] Pilih Yang Bener Sayang ')
         exit()
-    Console().print(Panel(f'{P2}[{color_text}01{P2}] Login Site [bold green]async.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]validate.facebook.com[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]reguler.facebook.com[bold white]{P2}[{color_text}04{P2}] Login Site [bold green]mobile.facebook.com[bold white] [/]',width=60,style=f"{color_panel}", title="[bold green] Method"))
+    Console().print(Panel(f'{P2}[{color_text}01{P2}] Login Site [bold green]async.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]validate.facebook.com[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]reguler.facebook.com[bold white]\n{P2}[{color_text}04{P2}] Login Site [bold green]mobile.facebook.com[bold white] [/]',width=60,style=f"{color_panel}", title="[bold green] Method"))
     hc = console.input(f" {H2}• {P2}Masukan : ")
     if hc in ['1','01']:
         method.append('asyn')
