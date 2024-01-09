@@ -3235,16 +3235,17 @@ def crack_post():
     pepek = open('.vipertok.txt','r').read()
     try:
         idt = console.input(f" {H2}• {P2}Masukan id : ")
-        r = requests.get(f'https://graph.facebook.com/{idt}/likes?limit=50000&access_token={pepek}')
+        r = requests.get(f"https://graph.facebook.com/{idt}/likes?limit=50000&access_token={pepek}")
         z = json.loads(r.text)
-        id = []
         for a in z['data']:
             id.append(a["id"] + "|" + a["name"])
-        setting()
     except KeyError:
         print(' %s[%s!%s] ID %s tidak publik'%(N,O,N,idt))
         time.sleep(3)
         exit()
+    else:
+        setting()
+        
 def dump_publik():
     with requests.Session() as ses:
         token = open(".vipertok.txt", "r").read()
