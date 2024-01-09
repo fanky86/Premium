@@ -3234,9 +3234,8 @@ def menu(my_name, my_id):
 def crack_post():
     pepek = open('.vipertok.txt','r').read()
     try:
-        print(' %s'%(N))
-        idt = input(' %s[%s•%s] Masukan id : '%(N,O,N))
-        r = requests.get('https://graph.facebook.com/%s/likes?limit=50000&access_token=%s'%(idt,pepek))
+        idt = console.input(f" {H2}• {P2}Masukan id : ")
+        r = requests.get(f'https://graph.facebook.com/{idt}/likes?limit=50000&access_token={pepek}')
         z = json.loads(r.text)
         id = []
         for a in z['data']:
