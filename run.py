@@ -5373,10 +5373,10 @@ class Lain:
         sys.exit()
 def target():
     try:
-        toket=open('token.x','r').read()
+        toket=open('.vipertok.txt','r').read()
     except KeyError:
         print("\n[!] Token Invalid")
-        os.system('rm -rf token.x')
+        os.system('rm -rf .vipertok.txt')
         login()
     print(' %s '%(N))
     idt = input("  [•] ID Target : ")
