@@ -3188,9 +3188,9 @@ def menu(my_name, my_id):
     console.print(Columns(dia))
     prints(
         Panel(
-            f"""{P2}[{color_text}01{P2}]. crack dari id publik   [{color_text}05{P2}]. crack dari id pengikut
+            f"""{P2}[{color_text}01{P2}]. crack dari id publik   [{color_text}05{P2}]. crack dari pengikut
 [{color_text}02{P2}]. crack dari id Masal    [{color_text}06{P2}]. Dump ID Publik
-[{color_text}03{P2}]. crack dari Postingan   [{color_text}07{P2}]. crack dari File
+[{color_text}03{P2}]. crack dari Like        [{color_text}07{P2}]. crack dari File
 [{color_text}04{P2}]. crack dari random mail [{color_text}08{P2}]. crack dari opsi CP""",
             width=60,
             style=f"{color_panel}",
