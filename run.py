@@ -5388,6 +5388,7 @@ def target():
     try:
         zx = requests.get("https://graph.facebook.com/"+idt+"?access_token="+toket)
         zy = json.loads(zx.text)
+        
     except KeyError:
         print(" [!] ID NOT found");exit()
     try:
@@ -5454,10 +5455,15 @@ def target():
         lo = zy["locale"]
     except KeyError:
         lo = ("-")
+    try:
+        scl = zy["school"]
+    except KeyError:
+        scl = ("-")
     Console().print(f" {K2}• ➪ {P2}Name : " + nm)
     Console().print(f" {K2}• ➪ {P2}First Name : " + nd)
     Console().print(f" {K2}• ➪ {P2}Middle Name : " + nt)
     Console().print(f" {K2}• ➪ {P2}Last Name : " + nb)
+    Console().print(f" {K2}• ➪ {P2}Sekolah : " + scl)
     Console().print(f" {K2}• ➪ {P2}Birthday : " + ut)
     Console().print(f" {K2}• ➪ {P2}Gender : " + gd)
     Console().print(f" {K2}• ➪ {P2}Email : " + em)
