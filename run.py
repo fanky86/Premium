@@ -5142,7 +5142,12 @@ def akhir():
     except Exception as e:
         print("\n\n [+] Program Selesai Dalam Waktu 0 Detik\n")
 
-
+def jalan(keliling):
+    for mau in keliling + "\n":
+        sys.stdout.write(mau)
+        sys.stdout.flush()
+        jeda(0.03)
+        
 class Lain:
     ###----------[ FUNCTION INIT ]---------- ###
     def __init__(self, cookie):
@@ -5154,8 +5159,8 @@ class Lain:
     def menu(self):
         prints(
             Panel(
-                f"""{P2}[{color_text}01{P2}]. lihat akun hasil crack  [{color_text}04{P2}]. ganti warna tema tools
-[{color_text}02{P2}]. get info akun target    [{color_text}05{P2}]. tampilkan info cookies
+                f"""{P2}[{color_text}01{P2}]. lihat akun hasil crack  [{color_text}04{P2}]. ganti warna tema
+[{color_text}02{P2}]. get info akun target    [{color_text}05{P2}]. info cookies
 [{color_text}03{P2}]. setting user agent      [{color_text}06{P2}]. logout ({M2}hapus login{P2})""",
                 width=60,
                 style=f"{color_panel}",
@@ -5449,22 +5454,22 @@ def target():
         lo = zy["locale"]
     except KeyError:
         lo = ("-")
-    Console().jalan(f" {H2}• {P2}Name : " + nm)
-    Console().jalan(f" {H2}• {P2}First Name : " + nd)
-    Console().jalan(f" {H2}• {P2}Middle Name : " + nt)
-    Console().jalan(f" {H2}• {P2}Last Name : " + nb)
-    Console().jalan(f" {H2}• {P2}Birthday : " + ut)
-    Console().jalan(f" {H2}• {P2}Gender : " + gd)
-    Console().jalan(f" {H2}• {P2}Email : " + em)
-    Console().jalan(f" {H2}• {P2}Link : " + lk)
-    Console().jalan(f" {H2}• {P2}Username : " + us)
-    Console().jalan(f" {H2}• {P2}Religion : " + rg)
-    Console().jalan(f" {H2}• {P2}Relationship Status : " + rl)
-    Console().jalan(f" {H2}• {P2}Relationship With : " + rls)
-    Console().jalan(f" {H2}• {P2}Location : " + lc)
-    Console().jalan(f" {H2}• {P2}Hometown : " + ht)
-    Console().jalan(f" {H2}• {P2}About : " + ab)
-    Console().jalan(f" {H2}• {P2}Locale : " + lo)
+    Console().print(f" {H2}• {P2}Name : " + nm)
+    Console().print(f" {H2}• {P2}First Name : " + nd)
+    Console().print(f" {H2}• {P2}Middle Name : " + nt)
+    Console().print(f" {H2}• {P2}Last Name : " + nb)
+    Console().print(f" {H2}• {P2}Birthday : " + ut)
+    Console().print(f" {H2}• {P2}Gender : " + gd)
+    Console().print(f" {H2}• {P2}Email : " + em)
+    Console().print(f" {H2}• {P2}Link : " + lk)
+    Console().print(f" {H2}• {P2}Username : " + us)
+    Console().print(f" {H2}• {P2}Religion : " + rg)
+    Console().print(f" {H2}• {P2}Relationship Status : " + rl)
+    Console().print(f" {H2}• {P2}Relationship With : " + rls)
+    Console().print(f" {H2}• {P2}Location : " + lc)
+    Console().print(f" {H2}• {P2}Hometown : " + ht)
+    Console().print(f" {H2}• {P2}About : " + ab)
+    Console().print(f" {H2}• {P2}Locale : " + lo)
     Console().print(f" {H2}• {P2}SUKSES")
 
 ###----------[ BOT ]---------- ###
