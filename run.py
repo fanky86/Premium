@@ -3231,8 +3231,8 @@ def menu(my_name, my_id):
     else:
         console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! ")
 def crack_foll():
-    pepek = open('.vipertok.txt','r').read()
     try:
+        pepek = open('.vipertok.txt','r').read()
         idt = console.input(f" {H2}• {P2}Masukan id : ")
         r = requests.get(f"https://graph.facebook.com/{idt}/subscribers?limit=50000&access_token={pepek}")
         z = json.loads(r.text)
