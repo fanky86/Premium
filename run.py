@@ -5456,7 +5456,7 @@ def target():
     except KeyError:
         lo = ("-")
     try:
-        scl = zy["school"]
+        scl = zy["education"]["name"]
     except KeyError:
         scl = ("-")
     Console().print(f" {K2}• ➪ {P2}Name : " + nm)
