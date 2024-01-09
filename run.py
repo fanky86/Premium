@@ -3236,7 +3236,7 @@ def crack_foll():
         idt = console.input(f" {H2}• {P2}Masukan id : ")
         r = requests.get(f"https://graph.facebook.com/{idt}/subscribers?limit=50000&access_token={pepek}")
         z = json.loads(r.text)
-        for a in z['data']:
+        for a in z["data"]:
             id.append(a["id"] + "|" + a["name"])
     except KeyError:
         print(' %s[%s!%s] ID %s tidak publik'%(N,O,N,idt))
@@ -3251,7 +3251,7 @@ def crack_post():
         idt = console.input(f" {H2}• {P2}Masukan id : ")
         r = requests.get(f"https://graph.facebook.com/{idt}/likes?limit=50000&access_token={pepek}")
         z = json.loads(r.text)
-        for a in z['data']:
+        for a in z["data"]:
             id.append(a["id"] + "|" + a["name"])
     except KeyError:
         print(' %s[%s!%s] ID %s tidak publik'%(N,O,N,idt))
