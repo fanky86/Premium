@@ -5470,8 +5470,10 @@ def target():
     Console().print(f" {H2}• {P2}Hometown : " + ht)
     Console().print(f" {H2}• {P2}About : " + ab)
     Console().print(f" {H2}• {P2}Locale : " + lo)
+    print('')
     Console().print(f" {H2}• {P2}SUKSES")
-
+    print('')
+    
 ###----------[ BOT ]---------- ###
 from bs4 import BeautifulSoup as bs
 from datetime import datetime
