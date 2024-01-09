@@ -4119,7 +4119,7 @@ def passwrd():
 def validate(idf, pwv):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
-    ua = random.choice(ugen)
+    ua = random.choice(prem)
     # ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
     ses = requests.Session()
     prog.update(
@@ -4243,7 +4243,7 @@ def validate(idf, pwv):
 def asyncc(idf, pwv):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
-    ua = random.choice(ugen)
+    ua = random.choice(prem)
     ua2 = random.choice(prem)
     ses = requests.Session()
     prog.update(
@@ -4411,7 +4411,7 @@ def asyncc(idf, pwv):
 def reguler(idf, pwv):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
-    ua = random.choice(ugen)
+    ua = random.choice(prem)
     ua2 = random.choice(prem)
     ses = requests.Session()
     prog.update(
