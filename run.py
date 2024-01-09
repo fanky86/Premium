@@ -5164,6 +5164,8 @@ class Lain:
         menu = console.input(f" {H2}• {P2}pilih menu : ")
         if menu in ["01", "1"]:
             self.cek_hasil()
+        if menu in ["02", "2"]:
+            target()
         elif menu in ["03", "3"]:
             print("prem")
         elif menu in ["04", "4"]:
@@ -5369,7 +5371,101 @@ class Lain:
         console.print(f" {H2}• {P2}aktif sampai : {aktif}")
         prints(Panel(f"{H2}{cookie}", width=60, style=f"{color_panel}"))
         sys.exit()
-
+def target():
+    try:
+        toket=open('token.x','r').read()
+    except KeyError:
+        print("\n[!] Token Invalid")
+        os.system('rm -rf token.x')
+        login()
+    print(' %s '%(N))
+    idt = input("  [•] ID Target : ")
+    try:
+        zx = requests.get("https://graph.facebook.com/"+idt+"?access_token="+toket)
+        zy = json.loads(zx.text)
+    except KeyError:
+        print(" [!] ID NOT found");exit()
+    try:
+        nm = zy["name"]
+    except KeyError:
+        nm = ("-")
+    try:
+        nd = zy["first_name"]
+    except KeyError:
+        nd = ("-")
+    try:
+        nt = zy["middle_name"]
+    except KeyError:
+        nt = ("-")
+    try:
+        nb = zy["last_name"]
+    except KeyError:
+        nb = ("-")
+    try:
+        ut = zy["birthday"]
+    except KeyError:
+        ut = ("-")
+    try:
+        gd = zy["gender"]
+    except KeyError:
+        gd = ("-")
+    try:
+        em = zy["email"]
+    except KeyError:
+        em = ("-")
+    try:
+        lk = zy["link"]
+    except KeyError:
+        lk = ("-")
+    try:
+        us = zy["username"]
+    except KeyError:
+        us = ("-")
+    try:
+        rg = zy["religion"]
+    except KeyError:
+        rg = ("-")
+    try:
+        rl = zy["relationship_status"]
+    except KeyError:
+        rl = ("-")
+    try:
+        rls = zy["significant_other"]["name"]
+    except KeyError:
+        rls = ("-")
+    try:
+        lc = zy["location"]["name"]
+    except KeyError:
+        lc = ("-")
+    try:
+        ht = zy["hometown"]["name"]
+    except KeyError:
+        ht = ("-")
+    try:
+        ab = zy["about"]
+    except KeyError:
+        ab = ("-")
+    try:
+        lo = zy["locale"]
+    except KeyError:
+        lo = ("-")
+    jalan("  [•] Name : " + nm)
+    jalan("  [•] First Name : " + nd)
+    jalan("  [•] Middle Name : " + nt)
+    jalan("  [•] Last Name : " + nb)
+    jalan("  [•] Birthday : " + ut)
+    jalan("  [•] Gender : " + gd)
+    jalan("  [•] Email : " + em)
+    jalan("  [•] Link : " + lk)
+    jalan("  [•] Username : " + us)
+    jalan("  [•] Religion : " + rg)
+    jalan("  [•] Relationship Status : " + rl)
+    jalan("  [•] Relationship With : " + rls)
+    jalan("  [•] Location : " + lc)
+    jalan("  [•] Hometown : " + ht)
+    jalan("  [•] About : " + ab)
+    jalan("  [•] Locale : " + lo)
+    print('')
 
 ###----------[ BOT ]---------- ###
 from bs4 import BeautifulSoup as bs
