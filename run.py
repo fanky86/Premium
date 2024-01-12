@@ -4490,8 +4490,7 @@ def reguler(idf, pwv):
                 akun.append(idf + "|" + pw)
                 break
             elif "c_user" in ses.cookies.get_dict().keys():
-                ok += 1
-                coki = po.cookies.get_dict()
+                .cookies.get_dict()
                 kuki = (
                     "datr="
                     + coki["datr"]
