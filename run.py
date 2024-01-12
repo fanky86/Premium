@@ -1,5 +1,5 @@
 import os
-import Useragent from Premium
+
 # ------------------[  MODULE  ]-------------------#
 M2 = "[#FF0000]"  # MERAH
 H2 = "[#00FF00]"  # HIJAU
@@ -66,7 +66,7 @@ from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn
 from licensing.models import *
 from licensing.methods import Key, Helpers
 from concurrent.futures import ThreadPoolExecutor as executor
-
+from Premium import Useragent
 # ------------------[ GLOBAL NAME ]-------------------#
 sekarang = calendar.timegm(time.gmtime(time.time()))
 pretty.install()
