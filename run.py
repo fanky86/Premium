@@ -76,6 +76,7 @@ ugen2 = []
 ugen = []
 temanku = []
 free = []
+uabb=[]
 console = Console()
 ses = requests.Session()
 id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = (
@@ -114,7 +115,10 @@ except Exception as e:
     )
     exit()
 prox = open(".prox.txt", "r").read().splitlines()
-
+try:
+    open("Useragent.txt", "r").read()
+except FileNotFoundError:
+    Console().print(f'{H2}• {P2}File Useragent.txt Not Found')
 # ------------[ UBAH UA DIH SINI OM ]-----------#
 for xd in range(10000):
     rr = random.randint; rc = random.choice
@@ -154,6 +158,9 @@ def uaku():
             ua.write(un + "\n")
         ua = open(".bbnew.txt", "r").read().splitlines()
 
+uaa = open("Useragent.txt", "r").read().splitlines()
+for ub in uaa:
+    uabb.append(ub)
 
 # ------------[ INDICATION ]---------------#
 M2 = "[#FF0000]"  # MERAH
@@ -1607,12 +1614,8 @@ def passwrd():
     print("")
 
 # --------------------[ METODE MBASIC ]-----------------#
-uabb=[]
 def mbasic(idf,pwv):
 	global loop,ok,cp
-	uaa = open("Useragent.txt", "r").read().splitlines()
-	for ub in uaa:
-		uabb.append(ub)
 	bo = random.choice([u,k,kk,b,h,hh])
 	nip=random.choice(prox)
 	proxs= {'http': 'socks5://'+nip}
@@ -1678,7 +1681,7 @@ def regulerv2(idf,pwv):
 	global loop,ok,cp
 	prog.update(des,description=f" {K2}•{H2} REGULER V2 {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
-	ua = random.choice(prem)
+	ua = random.choice(uabb)
 	ses = requests.Session()
 	for pw in pwv:
 		try:
@@ -1752,7 +1755,7 @@ def regulerv2(idf,pwv):
 def validate(idf, pwv):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
-    ua = random.choice(prem)
+    ua = random.choice(uabb)
     ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
     ses = requests.Session()
     prog.update(
@@ -1875,7 +1878,7 @@ def validate(idf, pwv):
 def asyncc(idf, pwv):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
-    ua = random.choice(prem)
+    ua = random.choice(uabb)
     ua2 = random.choice(prem)
     ses = requests.Session()
     prog.update(
@@ -2045,7 +2048,7 @@ def reguler(idf,pwv,url):
 	AinkRaka = random.choice(["id-ID,id;q=0.9","en-US,en;q=0.9","en-GB,en;q=0.9","bd-BD,bd;q=0.9"])
 	prog.update(des,description=f" {K2}•{H2} REGULER {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
-	ua = random.choice(prem)
+	ua = random.choice(uabb)
 	ses = requests.Session()
 	for pw in pwv:
 		pw = pw.lower()
