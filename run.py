@@ -1619,7 +1619,7 @@ def mbasic(idf,pwv):
 	bo = random.choice([u,k,kk,b,h,hh])
 	nip=random.choice(prox)
 	proxs= {'http': 'socks5://'+nip}
-	ua = random.choice(uabb)
+	ua = random.choice(prem)
 	ua2 = random.choice(prem)
 	ses = requests.Session()
 	prog.update(des,description=f" {K2}•{H2} MBASIC {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
@@ -2048,7 +2048,7 @@ def reguler(idf,pwv,url):
 	AinkRaka = random.choice(["id-ID,id;q=0.9","en-US,en;q=0.9","en-GB,en;q=0.9","bd-BD,bd;q=0.9"])
 	prog.update(des,description=f" {K2}•{H2} REGULER {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
-	ua = random.choice(uabb)
+	ua = random.choice(prem)
 	ses = requests.Session()
 	for pw in pwv:
 		pw = pw.lower()
