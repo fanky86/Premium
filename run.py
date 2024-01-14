@@ -1681,7 +1681,7 @@ def regulerv2(idf,pwv):
 	global loop,ok,cp
 	prog.update(des,description=f" {K2}•{H2} REGULER V2 {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
-	ua = random.choice(uabb)
+	ua = random.choice(prem)
 	ses = requests.Session()
 	for pw in pwv:
 		try:
@@ -1755,7 +1755,7 @@ def regulerv2(idf,pwv):
 def validate(idf, pwv):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
-    ua = random.choice(uabb)
+    ua = random.choice(prem)
     ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
     ses = requests.Session()
     prog.update(
@@ -1878,7 +1878,7 @@ def validate(idf, pwv):
 def asyncc(idf, pwv):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
-    ua = random.choice(uabb)
+    ua = random.choice(prem)
     ua2 = random.choice(prem)
     ses = requests.Session()
     prog.update(
