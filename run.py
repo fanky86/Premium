@@ -690,7 +690,7 @@ def login():
                 + tokenku[0],
                 cookies={"cookie": cok},
             )
-            sy2 = json.loads(sy.text)["name"][0:7]
+            sy2 = json.loads(sy.text)["name"][0:15]
             sy3 = json.loads(sy.text)["id"]
             menu(sy2, sy3)
         except KeyError:
