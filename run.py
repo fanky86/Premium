@@ -141,9 +141,9 @@ for xd in range(10000):
     strvredmi1 = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(redmi))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(93,118))}.0.{str(rr(4577,4999))}.{str(rr(62,100))} Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/335.0.0.28.118;]"
     strvnokiax = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; N150DL Build/{str(rc(build_nokiax))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(112,150))}.0.{str(rr(5615,5999))}.{str(rr(135,150))} Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/418.0.0.33.69;]"
     strvgt = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(gt))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(87,100))}.0.{str(rr(4280,4900))}.{str(rr(141,150))} Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/327.0.0.33.120;]"
-    strvinfinix = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(infinix))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(108,150))}.0.{str(rr(5359,5555))}.{str(rr(128,150))} Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/347.0.0.17.97;]"
+    strvinfiniix = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(infinix))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(108,150))}.0.{str(rr(5359,5555))}.{str(rr(128,150))} Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/347.0.0.17.97;]"
     asep = f"Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 [FBAN/FBIOS;FBAV/209.0.0.33.90;FBBV/142900020;FBDV/iPhone10,3;FBMD/iPhone;FBSN/iOS;FBSV/12.1.4;FBSS/3;FBCR/U.S. Cellular;FBID/phone;FBLC/en_US;FBOP/5;FBRV/143925426]"
-    uateddy = random.choice([strvredmi, strvsamsung, strvgt])
+    uateddy = random.choice([asep,strvinfiniix,strvnokiax,strvredmi1,strvinfinix,strvoppo1,strvoppo,strvredmi, strvsamsung, strvgt])
     prem.append(uateddy)
 def uaku():
     try:
