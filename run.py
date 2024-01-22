@@ -1873,6 +1873,8 @@ def metcepat():
 # Crack Dengan Metode Messenger
 def main_alpha(total, email, pwv):
     global Looping, Ok, Cp
+    prog.update(des,description=f" {K2}•{H2} M_ALPHA {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(total)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.advance(des)
     try:
         for password in pwv:
             with requests.Session() as r:
