@@ -1458,79 +1458,74 @@ def cektahun(fx):
 
 # -------------[ PENGATURAN-IDZ ]---------------#
 def setting():
-    Console().print(
-        Panel(
+	Console().print(
+		Panel(
             f"{P2}[{color_text}01{P2}] Crack akun Old [/]\n{P2}[{color_text}02{P2}] Crack Akun New [/]\n{P2}[{color_text}03{P2}] Crack Akun Random [[bold green]Recommended[bold white]][/]",
             title="[bold green] %s " % (len(id)),
             width=60,
-            style=f"{color_panel}",
-        )
-    )
-    hu = console.input(f" {H2}• {P2}Masukan : ")
-    if hu in ["1", "01"]:
-        for tua in sorted(id):
-            id2.append(tua)
-    elif hu in ["2", "02"]:
-        muda = []
-        for bacot in sorted(id):
-            muda.append(bacot)
-        bcm = len(muda)
-        bcmi = bcm - 1
-        for xmud in range(bcm):
-            id2.append(muda[bcmi])
-            bcmi -= 1
-    elif hu in ["3", "03"]:
-        for bacot in id:
-            xx = random.randint(0, len(id2))
-            id2.insert(xx, bacot)
-    else:
-        print(" [+] Pilih Yang Bener Sayang ")
-        exit()
-    Console().print(
-        Panel(
+            style=f"{color_panel}"))
+	hu = console.input(f" {H2}• {P2}Masukan : ")
+	if hu in ["1", "01"]:
+		for tua in sorted(id):
+			id2.append(tua)
+	elif hu in ["2", "02"]:
+		muda = []
+		for bacot in sorted(id):
+			muda.append(bacot)
+		bcm = len(muda)
+		bcmi = bcm - 1
+		for xmud in range(bcm):
+			id2.append(muda[bcmi])
+			bcmi -= 1
+	elif hu in ["3", "03"]:
+		for bacot in id:
+			xx = random.randint(0, len(id2))
+			id2.insert(xx, bacot)
+	else:
+		print(" [+] Pilih Yang Bener Sayang ")
+		exit()
+	Console().print(
+		Panel(
             f"{P2}[{color_text}01{P2}] Login Site [bold green]mbasic.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]validate.facebook.com[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]reguler.facebook.com[bold white]\n{P2}[{color_text}04{P2}] Login Site [bold green]regulerv2.facebook.com[bold white] [/]\n{P2}[{color_text}05{P2}] Login Site [bold green]async.facebook.com[bold white] [/]",
             width=60,
             style=f"{color_panel}",
-            title="[bold green] Method",
-        )
-    )
-    hc = console.input(f" {H2}• {P2}Masukan : ")
-    if hc in ["1", "01"]:
-        method.append("mbasik")
-    elif hc in ["2", "02"]:
-        method.append("validate")
-    elif hc in ["3", "03"]:
-        method.append("reguler")
-    elif hc in ["4", "04"]:
-        method.append("regulerv2")
-    elif hc in ["5", "05"]:
-        method.append("asyn")
-    else:
-        method.append("mbasik")
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] metode Slow {H2}[Recomend]{P2}\n{P2}[{color_text}02{P2}] method cepat{P2}",width=60,style=f"{color_panel}"))
-        viperme = console.input(f" {H2}• {P2}Masukan : ")
-        if viperme in ["1","01"]:
-		
-    Console().print(
-        Panel(
+            title="[bold green] Method"))
+	hc = console.input(f" {H2}• {P2}Masukan : ")
+	if hc in ["1", "01"]:
+		method.append("mbasik")
+	elif hc in ["2", "02"]:
+		method.append("validate")
+	elif hc in ["3", "03"]:
+		method.append("reguler")
+	elif hc in ["4", "04"]:
+		method.append("regulerv2")
+	elif hc in ["5", "05"]:
+		method.append("asyn")
+	else:
+		method.append("mbasik")
+	Console().print(
+		Panel(
             f"[bold white]Apakah Anda Ingin Mengunakan UA Manual ? Y/T",
             title=f"[bold green]Setting User-Agent",
             width=60,
             style=f"{color_panel}",
         )
     )
-    uatambah = console.input(f" {H2}• {P2}Masukan : ")
-    if uatambah in ["y", "Ya", "ya", "Y"]:
-        ualuh.append("ya")
-        bzer = console.input(f" {H2}• {P2}Masukan UA : ")
-        ualu.append(bzer)
-    else:
-        ualuh.append("tidak")
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] metode Slow {H2}[Recomend]{P2}\n{P2}[{color_text}02{P2}] method cepat{P2}",width=60,style=f"{color_panel}"))
-        viperme = console.input(f" {H2}• {P2}Masukan : ")
-        if viperme in ["1","01"]:metslow()
-        elif viperme in ["2","02"]:metcepat()
-	else:metslow()
+	uatambah = console.input(f" {H2}• {P2}Masukan : ")
+	if uatambah in ["y", "Ya", "ya", "Y"]:
+		ualuh.append("ya")
+		bzer = console.input(f" {H2}• {P2}Masukan UA : ")
+		ualu.append(bzer)
+	else:
+		ualuh.append("tidak")
+	Console().print(Panel(f"{P2}[{color_text}01{P2}] metode Slow {H2}[Recomend]{P2}\n{P2}[{color_text}02{P2}] method cepat{P2}",width=60,style=f"{color_panel}"))
+	hc = console.input(f" {H2}• {P2}Masukan : ")
+	if hc in ["1", "01"]:
+		metslow()
+	elif hc in ["2", "02"]:
+		metcepat()
+	else:
+		metcepat()
 
 
 # -------------------[ CRACK-SLOW ]------------#
