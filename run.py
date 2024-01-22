@@ -8,6 +8,7 @@ B2 = "[#00C8FF]"  # BIRU
 P2 = "[#FFFFFF]"  # PUTIH
 U2 = "[#AF00FF]"  # UNGU
 O2 = "[#FF8F00]"  # ORANGE
+
 try:
     import rich
 except ImportError:
