@@ -1705,7 +1705,7 @@ def metslow():
     Console().print(
         Panel(
             f"[bold white]hidup/matikan Mode Pesawat Setiap [bold green]300[bold yellow] ID ",
-            title=f"[bold green]CRACK-SLOW",
+            title=f"[bold yellow]CRACK-SLOW",
             width=60,
             style=f"{color_panel}",
         )
@@ -1809,7 +1809,7 @@ def metcepat():
     urut.append(panel(f'[bold yellow]%s [bold white]'%(cpc),width=30,title=f"[bold yellow]CP SAVE",style=f"{color_panel}"))
     wa.print(Columns(urut))
     awal = datetime.now()
-    Console().print(Panel(f'[bold white]hidup/matikan Mode Pesawat Setiap [bold green]300[bold yellow] ID ',title=f"[bold green]CRACK-CEPAT",width=60,style=f"{color_panel}"))
+    Console().print(Panel(f'[bold white]hidup/matikan Mode Pesawat Setiap [bold green]300[bold yellow] ID ',title=f"[bold yellow]CRACK-CEPAT",width=60,style=f"{color_panel}"))
     prog = Progress(TextColumn('{task.description}'))
     des = prog.add_task('',total=len(id2))
     with prog:
