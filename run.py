@@ -1952,8 +1952,8 @@ def main_alpha(idf, pwv):
 			else:
 				continue
 		except requests.exceptions.ConnectionError:
-	time.sleep(31)
-loop += 1
+			time.sleep(31)
+	loop += 1
 # --------------------[ METODE MOBILE ]-----------------#
 def mobile(idf, pwv):
     global loop, ok, cp
