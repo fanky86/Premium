@@ -120,22 +120,6 @@ for xd in range(10000):
     ke2=random.choice(['6','7','8','9','10','11','12'])
     ke3='AppleWebKit/537.36 (KHTML, like Gecko)'
     ke4='Version/'
-    ke5=random.randrange(1,6)
-    ke6='0'
-    ke7='Chrome/'
-    ke8=random.randrange(73,200)
-    ke9=random.randrange(4200,4900)
-    ke10=random.randrange(40,150)
-    ke11='Mobile DuckDuckGo/'
-    ke12=random.randrange(1,4)
-    ke13='Safari/537.36'
-    viperua=(f'{ke1} {ke2}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}')
-    prem.append(viperua)
-
-    ke1='Mozilla/5.0 (Linux; Android'
-    ke2=random.choice(['6','7','8','9','10','11','12'])
-    ke3='AppleWebKit/537.36 (KHTML, like Gecko)'
-    ke4='Version/'
     ke5=random.randrange(4,6)
     ke6='0'
     ke7='Chrome/'
