@@ -129,8 +129,8 @@ for xd in range(10000):
     ke11='Mobile DuckDuckGo/'
     ke12=random.randrange(1,4)
     ke13='Safari/537.36'
-    az = ['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    viperuak=(f'{ke1} {ke2}; {az}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}')
+    azaz = random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+    viperuak=f'{ke1} {ke2}; {azaz}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}'
     prem.append(viperuak)
 
     ke1='Mozilla/5.0 (Linux; Android'
@@ -146,8 +146,8 @@ for xd in range(10000):
     ke11='Mobile DuckDuckGo/'
     ke12=random.randrange(1,4)
     ke13='Safari/537.36'
-    az = ['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    viperuak1=(f'{ke1} {ke2}; {az}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}')
+    azaz = random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+    viperuak1=f'{ke1} {ke2}; {azaz}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}'
     prem.append(viperuak1)
     
     ke1='Mozilla/5.0 (Linux; Android'
@@ -163,8 +163,8 @@ for xd in range(10000):
     ke11='Mobile DuckDuckGo/'
     ke12=random.randrange(1,4)
     ke13='Safari/537.36'
-    az = ['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    viperuak=(f'{ke1} {ke2}; {az}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}')
+    azaz = random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+    viperuak=f'{ke1} {ke2}; {azaz}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}'
     prem.append(viperuak)
 
     ke1='Mozilla/5.0 (Linux; Android'
@@ -180,8 +180,8 @@ for xd in range(10000):
     ke11='Mobile DuckDuckGo/'
     ke12=random.randrange(1,4)
     ke13='Safari/537.36'
-    az = ['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    viperuak2=(f'{ke1} {ke2}; {az}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}')
+    azaz = random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+    viperuak2=f'{ke1} {ke2}; {azaz}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}'
     prem.append(viperuak2)
 
 def uaku():
