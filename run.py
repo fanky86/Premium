@@ -118,6 +118,10 @@ prox = open(".prox.txt", "r").read().splitlines()
 for xd in range(10000):
     ke1='Mozilla/5.0 (Linux; Android'
     ke2=random.choice(['6','7','8','9','10','11','12'])
+    redmi = random.choice(["2201116SI","M2012K11AI","22011119TI","21091116UI","M2102K1AC","M2012K11I","22041219I","22041216I","2203121C","2106118C","2201123G","2203129G","2201122G","2201122C","2206122SC","22081212C","2112123AG","2112123AC","2109119BC","M2002J9G","M2007J1SC","M2007J17I","M2102J2SC","M2007J3SY","M2007J17G","M2007J3SG","M2011K2G","M2101K9AG ","M2101K9R","2109119DG","M2101K9G","2109119DI","M2012K11G","M2102K1G","21081111RG","2107113SG","21051182G","M2105K81AC","M2105K81C","21061119DG","21121119SG","22011119UY","21061119AG","21061119AL","22041219NY","22041219G","21061119BI","220233L2G","220233L2I","220333QNY","220333QAG","M2004J7AC","M2004J7BC","M2004J19C","M2006C3MII","M2010J19SI","M2006C3LG","M2006C3LVG","M2006C3MG","M2006C3MT","M2006C3MNG","M2006C3LII","M2010J19SL","M2010J19SG","M2010J19SY","M2012K11AC","M2012K10C","M2012K11C","22021211RC","LRX22G"])
+    c='Redmi 4A Build/MMB29M; wv)'
+    aza = random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+    vipe = f"{str(random.choice(aza))}{str(random.choice(aza))}{str(random.choice(aza))}{str(random.randrange(11,99))}{str(random.choice(aza))}"
     ke3='AppleWebKit/537.36 (KHTML, like Gecko)'
     ke4='Version/'
     ke5=random.randrange(4,6)
@@ -127,10 +131,10 @@ for xd in range(10000):
     ke9=random.randrange(4200,4900)
     ke10=random.randrange(40,150)
     ke11='Mobile DuckDuckGo/'
-    ke12=random.randrange(1,4)
-    ke13='Safari/537.36'
+    ke12=random.randrange(1)
+    ke13='Safari/537.36 [FB_IAB/FB4A;FBAV/339.0.0.32.118;]'
     azaz = random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
-    viperuak=f'{ke1} {ke2}; {azaz}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}'
+    viperuak=f'{ke1} {ke2}; {redmi} Build/{str(random.choice(vipe))}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}'
     prem.append(viperuak)
 
     ke1='Mozilla/5.0 (Linux; Android'
@@ -144,7 +148,7 @@ for xd in range(10000):
     ke9=random.randrange(4200,4900)
     ke10=random.randrange(40,150)
     ke11='Mobile DuckDuckGo/'
-    ke12=random.randrange(1,4)
+    ke12=random.randrange(1)
     ke13='Safari/537.36'
     azaz = random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
     viperuak1=f'{ke1} {ke2}; {azaz}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}'
@@ -161,29 +165,27 @@ for xd in range(10000):
     ke9=random.randrange(4200,4900)
     ke10=random.randrange(40,150)
     ke11='Mobile DuckDuckGo/'
-    ke12=random.randrange(1,4)
+    ke12=random.randrange(1)
     ke13='Safari/537.36'
     azaz = random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
     viperuak=f'{ke1} {ke2}; {azaz}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}'
     prem.append(viperuak)
 
-    ke1='Mozilla/5.0 (Linux; Android'
-    ke2=random.choice(['6','7','8','9','10','11','12'])
-    ke3='AppleWebKit/537.36 (KHTML, like Gecko)'
-    ke4='Version/'
-    ke5=random.randrange(4,6)
-    ke6='0'
-    ke7='Chrome/'
-    ke8=random.randrange(73,200)
-    ke9=random.randrange(4200,4900)
-    ke10=random.randrange(40,150)
-    ke11='Mobile DuckDuckGo/'
-    ke12=random.randrange(1,4)
-    ke13='Safari/537.36'
-    azaz = random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
-    viperuak2=f'{ke1} {ke2}; {azaz}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}'
-    prem.append(viperuak2)
-
+    aa='Mozilla/5.0 (Linux; Android'
+    b=random.choice(['4.3','5.0','7.0','8.1.0','9','10','11','12','13'])
+    redmi = random.choice(["2201116SI","M2012K11AI","22011119TI","21091116UI","M2102K1AC","M2012K11I","22041219I","22041216I","2203121C","2106118C","2201123G","2203129G","2201122G","2201122C","2206122SC","22081212C","2112123AG","2112123AC","2109119BC","M2002J9G","M2007J1SC","M2007J17I","M2102J2SC","M2007J3SY","M2007J17G","M2007J3SG","M2011K2G","M2101K9AG ","M2101K9R","2109119DG","M2101K9G","2109119DI","M2012K11G","M2102K1G","21081111RG","2107113SG","21051182G","M2105K81AC","M2105K81C","21061119DG","21121119SG","22011119UY","21061119AG","21061119AL","22041219NY","22041219G","21061119BI","220233L2G","220233L2I","220333QNY","220333QAG","M2004J7AC","M2004J7BC","M2004J19C","M2006C3MII","M2010J19SI","M2006C3LG","M2006C3LVG","M2006C3MG","M2006C3MT","M2006C3MNG","M2006C3LII","M2010J19SL","M2010J19SG","M2010J19SY","M2012K11AC","M2012K10C","M2012K11C","22021211RC","LRX22G"])
+    c='Redmi 4A Build/MMB29M; wv)'
+    d=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+    e=random.randrange(1, 999)
+    f=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+    g='AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/'
+    h=random.randrange(73,100)
+    i='0'
+    j=random.randrange(4200,4900)
+    k=random.randrange(40,150)
+    l='Mobile Safari/537.36 hola_android'
+    uaku2=f'{aa} {b}; {redmi}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}'
+    prem.append(uaku2)
 def uaku():
     try:
         ua = open("bbnew.txt", "r").read().splitlines()
