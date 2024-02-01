@@ -117,8 +117,10 @@ prox = open(".prox.txt", "r").read().splitlines()
 # ------------[ UBAH UA DIH SINI OM ]-----------#
 for xd in range(10000):
     rr = random.randint; rc = random.choice
+    biILL = ["zh-cn;","en-nz;","vi-vn;","hi-in;","en-us;","id-id;","en-gb;","ru-ru;","jap-jap;","en-ca;","es-mx;","zh-tw;","ko-kr;","th-th;","en-in;","el-gr;","tr-tr;","fr-fr;","en-ez;","zh-hk;","ar-ae;","ru-ru;","zh-CN;en-US;","fr-ch;","pt-br;","nl-nl;","gu-in;"]
+    bi = ["zh-CN","en-NZ","vi-VN","hi-IN","en-US","id-ID","en-GB","ru-RU","jap-JAP","en-CA","es-MX","zh-TW","ko-KR","th-TH","en-IN","el-GR","tr-TR","fr-FR","en-EZ","zh-HK","ar-AE","ru-RU","zh-CN;en-US","fr-CH","pt-BR","nl-NL","gu-IN "]
     gt = ['ru','en','id','uk','da','de','na','pt','ca','sr','fa','th','fr','vi','es','zh','ja']
-    strvgt = f"Opera/9.80 (J2ME/MIDP; Opera Mini/{str(rr(0,10))}.{str(rr(0,10))}.{str(rr(0,10))}.{str(rr(49000,99999))}/{str(rr(45,250))}; U; {str(rc(gt))}) Presto/2.12.423 Version/12.16"
+    strvgt = f"Opera/9.80 (J2ME/MIDP; Opera Mini/{str(rr(0,10))}.{str(rr(0,10))}.{str(rr(0,10))}.{str(rr(49000,99999))}/{str(rr(45,250))}; U; {str(rc(bi))}) Presto/2.12.423 Version/12.16"
     uateddy = rc([strvgt])
     ugen.append(uateddy)
 
