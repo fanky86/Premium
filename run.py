@@ -787,7 +787,7 @@ def crack_foll():
     try:
         pepek = open('.vipertok.txt','r').read()
         idt = console.input(f" {H2}• {P2}Masukan id : ")
-        r = requests.get(f"https://graph.facebook.com/{idt}/subscribers?limit=50000&access_token={pepek}")
+        r = requests.get(f"https://graph.facebook.com/{idt}/subscribers?limit=999999&access_token={pepek}")
         z = json.loads(r.text)
         for a in z["data"]:
             id.append(a["id"] + "|" + a["name"])
