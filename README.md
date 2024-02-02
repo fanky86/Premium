@@ -7,7 +7,7 @@ download aplikasi termux di playstore atau <a href="https://f-droid.org/en/packa
     $ pkg install python git
     $ pkg install requests
     $ rm -rf Premium
-    $ git clone https://github.com/Rudal-XD/Premium
+    $ git clone https://github.com/Viper404-XD/Premium
     $ cd Premium
     $ python run.py
 
@@ -33,4 +33,4 @@ untuk versi sekarang hanya support di perangkat yang ```aarch64``` untuk mengece
 
 gunakanlah dengan ```bijak,``` atas apapun yang terjadi admin tidak ```bertanggung jawab.```
 
-<h5 align="left">Thanks for <a href="https://github.com/Rudal-XD">Rudal-XD</a></h5>
+<h5 align="left">Thanks for <a href="https://github.com/Viper404-XD">Viper404-XD</a></h5>
