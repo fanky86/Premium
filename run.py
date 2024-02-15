@@ -133,6 +133,14 @@ for xd in range(10000):
     uateddy = random.choice([strvgt,ua1,ua2,ua3,ua4,ua5,mmk,mm1])	
     ugen.append(uateddy)
 
+for xd in range(10000):
+	rr = random.randint; rc = random.choice
+	modul = ["zh-cn;","en-nz;","vi-vn;","hi-in;","en-us;","id-id;","en-gb;","ru-ru;","jap-jap;","en-ca;","es-mx;","zh-tw;","ko-kr;","th-th;","en-in;","el-gr;","tr-tr;","fr-fr;","en-ez;","zh-hk;","ar-ae;","ru-ru;","zh-CN;en-US;","fr-ch;","pt-br;","nl-nl;","gu-in;"]
+	versi = random.choice(['6','7','8','9','10','11','12','13','14'])
+	strvgt = f"Mozilla/5.0 (Linux; U; Android {versi}; {modul}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(60,150))}.0.{str(rr(4200,4900))}.{str(rr(60,120))} Safari/537.36 XiaoMi/MiuiBrowser/17.{str(rr(5,9))}.{str(rr(100,250))} swan-mibrowser"
+	uateddy = rc([strvgt])
+	ugen.append(uateddy)
+
 #--------[ GENERATE-USER-AGENT ]----------#
     
 for xd in range(10000):
