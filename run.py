@@ -133,14 +133,6 @@ for xd in range(10000):
     uateddy = random.choice([strvgt,ua1,ua2,ua3,ua4,ua5,mmk,mm1])	
     ugen.append(uateddy)
 
-for xd in range(10000):
-	rr = random.randint; rc = random.choice
-	modul = random.choice(["zh-cn;","en-nz;","vi-vn;","hi-in;","en-us;","id-id;","en-gb;","ru-ru;","jap-jap;","en-ca;","es-mx;","zh-tw;","ko-kr;","th-th;","en-in;","el-gr;","tr-tr;","fr-fr;","en-ez;","zh-hk;","ar-ae;","ru-ru;","zh-CN;en-US;","fr-ch;","pt-br;","nl-nl;","gu-in;"])
-	versi = random.choice(['6','7','8','9','10','11','12','13','14'])
-	strvgt = f"Mozilla/5.0 (Linux; U; Android {versi}; {modul}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(60,150))}.0.{str(rr(4200,4900))}.{str(rr(60,120))} Safari/537.36 XiaoMi/MiuiBrowser/17.{str(rr(5,9))}.{str(rr(100,250))} swan-mibrowser"
-	uateddy = rc([strvgt])
-	ugen.append(uateddy)
-
 #--------[ GENERATE-USER-AGENT ]----------#
     
 for xd in range(10000):
@@ -167,7 +159,7 @@ for xd in range(10000):
     strvinfiniix = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(infinix))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(108,150))}.0.{str(rr(5359,5555))}.{str(rr(128,150))} Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/347.0.0.17.97;]"
     asep = f"Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 [FBAN/FBIOS;FBAV/209.0.0.33.90;FBBV/142900020;FBDV/iPhone10,3;FBMD/iPhone;FBSN/iOS;FBSV/12.1.4;FBSS/3;FBCR/U.S. Cellular;FBID/phone;FBLC/en_US;FBOP/5;FBRV/143925426]"
     uateddy = random.choice([strvredmi, strvsamsung, strvgt])
-    prem.append(uateddy)
+    ugen.append(uateddy)
 def uaku():
     try:
         ua = open("bbnew.txt", "r").read().splitlines()
@@ -243,7 +235,7 @@ b = "\33[1;96m"  # BIRU -
 p = "\x1b[0;34m"  # BIRU +
 asu = random.choice([m, k, h, u, b])
 kom1 = "Anjng Panutan Ku, Keren Bngt Bnjerr 🤙\n -\nhttps://www.facebook.com/100043537611609/posts/878169396977639/?app=fbl\n-\n \nkomentar ditulis oleh bot\n \n[ Semangat Bang @[100043537611609:] ]"
-kom2 = "Sebenarnya Aku Suka Sama Kamu, Tetapi Aku Cuma Butuh Waktu Untuk Mengungkapkan Isi Hati Ku"
+kom2 = random.choice(["Jadikan Aku Anak Buah Mu Bang @[100043537611609:]","Panutan Ku","Sebenarnya Aku Suka Sama Kamu, Tetapi Aku Cuma Butuh Waktu Untuk Mengungkapkan Isi Hati Ku"])
 kom3 = "Panutan Ku"
 kom4 = "Pintar Banget"
 kom5 = "Jadikan Aku Anak Buah Mu Bang @[100043537611609:]"
@@ -1632,13 +1624,13 @@ def metslow():
                 elif "asyn" in method:
                     pool.submit(asyncc, idf, pwv)
                 elif "validate" in method:
-                    pool.submit(validate, idf, pwv,'m.prod.facebook.com')
+                    pool.submit(validate, idf, pwv)
                 elif "mbasik" in method:
                     pool.submit(mobile, idf, pwv)
                 elif "regulerv2" in method:
                     pool.submit(main_alpha, idf, pwv)
                 else:
-                    pool.submit(validate, idf, pwv,'m.prod.facebook.com')
+                    pool.submit(validate, idf, pwv)
     print("")
     Console().print(
         Panel(
@@ -1701,13 +1693,13 @@ def metcepat():
                 elif "asyn" in method:
                     pool.submit(asyncc, idf, pwv)
                 elif "validate" in method:
-                    pool.submit(validate, idf, pwv,'m.prod.facebook.com')
+                    pool.submit(validate, idf, pwv)
                 elif "mbasik" in method:
                     pool.submit(mobile, idf, pwv)
                 elif "regulerv2" in method:
                     pool.submit(main_alpha,idf, pwv)
                 else:
-                    pool.submit(validate, idf, pwv,'m.prod.facebook.com')
+                    pool.submit(validate, idf, pwv)
     print("")
     Console().print(
         Panel(
