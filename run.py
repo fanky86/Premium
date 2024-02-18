@@ -1741,7 +1741,7 @@ def asyncc(idf, pwv):
 	prog.update(des,description=f" {K2}•{H2} NYOBA {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
 	ses = requests.Session()
-	ua = ua_valid()
+	ua = rc(ugen)
 	ua2 = iphonee()
 	for pw in pwv:
 		try:
