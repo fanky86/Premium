@@ -1481,10 +1481,7 @@ def setting():
 	else:
 		print(" [+] Pilih Yang Bener Sayang ")
 		exit()
-	if hc in ["1", "01"]:
-		method.append("mbasik")
-	else:
-		method.append("mbasik")
+	method.append("mbasik")
 	Console().print(
 		Panel(
             f"[bold white]Apakah Anda Ingin Mengunakan UA Manual ? Y/T",
