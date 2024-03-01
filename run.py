@@ -502,9 +502,9 @@ def register_device():
 			else:
 				Console().print(Panel(f"{H2} • {P2}YOUR KEY : {key}",width=60,style=f"{color_panel}"))
 				Console().print(Panel(f"{H2} • {M2}Key anda belum di konfirmasi{hapus}\n{H2} • {P2}Silahkan Beli Ke {hapus}{H2}+62895359611122{hapus}{P2} untuk menggunakan sc{hapus}",width=60,style=f"{color_panel}"))
-				buy_key = console.input(f" {H2}• {P2}Tekan enter untuk chat whatsapp author untuk membeli key")
+				buy_key = console.input(f"{H2} • {P2}Tekan enter untuk chat whatsapp author untuk membeli key")
 				if buy_key in [""]:pass
-				jalan(f'\033]02;36\] • \033]00m\]Anda akan diarahkan ke whatsapp author');time.sleep(2)
+				jalan(f'   Anda akan diarahkan ke whatsapp author');time.sleep(2)
 				os.system(f'xdg-open http://wa.me/+62895359611122?text=Bang+beli+key+sc+Facebook+{key}')
 		if not os.path.exists("/data/data/com.termux/files/usr/etc/.license"):
 			key_gen = random.randint(10000000,99999999)
