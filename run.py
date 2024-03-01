@@ -283,7 +283,7 @@ bln = dic[(str(datetime.datetime.now().month))]
 thn = datetime.datetime.now().year
 okc = "OK-" + str(tgl) + "-" + str(bln) + "-" + str(thn) + ".txt"
 cpc = "CP-" + str(tgl) + "-" + str(bln) + "-" + str(thn) + ".txt"
-hour = datetime.datetime.now().hour
+hour = datetime.datetime.now().strfhour("%h %M %S")
 hari_ini = datetime.datetime.now().strftime("%d %B %Y")
 
 
@@ -742,7 +742,7 @@ def menu(my_name, my_id):
     prints(Panel(f"{P2}{negara}", padding=(0, 22), width=60, style=f"{color_panel}"))
     dia.append(
         Panel(
-            f"{P2}lisensi : {H2}{key}\n{P2}tanggal : {H2}{hour}\n{P2}waktu   : {H2}{hari_ini}\n{P2}status  : {prem}",
+            f"{P2}lisensi : {H2}{key}\n{P2}tanggal : {H2}{hari_ini}\n{P2}jam     : {H2}{hour}\n{P2}status  : {prem}",
             width=30,
             title=f"{P2}Lisensi",
             style=f"{color_panel}",
