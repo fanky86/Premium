@@ -1641,9 +1641,9 @@ def metslow():
                 else:
                     pass
                 if "mbasik" in method:
-                    pool.submit(crackprod, idf, pwv)
+                    pool.submit(crackbasi, idf, pwv)
                 else:
-                    pool.submit(crackprod, idf, pwv)
+                    pool.submit(crackbasi, idf, pwv)
     print("")
     Console().print(
         Panel(
@@ -1702,9 +1702,9 @@ def metcepat():
                         pwv.append(xpwd)
                 else:pass
                 if "mbasik" in method:
-                    pool.submit(crackprod, idf, pwv)
+                    pool.submit(crackbasi, idf, pwv)
                 else:
-                    pool.submit(crackprod, idf, pwv)
+                    pool.submit(crackbasi, idf, pwv)
     print("")
     Console().print(
         Panel(
