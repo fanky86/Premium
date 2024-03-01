@@ -712,9 +712,9 @@ def menu(my_name, my_id):
         tahun1 = "-"
     try:
         sen = open(".key.txt", "r").read()
-        prem = f"{H2}Iya"
+        prem = f"{H2}Premium"
     except (KeyError, FileNotFoundError):
-        prem = f"{H2}Iya"
+        prem = f"{H2}Premium"
 
     try:
         token = open(".vipertok.txt", "r").read()
@@ -742,7 +742,7 @@ def menu(my_name, my_id):
     prints(Panel(f"{P2}{negara}", padding=(0, 22), width=60, style=f"{color_panel}"))
     dia.append(
         Panel(
-            f"{P2}lisensi : {H2}{key}\n{P2}join    : {H2}{tanggal1} {bulan1} {tahun1}\n{P2}expired : {H2}{tanggal} {bulan} {tahun}\n{P2}premium : {prem}",
+            f"{P2}lisensi : {H2}{key}\n{P2}tanggal : {H2}\n{P2}waktu   : {H2}\n{P2}status  : {prem}",
             width=30,
             title=f"{P2}Lisensi",
             style=f"{color_panel}",
