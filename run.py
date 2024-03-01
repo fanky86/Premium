@@ -131,7 +131,14 @@ for xd in range(10000):
     mmk = f"Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(100,250))}.0.0.0 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/344.0.0.34.116;]"
     mm1 = f"Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, seperti Gecko) Chrome/{str(rr(100,250))}.0.0.0 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/339.0.0.32.118;]"
     uateddy = random.choice([strvgt,ua1,ua2,mmk,mm1])	
-    ugen.append(uateddy)
+    prem.append(uateddy)
+
+for xc in range(10000):
+	rr,rc = random.randint, random.choice
+	u1 = f"Mozilla/5.0 (Linux; Android {str(rr(1,9))}; SM-J120G) AppleWebKit/537.36 (KHTM, like Gecko) SamsungBrowser/{str(rr(0,20))} Mobile Safari/537.36"
+	ugen.append(u1)
+	u2 = f"Mozilla/5.0 (Linux; Android {str(rr(1,9))}; SM-J111F) AppleWebKit/537.36 (KHTM, like Gecko) SamsungBrowser/{str(rr(0,20))} Mobile Safari/537.36"
+	ugen.append(u2)
 
 #--------[ GENERATE-USER-AGENT ]----------#
     
