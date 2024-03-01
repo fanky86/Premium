@@ -483,6 +483,37 @@ def banner():
 
 
 # --------------------[ LICENSE ]--------------#
+def register_device():
+	while True:
+		clear()
+		logoku()
+		if os.path.exists("/data/data/com.termux/files/usr/etc/.license"):
+			key = open("/data/data/com.termux/files/usr/etc/.license","r").read()
+			check = requests.get("https://pastebin.com/raw/eKMyyVzJ").text
+			if key in check:
+				clear()
+				logoku()
+				lisensiku.append("sukses")
+				cetak(nel(f" {H2} Key anda telah di konfirmasi ✓{hapus}"))
+				time.sleep(1.5)
+				login()
+			else:
+				pr=(f'# YOUR KEY : {key}')
+				po=mark(pr,style='red')
+				cetak(nel(po, style= ''))
+				cetak(nel(f"[•] {M2}Key anda belum di konfirmasi{hapus}\n[•] {M2}Silahkan Beli Ke Wa {hapus}{H2}+62895359611122{hapus}{M2} untuk menggunakan sc{hapus}"))
+				buy_key=input('  Tekan enter untuk chat whatsapp author untuk membeli key')
+				if buy_key in [""]:pass
+				jalan(f'  Anda akan diarahkan ke whatsapp author');time.sleep(2)
+				os.system(f'xdg-open http://wa.me/+62895359611122?text=Bang+beli+key+sc+Facebook+{key}')
+		if not os.path.exists("/data/data/com.termux/files/usr/etc/.license"):
+			key_gen = random.randint(10000000,99999999)
+			enc_key = base64.b16encode(str(key_gen).encode()).decode("utf-8")
+			with open("/data/data/com.termux/files/usr/etc/.license","w") as tulis:
+				tulis.write(enc_key)
+			continue
+		break
+			
 def licen():
     try:
         os.system("clear")
