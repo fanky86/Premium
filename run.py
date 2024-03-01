@@ -493,18 +493,16 @@ def register_device():
 			key = open("/data/data/com.termux/files/usr/etc/.license","r").read()
 			check = requests.get("https://pastebin.com/raw/eKMyyVzJ").text
 			if key in check:
-				clear()
-				logoku()
+				#clear()
+				#logoku()
 				lisensiku.append("sukses")
-				cetak(nel(f" {H2} Key anda telah di konfirmasi ✓{hapus}"))
+				Console().print(Panel(f"{H2} • {H2}Key anda telah di konfirmasi ✓{hapus}"))
 				time.sleep(1.5)
 				login()
 			else:
-				pr=(f'# YOUR KEY : {key}')
-				po=mark(pr,style='red')
-				cetak(nel(po, style= ''))
-				cetak(nel(f"[•] {M2}Key anda belum di konfirmasi{hapus}\n[•] {M2}Silahkan Beli Ke Wa {hapus}{H2}+62895359611122{hapus}{M2} untuk menggunakan sc{hapus}"))
-				buy_key=input('  Tekan enter untuk chat whatsapp author untuk membeli key')
+				Console().print(Panel(f"{H2} • {P2}YOUR KEY : {key}"))
+				Console().print(Panel(f"{H2} • {M2}Key anda belum di konfirmasi{hapus}\n{H2} • {P2}Silahkan Beli Ke Wa {hapus}{H2}+62895359611122{hapus}{P2} untuk menggunakan sc{hapus}"))
+				buy_key=console.input(f"{H2} • {P2}Tekan enter untuk chat whatsapp author untuk membeli key")
 				if buy_key in [""]:pass
 				jalan(f'  Anda akan diarahkan ke whatsapp author');time.sleep(2)
 				os.system(f'xdg-open http://wa.me/+62895359611122?text=Bang+beli+key+sc+Facebook+{key}')
