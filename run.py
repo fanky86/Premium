@@ -283,7 +283,7 @@ bln = dic[(str(datetime.datetime.now().month))]
 thn = datetime.datetime.now().year
 okc = "OK-" + str(tgl) + "-" + str(bln) + "-" + str(thn) + ".txt"
 cpc = "CP-" + str(tgl) + "-" + str(bln) + "-" + str(thn) + ".txt"
-hour = datetime.datetime.now().strfhour("%h %M %S")
+hour = datetime.datetime.now().hour
 hari_ini = datetime.datetime.now().strftime("%d %B %Y")
 
 
