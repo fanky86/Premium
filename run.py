@@ -77,6 +77,7 @@ ugen=[]
 temanku = []
 console = Console()
 ses = requests.Session()
+lisensiku=[]
 id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = (
     [],
     [],
