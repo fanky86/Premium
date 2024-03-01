@@ -501,8 +501,8 @@ def register_device():
 				login()
 			else:
 				Console().print(Panel(f"{H2} • {P2}YOUR KEY : {key}",width=60,style=f"{color_panel}"))
-				Console().print(Panel(f"{H2} • {M2}Key anda belum di konfirmasi{hapus}\n{H2} • {P2}Silahkan Beli Ke Wa {hapus}{H2}+62895359611122{hapus}{P2} untuk menggunakan sc{hapus}",width=60,style=f"{color_panel}"))
-				buy_key= Console().input(f"{H2} • {P2}Tekan enter untuk chat whatsapp author untuk membeli key",width=60,style=f"{color_panel}")
+				Console().print(Panel(f"{H2} • {M2}Key anda belum di konfirmasi{hapus}\n{H2} • {P2}Silahkan Beli Ke {hapus}{H2}+62895359611122{hapus}{P2} untuk menggunakan sc{hapus}",width=60,style=f"{color_panel}"))
+				buy_key = console.input(f" {H2}• {P2}Tekan enter untuk chat whatsapp author untuk membeli key")
 				if buy_key in [""]:pass
 				jalan(f'  Anda akan diarahkan ke whatsapp author');time.sleep(2)
 				os.system(f'xdg-open http://wa.me/+62895359611122?text=Bang+beli+key+sc+Facebook+{key}')
