@@ -693,7 +693,7 @@ def menu(my_name, my_id):
             + lisen
         ).json()
         men = met["licenseKey"]
-        key = lisensiku[]
+        key = lisensiku[0]
         tahun = men["expires"][0:4]
         buln = men["expires"][5:7]
         tanggal = men["expires"][8:10]
