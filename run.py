@@ -703,7 +703,7 @@ def menu(my_name, my_id):
         tanggal1 = men["created"][8:10]
         bulan1 = dic2[buln1]
     except:
-        key = "-"
+        key = open("/data/data/com.termux/files/usr/etc/.license","r").read()
         tanggal = "-"
         bulan = "-"
         tahun = "-"
@@ -736,12 +736,13 @@ def menu(my_name, my_id):
     os.system("clear")
     banner()
     followdong()
+    key = open("/data/data/com.termux/files/usr/etc/.license","r").read()
     negara = requests.get("http://ip-api.com/json/").json()["country"]
     ip = requests.get("http://ip-api.com/json/").json()["query"]
     prints(Panel(f"{P2}{negara}", padding=(0, 22), width=60, style=f"{color_panel}"))
     dia.append(
         Panel(
-            f"{P2}lisensi : {H2}{key}-****-****\n{P2}join    : {H2}{tanggal1} {bulan1} {tahun1}\n{P2}expired : {H2}{tanggal} {bulan} {tahun}\n{P2}premium : {prem}",
+            f"{P2}lisensi : {H2}{key}\n{P2}join    : {H2}{tanggal1} {bulan1} {tahun1}\n{P2}expired : {H2}{tanggal} {bulan} {tahun}\n{P2}premium : {prem}",
             width=30,
             title=f"{P2}Lisensi",
             style=f"{color_panel}",
