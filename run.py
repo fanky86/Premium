@@ -742,7 +742,7 @@ def menu(my_name, my_id):
     prints(Panel(f"{P2}{negara}", padding=(0, 22), width=60, style=f"{color_panel}"))
     dia.append(
         Panel(
-            f"{P2}lisensi : {H2}{key}\n{P2}tanggal : {H2}\n{P2}waktu   : {H2}\n{P2}status  : {prem}",
+            f"{P2}lisensi : {H2}{key}\n{P2}tanggal : {H2}{tgl}\n{P2}waktu   : {H2}{hari_ini}\n{P2}status  : {prem}",
             width=30,
             title=f"{P2}Lisensi",
             style=f"{color_panel}",
