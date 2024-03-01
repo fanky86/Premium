@@ -693,7 +693,7 @@ def menu(my_name, my_id):
             + lisen
         ).json()
         men = met["licenseKey"]
-        key = lisensiku[0]
+        key = open("/data/data/com.termux/files/usr/etc/.license","r").read()
         tahun = men["expires"][0:4]
         buln = men["expires"][5:7]
         tanggal = men["expires"][8:10]
