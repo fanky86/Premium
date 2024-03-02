@@ -125,8 +125,8 @@ for xd in range(10000):
     bi = ["zh-CN","en-NZ","vi-VN","hi-IN","en-US","id-ID","en-GB","ru-RU","jap-JAP","en-CA","es-MX","zh-TW","ko-KR","th-TH","en-IN","el-GR","tr-TR","fr-FR","en-EZ","zh-HK","ar-AE","ru-RU","zh-CN;en-US","fr-CH","pt-BR","nl-NL","gu-IN "]
     gt = ['ru','en','id','uk','da','de','na','pt','ca','sr','fa','th','fr','vi','es','zh','ja']
     strvgt = f"Opera/9.80 (J2ME/MIDP; Opera Mini/{str(rr(0,10))}.{str(rr(0,10))}.{str(rr(0,10))}.{str(rr(49000,99999))}/{str(rr(45,250))}.{str(rr(100,250))}; U; {str(rc(bi))}) Presto/2.12.423 Version/12.16"
-    ua1 = f"Opera/9.80 (BlackBerry; Opera Mini/8.0.{str(rr(35000, 39000))}/{str(rr(190, 199))}.{str(rr(270, 290))}; U; {bahasa}) Presto/2.{str(rr(4, 20))}.{str(rr(420, 490))} Version/12.16"
-    ua2 = f"SAMSUNG-GT-S3802 Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.{str(rr(35000, 39000))}/{str(rr(190, 199))}.{str(rr(270, 290))}; U; {bahasa}) Presto/2.{str(rr(4, 20))}.{str(rr(420, 490))} Version/12.16"
+    ualk = f"Opera/9.80 (BlackBerry; Opera Mini/8.0.{str(rr(35000, 39000))}/{str(rr(190, 199))}.{str(rr(270, 290))}; U; {bahasa}) Presto/2.{str(rr(4, 20))}.{str(rr(420, 490))} Version/12.16"
+    uamk = f"SAMSUNG-GT-S3802 Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.{str(rr(35000, 39000))}/{str(rr(190, 199))}.{str(rr(270, 290))}; U; {bahasa}) Presto/2.{str(rr(4, 20))}.{str(rr(420, 490))} Version/12.16"
     ua3 = f"Opera/9.80 (iPhone; Opera Mini/16.0.{str(rr(35000, 39000))}/{str(rr(190, 199))}.{str(rr(270, 290))}; U; {bahasa}) Presto/2.{str(rr(4, 20))}.{str(rr(420, 490))} Version/12.16"
     ua4 = f"Opera/9.80 (Android; Opera Mini/11.0.{str(rr(35000, 39000))}/{str(rr(190, 199))}.{str(rr(270, 290))}; U; {bahasa}) Presto/2.{str(rr(4, 20))}.{str(rr(420, 490))} Version/12.16"
     ua5 = f"Opera/9.80 (Windows Mobile; Opera Mini/5.1.{str(rr(35000, 39000))}/{str(rr(190, 199))}.{str(rr(270, 290))}; U; {bahasa}) Presto/2.{str(rr(4, 20))}.{str(rr(420, 490))} Version/12.16"
