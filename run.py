@@ -117,23 +117,6 @@ except Exception as e:
 prox = open(".prox.txt", "r").read().splitlines()
 
 # ------------[ UBAH UA DIH SINI OM ]-----------#
-for xd in range(10000):
-    rr = random.randint; rc = random.choice
-    versi = random.choice(["pt-BR","id","en"])
-    bahasa = random.choice(["en","fr","ru","tr","id","pt","es","en-GB"])
-    biILL = ["zh-cn;","en-nz;","vi-vn;","hi-in;","en-us;","id-id;","en-gb;","ru-ru;","jap-jap;","en-ca;","es-mx;","zh-tw;","ko-kr;","th-th;","en-in;","el-gr;","tr-tr;","fr-fr;","en-ez;","zh-hk;","ar-ae;","ru-ru;","zh-CN;en-US;","fr-ch;","pt-br;","nl-nl;","gu-in;"]
-    bi = ["zh-CN","en-NZ","vi-VN","hi-IN","en-US","id-ID","en-GB","ru-RU","jap-JAP","en-CA","es-MX","zh-TW","ko-KR","th-TH","en-IN","el-GR","tr-TR","fr-FR","en-EZ","zh-HK","ar-AE","ru-RU","zh-CN;en-US","fr-CH","pt-BR","nl-NL","gu-IN "]
-    gt = ['ru','en','id','uk','da','de','na','pt','ca','sr','fa','th','fr','vi','es','zh','ja']
-    strvgt = f"Opera/9.80 (J2ME/MIDP; Opera Mini/{str(rr(0,10))}.{str(rr(0,10))}.{str(rr(0,10))}.{str(rr(49000,99999))}/{str(rr(45,250))}.{str(rr(100,250))}; U; {str(rc(bi))}) Presto/2.12.423 Version/12.16"
-    ualk = f"Opera/9.80 (BlackBerry; Opera Mini/8.0.{str(rr(35000, 39000))}/{str(rr(190, 199))}.{str(rr(270, 290))}; U; {bahasa}) Presto/2.{str(rr(4, 20))}.{str(rr(420, 490))} Version/12.16"
-    uamk = f"SAMSUNG-GT-S3802 Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.{str(rr(35000, 39000))}/{str(rr(190, 199))}.{str(rr(270, 290))}; U; {bahasa}) Presto/2.{str(rr(4, 20))}.{str(rr(420, 490))} Version/12.16"
-    ua3 = f"Opera/9.80 (iPhone; Opera Mini/16.0.{str(rr(35000, 39000))}/{str(rr(190, 199))}.{str(rr(270, 290))}; U; {bahasa}) Presto/2.{str(rr(4, 20))}.{str(rr(420, 490))} Version/12.16"
-    ua4 = f"Opera/9.80 (Android; Opera Mini/11.0.{str(rr(35000, 39000))}/{str(rr(190, 199))}.{str(rr(270, 290))}; U; {bahasa}) Presto/2.{str(rr(4, 20))}.{str(rr(420, 490))} Version/12.16"
-    ua5 = f"Opera/9.80 (Windows Mobile; Opera Mini/5.1.{str(rr(35000, 39000))}/{str(rr(190, 199))}.{str(rr(270, 290))}; U; {bahasa}) Presto/2.{str(rr(4, 20))}.{str(rr(420, 490))} Version/12.16"
-    mmk = f"Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(100,250))}.0.0.0 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/344.0.0.34.116;]"
-    mm1 = f"Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, seperti Gecko) Chrome/{str(rr(100,250))}.0.0.0 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/339.0.0.32.118;]"
-    uateddy = random.choice([strvgt,ua1,ua2,mmk,mm1])	
-    prem.append(uateddy)
 
 for xc in range(10000):
 	rr,rc = random.randint, random.choice
