@@ -152,7 +152,7 @@ for xd in range(10000):
     asep = f"Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 [FBAN/FBIOS;FBAV/209.0.0.33.90;FBBV/142900020;FBDV/iPhone10,3;FBMD/iPhone;FBSN/iOS;FBSV/12.1.4;FBSS/3;FBCR/U.S. Cellular;FBID/phone;FBLC/en_US;FBOP/5;FBRV/143925426]"
     uanewreal = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(realme))} Build/SP1A.{str(rr(100000,499999))}.0{str(rr(0,99))}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/121.0.6167.{str(rr(10000,49999))}.0.{str(rr(4638,9999))}.{str(rr(100,499))} Mobile Safari/537.36 GoogleApp/{str(rr(0,100))}.{str(rr(0,100))}.{str(rr(0,100))}.{str(rr(0,100))}.arm64"
     uateddy = random.choice([uanewreal])
-    ugen.append(uateddy)
+    prem.append(uateddy)
 def uaku():
     try:
         ua = open("bbnew.txt", "r").read().splitlines()
