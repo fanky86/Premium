@@ -386,14 +386,11 @@ def banner():
 # --------------------[ LICENSE ]--------------#
 def register_device():
 	while True:
-		clear()
 		logoku()
 		if os.path.exists(".license"):
 			key = open(".license","r").read()
 			check = requests.get("https://pastebin.com/raw/eKMyyVzJ").text
 			if key in check:
-				#clear()
-				#logoku()
 				lisensiku.append("sukses")
 				Console().print(Panel(f"{H2} • {H2}Key anda telah di konfirmasi ✓{hapus}",width=60,style=f"{color_panel}"))
 				time.sleep(1.5)
@@ -412,6 +409,7 @@ def register_device():
 				tulis.write(enc_key)
 			continue
 		break
+
 			
 # --------------------[ BAGIAN-MASUK ]--------------#
 def login123():
@@ -1583,7 +1581,7 @@ def vipernew(idf,pwv,url):
     global loop,ok,cp
     rr = random.randint
     viperid = random.choice(["id-ID,id;q=0.9","en-US,en;q=0.9","en-GB,en;q=0.9","bd-BD,bd;q=0.9"])
-    prog.update(des,description=f" {K2}•{H2} Viper {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des,description=f" {K2}•{H2} VALIDATE V1 {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
     ua = random.choice(ugen)
     ses = requests.Session()
@@ -1664,7 +1662,7 @@ def vipernew(idf,pwv,url):
 	
 def crackprod(idf,pwv):
     global loop,ok,cp
-    prog.update(des,description=f" {K2}•{H2} Viper {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des,description=f" {K2}•{H2} VALIDATE V2 {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
     ua = random.choice(ugen)
     ses = requests.Session()
@@ -1724,7 +1722,7 @@ def crackprod(idf,pwv):
 
 def crackbasi(idf,pwv):
     global loop,ok,cp
-    prog.update(des,description=f" {K2}•{H2} Viper {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des,description=f" {K2}•{H2} MBASIC {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
     ua = random.choice(ugen)
     ses = requests.Session()
