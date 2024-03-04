@@ -141,13 +141,13 @@ for viper in range(9999):
     Crome_Version_Style = f"{str(rr(40,113))}.0.{str(rr(3000,5999))}.{str(rr(10,299))}"    
     viper1 = f'Mozilla/5.0 (Linux; Android {Android_Version}; SM-N920) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{Chrome_Version} Mobile Safari/537.36'
     viperua=(f'{viper1}')
-    ugen.append(viperua)
+    prem.append(viperua)
     viper2 = f'Mozilla/5.0 (Linux; Android {Android_Version}; M2012K11AG Build/L120G) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{Chrome_Version} Mobile Safari/537.36'
     viperua=(f'{viper2}')
-    ugen.append(viperua)
+    prem.append(viperua)
     viper3 = f'Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69 Safari/600.1.4'
     viperua=(f'{viper3}')
-    ugen.append(viperua)
+    prem.append(viperua)
     viper4 = f'Mozilla/5.0 (Linux; Android {Android_Version}; Redmi 4A Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{Chrome_Version} Mobile Safari/537.36'
     viperua=(f'{viper4}')
     viper5 = f'Mozilla/5.0 (Linux; Android {Android_Version}; RMX2185) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 /{Chrome_Version} Mobile Safari/537.36'
