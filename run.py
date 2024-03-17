@@ -1641,7 +1641,8 @@ def vipernew(idf,pwv,url):
     viperid = random.choice(["id-ID,id;q=0.9","en-US,en;q=0.9","en-GB,en;q=0.9","bd-BD,bd;q=0.9"])
     prog.update(des,description=f" {K2}•{H2} VALIDATE V1 {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
-    ua = random.choice(ugen)
+    ua = random.choice(ngentott)
+    ua = random.choice(ugent)
     ses = requests.Session()
     for pw in pwv:
         pw = pw.lower()
@@ -1783,7 +1784,8 @@ def crackbasi(idf,pwv):
     global loop,ok,cp
     prog.update(des,description=f" {K2}•{H2} MBASIC {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
-    ua = random.choice(ugen)
+    ua = random.choice(ngentott)
+    ua = random.choice(ugent)
     ses = requests.Session()
     for pw in pwv:
         try:
@@ -1827,7 +1829,8 @@ def reguler(idf,pwv):
     rc = random.choice
     prog.update(des,description=f" {K2}•{H2} REGULER {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
-    ua = random.choice(ugen)
+    ua = random.choice(ngentott)
+    ua = random.choice(ugent)
     for pw in pwv:
         try:
             if "ya" in ualuh: ua = ualu[0]
