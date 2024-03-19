@@ -532,7 +532,10 @@ def GenerateToken():
 		print(tok)
 	except Exception as e:
 		if "group" in str(e):
-			print("ganti token yang lain")
+			Console().print(f" {H2}• {P2}[bold red]Ganti Cookie Kamu yang lain")
+			exit()
+	except KeyError:
+		print("masukkan cookie yang bener")
 			
 def logincoki():
     cookie = Console().input(f" {H2}• {P2}cookie : ")
