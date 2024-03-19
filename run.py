@@ -518,8 +518,9 @@ def login():
         login123()
 
 def GenerateToken():
-	cookie = Console().input(f" {H2}• {P2}cookie : ")
+	cooki = Console().input(f" {H2}• {P2}cookie : ")
 	try:
+		cookie={"cookie": cooki}
 		app='1348564698517390|007c0a9101b9e1c8ffab727666805038'
 		r    = requests.Session()
 		req1 = r.get('https://graph.facebook.com/v16.0/device/login?method=POST&access_token={}'.format(app)).json()
