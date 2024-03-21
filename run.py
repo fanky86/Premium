@@ -2274,9 +2274,8 @@ def opsi():
         except requests.exceptions.ConnectionError:
             continue
     print("\n%s%s%s\033[0mSelesai Mengecek Akun" % (U, til, O))
-    jeda(0.07)
-    input("%s%s%s[%s Enter%s ]" % (U, til, O, U, O))
-    back()
+    print("\n)
+    exit()
 
 
 data = {}
