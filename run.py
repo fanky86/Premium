@@ -2392,9 +2392,9 @@ def mengecek(user, pw):
                         "%s %s|%s|%s\n"%(H, user, pw, coki)
                     )
             elif "Masukkan Kode Masuk untuk Melanjutkan" in re.findall("\<title>(.*?)<\/title>", str(response)):
-                print("\r %s \033[0m akun terpasang autentikasi dua faktor			"%(M))
+                print("\r %s \33[31;1m akun terpasang autentikasi dua faktor			"%(M))
             else:
-                print("%s%s\033[0mterjadi kesalahan"%(M, til))
+                print("%s%s\033[0m terjadi kesalahan"%(M, til))
         else:
             if "c_user" in session.cookies.get_dict():
                 print("\r%s akun tidak checkpoint, silahkan anda login "%(H))
