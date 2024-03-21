@@ -1979,6 +1979,16 @@ def ceker(idf, pw):
     console().print(f"{H2}• {P2}Columns(ops)")
 
 # OPSI CEKER
+def iphonee():
+	rr = random.randint
+	rc = random.choice
+	iphone1 = rc(["4_3","9_0"])
+	iphone2 = rc(["en-US","en-GB","%lang2%"])
+	iphone3 = r(["533.17.9","600.1.4"])
+	iphone4 = rc(["5.0.2","9_0"])
+	iphongg = f"Mozilla/5.0 (iPhone; CPU iPhone OS {iphone1} like Mac OS X; {iphone2}) adbeat.com/policy AppleWebKit/{iphone3} (KHTML, like Gecko) Version/{iphone4} Mobile/12A366 Safari/{str(rr(600,6533))}.{str(rr(1,18))}.{str(rr(4,5))}"
+	return rc([iphongg])
+	
 def cek_opsi():
     c = len(akun)
     hu = (
@@ -2004,7 +2014,7 @@ def cek_opsi():
                 "\r%s---> %s/%s ---> { %s }%s" % (bi, love, len(akun), idf, x), end=" "
             )
             sys.stdout.flush()
-            ua = "Mozilla/5.0 (Linux; Android 11; TECNO KD8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4755.101 Mobile Safari/537.36"
+            ua = iphonee()
             ses = requests.Session()
             header = {
                 "Host": "mbasic.facebook.com",
