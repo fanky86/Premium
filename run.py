@@ -484,7 +484,7 @@ def login123():
     )
     bryn = console.input(f" {H2}• {P2}pilih menu : ")
     if bryn in ["1", "01"]:
-        GenerateToken()
+        logincoki()
     elif bryn in ["2", "02"]:
         exit()
     else:
