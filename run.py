@@ -1611,7 +1611,7 @@ def metcepat():
             for yuzong in id2:
                 idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
                 frs = nmf.split(" ")[0]
-                pwv = []
+                pwv = [rasis123,rasis1234,rasis12345,bismillah]
                 if len(nmf)<6:
                     if len(frs)<3:
                         pass
