@@ -2386,17 +2386,13 @@ def mengecek(user, pw):
                 else:
                     print("\r%s%s \033[0m\x1b[1;92mCheckpoint Terbuka, Akun Tap Yes Silahkan Login		"%(H, til))
                     tree = Tree(" ", guide_style=f"{color_ok}")
-                    tree.add(
-                        Panel(f"{ua}", width=60, style=f"{color_ok}")
-                    )
+                    tree.add(Panel(f"{ua}", width=60, style=f"{color_ok}"))
                     prints(tree)
                     open("OK/OK-%s.txt"%(day), "a").write(
                         "%s %s|%s|%s\n"%(H, user, pw, coki)
                     )
             elif "Masukkan Kode Masuk untuk Melanjutkan" in re.findall("\<title>(.*?)<\/title>", str(response)):
-                print(
-                    Panel("\r %s \033[0m akun terpasang autentikasi dua faktor			"%(M))
-                )
+                print("\r %s \033[0m akun terpasang autentikasi dua faktor			"%(M))
             else:
                 print("%s%s\033[0mterjadi kesalahan"%(M, til))
         else:
