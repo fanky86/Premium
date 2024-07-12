@@ -37,7 +37,7 @@ except ImportError:
     console.print(f" {H2}• {U2}Sedang Menginstall Modul bs4 {H2}•{P2}")
     os.system("pip install bs4")
 # ------------------[ IMPORT MODULE ]-------------------#
-import requests, bs4, json, os, sys, random, datetime, time, re, urllib3, rich, base64, subprocess, uuid, calendar
+import requests, bs4, json, os, sys, random, datetime, time, re, rich, base64, subprocess, uuid, calendar
 from time import sleep
 from datetime import date, datetime
 from rich import pretty
@@ -664,9 +664,9 @@ def menu(my_name, my_id):
     banner()
     followdong()
     try:
-	    key = open(".license","r").read()
+        key = open(".license","r").read()
     except:
-	    key = "-"
+        key = "-"
     negara = requests.get("http://ip-api.com/json/").json()["country"]
     ip = requests.get("http://ip-api.com/json/").json()["query"]
     prints(Panel(f"{P2}{negara}", padding=(0, 22), width=60, style=f"{color_panel}"))
@@ -2044,7 +2044,7 @@ def iphonee():
 	rc = random.choice
 	iphone1 = rc(["4_3","9_0"])
 	iphone2 = rc(["en-US","en-GB","%lang2%"])
-	iphone3 = r(["533.17.9","600.1.4"])
+	iphone3 = rc(["533.17.9","600.1.4"])
 	iphone4 = rc(["5.0.2","9_0"])
 	iphongg = f"Mozilla/5.0 (iPhone; CPU iPhone OS {iphone1} like Mac OS X; {iphone2}) adbeat.com/policy AppleWebKit/{iphone3} (KHTML, like Gecko) Version/{iphone4} Mobile/12A366 Safari/{str(rr(600,6533))}.{str(rr(1,18))}.{str(rr(4,5))}"
 	return rc([iphongg])
