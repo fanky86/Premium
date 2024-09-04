@@ -104,7 +104,7 @@ id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = (
     [],
     [],
 )
-sys.stdout.write("\x1b]2; BMBF | Viper Brute\x07")
+sys.stdout.write("\x1b]2; BMBF | fanky Brute\x07")
 # ------------------[ USER-AGENT ]-------------------#
 try:
     prox = requests.get(
@@ -430,7 +430,7 @@ def banner():
         Panel(
             """
 [bold red]███████████████████████    
-[bold red]███████████████████████ [bold yellow]Github : [bold green]Viper404-XD
+[bold red]███████████████████████ [bold yellow]Github : [bold green]fanky86
 [bold red]███████████████████████ [bold yellow]Wa     : [bold green]+62895359611***
 [bold white]███████████████████████          
 [bold white]███████████████████████          
