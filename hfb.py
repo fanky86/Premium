@@ -1,8 +1,3 @@
-
-
-
-
-
 import os
 
 # ------------------[  MODULE  ]-------------------#
@@ -24,7 +19,6 @@ def import_module(module_name):
         return __import__(module_name)
 
 # Impor modul yang diperlukan
-console = Console()
 rich = import_module("rich")
 licensing = import_module("licensing")
 stdiomask = import_module("stdiomask")
