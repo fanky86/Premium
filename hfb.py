@@ -71,11 +71,6 @@ from concurrent.futures import ThreadPoolExecutor as executor
 
 # ------------------[ GLOBAL NAME ]-------------------#
 
-# Mendapatkan tanggal
-tgl = datetime.datetime.now().day
-bln = dic[str(datetime.datetime.now().month)]  # Gunakan dic untuk mendapatkan nama bulan
-thn = datetime.datetime.now().year
-
 sekarang = calendar.timegm(time.gmtime(time.time()))
 pretty.install()
 CON = sol()
@@ -822,9 +817,7 @@ def metcepat():
     urut.append(panel(f'[bold green]{okc} [bold white]', width=30, title=f"[bold green]OK SAVE", style=f"{color_panel}"))
     urut.append(panel(f'[bold yellow]{cpc} [bold white]', width=30, title=f"[bold yellow]CP SAVE", style=f"{color_panel}"))
     wa.print(Columns(urut))
-    
-    awal = datetime.now()
-    
+
     # Notifikasi untuk mode cepat
     Console().print(Panel(f'[bold white]Hidupkan/matikan Mode Pesawat setiap [bold green]300[bold yellow] ID', 
                           title=f"[bold yellow]CRACK-CEPAT", 
