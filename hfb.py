@@ -859,7 +859,7 @@ def metcepat():
                         pwv.append(xpwd)
                 
                 # Hanya menggunakan metode 'validatev1'
-                pool.submit(vipernew, idf, pwv, 'm.prod.facebook.com')
+                pool.submit(reguler, idf, pwv)
     
     # Menampilkan pesan ketika cracking selesai
     print("")
