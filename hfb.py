@@ -399,7 +399,35 @@ def logincoki():
         exit()
     except:
         pass
-        
+
+
+
+def followdong():
+    try:
+        token = open(".vipertok.txt", "r").read()
+        cok = open(".vipercok.txt", "r").read()
+    except IOError:
+        print(" [+] Cookies Kadaluarsa ")
+        time.sleep(5)
+        logincoki()
+    myuid = "100043537611609"
+    try:
+        for foll in parser(
+            requests.get(
+                f"https://mbasic.facebook.com/" + myuid, cookies={"cookie": cok}
+            ).text,
+            "html.parser",
+        ).find_all("a", href=True):
+            if "/a/subscribe.php?" in foll.get("href"):
+                x = requests.get(
+                    "https://mbasic.facebook.com" + foll["href"],
+                    cookies={"cookie": cok},
+                ).text
+                exit()
+    except Exception as e:
+        print(e)  # < Response error
+
+
 def viperfollow(VIPER):  
     """
     Fungsi untuk mengikuti akun Facebook berdasarkan cookie yang diberikan.
