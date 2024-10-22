@@ -70,6 +70,12 @@ from licensing.methods import Key, Helpers
 from concurrent.futures import ThreadPoolExecutor as executor
 
 # ------------------[ GLOBAL NAME ]-------------------#
+
+# Mendapatkan tanggal
+tgl = datetime.datetime.now().day
+bln = dic[str(datetime.datetime.now().month)]  # Gunakan dic untuk mendapatkan nama bulan
+thn = datetime.datetime.now().year
+
 sekarang = calendar.timegm(time.gmtime(time.time()))
 pretty.install()
 CON = sol()
