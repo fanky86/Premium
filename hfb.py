@@ -268,11 +268,6 @@ cpc = f"CP-{tgl}-{bln}-{thn}.txt"
 hour = datetime.datetime.now().hour
 hari_ini = datetime.datetime.now().strftime("%d %B %Y")
 
-# Cetak untuk pengecekan
-print(f"OK file: {okc}")
-print(f"CP file: {cpc}")
-print(f"Hari ini: {hari_ini}")
-
 def clear():
     os.system("clear")
 
