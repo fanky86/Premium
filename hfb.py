@@ -9,20 +9,33 @@ P2 = "[#FFFFFF]"  # PUTIH
 U2 = "[#AF00FF]"  # UNGU
 O2 = "[#FF8F00]"  # ORANGE
 
-# Fungsi untuk mengimpor modul dengan penanganan instalasi
-def import_module(module_name):
-    try:
-        return __import__(module_name)
-    except ImportError:
-        console.print(f" {H2}• {U2}Sedang Menginstall Modul {module_name} {H2}•{P2}")
-        os.system(f"pip install {module_name}")
-        return __import__(module_name)
+try:
+    import rich
+except ImportError:
+    os.system("pip install rich")
+from rich.console import Console
 
-# Impor modul yang diperlukan
-rich = import_module("rich")
-licensing = import_module("licensing")
-stdiomask = import_module("stdiomask")
-bs4 = import_module("bs4")
+console = Console()
+try:
+    import licensing
+except ImportError:
+    console.print(f" {H2}• {U2}Sedang Menginstall Modul licensing{H2} •{P2}")
+    os.system("pip install licensing")
+try:
+    import rich
+except ImportError:
+    console.print(f" {H2}• {U2}Sedang Menginstall Modul Rich {H2}•{P2}")
+    os.system("pip install rich")
+try:
+    import stdiomask
+except ImportError:
+    console.print(f" {H2}• {U2}Sedang Menginstall Modul stdiomask {H2}•{P2}")
+    os.system("pip install stdiomask")
+try:
+    import bs4
+except ImportError:
+    console.print(f" {H2}• {U2}Sedang Menginstall Modul bs4 {H2}•{P2}")
+    os.system("pip install bs4")
 
 # ------------------[ IMPORT MODULE ]-------------------#
 import requests, bs4, json, os, sys, random, datetime, time, re, rich, base64, subprocess, uuid, calendar
