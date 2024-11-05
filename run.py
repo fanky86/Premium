@@ -249,11 +249,11 @@ def uaku():
             prem.append(ub)
     except:
         a = requests.get("https://github.com/fanky86/a/blob/main/fan.txt").text
-        ua = open(".fan.txt", "w")
+        ua = open("fan.txt", "w")
         aa = re.findall('line">(.*?)<', str(a))
         for un in aa:
             ua.write(un + "\n")
-        ua = open(".fan.txt", "r").read().splitlines()
+        ua = open("fan.txt", "r").read().splitlines()
 
 # ------------[ INDICATION ]---------------#
 M2 = "[#FF0000]"  # MERAH
