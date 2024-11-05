@@ -242,16 +242,6 @@ for viper in range(9999):
     viperua=(f'{viper20}')
     prem.append(viperua)
 
-import random
-
-# Baca file user agents
-with open('user_agents.txt', 'r') as f:
-    user_agents = f.readlines()
-
-# Pilih User-Agent secara acak
-random_user_agent = random.choice(user_agents).strip()
-print(random_user_agent)
-
 def uaku():
     try:
         ua = open("fan.txt", "r").read().splitlines()
