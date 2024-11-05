@@ -1445,7 +1445,7 @@ def setting():
     else:
         print(" [+] Pilih Yang Bener Sayang ")
         return setting
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]validate v1[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]Crack Email[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]Validate V2[bold white]\n{P2}[{color_text}04{P2}] Login Site [bold green]mbasic[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]validate v1[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]Crack Email[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]Reguler[bold white]\n{P2}[{color_text}04{P2}] Login Site [bold green]mbasic[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
     hc = console.input(f" {H2}• {P2}Masukan : ")
     if hc in ["1", "01"]:
         method.append("validatev1")
@@ -1574,7 +1574,7 @@ def metslow():
                 elif "validatev2" in method:
                     pool.submit(crackemail, idf, pwv,nmf)
                 elif "reguler" in method:
-                    pool.submit(crackprod, idf, pwv)
+                    pool.submit(reguler, idf, pwv)
                 elif "mbasic" in method:
                     pool.submit(crackbasi, idf, pwv)
                 else:
@@ -1641,7 +1641,7 @@ def metcepat():
                 elif "validatev2" in method:
                     pool.submit(crackemail, idf, pwv,nmf)
                 elif "reguler" in method:
-                    pool.submit(crackprod, idf, pwv)
+                    pool.submit(reguler, idf, pwv)
                 elif "mbasic" in method:
                     pool.submit(crackbasi, idf, pwv)
                 else:
@@ -1912,8 +1912,8 @@ def reguler(idf,pwv):
     rc = random.choice
     prog.update(des,description=f" {K2}•{H2} REGULER {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
-    ua = random.choice(ngentott)
-    ua = random.choice(ugent)
+    ua = random.choice(prem)
+    ua = random.choice(prem)
     for pw in pwv:
         try:
             if "ya" in ualuh: ua = ualu[0]
