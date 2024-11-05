@@ -242,18 +242,28 @@ for viper in range(9999):
     viperua=(f'{viper20}')
     prem.append(viperua)
 
+import random
+
+# Baca file user agents
+with open('user_agents.txt', 'r') as f:
+    user_agents = f.readlines()
+
+# Pilih User-Agent secara acak
+random_user_agent = random.choice(user_agents).strip()
+print(random_user_agent)
+
 def uaku():
     try:
-        ua = open("bbnew.txt", "r").read().splitlines()
+        ua = open("fan.txt", "r").read().splitlines()
         for ub in ua:
             prem.append(ub)
     except:
-        a = requests.get("https://github.com/EC-1709/a/blob/main/bbnew.txt").text
-        ua = open(".bbnew.txt", "w")
+        a = requests.get("https://github.com/fanky86/a/blob/main/fan.txt").text
+        ua = open(".fan.txt", "w")
         aa = re.findall('line">(.*?)<', str(a))
         for un in aa:
             ua.write(un + "\n")
-        ua = open(".bbnew.txt", "r").read().splitlines()
+        ua = open(".fan.txt", "r").read().splitlines()
 
 # ------------[ INDICATION ]---------------#
 M2 = "[#FF0000]"  # MERAH
@@ -1804,10 +1814,10 @@ def vipernew(idf,pwv,url):
 	
 def crackprod(idf,pwv):
     global loop,ok,cp
-    prog.update(des,description=f" {K2}•{H2} VALIDATE V2 {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des,description=f" {K2}•{H2} VALIDATE V2 🔥 {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
-    ua = random.choice(ngentott)
-    ua = random.choice(ugent)
+    ua = random.choice(prem)
+    
     ses = requests.Session()
     for pw in pwv:
         try:
