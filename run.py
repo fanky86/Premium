@@ -1456,7 +1456,7 @@ def setting():
     elif hc in ["4", "04"]:
         method.append("mbasic")
     else:
-        method.append("validatev1")
+        method.append("validatev2")
     Console().print(Panel(f"[bold white]Apakah Anda Ingin Mengunakan UA Manual ? Y/T",title=f"[bold green]Setting User-Agent",width=60,style=f"{color_panel}"))
     uatambah = console.input(f" {H2}• {P2}Masukan : ")
     if uatambah in ["y", "Ya", "ya", "Y"]:
@@ -1572,7 +1572,7 @@ def metslow():
                 if "validatev1" in method:
                     pool.submit(vipernew, idf, pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(ValidateV2, idf, pwv)
+                    pool.submit(vldtV2, idf, pwv)
                 elif "reguler" in method:
                     pool.submit(reguler, idf, pwv)
                 elif "mbasic" in method:
@@ -1639,7 +1639,7 @@ def metcepat():
                 if "validatev1" in method:
                     pool.submit(vipernew, idf, pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(ValidateV2, idf, pwv)
+                    pool.submit(vldtV2, idf, pwv)
                 elif "reguler" in method:
                     pool.submit(reguler, idf, pwv)
                 elif "mbasic" in method:
@@ -1665,7 +1665,7 @@ def metcepat():
 
 
 #------------------[ METHOD-VALIDATE-2 ]-------------------#
-def ValidateV2(idf,pwv):
+def vldtV2(idf,pwv):
 	global loop,ok,cp
 	rc = random.choice
 	rr = random.randint
