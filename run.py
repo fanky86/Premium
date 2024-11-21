@@ -74,6 +74,7 @@ CON = sol()
 wa = Console()
 prem = []
 ugen=[]
+ugentotha=[]
 ugent=[]
 ngentott=[]
 temanku = []
