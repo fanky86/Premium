@@ -458,17 +458,18 @@ def logincoki():
 		head = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"}
 		link = ses.get("https://web.facebook.com/adsmanager?_rdc=1&_rdr", headers=head, cookies={"cookie": cok})
 		find = re.findall('act=(.*?)&nav_source', link.text)
-		if len(find) == 0:print(f'{k}  Cookies invalid');time.sleep(2);exit()				
-			else:
-				for x in find:
-					xz = ses.get(f"https://web.facebook.com/adsmanager/manage/campaigns?act={x}&nav_source=no_referrer", headers = head, cookies={"cookie": cok})
-					token = re.search('(EAAB\w+)',xz.text).group(1)
-					open('.vipertok.txt','w').write(token)
-					open('.vipercok.txt','w').write(cok)			
-					Console().print(Panel(f"""{P2}{token}""",width=60,style=f"{color_panel}",title="[bold green]TOKEN"))
-					Console().print(f" {H2}• {P2}[bold green]Login Berhasil,jalankan Ulang Script")
-					time.sleep(3)
-					exit()				
+		if len(find) == 0:
+			print(f'{k}  Cookies invalid');time.sleep(2);exit()				
+		else:
+			for x in find:
+			xz = ses.get(f"https://web.facebook.com/adsmanager/manage/campaigns?act={x}&nav_source=no_referrer", headers = head, cookies={"cookie": cok})
+			token = re.search('(EAAB\w+)',xz.text).group(1)
+			open('.vipertok.txt','w').write(token)
+			open('.vipercok.txt','w').write(cok)			
+			Console().print(Panel(f"""{P2}{token}""",width=60,style=f"{color_panel}",title="[bold green]TOKEN"))
+			Console().print(f" {H2}• {P2}[bold green]Login Berhasil,jalankan Ulang Script")
+			time.sleep(3)
+			exit()				
 	except Exception as e:
 		os.system("rm -f .vipertok.txt")
 		os.system("rm -f .vipercok.txt")
