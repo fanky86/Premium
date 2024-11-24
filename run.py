@@ -451,7 +451,7 @@ def login():
 
 
 
-def logincoki():
+def logincokkkki():
 	asu = random.choice([m,k,h,b,u])
 	cok = Console().input(f" {H2}• {P2}cookie : ")
 	try:
@@ -478,7 +478,7 @@ def logincoki():
 
 
 		
-def logincokiiii():
+def logincoki():
 	cookie = Console().input(f" {H2}• {P2}cookie : ")
 	try:
 		ses.headers.update(
