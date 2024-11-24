@@ -748,8 +748,56 @@ def crack_post():
         exit()
     else:
         setting()
-        
+
+
 def dump_publik():
+    with requests.Session() as ses:
+        token = open(".vipertok.txt", "r").read()
+        cok = open(".vipercok.txt", "r").read()
+	cookie={"cookie": cok}
+	fields = "name,friends.fields(id,name,birthday)"
+        prints(
+            Panel(
+                f"""{P2}masukan id target, pastikan id target bersifat publik""",
+                width=60,
+                style=f"{color_panel}",
+            )
+        )
+        idf = console.input(f" {H2}• {P2}Masukan Id Target :{U2} ")
+            try:
+                headers = {
+                    "connection": "keep-alive",
+                    "accept": "*/*",
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin",
+                    "sec-fetch-user": "?1",
+                    "sec-ch-ua-mobile": "?1",
+                    "upgrade-insecure-requests": "1",
+                    "user-agent": "Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36",
+                    "accept-encoding": "gzip, deflate",
+                    "accept-language": "id-ID,id;q=0.9",
+                }
+                if len(id) == 0:
+                    params = {"access_token": token,"fields": fields}
+                else:
+                    params = {"access_token": token, "fields": f"{fields}.after({fields})"}
+                url = ses.get(
+                    f"https://graph.facebook.com/{idf}",
+                    params=params,
+                    headers=headers,
+                    cookies=cookie,
+                ).json()
+                for i in url["friends"]["data"]:
+                    id.append(i["id"] + "|" + i["name"])
+                dump(idf, url["friends"]["paging"]["cursors"]["after"], cookie, token)
+		setting()
+	    except Exception as e:
+                print(f"Error : {e}")
+
+
+
+def dump_publikkk():
     with requests.Session() as ses:
         token = open(".vipertok.txt", "r").read()
         cok = open(".vipercok.txt", "r").read()
