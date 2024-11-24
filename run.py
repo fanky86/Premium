@@ -714,7 +714,6 @@ def dump_publik():
 			url = ses.get(f"https://graph.facebook.com/{idf}",params=params,headers=headers,cookies=cookie).json()
 			for i in url["friends"]["data"]:
 				id.append(i["id"] + "|" + i["name"])
-			dump(idf, url["friends"]["paging"]["cursors"]["after"], cookie, token)
 			setting()
 		except Exception as e:
 			print(f"Error : {e}")
