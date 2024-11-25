@@ -718,7 +718,7 @@ def dump(idt,fields,cookie,token):
 		for i in url["friends"]["data"]:
 			#print(i["id"]+"|"+i["name"])
 			id.append(i["id"]+"|"+i["name"])
-			sys.stdout.write(f"\r[ sedang mengumpulkan id, sukses mengumpulkan {H}{len(id)}{P} id....{P}"),
+			sys.stdout.write(f"\r [ sedang mengumpulkan id, sukses mengumpulkan {H}{len(id)}{P} id....{P}"),
 			sys.stdout.flush()
 			print()
 		dump(idt,url["friends"]["paging"]["cursors"]["after"],cookie,token)
