@@ -1538,8 +1538,8 @@ def crackreguler(idf,pwv,url):
 			open('socks4.txt','w').write(proxs)
 			nip = rc(proxs)
 			proxs = {'http': 'socks5://'+nip}
-			ua = opera()
-			ua2 = random.choice(ugen2)
+			ua = random.choice(ugen)
+			ua2 = random.choice(ugen)
 			ses.headers.update(
 			{
 			"Host":url,
