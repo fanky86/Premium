@@ -75,6 +75,7 @@ wa = Console()
 prem = []
 ugen=[]
 ugent=[]
+ugen2 = []
 ngentott=[]
 temanku = []
 console = Console()
