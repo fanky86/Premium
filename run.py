@@ -633,7 +633,7 @@ def menu(my_name, my_id):
         console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! ")
     elif HaHi in ["1", "01"]:
         idt = input('\n[ ID Target : ')
-        dump(idt,"",{"cookie":cok},token)
+        dump(idf,"",{"cookie":cok},token)
         setting()
     elif HaHi in ["2", "02"]:
         massal()
@@ -689,7 +689,7 @@ def crack_post():
 
 
 #----------[ CRACK-PUBLIK  ]----------#            
-def dump(idt,fields,cookie,token):
+def dump(idf,fields,cookie,token):
 	try:
 		headers = {
 			"connection": "keep-alive", 
@@ -714,7 +714,7 @@ def dump(idt,fields,cookie,token):
 				"access_token": token,
 				"fields": f"name,friends.fields(id,name,birthday).after({fields})"
 			}
-		url = ses.get(f"https://graph.facebook.com/{idt}",params=params,headers=headers,cookies=cookie).json()
+		url = ses.get(f"https://graph.facebook.com/{idf}",params=params,headers=headers,cookies=cookie).json()
 		for i in url["friends"]["data"]:
 			#print(i["id"]+"|"+i["name"])
 			id.append(i["id"]+"|"+i["name"])
