@@ -268,20 +268,38 @@ def loading():
         )
         sys.stdout.flush()
 # ------------------[ LOGO-LAKNAT ]-----------------#
+from rich.console import Console
+from rich.panel import Panel
+from rich.text import Text
+from rich.style import Style
+
 def logoku():
-    prints(
-        Panel(
-            f"""{P2}╔╗──╔══╦═══╦═══╦═╗─╔╦═══╦══╗
+    console = Console()
+    
+    # Warna teks logo
+    logo_text = Text(
+        """
+╔╗──╔══╦═══╦═══╦═╗─╔╦═══╦══╗
 ║║──╚╣╠╣╔═╗║╔══╣║╚╗║║╔═╗╠╣╠╝
 ║║───║║║╚══╣╚══╣╔╗╚╝║╚══╗║║
 ║║─╔╗║║╚══╗║╔══╣║╚╗║╠══╗║║║
 ║╚═╝╠╣╠╣╚═╝║╚══╣║─║║║╚═╝╠╣╠╗
-╚═══╩══╩═══╩═══╩╝─╚═╩═══╩══╝""",
-            title="Selamat Datang",
-            width=60,
-            style=f"{color_panel}",
-        )
+╚═══╩══╩═══╩═══╩╝─╚═╩═══╩══╝
+""",
+        style=Style(color="cyan", bold=True)  # Mengatur warna teks logo menjadi biru muda (cyan)
     )
+
+    # Panel untuk mencetak logo
+    panel = Panel(
+        logo_text,
+        title="[bold magenta]Selamat Datang[/bold magenta]",  # Warna judul magenta
+        subtitle="[bold yellow]Gunakan Setelah Registrasi Tools Anda[/bold yellow]",  # Subjudul warna kuning
+        border_style="bright_blue",  # Warna border biru cerah
+        width=60
+    )
+
+    # Cetak ke console
+    console.print(panel)
 
 
 def banner():
