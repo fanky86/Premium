@@ -1487,7 +1487,7 @@ def metslow():
                 if "validatev1" in method:
                     pool.submit(vipernew, idf, pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(ValidateV2, idf, pwv)
+                    pool.submit(validate_login, idf, pwv)
                 elif "reguler" in method:
                     pool.submit(crackreguler, idf, pwv,'m.facebook.com')
                 elif "mbasic" in method:
