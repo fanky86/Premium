@@ -496,7 +496,6 @@ def menu():
         pass
     os.system("clear")
     banner()
-    followdong()
     try:
         key = open(".license","r").read()
     except:
