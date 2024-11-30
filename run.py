@@ -74,8 +74,6 @@ CON = sol()
 wa = Console()
 ugen2 = []
 temanku = []
-my_name = []
-my_id = []
 console = Console()
 ses = requests.Session()
 lisensiku=[]
@@ -477,18 +475,19 @@ def menu():
     try:
         token = open(".vipertok.txt", "r").read()
         cookie = open(".vipercok.txt", "r").read()
-        
+        tokenku.append(token)
     except IOError:
         Console().print(f" {H2}• {P2}[bold red] Cookies Kadaluarsa tolkon")
         os.system("rm -rf .vipertok.txt && rm -rf .vipercok.txt")
         time.sleep(3)
         login()
     try:
-        sy = requests.get('https://graph.facebook.com/me?fields=id,name&access_token='+tokenku[0], cookies={'cookie':cookie})
+        sy = requests.get(f'https://graph.facebook.com/me?fields=id,name&access_token='+tokenku[0], cookies={'cookie':cookie})
         my_name = json.loads(sy.text)['name']
         my_id = json.loads(sy.text)['id']
     except:
-        pass
+        my_name=[]
+        my_id=[]
     try:
         link = ses.get(
             f"https://graph.facebook.com/me?fields=id,name,friends&access_token={token}",
