@@ -285,9 +285,7 @@ def logoku():
 ║║─╔╗║║╚══╗║╔══╣║╚╗║╠══╗║║║
 ║╚═╝╠╣╠╣╚═╝║╚══╣║─║║║╚═╝╠╣╠╗
 ╚═══╩══╩═══╩═══╩╝─╚═╩═══╩══╝
-""",
-        style=Style(color="cyan", bold=True)  # Mengatur warna teks logo menjadi biru muda (cyan)
-    )
+""",style=f"{color_panel}")  # Mengatur warna teks logo menjadi biru muda
 
     # Panel untuk mencetak logo
     panel = Panel(
@@ -308,7 +306,7 @@ def banner():
             """
 [bold red]███████████████████████    
 [bold red]███████████████████████ [bold yellow]Github : [bold green]fanky86
-[bold red]███████████████████████ [bold yellow]Wa     : [bold green]+62895359611***
+[bold red]███████████████████████ [bold yellow]Wa     : [bold green]+62895359611122
 [bold white]███████████████████████          
 [bold white]███████████████████████          
 [bold white]███████████████████████ 
@@ -322,6 +320,7 @@ def banner():
 # --------------------[ LICENSE ]--------------#
 def Licensiprem():
 	while True:
+		clear()
 		logoku()
 		if os.path.exists(".license"):
 			key = open(".license","r").read()
@@ -330,10 +329,10 @@ def Licensiprem():
 				lisensiku.append("sukses")
 				Console().print(Panel(f"{H2} • {H2}Key anda telah di konfirmasi ✓{hapus}",width=60,style=f"{color_panel}"))
 				time.sleep(1.5)
-				login()
+				menu()
 			else:
-				Console().print(Panel(f"{H2} • {P2}YOUR KEY :{H2} {key}",width=60,style=f"{color_panel}"))
-				Console().print(Panel(f"{H2} • {M2}Key anda belum di konfirmasi{hapus}\n{H2} • {P2}Silahkan Beli Ke {hapus}{H2}+62895359611122{hapus}{P2} untuk menggunakan sc{hapus}",width=60,style=f"{color_panel}"))
+				
+				Console().print(Panel(f"{H2} • {P2}YOUR KEY :{H2} {key}\n{H2} • {M2}Key anda belum di konfirmasi{hapus}\n{H2} • {P2}Silahkan Beli Ke {hapus}{H2}+62895359611122{hapus}{P2} untuk menggunakan sc{hapus}",width=60,style=f"{color_panel}"))
 				buy_key = console.input(f"{H2} • {P2}Tekan enter untuk chat whatsapp author untuk membeli key")
 				if buy_key in [""]:pass
 				jalan(f'   Anda akan diarahkan ke whatsapp author');time.sleep(2)
@@ -376,14 +375,7 @@ def login():
         cok = open(".vipercok.txt", "r").read()
         tokenku.append(token)
         try:
-            sy = requests.get(
-                "https://graph.facebook.com/me?fields=id,name&access_token="
-                + tokenku[0],
-                cookies={"cookie": cok},
-            )
-            sy2 = json.loads(sy.text)["name"][0:15]
-            sy3 = json.loads(sy.text)["id"]
-            menu(sy2, sy3)
+            menu()
         except KeyError:
             login123()
         except requests.exceptions.ConnectionError:
@@ -474,7 +466,7 @@ def viperfollow(VIPER):  # YANG GAK GANTI BOT FOLLOW GANTENG
 
 
 # ----------------[ BAGIAN-MENU ]----------------#
-def menu(my_name, my_id):
+def menu():
     try:
         prem = f"{H2}Premium"
     except (KeyError, FileNotFoundError):
@@ -491,11 +483,15 @@ def menu(my_name, my_id):
         login()
     try:
         link = ses.get(
-            f"https://graph.facebook.com/me?fields=friends&access_token={token}",
+            f"https://graph.facebook.com/me?fields=id,name,friends&access_token={token}",
             cookies={"cookie": cookie},
         ).json()
         for c in link["friends"]["data"]:
             temanku.append(c["id"] + "|" + c["name"])
+        for n in link["name"]:
+            my_name.append(c["name"])[0:15]
+        for i in link["id"]:
+            my_id.append(c["id"])
     except:
         pass
     os.system("clear")
