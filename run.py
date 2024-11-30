@@ -329,16 +329,16 @@ def Licensiprem():
 			check = requests.get("https://pastebin.com/raw/eKMyyVzJ").text
 			if key in check:
 				lisensiku.append("sukses")
-				Console().print(Panel(f"{H2} • {H2}Key anda telah di konfirmasi ✓{hapus}",width=60,style=f"{color_panel}"))
+				Console().print(Panel(f"{H2} • {H2}Key Anda Sudah Aktif✓{hapus}",width=60,style=f"{color_panel}"))
 				time.sleep(1.5)
 				menu()
 			else:
 				
-				Console().print(Panel(f"{H2} • {P2}YOUR KEY :{H2} {key}\n{H2} • {M2}Key anda belum di konfirmasi{hapus}\n{H2} • {P2}Silahkan Beli Ke {hapus}{H2}+62895359611122{hapus}{P2} untuk menggunakan sc{hapus}",width=60,style=f"{color_panel}"))
-				buy_key = console.input(f"{H2} • {P2}Tekan enter untuk chat whatsapp author untuk membeli key")
+				Console().print(Panel(f"{H2} • {P2}YOUR KEY :{H2} {key}\n{H2} • {P2}Key anda {M2}belum{P2} di konfirmasi{hapus}\n{H2} • {P2}Silahkan Beli Ke {hapus}{H2}+62895359611122{hapus}{P2} untuk menggunakan sc{hapus}",width=60,style=f"{color_panel}"))
+				buy_key = console.input(f"{H2} • {P2}Tekan {H2}ENTER{P2} untuk chat whatsapp author untuk membeli key")
 				if buy_key in [""]:pass
 				jalan(f'   Anda akan diarahkan ke whatsapp author');time.sleep(2)
-				os.system(f'xdg-open http://wa.me/+62895359611122?text=Bang+beli+key+sc+Facebook+{key}')
+				os.system(f'xdg-open http://wa.me/+62895359611122?text=Bang+beli+key+sc+Facebook+\n{key}')
 		if not os.path.exists(".license"):
 			key_gen = random.randint(10000000,99999999)
 			enc_key = base64.b16encode(str(key_gen).encode()).decode("utf-8")
@@ -491,9 +491,9 @@ def menu():
         for c in link["friends"]["data"]:
             temanku.append(c["id"] + "|" + c["name"])
         for n in link["name"]:
-            my_name.append(c["name"])[0:15]
+            my_name.append(n["name"])[0:15]
         for i in link["id"]:
-            my_id.append(c["id"])
+            my_id.append(i["id"])
     except:
         pass
     os.system("clear")
