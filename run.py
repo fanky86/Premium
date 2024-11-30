@@ -329,7 +329,7 @@ def Licensiprem():
 			check = requests.get("https://pastebin.com/raw/eKMyyVzJ").text
 			if key in check:
 				lisensiku.append("sukses")
-				Console().print(Panel(f"{H2} • {H2}Key Anda Sudah Aktif✓{hapus}",width=60,style=f"{color_panel}"))
+				Console().print(Panel(f"{H2} • {P2}Key Anda Sudah {H2}Aktif✓{P2}{hapus}",width=60,style=f"{color_panel}"))
 				time.sleep(1.5)
 				menu()
 			else:
@@ -484,16 +484,18 @@ def menu():
         time.sleep(3)
         login()
     try:
+        sy = requests.get('https://graph.facebook.com/me?fields=id,name&access_token='+tokenku[0], cookies={'cookie':cookie})
+        my_name = json.loads(sy.text)['name']
+        my_id = json.loads(sy.text)['id']
+    except:
+        pass
+    try:
         link = ses.get(
             f"https://graph.facebook.com/me?fields=id,name,friends&access_token={token}",
             cookies={"cookie": cookie},
         ).json()
         for c in link["friends"]["data"]:
             temanku.append(c["id"] + "|" + c["name"])
-        for n in link["name"]:
-            my_name.append(n["name"])[0:15]
-        for i in link["id"]:
-            my_id.append(i["id"])
     except:
         pass
     os.system("clear")
@@ -527,7 +529,7 @@ def menu():
         Panel(
             f"""{P2}
 [{color_text}01{P2}]. crack dari id publik   [{color_text}05{P2}]. Dump ID Publik
-[{color_text}02{P2}]. crack dari id Masal    [{color_text}06{M2}]. EXIT
+[{color_text}02{P2}]. crack dari id Masal    [{color_text}06{P2}]. {M2}EXIT{P2} 
 [{color_text}03{P2}]. crack dari opsi CP
 [{color_text}04{P2}]. crack dari FILE
 """,
@@ -555,7 +557,7 @@ def menu():
         crack_file()
     elif HaHi in ["3", "03"]:
         file_cp()
-    elif HaHi in ["3", "03"]:
+    elif HaHi in ["6", "06"]:
         exit()
 
     ###----------[ PINDAH KE MENU BOT ]---------- ###
