@@ -486,7 +486,7 @@ def login():
 
 
 
-def logincoki():
+def logincokiiii():
 	asu = random.choice([m,k,h,b,u])
 	cok = Console().input(f" {H2}• {P2}cookie : ")
 	try:
@@ -513,42 +513,64 @@ def logincoki():
 
 
 		
-def logincokiwww():
-	cookie = Console().input(f" {H2}• {P2}cookie : ")
-	try:
-		ses.headers.update(
-			{
-				"Accept-Language": "id,en;q=0.9",
-				"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
-				"Referer": "https://www.instagram.com/",
-				"Host": "www.facebook.com",
-				"Sec-Fetch-Mode": "cors",
-				"Accept": "*/*",
-				"Connection": "keep-alive",
-				"Sec-Fetch-Site": "cross-site",
-				"Sec-Fetch-Dest": "empty",
-				"Origin": "https://www.instagram.com",
-				"Accept-Encoding": "gzip, deflate",
-			}
-		)
-		link = ses.get("https://www.facebook.com/x/oauth/status?client_id=124024574287414&wants_cookie_data=true&origin=1&input_token=&sdk=joey&redirect_uri=https://www.instagram.com/brutalid_/",cookies={"cookie": cookie})
-		if '"access_token":' in str(link.headers):
-			token = re.search('"access_token":"(.*?)"', str(link.headers)).group(1)
-			open(".vipercok.txt", "w").write(cookie)
-			open(".vipertok.txt", "w").write(token)
-			viperfollow(cookie)
-			requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}",headers={"cookie": cookie})
-			Console().print(Panel(f"""{P2}{token}""",width=60,style=f"{color_panel}",title="[bold green]TOKEN"))
-			Console().print(f" {H2}• {P2}[bold green]Login Berhasil,jalankan Ulang Script")
-	except Exception as e:
-		Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluwarsa Bang")
-		os.system("rm -rf .vipertok.txt && rm -rf .vipercok.txt")
-		print(e)
-		time.sleep(3)
-		exit()
-	except:
-		pass
+def logincoki() -> None:
+    cookie = Console().input(f" {H2}• {P2}cookie : ")
+    try:
+        # Update headers untuk request
+        ses.headers.update({
+            "Accept-Language": "id,en;q=0.9",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+            "Referer": "https://www.instagram.com/",
+            "Host": "www.facebook.com",
+            "Sec-Fetch-Mode": "cors",
+            "Accept": "*/*",
+            "Connection": "keep-alive",
+            "Sec-Fetch-Site": "cross-site",
+            "Sec-Fetch-Dest": "empty",
+            "Origin": "https://www.instagram.com",
+            "Accept-Encoding": "gzip, deflate",
+        })
 
+        # Melakukan request untuk mendapatkan token
+        link = ses.get(
+            "https://www.facebook.com/x/oauth/status?client_id=124024574287414&wants_cookie_data=true&origin=1&input_token=&sdk=joey&redirect_uri=https://www.instagram.com/brutalid_/",
+            cookies={"cookie": cookie}
+        )
+
+        # Memeriksa apakah ada access_token dalam header
+        if '"access_token":' in str(link.headers):
+            token = re.search('"access_token":"(.*?)"', str(link.headers)).group(1)
+
+            # Menyimpan cookie dan token ke dalam file
+            with open(".vipercok.txt", "w") as cok_file:
+                cok_file.write(cookie)
+            with open(".vipertok.txt", "w") as tok_file:
+                tok_file.write(token)
+
+            # Memanggil fungsi viperfollow dengan cookie
+
+            # Mengirim request dengan token yang didapatkan
+            requests.post(f"https://graph.facebook.com/926438272150751/comments/?message=hai%bro&access_token={token}", headers={"cookie": cookie})
+
+            # Menampilkan token di konsol
+            Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
+            Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
+
+    except requests.exceptions.RequestException as e:
+        # Menangani error dari request
+        Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluwarsa Bang")
+        # Menghapus file menggunakan os.remove
+        os.remove(".vipertok.txt")
+        os.remove(".vipercok.txt")
+        print(e)
+        time.sleep(3)
+        exit()
+
+    except Exception as e:
+        # Menangani kesalahan umum lainnya
+        Console().print(f" {H2}• {P2}[bold red]Terjadi kesalahan: {e}")
+        time.sleep(3)
+        exit()
 
 def followdong():
     try:
@@ -667,9 +689,7 @@ def menu(my_name, my_id):
     if HaHi in [""]:
         console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! ")
     elif HaHi in ["1", "01"]:
-        idt = input('\n[ ID Target : ')
-        dump(idt,"",{"cookie":cok},token)
-        setting()
+        dump_publik()
     elif HaHi in ["2", "02"]:
         massal()
     elif HaHi in ["3", "03"]:
