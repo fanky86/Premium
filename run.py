@@ -1452,7 +1452,7 @@ def metcepattt():
     print("")
 	
 
-
+tree = []
 #--------------------[ METODE ASYNC ]-----------------#
 def kontol(idf,pwv):
 	global loop,ok,cp
@@ -1511,9 +1511,8 @@ def kontol(idf,pwv):
 				tree.add(f"[green]{kuki}\n")
 				cetak(tree)
 				open('OK/'+okc,'a').write(idf+'|'+pw+'|'+kuki+'\n')
-				cek_apk(session,coki)
+				cek_apk(kuki)
 				break
-				
 			else:
 				continue
 		except requests.exceptions.ConnectionError:
