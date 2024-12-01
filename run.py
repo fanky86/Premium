@@ -1306,7 +1306,7 @@ def metslow():
     print("")
 
 #-------------------[ CRACK-CEPAT ]------------#
-def metcepajjjt():
+def metcepat():
     global prog,des
     bi = random.choice([u,k,kk,b,h,hh])
     print('')
@@ -1372,7 +1372,7 @@ def metcepajjjt():
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
     print("")
 
-def metcepat():
+def metcepathhh():
     global prog, des
 
     # Memastikan variabel yang digunakan terdefinisi
