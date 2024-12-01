@@ -2371,8 +2371,7 @@ class Lain:
     ###----------[ TAMPILKAN COOKIE ]---------- ###
 import os
 import sys
-from datetime import datetime
-from dateutil.relativedelta import relativedelta  # Perhitungan tanggal yang lebih aman
+from datetime import datetime, timedelta
 from rich.console import Console
 from rich.panel import Panel
 
@@ -2389,7 +2388,7 @@ def tampil_cookie():
 
     # Menghitung tanggal aktif
     now = datetime.now()
-    future_date = now + relativedelta(days=30)  # Tambahkan 30 hari dengan aman
+    future_date = now + timedelta(days=30)  # Tambahkan 30 hari
     aktif = future_date.strftime("%d %B %Y")
 
     # Menampilkan cookie dan tanggal aktif
