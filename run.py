@@ -1460,7 +1460,7 @@ def kontol(idf,pwv):
 	ua = random.choice(ugen2)
 	#ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
 	ses = requests.Session()
-	prog.update(des,description=f"{h}VALIDATE V2 {idf} [bold blue]{loop}/{len(id)} OK-:[bold cyan]{ok}[/] CP-:[bold gold]{cp}[/]")
+	prog.update(des,description=f"{h}VALIDATE V2 {P2}{idf} [bold blue]{loop}/{len(id)} OK-:[bold cyan]{ok}[/] CP-:[bold gold]{cp}[/]")
 	prog.advance(des)
 	for pw in pwv:
 		try:
@@ -1507,7 +1507,7 @@ def kontoghl(idf,pwv):
 	ua = random.choice(ugen)
 	ua2 = random.choice(ugen2)
 	ses = requests.Session()
-	prog.update(des,description=f" {K2}•{H2} ASYNC {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.update(des,description=f" {K2}•{H2} ASYNC {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
 	for pw in pwv:
 		try:
@@ -1572,7 +1572,7 @@ def validatev1(idf,pwv,url):
     global loop,ok,cp
     rr = random.randint
     viperid = random.choice(["id-ID,id;q=0.9","en-US,en;q=0.9","en-GB,en;q=0.9","bd-BD,bd;q=0.9"])
-    prog.update(des,description=f" {K2}•{H2} VALIDATE V1 {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des,description=f" {K2}•{H2} VALIDATE V1 {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
     ua = random.choice(ugen2)
     ses = requests.Session()
@@ -1653,7 +1653,7 @@ def validatev1(idf,pwv,url):
 	
 def validatev2(idf,pwv):
     global loop,ok,cp
-    prog.update(des,description=f" {K2}•{H2} VALIDATE V2 {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des,description=f" {K2}•{H2} VALIDATE V2 {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
     ua = random.choice(ugen2)
     ses = requests.Session()
@@ -1713,7 +1713,7 @@ def validatev2(idf,pwv):
 
 def mbasic(idf,pwv):
     global loop,ok,cp
-    prog.update(des,description=f" {K2}•{H2} MBASIC {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des,description=f" {K2}•{H2} MBASIC {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
     ua = random.choice(ugen2)
     ses = requests.Session()
@@ -1757,7 +1757,7 @@ def reguler(idf,pwv):
 	bo = random.choice([m,k,h,b,u,x])
 	ua = random.choice(ugen)
 	ses = requests.Session()
-	prog.update(des,description=f" {K2}•{H2} REGULER {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.update(des,description=f" {K2}•{H2} REGULER {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
 	for pw in pwv:
 		try:
@@ -1824,7 +1824,7 @@ def reguleggghr(idf,pwv):
     ses = requests.Session()
     rr = random.randint
     rc = random.choice
-    prog.update(des,description=f" {K2}•{H2} REGULER {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des,description=f" {K2}•{H2} REGULER {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
     ua = random.choice(ugen2)
     for pw in pwv:
