@@ -1752,7 +1752,7 @@ def mbasic(idf,pwv):
     loop+=1
 
 # ------------------[ METHODE REGULER ]-------------------#
-def reguler(idf,pwv):
+def reguleghr(idf,pwv):
 	global loop,ok,cp
 	bo = random.choice([m,k,h,b,u,x])
 	ua = random.choice(ugen)
@@ -1819,7 +1819,7 @@ def reguler(idf,pwv):
 
 
 
-def reguleggghr(idf,pwv):
+def reguler(idf,pwv):
     global loop,ok,cp
     ses = requests.Session()
     rr = random.randint
