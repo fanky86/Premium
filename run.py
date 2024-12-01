@@ -1215,7 +1215,7 @@ def metslow():
     print("")
 
 #-------------------[ CRACK-CEPAT ]------------#
-def metcepaggt():
+def metcepat():
     global prog,des
     bi = random.choice([u,k,kk,b,h,hh])
     print('')
@@ -1281,7 +1281,7 @@ def metcepaggt():
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
     print("")
 
-def metcepat():
+def metcepattt():
     global prog, des
 
     # Memastikan variabel yang digunakan terdefinisi
@@ -1551,7 +1551,7 @@ def mbasic(idf,pwv):
 def reguler(idf,pwv):
 	global loop,ok,cp
 	bo = random.choice([m,k,h,b,u,x])
-	ua = random.choice(ugen2)
+	ua = random.choice(ugen)
 	ses = requests.Session()
 	prog.update(des,description=f" {K2}•{H2} REGULER {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
