@@ -1045,6 +1045,96 @@ def tahun(fx):
 
 # -------------[ PENGATURAN-IDZ ]---------------#
 def setting():
+    # Validasi variabel global
+    global id, id2, method, ualuh, ualu
+
+    # Validasi jika daftar ID kosong
+    if not id or not isinstance(id, list):
+        print("[bold red]Error:[/bold red] Daftar ID tidak ditemukan atau kosong!")
+        return
+
+    # Pilihan metode crack
+    Console().print(Panel(
+        f"{P2}[{color_text}01{P2}] Crack akun Old [/]\n"
+        f"{P2}[{color_text}02{P2}] Crack akun New [/]\n"
+        f"{P2}[{color_text}03{P2}] Crack akun Random [[bold green]Recommended[bold white]][/]",
+        title=f"[bold green] {len(id)} Akun Tersedia",
+        width=60,
+        style=f"{color_panel}"
+    ))
+    
+    # Input untuk metode crack
+    hu = console.input(f" {H2}• {P2}Masukan : ").strip()
+    if hu in ["1", "01"]:
+        for tua in sorted(id):  # Urutkan dari lama ke baru
+            id2.append(tua)
+    elif hu in ["2", "02"]:
+        muda = sorted(id)
+        id2.extend(muda[::-1])  # Urutkan dari baru ke lama
+    elif hu in ["3", "03"]:
+        for bacot in id:
+            xx = random.randint(0, len(id2))
+            id2.insert(xx, bacot)  # Masukkan secara acak
+    else:
+        print("[bold red]Error:[/bold red] Pilihan tidak valid, coba lagi.")
+        return setting()  # Rekursi untuk mengulang input
+
+    # Pilihan metode login
+    Console().print(Panel(
+        f"{P2}[{color_text}01{P2}] Login Site [bold green]validate v1[bold white] [/]\n"
+        f"{P2}[{color_text}02{P2}] Login Site [bold green]validate v2[bold white] [/]\n"
+        f"{P2}[{color_text}03{P2}] Login Site [bold green]Reguler[bold white] [/]\n"
+        f"{P2}[{color_text}04{P2}] Login Site [bold green]Mbasic[bold white] [/]",
+        width=60,
+        style=f"{color_panel}",
+        title="[bold green] Method"
+    ))
+
+    # Input untuk metode login
+    hc = console.input(f" {H2}• {P2}Masukan : ").strip()
+    if hc in ["1", "01"]:
+        method.append("validatev1")
+    elif hc in ["2", "02"]:
+        method.append("validatev2")
+    elif hc in ["3", "03"]:
+        method.append("reguler")
+    elif hc in ["4", "04"]:
+        method.append("mbasic")
+    else:
+        method.append("reguler")  # Default metode
+
+    # Pengaturan User-Agent
+    Console().print(Panel(
+        f"[bold white]Apakah Anda Ingin Menggunakan UA Manual? Y/T",
+        title="[bold green]Setting User-Agent",
+        width=60,
+        style=f"{color_panel}"
+    ))
+    uatambah = console.input(f" {H2}• {P2}Masukan : ").strip()
+    if uatambah.lower() in ["y", "ya"]:
+        ualuh.append("ya")
+        bzer = console.input(f" {H2}• {P2}Masukan UA : ").strip()
+        ualu.append(bzer)
+    else:
+        ualuh.append("tidak")
+
+    # Pilihan kecepatan metode
+    Console().print(Panel(
+        f"{P2}[{color_text}01{P2}] Metode Slow {H2}[Recomended]{P2}\n"
+        f"{P2}[{color_text}02{P2}] Metode Cepat {P2}",
+        width=60,
+        style=f"{color_panel}"
+    ))
+    hc = console.input(f" {H2}• {P2}Masukan : ").strip()
+    if hc in ["1", "01"]:
+        metslow()
+    elif hc in ["2", "02"]:
+        metcepat()
+    else:
+        metcepat()  # Default ke metode cepat
+	    ,
+
+def settinggg():
     Console().print(Panel(f"{P2}[{color_text}01{P2}] Crack akun Old [/]\n{P2}[{color_text}02{P2}] Crack Akun New [/]\n{P2}[{color_text}03{P2}] Crack Akun Random [[bold green]Recommended[bold white]][/]",title="[bold green] %s " % (len(id)),width=60,style=f"{color_panel}"))
     hu = console.input(f" {H2}• {P2}Masukan : ")
     if hu in ["1", "01"]:
