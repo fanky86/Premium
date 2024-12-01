@@ -2186,7 +2186,7 @@ class Lain:
         elif menu in ["04", "4"]:
             self.ganti_tema()
         elif menu in ["05", "5"]:
-            self.tampil_cookie()
+            tampil_cookie()
         elif menu in ["06", "6"]:
             os.system("rm .vipercok.txt")
             os.system("rm .vipertok.txt")
@@ -2369,23 +2369,34 @@ class Lain:
         sys.exit()
 
     ###----------[ TAMPILKAN COOKIE ]---------- ###
-    def tampil_cookie(self):
-        cookie = open(".vipercok.txt", "r").read()
-        now = datetime.now()
-        hari = now.day + int(30)
-        if hari > 30:
-            hari = hari - 30
-        bulan = now.month + 1
-        if bulan > 12:
-            bulan = bulan - 12
-        tahun = now.year + 1
-        if tahun > 1:
-            tahun = now.year
-        data = date(year=tahun, month=bulan, day=hari)
-        aktif = data.strftime("%d %B %Y")
-        console.print(f" {H2}• {P2}aktif sampai : {aktif}")
-        prints(Panel(f"{H2}{cookie}", width=60, style=f"{color_panel}"))
-        sys.exit()
+import os
+import sys
+from datetime import datetime
+from dateutil.relativedelta import relativedelta  # Perhitungan tanggal yang lebih aman
+from rich.console import Console
+from rich.panel import Panel
+
+def tampil_cookie():
+    console = Console()
+    
+    # Cek apakah file cookie ada
+    try:
+        with open(".vipercok.txt", "r") as file:
+            cookie = file.read().strip()
+    except FileNotFoundError:
+        console.print("[bold red]Error:[/bold red] File '.vipercok.txt' tidak ditemukan!")
+        sys.exit(1)
+
+    # Menghitung tanggal aktif
+    now = datetime.now()
+    future_date = now + relativedelta(days=30)  # Tambahkan 30 hari dengan aman
+    aktif = future_date.strftime("%d %B %Y")
+
+    # Menampilkan cookie dan tanggal aktif
+    console.print(f" {H2}• {P2}aktif sampai : {aktif}")
+    console.print(Panel(f"{H2}{cookie}", width=60, style=f"{color_panel}"))
+    sys.exit()
+	
 def target():
     try:
         toket=open('.vipertok.txt','r').read()
