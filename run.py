@@ -380,7 +380,7 @@ def Licensiprem():
 				buy_key = console.input(f"{H2} • {P2}Tekan {H2}ENTER{P2} untuk chat whatsapp author untuk membeli key")
 				if buy_key in [""]:pass
 				jalan(f'   Anda akan diarahkan ke whatsapp author');time.sleep(2)
-				os.system(f'xdg-open http://wa.me/+62895359611122?text=Bang+beli+key+sc+Facebook+\n{key}')
+				os.system(f'xdg-open http://wa.me/+62895359611122?text=Bang+beli+key+sc+Facebook+{key}')
 		if not os.path.exists(".license"):
 			key_gen = random.randint(10000000,99999999)
 			enc_key = base64.b16encode(str(key_gen).encode()).decode("utf-8")
@@ -472,7 +472,7 @@ def logincoki() -> None:
             # Menampilkan token di konsol
             Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
             Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
-
+            exit()
     except requests.exceptions.RequestException as e:
         # Menangani error dari request
         Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluwarsa Bang")
