@@ -1454,7 +1454,7 @@ def metcepathhh():
     print("")
 	
 
-def kontol(idf,pwv):
+def kontollll(idf,pwv):
 	global loop,ok,cp
 	bo = random.choice([m,k,h,b,u,x])
 	ua = random.choice(ugen2)
@@ -1651,7 +1651,7 @@ def validatev1(idf,pwv,url):
         except requests.exceptions.ConnectionError:time.sleep(31)
     loop+=1
 	
-def validatev2(idf,pwv):
+def kontol(idf,pwv):
     global loop,ok,cp
     prog.update(des,description=f" {K2}•{H2} VALIDATE V2 {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
