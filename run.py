@@ -153,10 +153,12 @@ for brayen in range(10000):
     UaMainn = random.choice([u1, u2, u3, u4, u5])
     ugen.append(UaMainn)
 
-
-cekuaku = open("ua.txt","r").read().splitlines()
-for uakh in cekuaku:
-	uahk.append(uakh)
+try:
+	cekuaku = open("ua.txt","r").read().splitlines()
+	for uakh in cekuaku:
+		uahk.append(uakh)
+except:
+	pass
 
 
 def uaku():
