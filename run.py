@@ -1641,7 +1641,7 @@ def mbasic(idf,pwv):
     global loop,ok,cp
     prog.update(des,description=f" {K2}•{H2} MBASIC {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
-    ua = random.choice(ugen2)
+    ua = random.choice(uahk)
     ses = requests.Session()
     for pw in pwv:
         try:
