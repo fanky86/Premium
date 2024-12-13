@@ -1642,7 +1642,6 @@ def kontol(idf,pwv):
 def mbasic(idf,pwv):
 	global loop,ok,cp
 	ua = random.choice(uahk)
-	ua2 = random.choice(taik1)
 	ses = requests.Session()
 	prog.update(des,description=f"[[bold green]Mbasic[bold white]] [[bold green]{idf}[bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
 	prog.advance(des)
