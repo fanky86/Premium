@@ -779,6 +779,8 @@ def botteleg():
 					loading()
 					#print(f" Tunggu sebentar script anda sedang admin proses membutuhkan waktu 3 menit")
 					#time.sleep()
+					menu()
+				
 					
 					
 				else:
