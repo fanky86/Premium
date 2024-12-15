@@ -1404,7 +1404,7 @@ def mbasic(idf,pwv):
 	nip=random.choice(prox)
 	proxs= {'http': 'socks5://'+nip}
 	ua = random.choice(ugen2)
-	print({loop}/{len(ua)})
+	console.print(f"\r {H2}• {P2}User Agent {H2} %s {P2} Id"%(ua)), end="\r")
 	ses = requests.Session()
 	prog.update(des,description=f"[[bold green]Mbasic[bold white]] [[bold green]{idf}[bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
 	prog.advance(des)
