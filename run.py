@@ -332,7 +332,7 @@ def loading():
     for i in range(50):
         time.sleep(20)
         sys.stdout.write(
-            f"\r {H}• {P}Tunggu Sebentar Sedang Mengunduh Modul...{N} " + animation[i % len(animation)] + "\x1b[0m "
+            f"\r {H}• {P}Loading...{N} " + animation[i % len(animation)] + "\x1b[0m "
         )
         sys.stdout.flush()
 # ------------------[ LOGO-LAKNAT ]-----------------#
