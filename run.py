@@ -330,7 +330,7 @@ def loading():
         "[\x1b[1;910m■■■■■■■■■■\x1b[0m]",
     ]
     for i in range(50):
-        time.sleep(0.1)
+        #time.sleep(60)
         sys.stdout.write(
             f"\r {H}• {P}Loading...{N} " + animation[i % len(animation)] + "\x1b[0m "
         )
@@ -790,7 +790,6 @@ def botteleg():
 		
 	except:
 		pass
-		print("error saat menjalankan script")
 				
 
 
