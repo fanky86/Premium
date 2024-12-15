@@ -1323,7 +1323,7 @@ def metslow():
                 elif "reguler" in method:
                     pool.submit(reguler,idf,pwv)
                 elif "mbasic" in method:
-                    pool.submit(crackmbasic,idf,pwv)
+                    pool.submit(mbasic,idf,pwv)
                 else:
                     pool.submit(reguler,idf,pwv)
     print("")
@@ -1390,7 +1390,7 @@ def metcepat():
                 elif "reguler" in method:
                     pool.submit(reguler,idf,pwv)
                 elif "mbasic" in method:
-                    pool.submit(crackmbasic,idf,pwv)
+                    pool.submit(mbasic,idf,pwv)
                 else:
                     pool.submit(reguler,idf,pwv)
     print("")
@@ -1410,7 +1410,7 @@ def metcepat():
 
 
 #----------------------[ METHODE-MTOUCH+MOBILE-4 ]-----------------#
-def crackmbasic(idf,pwv):
+def mbasic(idf,pwv):
     global loop,ok,cp
     nip=random.choice(prox)
     proxs= {'http': 'socks5://'+nip}
@@ -1712,7 +1712,7 @@ def kontol(idf,pwv):
     loop+=1
 
 
-def mbasic(idf,pwv):
+def mbasicrc(idf,pwv):
 	global loop,ok,cp
 	ua = random.choice(uahk)
 	ses = requests.Session()
