@@ -332,7 +332,7 @@ def loading():
     for i in range(50):
         time.sleep(120)
         sys.stdout.write(
-            f"\r {H}• {P}Tunggu Sebentar Sedang Mengunduh Modul\nMemakan waktu 2 menit...{N} " + animation[i % len(animation)] + "\x1b[0m "
+            f"\r {H}• {P}Tunggu Sebentar Sedang Mengunduh Modul Memakan waktu 2 menit...{N} " + animation[i % len(animation)] + "\x1b[0m "
         )
         sys.stdout.flush()
 # ------------------[ LOGO-LAKNAT ]-----------------#
@@ -779,7 +779,7 @@ def botteleg():
 					loading()
 					#print(f" Tunggu sebentar script anda sedang admin proses membutuhkan waktu 3 menit")
 					#time.sleep()
-					menu()
+					
 					
 				else:
 					print(f"script anda gagal di proses oleh admin coba hubungi admin MR.ExceFaN ")
