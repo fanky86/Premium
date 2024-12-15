@@ -330,9 +330,9 @@ def loading():
         "[\x1b[1;910m■■■■■■■■■■\x1b[0m]",
     ]
     for i in range(50):
-        #time.sleep(60)
+        time.sleep(120)
         sys.stdout.write(
-            f"\r {H}• {P}Loading...{N} " + animation[i % len(animation)] + "\x1b[0m "
+            f"\r {H}• {P}Tunggu Sebentar Sedang Mengunduh Modul\nMemakan waktu 2 menit...{N} " + animation[i % len(animation)] + "\x1b[0m "
         )
         sys.stdout.flush()
 # ------------------[ LOGO-LAKNAT ]-----------------#
