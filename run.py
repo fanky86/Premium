@@ -160,68 +160,82 @@ try:
     cache = load_cache()
     console.print(f"[blue]Memuat cache proxy...[/blue]")
 
-    # Mengambil daftar proxy
-    console.print(f"[blue]Mengambil daftar proxy...[/blue]")
-    prox = requests.get(
-        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
-    ).text.splitlines()
-    console.print(f"[green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi... ")
-    console.print(f"[green]Hanya mengambil 10 Prox yang valid aja mohon sabar...\n")
-    
-    valid_proxies = []
-    max_valid = 10  # Batas maksimal proxy valid yang diambil
-    invalid_count = 0
     current_time = datetime.now()
+    valid_proxies = [proxy for proxy in cache if cache[proxy].get("last_validated")]
 
-    # Progress bar setup
-    with Progress(
-        TextColumn("[progress.description]{task.description}"),
-        BarColumn(),
-        TextColumn("{task.completed}/{task.total}"),
-        TextColumn("[green]Valid:[/] {task.fields[valid]}"),
-        TextColumn("[red]Invalid:[/] {task.fields[invalid]}"),
-    ) as progress:
-        task = progress.add_task(
-            "[yellow]Memvalidasi proxy[/]", total=len(prox), valid=0, invalid=0
-        )
-
-        for index, proxy in enumerate(prox, start=1):
-            if len(valid_proxies) >= max_valid:
-                console.print(f"\n[cyan]Sudah mendapatkan {max_valid} proxy valid. Proses dihentikan.[/cyan]")
+    # Cek apakah sudah ada cukup proxy valid dan apakah sudah 3 hari
+    if len(valid_proxies) >= 10:
+        # Periksa apakah proxy valid sudah lebih dari 3 hari
+        should_refresh = False
+        for proxy in valid_proxies:
+            last_validated = datetime.fromisoformat(cache[proxy]["last_validated"])
+            if current_time - last_validated >= timedelta(days=3):
+                should_refresh = True
                 break
 
-            # Periksa apakah proxy ada di cache
-            if proxy in cache:
-                last_validated = datetime.fromisoformat(cache[proxy]["last_validated"])
-                if current_time - last_validated < timedelta(days=3):
-                    valid_proxies.append(proxy)
-                    progress.update(task, advance=1, valid=len(valid_proxies))
-                    continue
+        if not should_refresh:
+            console.print(f"[cyan]Sudah ada 10 proxy valid di cache, dan masih valid. Tidak perlu mencari lagi.[/cyan]")
+        else:
+            console.print(f"[yellow]Beberapa proxy sudah lebih dari 3 hari, memulai pencarian proxy baru...[/yellow]")
+    else:
+        console.print(f"[blue]Mengambil daftar proxy...[/blue]")
+        prox = requests.get(
+            "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
+        ).text.splitlines()
+        console.print(f"[green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi... ")
+        console.print(f"[green]Hanya mengambil 10 Prox yang valid aja mohon sabar...\n")
+        
+        max_valid = 10  # Batas maksimal proxy valid yang diambil
+        invalid_count = 0
 
-            # Validasi proxy baru
-            if is_valid_proxy(proxy):
-                valid_proxies.append(proxy)
-                cache[proxy] = {"last_validated": current_time.isoformat()}
-                progress.update(task, advance=1, valid=len(valid_proxies))
-            else:
-                invalid_count += 1
-                progress.update(task, advance=1, invalid=invalid_count)
+        # Progress bar setup
+        with Progress(
+            TextColumn("[progress.description]{task.description}"),
+            BarColumn(),
+            TextColumn("{task.completed}/{task.total}"),
+            TextColumn("[green]Valid:[/] {task.fields[valid]}"),
+            TextColumn("[red]Invalid:[/] {task.fields[invalid]}"),
+        ) as progress:
+            task = progress.add_task(
+                "[yellow]Memvalidasi proxy[/]", total=len(prox), valid=0, invalid=0
+            )
+
+            for index, proxy in enumerate(prox, start=1):
+                if len(valid_proxies) >= max_valid:
+                    console.print(f"\n[cyan]Sudah mendapatkan {max_valid} proxy valid. Proses dihentikan.[/cyan]")
+                    break
+
+                # Periksa apakah proxy ada di cache dan valid lebih dari 3 hari
                 if proxy in cache:
-                    del cache[proxy]
+                    last_validated = datetime.fromisoformat(cache[proxy]["last_validated"])
+                    if current_time - last_validated < timedelta(days=3):
+                        valid_proxies.append(proxy)
+                        progress.update(task, advance=1, valid=len(valid_proxies))
+                        continue
 
-    # Simpan proxy valid ke file dan update cache
-    with open(".prox.txt", "w") as file:
-        file.write("\n".join(valid_proxies))
-    save_cache(cache)
+                # Validasi proxy baru
+                if is_valid_proxy(proxy):
+                    valid_proxies.append(proxy)
+                    cache[proxy] = {"last_validated": current_time.isoformat()}
+                    progress.update(task, advance=1, valid=len(valid_proxies))
+                else:
+                    invalid_count += 1
+                    progress.update(task, advance=1, invalid=invalid_count)
+                    if proxy in cache:
+                        del cache[proxy]
 
-    console.print(f"\n[green]Proxy valid berhasil disimpan ke .prox.txt[/green]")
-    console.print(f"[cyan]Jumlah proxy valid yang disimpan: {len(valid_proxies)}[/cyan]")
+        # Simpan proxy valid ke file dan update cache
+        with open(".prox.txt", "w") as file:
+            file.write("\n".join(valid_proxies))
+        save_cache(cache)
+
+        console.print(f"\n[green]Proxy valid berhasil disimpan ke .prox.txt[/green]")
+        console.print(f"[cyan]Jumlah proxy valid yang disimpan: {len(valid_proxies)}[/cyan]")
 
 except RequestException as e:
     console.print(f"[red]Terjadi kesalahan dalam koneksi: {e}[/red]")
 except Exception as e:
     console.print(f"[red]Kesalahan tak terduga: {e}[/red]")
-	
 prox = open(".prox.txt", "r").read().splitlines()
 # ------------[ UBAH UA DIH SINI OM ]-----------#
 for xd in range(1000):
