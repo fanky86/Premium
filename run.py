@@ -136,12 +136,12 @@ def is_valid_proxy(proxy):
 try:
     clear()
     # Mengambil daftar proxy
-    print(f" [blue]Mengambil daftar proxy...[/blue]")
+    console.print(f" [blue]Mengambil daftar proxy...[/blue]")
     prox = requests.get(
         "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
     ).text.splitlines()
-    print(f" [green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi...\n")
-    print(f" [green]Hanya mengambil 20 prox yang valid aja mohon bersabar...\n")
+    console.print(f" [green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi...")
+    console.print(f" [green]Hanya mengambil 20 prox yang valid aja mohon bersabar...\n")
     
     # Memisahkan proxy valid
     valid_proxies = []
@@ -149,26 +149,26 @@ try:
 
     for index, proxy in enumerate(prox, start=1):
         if len(valid_proxies) >= max_valid:
-            print(f"\n [cyan]Sudah mendapatkan {max_valid} proxy valid. Proses dihentikan.[/cyan]")
+            console.print(f"\n [cyan]Sudah mendapatkan {max_valid} proxy valid. Proses dihentikan.[/cyan]")
             break
-        print(f" [yellow]Memvalidasi proxy {index}/{len(prox)}: {proxy}...[/yellow]")
+        console.print(f" [yellow]Memvalidasi proxy {index}/{len(prox)}: {proxy}...[/yellow]")
         if is_valid_proxy(proxy):
             valid_proxies.append(proxy)
-            print(f" [green]Valid:[/green] {proxy}")
+            console.print(f" [green]Valid:[/green] {proxy}")
         else:
-            print(f" [red]Invalid:[/red] {proxy}")
+            console.print(f" [red]Invalid:[/red] {proxy}")
 
     # Menyimpan proxy valid ke file
     with open(".prox.txt", "w") as file:
         file.write("\n".join(valid_proxies))
     
-    print(f"\n [green]Proxy valid berhasil disimpan ke .prox.txt[/green]")
-    print(f" [cyan]Jumlah proxy valid yang disimpan: {len(valid_proxies)}[/cyan]")
+    console.print(f"\n [green]Proxy valid berhasil disimpan ke .prox.txt[/green]")
+    console.print(f" [cyan]Jumlah proxy valid yang disimpan: {len(valid_proxies)}[/cyan]")
 
 except RequestException as e:
-    print(f" [red]Terjadi kesalahan dalam koneksi: {e}[/red]")
+    console.print(f" [red]Terjadi kesalahan dalam koneksi: {e}[/red]")
 except Exception as e:
-    print(f" [red]Kesalahan tak terduga: {e}[/red]")
+    console.print(f" [red]Kesalahan tak terduga: {e}[/red]")
 	
 prox = open(".prox.txt", "r").read().splitlines()
 # ------------[ UBAH UA DIH SINI OM ]-----------#
