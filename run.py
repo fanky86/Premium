@@ -414,13 +414,13 @@ dic2 = {
     "11": "November",
     "12": "December",
 }
-tgl = datetime.datetime.now().day
-bln = dic[(str(datetime.datetime.now().month))]
-thn = datetime.datetime.now().year
+tgl = datetime.now().day
+bln = dic[(str(datetime.now().month))]
+thn = datetime.now().year
 okc = "OK-" + str(tgl) + "-" + str(bln) + "-" + str(thn) + ".txt"
 cpc = "CP-" + str(tgl) + "-" + str(bln) + "-" + str(thn) + ".txt"
-hour = datetime.datetime.now().hour
-hari_ini = datetime.datetime.now().strftime("%d %B %Y")
+hour = datetime.now().hour
+hari_ini = datetime.now().strftime("%d %B %Y")
 
 
 # --> Pengkondisian Jam Untuk Salam Harian
