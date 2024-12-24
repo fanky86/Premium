@@ -3822,6 +3822,5 @@ if __name__ == "__main__":
     except:
         pass
     ensure_ten_valid_proxies()
-    time.sleep(1)
     clear()
     menu()
