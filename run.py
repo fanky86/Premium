@@ -114,7 +114,16 @@ id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = (
 )
 sys.stdout.write("\x1b]2; BMBF | fanky Brute UPDATE 2024\x07")
 # ------------------[ MENCARI-PROXY ]-------------------#
+from rich.console import Console
+from rich.progress import Progress, BarColumn, TextColumn
+import requests
+import os
+import json
+from datetime import datetime, timedelta
+from requests.exceptions import RequestException
+
 CACHE_FILE = ".prox_cache.json"  # File untuk menyimpan cache proxy
+console = Console()
 
 def clear():
     """Membersihkan layar konsol."""
@@ -159,34 +168,46 @@ try:
     console.print(f"[green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi... ")
     console.print(f"[green]Hanya mengambil 10 Prox yang valid aja mohon sabar...\n")
     
-	
     valid_proxies = []
     max_valid = 10  # Batas maksimal proxy valid yang diambil
+    invalid_count = 0
     current_time = datetime.now()
 
-    for index, proxy in enumerate(prox, start=1):
-        if len(valid_proxies) >= max_valid:
-            console.print(f"\n[cyan]Sudah mendapatkan {max_valid} proxy valid. Proses dihentikan.[/cyan]")
-            break
+    # Progress bar setup
+    with Progress(
+        TextColumn("[progress.description]{task.description}"),
+        BarColumn(),
+        TextColumn("{task.completed}/{task.total}"),
+        TextColumn("[green]Valid:[/] {task.fields[valid]}"),
+        TextColumn("[red]Invalid:[/] {task.fields[invalid]}"),
+    ) as progress:
+        task = progress.add_task(
+            "[yellow]Memvalidasi proxy[/]", total=len(prox), valid=0, invalid=0
+        )
 
-        # Periksa apakah proxy ada di cache
-        if proxy in cache:
-            last_validated = datetime.fromisoformat(cache[proxy]["last_validated"])
-            if current_time - last_validated < timedelta(days=3):
-                console.print(f"[yellow]Proxy {proxy} masih valid dari cache.[/yellow]")
-                valid_proxies.append(proxy)
-                continue
+        for index, proxy in enumerate(prox, start=1):
+            if len(valid_proxies) >= max_valid:
+                console.print(f"\n[cyan]Sudah mendapatkan {max_valid} proxy valid. Proses dihentikan.[/cyan]")
+                break
 
-        # Validasi proxy baru
-        console.print(f"[yellow]Memvalidasi proxy {index}/{len(prox)}: {proxy}...[/yellow]")
-        if is_valid_proxy(proxy):
-            valid_proxies.append(proxy)
-            cache[proxy] = {"last_validated": current_time.isoformat()}
-            console.print(f"[green]Valid:[/green] {proxy}")
-        else:
-            console.print(f"[red]Invalid:[/red] {proxy}")
+            # Periksa apakah proxy ada di cache
             if proxy in cache:
-                del cache[proxy]
+                last_validated = datetime.fromisoformat(cache[proxy]["last_validated"])
+                if current_time - last_validated < timedelta(days=3):
+                    valid_proxies.append(proxy)
+                    progress.update(task, advance=1, valid=len(valid_proxies))
+                    continue
+
+            # Validasi proxy baru
+            if is_valid_proxy(proxy):
+                valid_proxies.append(proxy)
+                cache[proxy] = {"last_validated": current_time.isoformat()}
+                progress.update(task, advance=1, valid=len(valid_proxies))
+            else:
+                invalid_count += 1
+                progress.update(task, advance=1, invalid=invalid_count)
+                if proxy in cache:
+                    del cache[proxy]
 
     # Simpan proxy valid ke file dan update cache
     with open(".prox.txt", "w") as file:
