@@ -112,13 +112,27 @@ id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = (
 )
 sys.stdout.write("\x1b]2; BMBF | fanky Brute UPDATE 2024\x07")
 # ------------------[ MENCARI-PROXY ]-------------------#
-import requests
-import os
+
+from datetime import datetime, timedelta
 from requests.exceptions import RequestException
+
+CACHE_FILE = ".prox_cache.json"  # File untuk menyimpan cache proxy
 
 def clear():
     """Membersihkan layar konsol."""
     os.system('cls' if os.name == 'nt' else 'clear')
+
+def load_cache():
+    """Memuat cache dari file."""
+    if os.path.exists(CACHE_FILE):
+        with open(CACHE_FILE, "r") as file:
+            return json.load(file)
+    return {}
+
+def save_cache(cache):
+    """Menyimpan cache ke file."""
+    with open(CACHE_FILE, "w") as file:
+        json.dump(cache, file, indent=4)
 
 def is_valid_proxy(proxy):
     """Fungsi untuk memeriksa apakah proxy valid."""
@@ -128,47 +142,64 @@ def is_valid_proxy(proxy):
             "http": f"socks5://{proxy}",
             "https": f"socks5://{proxy}",
         }
-        response = requests.get(test_url, proxies=proxies, timeout=5)
+        response = requests.get(test_url, proxies=proxies, timeout=10)
         return response.status_code == 200
     except RequestException:
         return False
 
 try:
     clear()
+    # Memuat cache
+    cache = load_cache()
+    console.print(f"[blue]Memuat cache proxy...[/blue]")
+
     # Mengambil daftar proxy
-    console.print(f" [blue]Mengambil daftar proxy...[/blue]")
+    console.print(f"[blue]Mengambil daftar proxy...[/blue]")
     prox = requests.get(
         "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks5&timeout=80000&country=all&ssl=all&anonymity=all"
     ).text.splitlines()
-    console.print(f" [green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi...")
-    console.print(f" [green]Hanya mengambil 20 prox yang valid aja mohon bersabar...\n")
+    console.print(f"[green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi...\n")
     
-    # Memisahkan proxy valid
     valid_proxies = []
     max_valid = 20  # Batas maksimal proxy valid yang diambil
+    current_time = datetime.now()
 
     for index, proxy in enumerate(prox, start=1):
         if len(valid_proxies) >= max_valid:
-            console.print(f"\n [cyan]Sudah mendapatkan {max_valid} proxy valid. Proses dihentikan.[/cyan]")
+            console.print(f"\n[cyan]Sudah mendapatkan {max_valid} proxy valid. Proses dihentikan.[/cyan]")
             break
-        console.print(f" [yellow]Memvalidasi proxy {index}/{len(prox)}: {proxy}...[/yellow]")
+
+        # Periksa apakah proxy ada di cache
+        if proxy in cache:
+            last_validated = datetime.fromisoformat(cache[proxy]["last_validated"])
+            if current_time - last_validated < timedelta(days=3):
+                console.print(f"[yellow]Proxy {proxy} masih valid dari cache.[/yellow]")
+                valid_proxies.append(proxy)
+                continue
+
+        # Validasi proxy baru
+        console.print(f"[yellow]Memvalidasi proxy {index}/{len(prox)}: {proxy}...[/yellow]")
         if is_valid_proxy(proxy):
             valid_proxies.append(proxy)
-            console.print(f" [green]Valid:[/green] {proxy}")
+            cache[proxy] = {"last_validated": current_time.isoformat()}
+            console.print(f"[green]Valid:[/green] {proxy}")
         else:
-            console.print(f" [red]Invalid:[/red] {proxy}")
+            console.print(f"[red]Invalid:[/red] {proxy}")
+            if proxy in cache:
+                del cache[proxy]
 
-    # Menyimpan proxy valid ke file
+    # Simpan proxy valid ke file dan update cache
     with open(".prox.txt", "w") as file:
         file.write("\n".join(valid_proxies))
-    
-    console.print(f"\n [green]Proxy valid berhasil disimpan ke .prox.txt[/green]")
-    console.print(f" [cyan]Jumlah proxy valid yang disimpan: {len(valid_proxies)}[/cyan]")
+    save_cache(cache)
+
+    console.print(f"\n[green]Proxy valid berhasil disimpan ke .prox.txt[/green]")
+    console.print(f"[cyan]Jumlah proxy valid yang disimpan: {len(valid_proxies)}[/cyan]")
 
 except RequestException as e:
-    console.print(f" [red]Terjadi kesalahan dalam koneksi: {e}[/red]")
+    console.print(f"[red]Terjadi kesalahan dalam koneksi: {e}[/red]")
 except Exception as e:
-    console.print(f" [red]Kesalahan tak terduga: {e}[/red]")
+    console.print(f"[red]Kesalahan tak terduga: {e}[/red]")
 	
 prox = open(".prox.txt", "r").read().splitlines()
 # ------------[ UBAH UA DIH SINI OM ]-----------#
