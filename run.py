@@ -1299,18 +1299,18 @@ def settinggg():
     else:
         print(" [+] Pilih Yang Bener Sayang ")
         return setting
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]validate v1[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]validate V2[bold white]\n{P2}[{color_text}03{P2}] Login Site [bold green]Reguler[bold white]\n{P2}[{color_text}04{P2}] Login Site [bold green]Mbasic[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]MBASIC WORK[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
     hc = console.input(f" {H2}• {P2}Masukan : ")
     if hc in ["1", "01"]:
         method.append("validatev1")
-    elif hc in ["2", "02"]:
-        method.append("validatev2")
-    elif hc in ["3", "03"]:
-        method.append("reguler")
-    elif hc in ["4", "04"]:
-        method.append("mbasic")
+    #elif hc in ["2", "02"]:
+        #method.append("validatev2")
+    #elif hc in ["3", "03"]:
+        #method.append("reguler")
+    #elif hc in ["4", "04"]:
+        #method.append("mbasic")
     else:
-        method.append("reguler")
+        method.append("validatev1")
     Console().print(Panel(f"[bold white]Apakah Anda Ingin Mengunakan UA Manual ? Y/T",title=f"[bold green]Setting User-Agent",width=60,style=f"{color_panel}"))
     uatambah = console.input(f" {H2}• {P2}Masukan : ")
     if uatambah in ["y", "Ya", "ya", "Y"]:
@@ -1424,15 +1424,15 @@ def metslow():
                 else:
                     pass
                 if "validatev1" in method:
-                    pool.submit(validatev1,idf,pwv,'m.prod.facebook.com')
-                elif "validatev2" in method:
-                    pool.submit(validatev2,idf,pwv)
-                elif "reguler" in method:
-                    pool.submit(reguler,idf,pwv)
-                elif "mbasic" in method:
                     pool.submit(mbasic,idf,pwv)
+                #elif "validatev2" in method:
+                    #pool.submit(validatev2,idf,pwv)
+                #elif "reguler" in method:
+                    #pool.submit(reguler,idf,pwv)
+                #elif "mbasic" in method:
+                    #pool.submit(mbasic,idf,pwv)
                 else:
-                    pool.submit(reguler,idf,pwv)
+                    pool.submit(mbasic,idf,pwv)
     print("")
     Console().print(
         Panel(
@@ -1491,15 +1491,15 @@ def metcepat():
                         pwv.append(xpwd)
                 else:pass
                 if "validatev1" in method:
-                    pool.submit(validatev1,idf,pwv,'m.prod.facebook.com')
-                elif "validatev2" in method:
-                    pool.submit(validatev2,idf,pwv)
-                elif "reguler" in method:
-                    pool.submit(reguler,idf,pwv)
-                elif "mbasic" in method:
                     pool.submit(mbasic,idf,pwv)
+                #elif "validatev2" in method:
+                    #pool.submit(validatev2,idf,pwv)
+                #elif "reguler" in method:
+                    #pool.submit(reguler,idf,pwv)
+                #elif "mbasic" in method:
+                    #pool.submit(mbasic,idf,pwv)
                 else:
-                    pool.submit(reguler,idf,pwv)
+                    pool.submit(mbasic,idf,pwv)
     print("")
     Console().print(
         Panel(
