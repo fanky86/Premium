@@ -71,6 +71,8 @@ from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn
 from licensing.models import *
 from licensing.methods import Key, Helpers
 from concurrent.futures import ThreadPoolExecutor as executor
+from datetime import datetime, timedelta
+from requests.exceptions import RequestException
 # ------------------[ GLOBAL NAME ]-------------------#
 sekarang = calendar.timegm(time.gmtime(time.time()))
 pretty.install()
@@ -112,9 +114,6 @@ id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = (
 )
 sys.stdout.write("\x1b]2; BMBF | fanky Brute UPDATE 2024\x07")
 # ------------------[ MENCARI-PROXY ]-------------------#
-from datetime import datetime, timedelta
-from requests.exceptions import RequestException
-
 CACHE_FILE = ".prox_cache.json"  # File untuk menyimpan cache proxy
 
 def clear():
