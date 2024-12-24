@@ -3823,5 +3823,9 @@ if __name__ == "__main__":
         os.system("touch .prox.txt")
     except:
         pass
+    try:
+        os.system("clear")
+    except:
+        pass
     ensure_ten_valid_proxies()
     menu()
