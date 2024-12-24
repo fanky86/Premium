@@ -226,12 +226,12 @@ def save_and_display_proxy_status():
                 # Mengganti nama valid_proxies.txt menjadi .prox.txt
                 os.rename("valid_proxies.txt", ".prox.txt")
                 print(f"{Fore.GREEN}[INFO] File 'valid_proxies.txt' diganti nama menjadi '.prox.txt'")
-                botteleg()
+        
         else:
             print(f"{Fore.RED}[INFO] Tidak ada proxy valid ditemukan.")
     else:
         print(f"{Fore.RED}[INFO] Tidak ada proxy ditemukan.")
-
+    botteleg()
 	
 # ------------[ UBAH UA DIH SINI OM ]-----------#
 for xd in range(1000):
