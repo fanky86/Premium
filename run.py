@@ -125,13 +125,14 @@ def is_valid_proxy(proxy):
         return False
 
 try:
+    clear()
     # Mengambil daftar proxy
     console.print(f" [blue]Mengambil daftar proxy...[/blue]")
     prox = requests.get(
         "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
     ).text.splitlines()
     console.print(f" [green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi...\n")
-
+    console.print(f" [green]Hanya mengambil 20 prox yang valid aja mohon bersabar...\n")
     # Memisahkan proxy valid
     valid_proxies = []
     max_valid = 20  # Batas maksimal proxy valid yang diambil
