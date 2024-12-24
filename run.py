@@ -112,7 +112,6 @@ id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = (
 )
 sys.stdout.write("\x1b]2; BMBF | fanky Brute UPDATE 2024\x07")
 # ------------------[ MENCARI-PROXY ]-------------------#
-import datetime,time
 from datetime import datetime, timedelta
 from requests.exceptions import RequestException
 
