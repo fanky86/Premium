@@ -216,7 +216,7 @@ def ensure_ten_valid_proxies():
 
     return valid_proxies
 
-
+prox = open(".prox.txt", "r").read().splitlines()
 # ------------[ UBAH UA DIH SINI OM ]-----------#
 for xd in range(1000):
 	rr = random.randint; rc = random.choice
