@@ -156,10 +156,12 @@ try:
     prox = requests.get(
         "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
     ).text.splitlines()
-    console.print(f"[green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi...\n")
+    console.print(f"[green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi... ")
+    console.print(f"[green]Hanya mengambil 10 Prox yang valid aja mohon sabar...\n")
     
+	
     valid_proxies = []
-    max_valid = 20  # Batas maksimal proxy valid yang diambil
+    max_valid = 10  # Batas maksimal proxy valid yang diambil
     current_time = datetime.now()
 
     for index, proxy in enumerate(prox, start=1):
