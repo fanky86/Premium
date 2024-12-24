@@ -137,8 +137,8 @@ def is_valid_proxy(proxy):
     try:
         test_url = "http://mbasic.facebook.com"
         proxies = {
-            "http": f"socks5://{proxy}",
-            "https": f"socks5://{proxy}",
+            "http": f"socks4://{proxy}",
+            "https": f"socks4://{proxy}",
         }
         response = requests.get(test_url, proxies=proxies, timeout=10)
         return response.status_code == 200
@@ -1611,7 +1611,7 @@ def mbasic(idf, pwv):
                 ua = ualu[0]
             
             nip = random.choice(prox)
-            proxs = {'http': 'socks5://' + nip}
+            proxs = {'http': 'socks4://' + nip}
             
             ses.headers.update({
                 'Host': 'mbasic.facebook.com',
