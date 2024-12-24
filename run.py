@@ -111,110 +111,35 @@ id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = (
 )
 sys.stdout.write("\x1b]2; BMBF | fanky Brute UPDATE 2024\x07")
 # ------------------[ MENCARI-PROXY ]-------------------#
-import os
-import re
-import requests
-import socket
-import socks
-import warnings
-from urllib3.exceptions import InsecureRequestWarning
-from colorama import init, Fore
-
-# Inisialisasi Colorama
-init(autoreset=True)
-
-# Menonaktifkan peringatan dari urllib3
-warnings.simplefilter('ignore', InsecureRequestWarning)
-
-# Fungsi untuk memeriksa apakah proxy valid
-def check_proxy_valid(proxy):
+def is_valid_proxy(proxy):
+    """Fungsi untuk memeriksa apakah proxy valid."""
     try:
-        proxy_ip, proxy_port = proxy.split(":")
-        
-        # Validasi format IP
-        if not re.match(r"\b(?:\d{1,3}\.){3}\d{1,3}\b", proxy_ip):
-            return False
-
-        # Atur proxy sebagai SOCKS5
-        socks.set_default_proxy(socks.SOCKS5, proxy_ip, int(proxy_port))
-        socket.socket = socks.socksocket
-
-        # Uji koneksi ke URL
-        url = "https://mbasic.facebook.com"
-        response = requests.get(url, timeout=10, verify=False)
+        test_url = "http://mbasic.facebook.com"
+        proxies = {
+            "http": f"socks4://{proxy}",
+            "https": f"socks4://{proxy}",
+        }
+        response = requests.get(test_url, proxies=proxies, timeout=5)
         return response.status_code == 200
     except Exception:
         return False
 
-# Fungsi untuk mengambil daftar proxy dari API
-def fetch_proxies():
-    try:
-        print(f"{Fore.YELLOW}[INFO] Mengambil proxy baru dari API...")
-        response = requests.get(
-            "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
-        )
-        if response.status_code == 200:
-            prox = response.text
-            print(f"{Fore.GREEN}[INFO] Proxy berhasil diambil dari API.")
-            return prox.splitlines()
-        else:
-            print(f"{Fore.RED}[ERROR] Gagal mengambil proxy dari API. Status code: {response.status_code}")
-            return []
-    except Exception as e:
-        print(f"{Fore.RED}[ERROR] Terjadi kesalahan saat mengambil proxy: {e}")
-        return []
-	    
-# Fungsi untuk memvalidasi proxy
-def validate_proxies(proxies, valid_proxies, needed):
-    for proxy in proxies:
-        if len(valid_proxies) >= needed:  # Jika sudah cukup, hentikan
-            break
+try:
+    # Mengambil daftar proxy
+    prox = requests.get(
+        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
+    ).text.splitlines()
 
-        if check_proxy_valid(proxy):
-            valid_proxies.append(proxy)
-            print(f"{Fore.GREEN}[INFO] Proxy {proxy} valid!")
-        else:
-            print(f"{Fore.RED}[INFO] Proxy {proxy} invalid!")
+    # Memeriksa proxy satu per satu
+    valid_proxies = [proxy for proxy in prox if is_valid_proxy(proxy)]
 
-    return valid_proxies
-
-# Fungsi utama untuk memastikan ada 10 proxy valid
-def ensure_ten_valid_proxies():
-    valid_proxies = []
-
-    # Jika file .prox.txt ada, lakukan validasi ulang
-    if os.path.exists(".prox.txt"):
-        print(f"{Fore.YELLOW}[INFO] File '.prox.txt' ditemukan. Melakukan recheck...")
-        existing_proxies = open(".prox.txt", "r").read().splitlines()
-        valid_proxies = validate_proxies(existing_proxies, valid_proxies, 10)
-
-    # Jika valid proxy kurang dari 10, tambahkan dari proxy baru
-    while len(valid_proxies) < 10:
-        needed = 10 - len(valid_proxies)
-        print(f"{Fore.YELLOW}[INFO] Kurang {needed} proxy valid. Mengambil lebih banyak proxy...")
-
-        # Ambil proxy baru
-        new_proxies = fetch_proxies()
-
-        # Jika tidak ada proxy baru yang bisa diambil, hentikan proses
-        if not new_proxies:
-            print(f"{Fore.RED}[ERROR] Tidak dapat mengambil proxy baru. Pastikan koneksi internet stabil.")
-            break
-
-        # Validasi proxy baru
-        valid_proxies = validate_proxies(new_proxies, valid_proxies, needed)
-
-    # Simpan maksimal 10 proxy valid ke .prox.txt
-    if len(valid_proxies) >= 10:
-        valid_proxies = valid_proxies[:10]  # Ambil hanya 10 proxy pertama
-        with open(".prox.txt", "w") as file:
-            file.write("\n".join(valid_proxies))
-        print(f"{Fore.GREEN}[INFO] 10 Proxy valid berhasil disimpan di '.prox.txt'")
-        print(f"{Fore.CYAN}[INFO] Proses selesai. Tidak perlu mencari proxy lagi.")
-    else:
-        print(f"{Fore.RED}[INFO] Tidak cukup proxy valid ditemukan. Total valid: {len(valid_proxies)}")
-
-    return valid_proxies
+    # Menyimpan proxy yang valid ke file
+    with open(".prox.txt", "w") as file:
+        file.write("\n".join(valid_proxies))
+    console.print(f" {H2}•{P2} Proxy valid berhasil disimpan ke .prox.txt")
+except Exception as e:
+    console.print(f" {H2}•{P2} Koneksi Internet Anda Tidak Terdeteksi Silahkan Cek Kuota Anda")
+    exit()
 
 prox = open(".prox.txt", "r").read().splitlines()
 # ------------[ UBAH UA DIH SINI OM ]-----------#
@@ -3827,5 +3752,4 @@ if __name__ == "__main__":
         os.system("clear")
     except:
         pass
-    ensure_ten_valid_proxies()
     menu()
