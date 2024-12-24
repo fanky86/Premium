@@ -77,6 +77,7 @@ pretty.install()
 CON = sol()
 prem=[]
 wa = Console()
+clear = os.system("clear")
 ugen2 = []
 ugen = []
 uahk=[]
