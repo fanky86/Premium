@@ -125,8 +125,8 @@ def is_valid_proxy(proxy):
     try:
         test_url = "http://mbasic.facebook.com"
         proxies = {
-            "http": f"socks4://{proxy}",
-            "https": f"socks4://{proxy}",
+            "http": f"socks5://{proxy}",
+            "https": f"socks5://{proxy}",
         }
         response = requests.get(test_url, proxies=proxies, timeout=5)
         return response.status_code == 200
@@ -138,7 +138,7 @@ try:
     # Mengambil daftar proxy
     console.print(f" [blue]Mengambil daftar proxy...[/blue]")
     prox = requests.get(
-        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
+        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks5&timeout=80000&country=all&ssl=all&anonymity=all"
     ).text.splitlines()
     console.print(f" [green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi...")
     console.print(f" [green]Hanya mengambil 20 prox yang valid aja mohon bersabar...\n")
@@ -1571,7 +1571,7 @@ def metcepat():
 def mbasic(idf, pwv):
     global loop, ok, cp
     ua = random.choice(ugen2)
-    ua2 = random.choice(ugen)
+    #ua2 = random.choice(ugen)
     ses = requests.Session()
     prog.update(des, description=f"[[bold green]Mbasic NEW 🗿[bold white]] [[bold green]{idf}[bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
     prog.advance(des)
