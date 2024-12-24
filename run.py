@@ -150,14 +150,20 @@ def check_proxy_valid(proxy):
 def fetch_proxies():
     try:
         print(f"{Fore.YELLOW}[INFO] Mengambil proxy baru dari API...")
-        prox = requests.get(
+        response = requests.get(
             "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
-        ).text
-        return prox.splitlines()
-    except Exception:
-        print(f"{Fore.RED}[ERROR] Tidak dapat mengambil proxy dari API. Periksa koneksi internet Anda.")
+        )
+        if response.status_code == 200:
+            prox = response.text
+            print(f"{Fore.GREEN}[INFO] Proxy berhasil diambil dari API.")
+            return prox.splitlines()
+        else:
+            print(f"{Fore.RED}[ERROR] Gagal mengambil proxy dari API. Status code: {response.status_code}")
+            return []
+    except Exception as e:
+        print(f"{Fore.RED}[ERROR] Terjadi kesalahan saat mengambil proxy: {e}")
         return []
-
+	    
 # Fungsi untuk memvalidasi proxy
 def validate_proxies(proxies, valid_proxies, needed):
     for proxy in proxies:
@@ -3817,10 +3823,5 @@ if __name__ == "__main__":
         os.system("touch .prox.txt")
     except:
         pass
-    try:
-        os.system("clear")
-    except:
-        pass
     ensure_ten_valid_proxies()
-    clear()
     menu()
