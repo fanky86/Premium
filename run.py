@@ -154,7 +154,7 @@ try:
     # Mengambil daftar proxy
     console.print(f"[blue]Mengambil daftar proxy...[/blue]")
     prox = requests.get(
-        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks5&timeout=80000&country=all&ssl=all&anonymity=all"
+        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
     ).text.splitlines()
     console.print(f"[green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi...\n")
     
