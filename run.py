@@ -112,6 +112,14 @@ id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = (
 )
 sys.stdout.write("\x1b]2; BMBF | fanky Brute UPDATE 2024\x07")
 # ------------------[ MENCARI-PROXY ]-------------------#
+import requests
+import os
+from requests.exceptions import RequestException
+
+def clear():
+    """Membersihkan layar konsol."""
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 def is_valid_proxy(proxy):
     """Fungsi untuk memeriksa apakah proxy valid."""
     try:
@@ -122,42 +130,46 @@ def is_valid_proxy(proxy):
         }
         response = requests.get(test_url, proxies=proxies, timeout=5)
         return response.status_code == 200
-    except Exception:
+    except RequestException:
         return False
 
 try:
     clear()
     # Mengambil daftar proxy
-    console.print(f" [blue]Mengambil daftar proxy...[/blue]")
+    print(f" [blue]Mengambil daftar proxy...[/blue]")
     prox = requests.get(
         "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
     ).text.splitlines()
-    console.print(f" [green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi...\n")
-    #console.print(f" [green]Hanya mengambil 20 prox yang valid aja mohon bersabar...\n")
+    print(f" [green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi...\n")
+    print(f" [green]Hanya mengambil 20 prox yang valid aja mohon bersabar...\n")
+    
     # Memisahkan proxy valid
     valid_proxies = []
     max_valid = 20  # Batas maksimal proxy valid yang diambil
 
     for index, proxy in enumerate(prox, start=1):
         if len(valid_proxies) >= max_valid:
-            console.print(f"\n [cyan]Sudah mendapatkan {max_valid} proxy valid. Proses dihentikan.[/cyan]")
+            print(f"\n [cyan]Sudah mendapatkan {max_valid} proxy valid. Proses dihentikan.[/cyan]")
             break
-        console.print(f" [yellow]Memvalidasi proxy {index}/{len(prox)}: {proxy}...[/yellow]")
+        print(f" [yellow]Memvalidasi proxy {index}/{len(prox)}: {proxy}...[/yellow]")
         if is_valid_proxy(proxy):
             valid_proxies.append(proxy)
-            console.print(f" [green]Valid:[/green] {proxy}")
+            print(f" [green]Valid:[/green] {proxy}")
         else:
-            console.print(f" [red]Invalid:[/red] {proxy}")
+            print(f" [red]Invalid:[/red] {proxy}")
 
     # Menyimpan proxy valid ke file
     with open(".prox.txt", "w") as file:
         file.write("\n".join(valid_proxies))
     
-    console.print(f"\n [green]Proxy valid berhasil disimpan ke .prox.txt[/green]")
-    console.print(f" [cyan]Jumlah proxy valid yang disimpan: {len(valid_proxies)}[/cyan]")
+    print(f"\n [green]Proxy valid berhasil disimpan ke .prox.txt[/green]")
+    print(f" [cyan]Jumlah proxy valid yang disimpan: {len(valid_proxies)}[/cyan]")
+
+except RequestException as e:
+    print(f" [red]Terjadi kesalahan dalam koneksi: {e}[/red]")
 except Exception as e:
-    console.print(f" [red]Koneksi Internet Anda Tidak Terdeteksi. Silahkan Cek Kuota Anda[/red]")
-    exit()
+    print(f" [red]Kesalahan tak terduga: {e}[/red]")
+	
 prox = open(".prox.txt", "r").read().splitlines()
 # ------------[ UBAH UA DIH SINI OM ]-----------#
 for xd in range(1000):
