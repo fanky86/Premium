@@ -136,7 +136,7 @@ def check_proxy_valid(proxy):
         return False
 
 # Fungsi untuk mengambil proxy dari API
-def fetch_proxies():
+def fetch_proxieshh():
     try:
         print(f"{Fore.YELLOW}[INFO] Mengambil proxy baru dari API...")
         prox = requests.get(
@@ -146,6 +146,21 @@ def fetch_proxies():
     except Exception:
         print(f"{Fore.RED}[INFO] Gagal mengambil proxy baru. Cek koneksi internet Anda.")
         return []
+def fetch_proxies():
+    try:
+        # Mengambil daftar proxy dari API ProxyScrape
+        prox = requests.get(
+            "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
+        ).text
+        open(".prox.txt", "w").write(prox)
+    except Exception:
+        print("Koneksi internet Anda tidak terdeteksi. Silakan cek kuota Anda.")
+        return []
+    
+    # Membaca daftar proxy dari file
+    prox = open(".prox.txt", "r").read().splitlines()
+
+    return prox
 
 # Fungsi untuk memvalidasi proxy
 def validate_proxies(proxies):
