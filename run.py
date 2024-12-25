@@ -83,6 +83,7 @@ clear = os.system("clear")
 ugen2 = []
 ugen = []
 uahk=[]
+baru = []
 ugent =[]
 temanku = []
 console = Console()
@@ -317,9 +318,6 @@ for _ in range(10000):
     # Pilih User-Agent secara acak
     selected_ua = random.choice(user_agents)
     baru.append(selected_ua)
-
-
-baru = []
 
 # Loop pertama
 for t in range(10000):
