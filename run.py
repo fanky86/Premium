@@ -317,7 +317,7 @@ for _ in range(10000):
 
     # Pilih User-Agent secara acak
     selected_ua = random.choice(user_agents)
-    ugen.append(selected_ua)
+    baru.append(selected_ua)
 
 # Loop pertama
 for t in range(10000):
@@ -342,7 +342,7 @@ for _ in range(10000):
     uazku1 = f"Mozilla/5.0 (Linux; Android 7.1.2; Redmi 5pro Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{rr(73, 99)}.0.{rr(4500, 4900)}.{rr(75, 150)} Mobile Safari/537.36"
     uazku2 = f"Mozilla/5.0 (Linux; U; Android {rr(9, 13)}; Redmi 6 Pro Build/PKQ1.{rr(111111, 199999)}.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{rr(75, 150)}.0.{rr(5500, 5900)}.{rr(73, 99)} Mobile Safari/537.36"
     uazku3 = f"Mozilla/5.0 (Linux; Android {rr(9, 13)}; Redmi 8 Build/QKQ1.{rr(211111, 299999)}.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{rr(75, 150)}.0.{rr(5500, 5900)}.{rr(73, 140)} Mobile Safari/537.36"
-    baru.append(rc([uazku1, uazku2, uazku3]))
+    ugen.append(rc([uazku1, uazku2, uazku3]))
 
 # Loop ketiga
 build_nokiax = ['JDQ39', 'JZO54K']
@@ -359,7 +359,7 @@ for _ in range(1000):
     ugent1 = f"Mozilla/5.0 (Linux; Android {rr(4, 12)}; {rc(gt_models)}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{rr(100, 104)}.0.{rr(3900, 4900)}.{rr(40, 150)} Mobile Safari/537.36 {rc(alphabet)}{rr(1, 1000)}"
     ugent2 = f"Mozilla/5.0 (Linux; Android 4.1.2; Nokia_X Build/{rc(build_nokiax)}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{rr(100, 104)}.0.{rr(3900, 4900)}.{rr(40, 150)} Mobile Safari/537.36 NokiaBrowser/7.{rr(1, 5)}.1.{rr(16, 37)} {rc(alphabet)}{rr(1, 1000)}"
     ugent3 = f"Mozilla/5.0 (Linux; U; Android {rr(4, 12)}; {rc(languages)}; Redmi 5 Plus Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{rr(40, 104)}.0.{rr(3900, 4900)}.{rr(40, 150)} Mobile Safari/537.36 XiaoMi/MiuiBrowser/{rr(1, 99)}.{rc(miui_v1)}.{rc(miui_v2)}{rc(miui_v3)} {rc(alphabet)}{rr(1, 1000)}"
-    baru.append(random.choice([ugent1, ugent2, ugent3]))
+    ugen.append(random.choice([ugent1, ugent2, ugent3]))
 
 def uaku():
     try:
