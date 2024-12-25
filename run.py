@@ -1380,10 +1380,7 @@ def setting():
 
     # Pilihan metode login
     Console().print(Panel(
-        f"{P2}[{color_text}01{P2}] Login Site [bold green]validate v1[bold white] [/]\n"
-        f"{P2}[{color_text}02{P2}] Login Site [bold green]validate v2[bold white] [/]\n"
-        f"{P2}[{color_text}03{P2}] Login Site [bold green]Reguler[bold white] [/]\n"
-        f"{P2}[{color_text}04{P2}] Login Site [bold green]Mbasic[bold white] [/]",
+        f"{P2}[{color_text}01{P2}] Login Site [bold green]Mbasic Update[bold white] [/]",
         width=60,
         style=f"{color_panel}",
         title="[bold green] Method"
@@ -1393,14 +1390,14 @@ def setting():
     hc = console.input(f" {H2}• {P2}Masukan : ").strip()
     if hc in ["1", "01"]:
         method.append("validatev1")
-    elif hc in ["2", "02"]:
-        method.append("validatev2")
-    elif hc in ["3", "03"]:
-        method.append("reguler")
-    elif hc in ["4", "04"]:
-        method.append("mbasic")
+    #elif hc in ["2", "02"]:
+        #method.append("validatev2")
+    #elif hc in ["3", "03"]:
+        #method.append("reguler")
+    #elif hc in ["4", "04"]:
+        #method.append("mbasic")
     else:
-        method.append("reguler")  # Default metode
+        method.append("validatev1")  # Default metode
 
     # Pengaturan User-Agent
     Console().print(Panel(
