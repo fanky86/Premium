@@ -333,7 +333,7 @@ for t in range(10000):
     version_build = random.randrange(40, 150)
     safari_info = "Mobile Safari/537.36"
     uaku = f"{aa} {android_version}; {device}{random_letter_1}{random_number}{random_letter_2}) {browser_info}{version_minor}.0.{version_patch}.{version_build} {safari_info}"
-    baru.append(uaku)
+    ugen.append(uaku)
 
 # Loop kedua
 for _ in range(10000):
