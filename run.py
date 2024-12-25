@@ -1666,7 +1666,7 @@ def metcepat():
 
 
 
-def mbasic(idf, pwv):
+def mbasiccc(idf, pwv):
     global loop, ok, cp
     ua = random.choice(baru)
     #ua2 = random.choice(ugen)
@@ -1814,7 +1814,7 @@ def mbasicccccc(idf,pwv):
 def validatev2(idf,pwv):
 	global loop,ok,cp
 	bo = random.choice([m,k,h,b,u,x])
-	ua = random.choice(ugen2)
+	ua = random.choice(baru)
 	#ua2 = ("Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59")
 	ses = requests.Session()
 	prog.update(des,description=f"{h}VALIDATE V2 {P2}{idf} [bold blue]{loop}/{len(id)} OK-:[bold cyan]{ok}[/] CP-:[bold gold]{cp}[/]")
@@ -1858,13 +1858,13 @@ def validatev2(idf,pwv):
 
 
 #--------------------[ METODE ASYNC ]-----------------#
-def kontoghl(idf,pwv):
+def mbasic(idf,pwv):
 	global loop,ok,cp
 	bo = random.choice([m,k,h,b,u,x])
-	ua = random.choice(ugen)
-	ua2 = random.choice(ugen2)
+	ua = random.choice(baru)
+	ua2 = random.choice(ugen)
 	ses = requests.Session()
-	prog.update(des,description=f" {K2}•{H2} ASYNC {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.update(des,description=f" {K2}•{H2} ASYNC TEST {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
 	for pw in pwv:
 		try:
