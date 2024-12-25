@@ -317,7 +317,7 @@ for _ in range(10000):
 
     # Pilih User-Agent secara acak
     selected_ua = random.choice(user_agents)
-    baru.append(selected_ua)
+    ugen.append(selected_ua)
 
 # Loop pertama
 for t in range(10000):
