@@ -1,3 +1,10 @@
+# recode tingall recode aja 
+# jangan diperjual belikan 
+# jangan lupa kasih star
+# kalo gak ada hasil recode sendiri jangan ngandelin orang lain
+# github —» https://github.com/fanky86/Premium
+
+
 import os
 
 # ------------------[  MODULE  ]-------------------#
@@ -89,6 +96,11 @@ temanku = []
 console = Console()
 ses = requests.Session()
 lisensiku=[]
+def fanky():
+	console.print(f"{H2} •{U2} SCRIPT INI DALAM PERKEMBANGAN{P2} • {U2}")
+	console.print(f"{H2} •{U2} BANTU SUPPORT DENGAN FOLLO GITHUB{P2} • {U2}")
+	console.print(f"{H2} •{U2} github —» https://github.com/fanky86{P2} • {U2}")
+	exit()
 hapus  = '[/]'
 id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = (
     [],
@@ -3879,4 +3891,4 @@ if __name__ == "__main__":
         os.system("clear")
     except:
         pass
-    login()
+    fanky()
