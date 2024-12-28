@@ -197,6 +197,7 @@ try:
             console.print(f"[yellow]Beberapa proxy sudah lebih dari 3 hari, memulai pencarian proxy baru...[/yellow]")
             os.remove(".prox_cache.json")
     else:
+        pass
         console.print(f"[blue]Mengambil daftar proxy...[/blue]")
         prox = requests.get(
             "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
