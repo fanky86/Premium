@@ -173,6 +173,7 @@ def is_valid_proxy(proxy):
 
 try:
     clear()
+    pass
     # Memuat cache
     cache = load_cache()
     console.print(f"[blue]Memuat cache proxy...[/blue]")
