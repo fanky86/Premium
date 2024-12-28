@@ -201,9 +201,9 @@ try:
             "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
         ).text.splitlines()
         console.print(f"[green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi... ")
-        # console.print(f"[green]Hanya mengambil 10 Prox yang valid aja mohon sabar...\n")
+        console.print(f"[green]Hanya mengambil 10 Prox yang valid aja mohon sabar...\n")
         
-        max_valid = 0  # Batas maksimal proxy valid yang diambil
+        max_valid = 10  # Batas maksimal proxy valid yang diambil
         invalid_count = 0
 
         # Progress bar setup
