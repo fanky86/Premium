@@ -594,7 +594,7 @@ def Licensiprem():
 		logoku()
 		if os.path.exists(".license"):
 			key = open(".license","r").read()
-			check = requests.get("https://pastebin.com/raw/eKMyyVzJ").text
+			check = requests.get("https://raw.githubusercontent.com/fanky86/License/main/license.txt").text
 			if key in check:
 				lisensiku.append("sukses")
 				Console().print(Panel(f"{H2} • {P2}Key Anda Sudah {H2}Aktif✓{P2}{hapus}",width=60,style=f"{color_panel}"))
@@ -3892,4 +3892,4 @@ if __name__ == "__main__":
         os.system("clear")
     except:
         pass
-    fanky()
+    Licensiprem()
