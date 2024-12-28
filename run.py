@@ -43,6 +43,10 @@ try:
 except ImportError:
     console.print(f" {H2}• {U2}Sedang Menginstall Modul bs4 {H2}•{P2}")
     os.system("pip install bs4")
+try:
+	os.system("git pull")
+except:
+	pass
 # ------------------[ IMPORT MODULE ]-------------------#
 import requests, bs4, json, os, sys, random, datetime, time, re, rich, base64, subprocess, uuid, calendar
 from time import sleep
@@ -190,6 +194,8 @@ try:
             console.print(f"[cyan]Sudah ada 10 proxy valid di cache, dan masih valid. Tidak perlu mencari lagi.[/cyan]")
         else:
             console.print(f"[yellow]Beberapa proxy sudah lebih dari 3 hari, memulai pencarian proxy baru...[/yellow]")
+            os.remove(".prox_cache.json")
+            return
     else:
         console.print(f"[blue]Mengambil daftar proxy...[/blue]")
         prox = requests.get(
@@ -3855,10 +3861,6 @@ class get_data_web:
 
 # -----------------------[ SYSTEM-CONTROL ]--------------------#
 if __name__ == "__main__":
-    try:
-        os.system("git pull")
-    except:
-        pass
     try:
         os.mkdir("/sdcard/RUDAL-DUMP")
     except:
