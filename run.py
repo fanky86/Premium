@@ -195,7 +195,7 @@ try:
         else:
             console.print(f"[yellow]Beberapa proxy sudah lebih dari 3 hari, memulai pencarian proxy baru...[/yellow]")
             os.remove(".prox_cache.json")
-            return []
+            return {}
     else:
         console.print(f"[blue]Mengambil daftar proxy...[/blue]")
         prox = requests.get(
