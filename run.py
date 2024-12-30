@@ -764,7 +764,7 @@ def crack_file():
 datakuje = []
 def maindulu():
 	try:
-		rawr = open("/data/.temp_documents", "r").read()
+		rawr = "./data/.temp_documents"
 		if os.path.exists(rawr):
 			menu()
 	except IOError:
