@@ -765,15 +765,8 @@ datakuje = []
 def maindulu():
 	try:
 		rawr = open("/data/.temp_documents", "r").read()
-		datakuje.append(rawr)
-		menu()
-		try:
+		if os.path.exists(rawr):
 			menu()
-		except KeyError:
-			maindulu2()
-		except requests.exceptions.ConnectionError:
-			Console().print(f" {H2}• {P2}[bold red]Problem Internet Connection, Check And Try Again")
-			exit()
 	except IOError:
 		maindulu2()
 	    
