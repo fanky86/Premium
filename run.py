@@ -767,7 +767,9 @@ def maindulu():
 		rawr = "./data/.temp_documents"
 		if os.path.exists(rawr):
 			menu()
-	except IOError:
+		if not os.path.exists(rawr):
+			maindulu2()
+	except:
 		maindulu2()
 	    
 def maindulu2():
