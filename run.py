@@ -803,16 +803,16 @@ def maindulu2():
 def maindulu():
     try:
         rawr = "./data/.temp_documents"
-        print(f"Memeriksa path: {rawr}")
+        #print(f"Memeriksa path: {rawr}")
         if os.path.exists(rawr):
-            print("Path ditemukan, memanggil menu()")
+            #print("Path ditemukan, memanggil menu()")
             menu()
         else:
-            print("Path tidak ditemukan, memanggil maindulu2()")
+            #print("Path tidak ditemukan, memanggil maindulu2()")
             maindulu2()
     except Exception as e:
-        print(f"Terjadi error: {e}")
-        print("Memanggil maindulu2() dari except")
+        #print(f"Terjadi error: {e}")
+        #print("Memanggil maindulu2() dari except")
         maindulu2()
 
 # -----------------[ HASIL-CRACK ]-----------------#
