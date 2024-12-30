@@ -804,15 +804,9 @@ def Mengirim_Dokumen(file_path):
         pass  # postinserted
     return None
 
-def maindulu():
-	try:
-		temp_folder = "./data/.temp_documents"
-		if not os.path.exists(temp_folder):
-		menu()
-	except:
-		maindulu2()
+
 datakuje = []
-def login():
+def maindulu():
     try:
         rawr = open("./data/.temp_documents", "r").read()
         datakuje.append(rawr)
