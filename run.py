@@ -1436,8 +1436,8 @@ def mbasic(idf, pwv):
 	#bo = random.choice([m, k, h, b, u, x])
 	prog.update(des,description=f" {K2}•{H2} UPDATE {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
-	#ua = random.choice(baru)
-	ua = dalvik()
+	ua = random.choice(baru)
+	#ua = random.choice(dalvik())
 	ses = requests.Session()
 	for pw in pwv:
 		if 'ya' in ualuh: ua = ualu[0]
