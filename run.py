@@ -1182,7 +1182,7 @@ def setting():
 
     # Pilihan metode login
     Console().print(Panel(
-        f"{P2}[{color_text}01{P2}] Login Site [bold green]Mbasic Update[bold white] [/]",
+        f"{P2}[{color_text}01{P2}] Login Site [bold green] Update[bold white] [/]",
         width=60,
         style=f"{color_panel}",
         title="[bold green] Method"
@@ -1448,6 +1448,7 @@ def mbasic(idf, pwv):
 			tree.add(f"[bold yellow]{ua}")
 			cetak(tree)
 			open('OK/'+okc,'a').write(idf+'|'+pw+'|'+ua+'\n')
+			break
 		if 'checkpoint' in po.cookies.get_dict().keys():
 			cp += 1
 			tree = Tree(f" ")
@@ -1456,6 +1457,7 @@ def mbasic(idf, pwv):
 			cetak(tree)
 			open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
 			akun.append(idf + '|' + pw)
+			break
 		if requests.exceptions.ConnectionError:
 			'upgrade-insecure-requests'
 			time.sleep(31)
