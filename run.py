@@ -167,7 +167,7 @@ for xd in range(1000):
 	strvnokiax = f"Mozilla/5.0 (Linux; Android 4.1.2; Nokia_X Build/{str(rc(build_nokiax))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(100,104))}.0.{str(rr(3900,4900))}.{str(rr(40,150))} Mobile Safari/537.36 NokiaBrowser/7.{str(rr(1,5))}.1.{str(rr(16,37))} {str(rc(aZ))}{str(rr(1,1000))}"
 	strvgt = f"Mozilla/5.0 (Linux; Android {str(rr(4,12))}; {str(rc(gt))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(100,104))}.0.{str(rr(3900,4900))}.{str(rr(40,150))} Mobile Safari/537.36 {str(rc(aZ))}{str(rr(1,1000))}"
 	uateddy = random.choice([strvredmi,strvsamsung,strvgt])
-	ugen.append(uateddy)
+	baru.append(uateddy)
 
 for xd in range(10000):
 	rr = random.randint; rc = random.choice
@@ -193,7 +193,7 @@ for xd in range(10000):
 	strvinfinix = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(infinix))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(108,150))}.0.{str(rr(5359,5555))}.{str(rr(128,150))} Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/347.0.0.17.97;]"
 	asep = f"Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 [FBAN/FBIOS;FBAV/209.0.0.33.90;FBBV/142900020;FBDV/iPhone10,3;FBMD/iPhone;FBSN/iOS;FBSV/12.1.4;FBSS/3;FBCR/U.S. Cellular;FBID/phone;FBLC/en_US;FBOP/5;FBRV/143925426]"
 	uateddy = random.choice([strvredmi, strvsamsung, strvgt])
-	ugen.append(uateddy)
+	baru.append(uateddy)
 
 for userrandom in range(10000):
 	rd = rc(["go","en","id","gn"])
@@ -212,31 +212,7 @@ for userrandom in range(10000):
 	Xyraa2 = f'Mozilla/5.0 (Linux; U; Android {str(rr(6,14))}; {Realme1}; {Realme2} Build/{Realme3}) AppleWebKit/534.30 (KHTML, like Gecko) Version/{str(rr(1,10))} UCBrowser/{str(rr(1,30))}.{str(rr(1,10))}.0.{str(rr(1000,5000))} (SpeedMode) U4/{str(rr(1,10))}.0 UCWEB/{str(rr(1,10))} Mobile Safari/534.30'
 	Xyraa3 = f'Mozilla/5.0 (Linux; U; Android {str(rr(6,14))}; {Realme1}; {Realme2} Build/{Realme3}) AppleWebKit/537.36 (KHTML, like Gecko) Version/{str(rr(1,10))} Chrome/{str(rr(40,90))}.0.{str(rr(3000,4500))}.{str(rr(90,300))} Mobile Safari/537.36 RealmeBrowser/{str(rr(30,50))}.{str(rr(1,10))}.0.{str(rr(1,10))}'
 	XyraaDev = random.choice([Xiaomi,Xiaomi1,Xiaomi2,Xiaomi3,Xiaomi4,Xyraa1,Xyraa2,Xyraa3])
-	ugen.append(XyraaDev)
-
-
-baru = []  # Pastikan 'baru' dideklarasikan sebelum digunakan
-import random as rc
-for userrandom in range(10000):
-    rd = rc.choice(["go", "en", "id", "gn"])
-    Model = rc.choice([
-        "22126RN91Y", "2212ARNC4L", "22120RN86G", "Black Shark 2Pro", "M2010J19SY",
-        "M2007J1SC", "Redmi K20 Pro", "Redmi 10 5G", "MI NOTE LTE", "23028RN4DG",
-        "K60E", "QIN3ULTRA", "Redmi 5Plus", "M2102K1AC", "RMX3516", "RMX3311"
-    ])
-    Build = rc.choice([
-        "TP1A.220624.014", "RKQ1.200826.002", "NUF26N", "KOT49H", "HM2014011",
-        "PKQ1.190319.001", "KTU84P", "NJH47F", "N2G47H", "MMB29M"
-    ])
-    RuRu = rc.choice(["en-in", "pt-BR", "ru-ru", "en-gb", "en-us", "zh-cn", "zh-tw", "es-mx"])
-
-    # Pastikan setiap f-string menggunakan format yang benar
-    Xiaomi = f'Mozilla/5.0 (Linux; U; Android {rc.randint(6, 14)}; {RuRu}; {Model} Build/{Build}) ' \
-             f'AppleWebKit/537.36 (KHTML, like Gecko) Version/{rc.randint(1, 10)}.0 ' \
-             f'Chrome/{rc.randint(40, 90)}.0.{rc.randint(3000, 4500)}.{rc.randint(90, 300)} Mobile Safari/537.36 ' \
-             f'XiaoMi/MiuiBrowser/{rc.randint(5, 15)}.{rc.randint(5, 10)}.{rc.randint(10, 50)}'
-
-    baru.append(Xiaomi)
+	baru.append(XyraaDev)
 	
 def dalvik():
     application_version = str(random.randint(111, 555)) + '.0.0.' + str(random.randrange(9, 49)) + str(random.randint(111, 555))
@@ -1565,7 +1541,7 @@ def mbasic(idf,pwv):
 			else:
 				continue
 		except requests.exceptions.ConnectionError:
-			sleep(10)
+			sleep(31)
 	loop+=1
 
 
