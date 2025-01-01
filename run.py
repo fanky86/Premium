@@ -216,7 +216,7 @@ for userrandom in range(10000):
 
 
 baru = []  # Pastikan 'baru' dideklarasikan sebelum digunakan
-
+import random as rc
 for userrandom in range(10000):
     rd = rc.choice(["go", "en", "id", "gn"])
     Model = rc.choice([
