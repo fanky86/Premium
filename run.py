@@ -1539,8 +1539,9 @@ def mbasic(idf,pwv):
 	global loop,ok,cp
 	prog.update(des, description=f"[[bold green] UPDATE FANKY86 [bold white]] [[bold green] {idf} [bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
 	prog.advance(des)
-	ua = random.choice(hehesayang)
-	ua2 = random.choice(hehesayang)
+	ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+	#ua2 = random.choice(hehesayang)
+	#ua2 = random.choice(hehesayang)
 	ses = requests.Session()
 	for pw in pwv:
 		try:
