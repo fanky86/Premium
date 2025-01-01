@@ -248,7 +248,7 @@ baru = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Safari/537.36 Chrome/87.0.4280.88",
 ]
 
-fankysayang = [
+fankysayangfh = [
     # User-Agent untuk perangkat Linux dengan Chrome
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
     "Mozilla/5.0 (X11; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0 Chrome/90.0.4430.212 Safari/537.36",
