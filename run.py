@@ -212,7 +212,31 @@ for userrandom in range(10000):
 	Xyraa2 = f'Mozilla/5.0 (Linux; U; Android {str(rr(6,14))}; {Realme1}; {Realme2} Build/{Realme3}) AppleWebKit/534.30 (KHTML, like Gecko) Version/{str(rr(1,10))} UCBrowser/{str(rr(1,30))}.{str(rr(1,10))}.0.{str(rr(1000,5000))} (SpeedMode) U4/{str(rr(1,10))}.0 UCWEB/{str(rr(1,10))} Mobile Safari/534.30'
 	Xyraa3 = f'Mozilla/5.0 (Linux; U; Android {str(rr(6,14))}; {Realme1}; {Realme2} Build/{Realme3}) AppleWebKit/537.36 (KHTML, like Gecko) Version/{str(rr(1,10))} Chrome/{str(rr(40,90))}.0.{str(rr(3000,4500))}.{str(rr(90,300))} Mobile Safari/537.36 RealmeBrowser/{str(rr(30,50))}.{str(rr(1,10))}.0.{str(rr(1,10))}'
 	XyraaDev = random.choice([Xiaomi,Xiaomi1,Xiaomi2,Xiaomi3,Xiaomi4,Xyraa1,Xyraa2,Xyraa3])
-	baru.append(XyraaDev)
+	ugen.append(XyraaDev)
+
+
+baru = []  # Pastikan 'baru' dideklarasikan sebelum digunakan
+
+for userrandom in range(10000):
+    rd = rc.choice(["go", "en", "id", "gn"])
+    Model = rc.choice([
+        "22126RN91Y", "2212ARNC4L", "22120RN86G", "Black Shark 2Pro", "M2010J19SY",
+        "M2007J1SC", "Redmi K20 Pro", "Redmi 10 5G", "MI NOTE LTE", "23028RN4DG",
+        "K60E", "QIN3ULTRA", "Redmi 5Plus", "M2102K1AC", "RMX3516", "RMX3311"
+    ])
+    Build = rc.choice([
+        "TP1A.220624.014", "RKQ1.200826.002", "NUF26N", "KOT49H", "HM2014011",
+        "PKQ1.190319.001", "KTU84P", "NJH47F", "N2G47H", "MMB29M"
+    ])
+    RuRu = rc.choice(["en-in", "pt-BR", "ru-ru", "en-gb", "en-us", "zh-cn", "zh-tw", "es-mx"])
+
+    # Pastikan setiap f-string menggunakan format yang benar
+    Xiaomi = f'Mozilla/5.0 (Linux; U; Android {rc.randint(6, 14)}; {RuRu}; {Model} Build/{Build}) ' \
+             f'AppleWebKit/537.36 (KHTML, like Gecko) Version/{rc.randint(1, 10)}.0 ' \
+             f'Chrome/{rc.randint(40, 90)}.0.{rc.randint(3000, 4500)}.{rc.randint(90, 300)} Mobile Safari/537.36 ' \
+             f'XiaoMi/MiuiBrowser/{rc.randint(5, 15)}.{rc.randint(5, 10)}.{rc.randint(10, 50)}'
+
+    baru.append(Xiaomi)
 	
 def dalvik():
     application_version = str(random.randint(111, 555)) + '.0.0.' + str(random.randrange(9, 49)) + str(random.randint(111, 555))
