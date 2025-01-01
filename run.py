@@ -193,7 +193,7 @@ for xd in range(10000):
 	strvinfinix = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(infinix))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(108,150))}.0.{str(rr(5359,5555))}.{str(rr(128,150))} Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/347.0.0.17.97;]"
 	asep = f"Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 [FBAN/FBIOS;FBAV/209.0.0.33.90;FBBV/142900020;FBDV/iPhone10,3;FBMD/iPhone;FBSN/iOS;FBSV/12.1.4;FBSS/3;FBCR/U.S. Cellular;FBID/phone;FBLC/en_US;FBOP/5;FBRV/143925426]"
 	uateddy = random.choice([strvredmi, strvsamsung, strvgt])
-	ugen.append(uateddy)
+	baru.append(uateddy)
 
 for userrandom in range(10000):
 	rd = rc(["go","en","id","gn"])
@@ -224,7 +224,7 @@ def dalvik():
     max = random.choice([ua1,ua2,ua3])
     return str(max)
 
-for yi in range(10000):
+for fanky in range(10000):
 	a='Mozilla/5.0 (Linux; Tizen'
 	b=random.randrange(1, 9)
 	c=random.randrange(1, 9)
@@ -237,7 +237,7 @@ for yi in range(10000):
 	j=random.randrange(1, 4)
 	k='Mobile Safari/537.36'
 	uaku=(f'{a}{b}.{c} {d}{e}{f}{g}.{h}.{i}.{j} {k}')
-	baru.append(uaku)
+	ugen.append(uaku)
 	
 def uaku():
     try:
