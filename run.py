@@ -1,6 +1,6 @@
 # recode tingall recode aja 
 # jangan diperjual belikan 
-# jangan lupa kasih star
+# jangan Ganti Owner atau hp mu rusak
 # kalo gak ada hasil recode sendiri jangan ngandelin orang lain
 # github —» https://github.com/fanky86/Premium
 
@@ -1234,26 +1234,26 @@ def setting():
         return setting()  # Rekursi untuk mengulang input
 
     # Pilihan metode login
-    Console().print(Panel(
-        f"{P2}[{color_text}01{P2}] Login Site [bold green] Update[bold white] [/]",
-        width=60,
-        style=f"{color_panel}",
-        title="[bold green] Method"
-    ))
+    #Console().print(Panel(
+       # f"{P2}[{color_text}01{P2}] Login Site [bold green] Update[bold white] [/]",
+      #  width=60,
+      #  style=f"{color_panel}",
+     #   title="[bold green] Method"
+  #  ))
 
     # Input untuk metode login
-    hc = console.input(f" {H2}• {P2}Masukan : ").strip()
-    if hc in ["1", "01"]:
-        method.append("validatev1")
+    #hc = console.input(f" {H2}• {P2}Masukan : ").strip()
+    #if hc in ["1", "01"]:
+        #method.append("validatev1")
     #elif hc in ["2", "02"]:
         #method.append("validatev2")
     #elif hc in ["3", "03"]:
         #method.append("reguler")
     #elif hc in ["4", "04"]:
         #method.append("mbasic")
-    else:
-        method.append("validatev1")  # Default metode
-
+    #else:
+        #method.append("validatev1")  # Default metode
+    method.append("validatev1")  
     # Pengaturan User-Agent
     Console().print(Panel(
         f"[bold white]Apakah Anda Ingin Menggunakan UA Manual? Y/T",
