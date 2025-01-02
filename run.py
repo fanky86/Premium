@@ -3915,7 +3915,7 @@ class get_data_web:
                 continue
         print(f"{K2}[COOKIE]\n")
         for x, y in zip(coki.keys(), coki.values()):
-            print(f"{H2}{   %s%s: %s}\n" % (x, " " * (5 - len(x)), y))
+            print(f"{H2}   %s%s: %s\n" % (x, " " * (5 - len(x)), y))
         print("    }")
         prints(f"""{K2}[next]{H2}\n  %s \n""" % (post))
         prints(f"""{K2}[POST]\n{H2}post = requests.Session().post(next,headers=head,data=data,cookies=cookie)\n""")
