@@ -3880,10 +3880,10 @@ class get_data_web:
         style=f"{color_panel}",
         title=f"[bold cyan]Source Payload"
         ))
-        prints(f"""{K2}[Head]{H2}\n  %s \n""" % (head), style=f"{color_panel}")
-        prints(f"""{K2}[Data]{H2}\n  %s \n""" % (data), style=f"{color_panel}")
-        prints(f"""{K2}[Coki]{H2}\n  %s \n""" % (coki), style=f"{color_panel}")
-        prints(f"""{K2}[Post]{H2}\n  %s \n""" % (post), style=f"{color_panel}")
+        prints(f"""{K2}[Head]{H2}\n  %s \n""" % (head))
+        prints(f"""{K2}[Data]{H2}\n  %s \n""" % (data))
+        prints(f"""{K2}[Coki]{H2}\n  %s \n""" % (coki))
+        prints(f"""{K2}[Post]{H2}\n  %s \n""" % (post))
 
     def printing2(self, req, x):
         head = self.get_head1(req)
