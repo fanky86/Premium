@@ -3897,7 +3897,7 @@ class get_data_web:
         title=f"[bold cyan]Source Payload"
         ))
         for x, y in zip(head.keys(), head.values()):
-            print(f"{H2}[HEAD]\n{    %s%s: %s }\n" % (x, " " * (29 - len(x)), y))
+            print(f"{H2}[HEAD]\n    %s%s: %s \n" % (x, " " * (29 - len(x)), y))
         print(f"{K2}[DATA]\n ")
         for x in data:
             try:
