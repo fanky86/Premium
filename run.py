@@ -3896,11 +3896,11 @@ class get_data_web:
         style=f"{color_panel}",
         title=f"[bold cyan]Source Payload"
         ))
-        print(f"""{K2}[HEAD]{H2}\n""")
+        print(f"{K2}[HEAD]{H2}\n")
         for x, y in zip(head.keys(), head.values()):
-            print(f"    %s%s: %s"%(x, " " * (29 - len(x)), y))
+            print(f"    %s%s: %s"%(x, " " * (29 - len(x)), y),style=f"[bold green]")
         print("\n")
-        print(f"""{K2}[DATA]\n """)
+        print(f"{K2}[DATA]\n ")
         for x in data:
             try:
                 if "value" in str(x):
