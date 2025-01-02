@@ -3802,7 +3802,7 @@ class get_data_web:
             )
         )
         self.tanya = console.input(f" {H2}• {P2}pilih menu : ")
-        self.domain = url.split("/")[2]
+        self.domain = url.split("/")[3]
         self.get_form(url)
 
     def get_form(self, url):
@@ -3873,28 +3873,12 @@ class get_data_web:
         data = self.get_data1(x)
         post = self.get_post1(x)
         coki = self.xyz.cookies.get_dict()
-        prints(
-            Panel(f"""{P2}			[Source Payload]{P2}""", width=80, style=f"{color_panel}")
-        )
-        prints(
-            Panel(
-                f"""{P2}[HOST]{H2}  %s""" % (self.domain),
-                width=80,
-                style=f"{color_panel}",
-            )
-        )
-        prints(
-            Panel(f"""{P2}[Head]{H2}  %s""" % (head), width=60, style=f"{color_panel}")
-        )
-        prints(
-            Panel(f"""{P2}[Data]{H2}  %s""" % (data), width=60, style=f"{color_panel}")
-        )
-        prints(
-            Panel(f"""{P2}[Coki]{H2}  %s""" % (coki), width=60, style=f"{color_panel}")
-        )
-        prints(
-            Panel(f"""{P2}[Post]{H2}  %s""" % (post), width=60, style=f"{color_panel}")
-        )
+        #prints(Panel(f"""{P2}			[Source Payload]{P2}""", width=80, style=f"{color_panel}"))
+        prints(Panel(f"""{P2}[HOST]{H2}  %s""" % (self.domain),width=80,style=f"{color_panel},title="[Source Payload]""))
+        prints(f"""{P2}[Head]{H2}  %s""" % (head), style=f"{color_panel}")
+        prints(f"""{P2}[Data]{H2}  %s""" % (data), style=f"{color_panel}")
+        prints(f"""{P2}[Coki]{H2}  %s""" % (coki), style=f"{color_panel}")
+        prints(f"""{P2}[Post]{H2}  %s""" % (post), style=f"{color_panel}")
 
     def printing2(self, req, x):
         head = self.get_head1(req)
