@@ -3876,7 +3876,7 @@ class get_data_web:
         #prints(Panel(f"""{P2}			[Source Payload]{P2}""", width=80, style=f"{color_panel}"))
         prints(Panel(
         f"""{K2}[HOST]{H2}  %s""" % (self.domain),
-        width=80,
+        width=60,
         style=f"{color_panel}",
         title=f"[bold cyan]Source Payload"
         ))
@@ -3892,12 +3892,12 @@ class get_data_web:
         coki = self.xyz.cookies.get_dict()
         prints(Panel(
         f"""{K2}[HOST]{H2}  %s""" % (self.domain),
-        width=80,
+        width=60,
         style=f"{color_panel}",
         title=f"[bold cyan]Source Payload"
         ))
         for x, y in zip(head.keys(), head.values()):
-            print(f"""{H2}[HEAD]\n    %s%s: %s \n""" % (x, " " * (29 - len(x)), y))
+            print(f"""{K2}[HEAD]{H2}    %s%s: %s """%(x, " " * (29 - len(x)), y))
         print(f"""{K2}[DATA]\n """)
         for x in data:
             try:
@@ -3905,19 +3905,19 @@ class get_data_web:
                     dp = "name=" + re.search("name=(.*?)/>", str(x)).group(1)
                     fp = re.search('value="(.*?)"', str(dp)).group(1)
                     print(
-                        f"""{H2}\n    %s%s: '%s',""" % (x["name"], " " * (19 - len(x["name"])), fp)
+                        f"""{H2}    %s%s: '%s',"""%(x["name"], " " * (19 - len(x["name"])), fp)
                     )
                 elif "name" in str(x):
-                    print(f"""{K2}\n    %s%s: '',""" % (x["name"], " " * (19 - len(x["name"]))))
+                    print(f"""{K2}    %s%s: '',"""%(x["name"], " " * (19 - len(x["name"]))))
                 else:
                     continue
             except Exception as e:
                 continue
-        print(f"""{K2}[COOKIE]\n""")
+        print(f"""{K2}[COOKIE]{H2}""")
         for x, y in zip(coki.keys(), coki.values()):
-            print(f"""{H2}   %s%s: %s\n""" % (x, " " * (5 - len(x)), y))
+            print(f"""{H2}   %s%s: %s\n"""%(x, " " * (5 - len(x)), y))
         prints(f"""{K2}[NEXT]{H2}\n  %s \n""" %(post))
-        prints(f"""{K2}[POST]\n{H2}post = requests.Session().post(next,headers=head,data=data,cookies=cookie)\n""")
+        prints(f"""{K2}[POST]\n{H2} post = requests.Session().post(next,headers=head,data=data,cookies=cookie)\n""")
 
     def printing3(self, url, req, x):
         head = self.get_head1(req)
