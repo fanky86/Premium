@@ -3874,7 +3874,7 @@ class get_data_web:
         post = self.get_post1(x)
         coki = self.xyz.cookies.get_dict()
         #prints(Panel(f"""{P2}			[Source Payload]{P2}""", width=80, style=f"{color_panel}"))
-        prints(Panel(f"""{P2}[HOST]{H2}  %s""" % (self.domain),width=80,style=f"{color_panel},title=f"[bold cyan]Source Payload""))
+        prints(Panel(f"""{P2}[HOST]{H2}  %s""" % (self.domain),width=80,style=f"{color_panel}",title=f"[bold cyan]Source Payload"))
         prints(f"""{P2}[Head]{H2}  %s""" % (head), style=f"{color_panel}")
         prints(f"""{P2}[Data]{H2}  %s""" % (data), style=f"{color_panel}")
         prints(f"""{P2}[Coki]{H2}  %s""" % (coki), style=f"{color_panel}")
