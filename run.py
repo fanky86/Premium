@@ -3890,27 +3890,29 @@ class get_data_web:
         data = self.get_data2(x)
         post = self.get_post1(x)
         coki = self.xyz.cookies.get_dict()
-        print("\n\n[PARSED PAYLOAD]\n")
-        print("head = {")
+        prints(Panel(
+        f"""{K2}[HOST]{H2}  %s""" % (self.domain),
+        width=80,
+        style=f"{color_panel}",
+        title=f"[bold cyan]Source Payload"
+        ))
         for x, y in zip(head.keys(), head.values()):
-            print("    %s%s: %s" % (x, " " * (29 - len(x)), y))
-        print("    }")
-        print("{K2}[DATA]\n {")
+            print(f"{H2}[HEAD]\n{    %s%s: %s }\n" % (x, " " * (29 - len(x)), y))
+        print(f"{K2}[DATA]\n ")
         for x in data:
             try:
                 if "value" in str(x):
                     dp = "name=" + re.search("name=(.*?)/>", str(x)).group(1)
                     fp = re.search('value="(.*?)"', str(dp)).group(1)
                     print(
-                        f"{H2}\n    %s%s: '%s'\n," % (x["name"], " " * (19 - len(x["name"])), fp)
+                        f"{H2}\n    %s%s: '%s'," % (x["name"], " " * (19 - len(x["name"])), fp)
                     )
                 elif "name" in str(x):
-                    print(f"{K2}\n    %s%s: ''\n," % (x["name"], " " * (19 - len(x["name"]))))
+                    print(f"{K2}\n    %s%s: ''," % (x["name"], " " * (19 - len(x["name"]))))
                 else:
                     continue
             except Exception as e:
                 continue
-        print(f"{H2}    }")
         print(f"{K2}[COOKIE]\n")
         for x, y in zip(coki.keys(), coki.values()):
             print(f"{H2}{    %s%s: %s\n" % (x, " " * (5 - len(x)), y))
