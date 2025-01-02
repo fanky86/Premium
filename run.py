@@ -3895,30 +3895,28 @@ class get_data_web:
         for x, y in zip(head.keys(), head.values()):
             print("    %s%s: %s" % (x, " " * (29 - len(x)), y))
         print("    }")
-        print("data = {")
+        print("{K2}[DATA]\n {")
         for x in data:
             try:
                 if "value" in str(x):
                     dp = "name=" + re.search("name=(.*?)/>", str(x)).group(1)
                     fp = re.search('value="(.*?)"', str(dp)).group(1)
                     print(
-                        "    %s%s: '%s'," % (x["name"], " " * (19 - len(x["name"])), fp)
+                        f"{H2}\n    %s%s: '%s'\n," % (x["name"], " " * (19 - len(x["name"])), fp)
                     )
                 elif "name" in str(x):
-                    print("    %s%s: ''," % (x["name"], " " * (19 - len(x["name"]))))
+                    print(f"{K2}\n    %s%s: ''\n," % (x["name"], " " * (19 - len(x["name"]))))
                 else:
                     continue
             except Exception as e:
                 continue
-        print("    }")
-        print("cookie = {")
+        print(f"{H2}    }")
+        print(f"{K2}[COOKIE]\n")
         for x, y in zip(coki.keys(), coki.values()):
-            print("    %s%s: %s" % (x, " " * (5 - len(x)), y))
+            print(f"{H2}{    %s%s: %s\n" % (x, " " * (5 - len(x)), y))
         print("    }")
-        print("next = '%s'" % (post))
-        print(
-            "post = requests.Session().post(next,headers=head,data=data,cookies=cookie)"
-        )
+        prints(f"""{K2}[next]{H2}\n  %s \n""" % (post))
+        prints(f"""{K2}[POST]\n{H2}post = requests.Session().post(next,headers=head,data=data,cookies=cookie)\n""")
 
     def printing3(self, url, req, x):
         head = self.get_head1(req)
