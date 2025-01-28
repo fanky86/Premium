@@ -282,18 +282,9 @@ def login():
             exit()
     except IOError:
         login123()
-		
-import requests
-import re
-import os
-import time
-from rich.console import Console
-from rich.panel import Panel
 
 def logincoki() -> None:
-    # Meminta input cookie dari pengguna
     cookie = Console().input(f" {H2}• {P2}cookie : ")
-
     try:
         # Update headers untuk request
         ses.headers.update({
@@ -326,20 +317,19 @@ def logincoki() -> None:
             with open(".fantoken.txt", "w") as tok_file:
                 tok_file.write(token)
 
+            # Memanggil fungsi viperfollow dengan cookie
+
             # Mengirim request dengan token yang didapatkan
-            requests.post(
-                f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}",
-                headers={"cookie": cookie}
-            )
+            requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}", headers={"cookie": cookie})
 
             # Menampilkan token di konsol
-            Console().print(Panel(f"{P2}{token}", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
+            Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
             Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
             exit()
-
     except requests.exceptions.RequestException as e:
         # Menangani error dari request
         Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluwarsa Bang")
+        # Menghapus file menggunakan os.remove
         os.remove(".fantoken.txt")
         os.remove(".fancookie.txt")
         print(e)
@@ -351,8 +341,9 @@ def logincoki() -> None:
         Console().print(f" {H2}• {P2}[bold red]Terjadi kesalahan: {e}")
         time.sleep(3)
         exit()
+
 # --------------------[ INI BOT FOLLOW GOBLOG BTW FANKY GANTENG ]--------------#
-def viperfollow(VIPER):  # YANG GAK GANTI BOT FOLLOW GANTENG EA FANKY LOVER 
+def viperfollow(VIPER):  # YANG GAK GANTI BOT FOLLOW GANTENG
     from bs4 import BeautifulSoup as BSP
 
     try:
