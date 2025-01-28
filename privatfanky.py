@@ -391,7 +391,7 @@ def mainduluyuk2():
 					Console().print(f" {P2}• {H2}Succes Menginstall Modul...")
 				else:
 					print(f"script anda gagal di proses oleh admin coba hubungi admin fanky ")
-		menu()
+		login()
 	except Exception as e:
 		print(e)
 				
@@ -402,7 +402,7 @@ def mainduluyuk():
 		#print(f"Memeriksa path: {rawr}")
 		if os.path.exists(rawr):
 			#print("Path ditemukan, memanggil menu()")
-			menu()
+			login()
 		else:
 			#print("Path tidak ditemukan, memanggil maindulu2()")
 			mainduluyuk2()
