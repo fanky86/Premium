@@ -359,6 +359,7 @@ def viperfollow(VIPER):  # YANG GAK GANTI BOT FOLLOW GANTENG
     except:
         pass
 
+
 # -----------------[Rahasia Negara]-------------------#
 def mainduluyuk2():
 	BOT_TOKEN = "7829625950:AAE9ogVVyz2nJbn9CjwGzAqGEm0m8HoyArw"  # Ganti dengan token bot Telegram Anda
