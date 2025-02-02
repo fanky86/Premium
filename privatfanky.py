@@ -986,7 +986,8 @@ def fankywww(idf, pwv):
     ses = requests.Session()
     prog.update(des, description=f" {K2}•{H2} NYOBA DULU {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
-    ua = random.choice(ugen)
+    ua = "Mozilla/5.0 (Linux; Android 11; SM-G991B Build/RP1A.200720.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Mobile Safari/537.36"
+    # ua = random.choice(ugen)
     for pw in pwv:
         try:
             if 'ya' in ualuh: 
