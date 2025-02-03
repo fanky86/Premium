@@ -109,7 +109,7 @@ for fanky in range(10000):
 	gtoi = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(gt))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(87,100))}.0.{str(rr(4280,4900))}.{str(rr(141,150))} Mobile Safari/537.36"
 	fangntg = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(redmi))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/{str(rr(87,100))}.0.{str(rr(4280,4900))}.{str(rr(141,150))} [FBAN/EMA;FBLC/{str(rc(["id-ID","id;q=0.9","en-US;q=0.8","en;q=0.7"]))};FBAV/{str(rr(87,100))}.0.0.{str(rr(9,100))}.{str(rr(141,150))};]"
 	rawrrr = random.choice([redmioi,samsungoi])
-	ugent.append(rawrrr)
+	ugen.append(rawrrr)
 
 import random
 
@@ -225,7 +225,7 @@ def banner():
     Console().print(
         Panel(
             """
-[bold red]███████████████████████ [bold yellow]NOTE  : [bold green]SCRIPT BY FANKY  
+[bold red]███████████████████████ [bold yellow]NAME  : [bold green]FANKY 
 [bold red]███████████████████████ [bold yellow]Githb : [bold green]github.com/fanky86  
 [bold red]███████████████████████ [bold yellow]Serah : [bold green]BTW GW GANTENG
 [bold white]███████████████████████          
