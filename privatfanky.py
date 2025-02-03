@@ -719,7 +719,7 @@ def setting():
 
 
     # Input untuk metode login
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph V1[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]graph V2[bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]www[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph V1[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]graph V2[bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]www[bold white] (recommend) [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
     fankylog = console.input(f" {H2}• {P2}Masukan : ").strip()
     if fankylog in ["1", "01"]:
     	method.append("fankygraph")
