@@ -109,7 +109,37 @@ for fanky in range(10000):
 	gtoi = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(gt))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(87,100))}.0.{str(rr(4280,4900))}.{str(rr(141,150))} Mobile Safari/537.36"
 	fangntg = f"Mozilla/5.0 (Linux; Android {str(rc(andro))}; {str(rc(redmi))}) Build/{str(rc(lonte))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.120 Mobile Safari/{str(rr(87,100))}.0.{str(rr(4280,4900))}.{str(rr(141,150))} [FBAN/EMA;FBLC/{str(rc(["id-ID","id;q=0.9","en-US;q=0.8","en;q=0.7"]))};FBAV/{str(rr(87,100))}.0.0.{str(rr(9,100))}.{str(rr(141,150))};]"
 	rawrrr = random.choice([redmioi,samsungoi])
-	ugen.append(rawrrr)
+	ugent.append(rawrrr)
+
+import random
+
+# Daftar User-Agent terbaru untuk Linux & Android (2025)
+ugen = [
+    # Google Chrome - Android 14 (Samsung Galaxy S24)
+    "Mozilla/5.0 (Linux; Android 14; SM-S921B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6400.120 Mobile Safari/537.36",
+
+    # Google Chrome - Android 14 (Xiaomi 14 Ultra)
+    "Mozilla/5.0 (Linux; Android 14; 2304FPN6DC) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6400.120 Mobile Safari/537.36",
+
+    # Google Chrome - Android 14 (Google Pixel 9 Pro)
+    "Mozilla/5.0 (Linux; Android 14; Pixel 9 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6400.120 Mobile Safari/537.36",
+
+    # Mozilla Firefox - Android 14
+    "Mozilla/5.0 (Android 14; Mobile; rv:125.0) Gecko/125.0 Firefox/125.0",
+
+    # Google Chrome - Termux (Android 14)
+    "Mozilla/5.0 (Linux; Android 14; AArch64; Termux) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6400.120 Safari/537.36",
+
+    # Google Chrome - Android Tablet (Samsung Galaxy Tab S9 Ultra)
+    "Mozilla/5.0 (Linux; Android 14; SM-X910) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6400.120 Safari/537.36",
+
+    # Mozilla Firefox - Android Tablet
+    "Mozilla/5.0 (Android 14; Tablet; rv:125.0) Gecko/125.0 Firefox/125.0",
+
+    # Termux - Default UA
+    "Mozilla/5.0 (Linux; Android 14; Termux) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6400.120 Mobile Safari/537.36"
+]
+
 # ------------[ INDICATION ]---------------#
 M2 = "[#FF0000]"  # MERAH
 H2 = "[#00FF00]"  # HIJAU
