@@ -1,3 +1,11 @@
+# recode tingall recode aja 
+# jangan diperjual belikan script ini free
+# jangan Ganti Owner atau hp mu rusak
+# kalo gak ada hasil ,oprek sendiri jangan ngandelin orang lain
+# github —» https://github.com/fanky86/Premium
+# percuma ganteng kalo gak follow 
+
+
 import os
 
 # ------------------[  MODULE  ]-------------------#
