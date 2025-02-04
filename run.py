@@ -93,6 +93,12 @@ except Exception as e:
     )
     exit()
 prox = open(".prox.txt", "r").read().splitlines()
+###----------[ GET DATA DARI DEVICE ]---------- ###
+android_version = subprocess.check_output("getprop ro.build.version.release",shell=True).decode("utf-8").replace("\n","")
+try:simcard = subprocess.check_output("getprop gsm.operator.alpha",shell=True).decode("utf-8").split(",")[1].replace("\n","")
+except:simcard = subprocess.check_output("getprop gsm.operator.alpha",shell=True).decode("utf-8").split(",")[0].replace("\n","")
+#versi_app = str(random.randint(111111111,999999999))
+
 # ------------------[ USER-AGENT ]-------------------#
 rr = random.randint; rc = random.choice
 for fanky in range(10000):
