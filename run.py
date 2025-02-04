@@ -1133,7 +1133,7 @@ def fankywww(idf, pwv):
                 'dpr': '1.600000023841858',
                 'origin': 'https://touch.alpha.facebook.com',
                 'referer': 'https://touch.alpha.facebook.com/',
-                'accept-encoding': 'gzip, deflate',
+                'accept-encoding': 'br, gzip',
                 'sec-ch-prefers-color-scheme': 'dark',
                 'sec-ch-ua': f'"Not.A/Brand";v="{str(rr(8,20))}", "Chromium";v="{str(rr(40,114))}", "Google Chrome";v="{str(rr(40,114))}"',
                 'sec-ch-ua-full-version-list': f'"Not.A/Brand";v="{str(rr(8,20))}.0.0.0", "Chromium";v="{str(rr(40,114))}.0.{str(rr(2000,5999))}.{str(rr(10,399))}", "Google Chrome";v="{str(rr(40,114))}.0.{str(rr(2000,5999))}.{str(rr(10,399))}"',
