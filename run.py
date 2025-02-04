@@ -594,7 +594,7 @@ def menu():
     console.print(Columns(dia))
     prints(Panel(f"""{P2}[{color_text}01{P2}]. crack dari id publik
 [{color_text}02{P2}]. crack dari id Masal
-[{color_text}03{P2}]. Logout [[bold red]hapus cookie[P2]]
+[{color_text}03{P2}]. Logout [[bold red]hapus cookie[bold white]]
 [{color_text}04{P2}]. {M2}EXIT{P2}""",width=60,title="MENU",style=f"{color_panel}"))
     HaHi = console.input(f" {H2}• {P2}pilih menu : ")
     if HaHi in ["1", "01"]:
