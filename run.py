@@ -201,7 +201,7 @@ for xd in range(10000):
 	ugen.append(uaku2)
 	
 # Daftar User-Agent terbaru untuk Linux & Android (2025)
-ugen = [
+ugen2 = [
     # Google Chrome - Android 14 (Samsung Galaxy S24)
     "Mozilla/5.0 (Linux; Android 14; SM-S921B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6400.120 Mobile Safari/537.36",
 
