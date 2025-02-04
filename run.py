@@ -527,14 +527,7 @@ def menu():
     negara = requests.get("http://ip-api.com/json/").json()["country"]
     ip = requests.get("http://ip-api.com/json/").json()["query"]
     console.print(Panel(f"{K2}>{H2} {negara}{K2} —» {K2}btw {H2}Fanky ganteng", padding=(0,12), width=60, style=color_panel))
-    dia.append(
-        Panel(
-            f"{P2}lisensi : {H2}{key}\n{P2}tanggal : {H2}{hari_ini}\n{P2}jam     : {H2}{jam_fan}\n{P2}status  : {prem}",
-            width=30,
-            title=f"{P2}Lisensi",
-            style=f"{color_panel}",
-        )
-    )
+    dia.append(Panel(f"{P2}Android : {H2}Version {android_version}\n{P2}tanggal : {H2}{hari_ini}\n{P2}jam     : {H2}{jam_fan}\n{P2}simcard : {H2}{simcard}",width=30,title=f"{P2}Perangkat",style=f"{color_panel}"))
     # dia.append(Panel(f'{P2}IP      : {H2}{ip}\n{P2}premium : {H2}Premium\n{P2}Negara  : {H2}{negara}',width=30,style=f"{color_panel}"))
     dia.append(
         panel(
