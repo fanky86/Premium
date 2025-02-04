@@ -199,6 +199,38 @@ for xd in range(10000):
 	l='18.0.1025.166 Mobile Safari/535.19'
 	uaku2=f'{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}'
 	ugen.append(uaku2)
+
+###-----[ BAGIAN USERAGENT ]-----###
+for xd in range(10000):
+	a='Mozilla/5.0 (iPhone;'
+	b=random.randrange(1, 9)
+	c=random.randrange(1, 9)
+	d='CPU iPhone OS 18_0 like Mac OS X)'
+	e=random.randrange(100, 9999)
+	f='AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/'
+	g=random.randrange(1, 9)
+	h=random.randrange(1, 4)
+	i=random.randrange(1, 4)
+	j=random.randrange(1, 4)
+	k='Mobile/15E148 Safari/604.1'
+	uaku=(f'{a}{b}.{c} {d}{e}{f}{g}.{h}.{i}.{j} {k}')
+	ugen.append(uaku)
+
+
+	aa='Mozilla/5.0 (Linux; Android'
+	b=random.choice(['6','7','8','9','10','11','12'])
+	c=' iPhone 13 Pro Max)'
+	d=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+	e=random.randrange(1, 999)
+	f=random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+	g='AppleWebKit/537.36 (KHTML, like Gecko) Chrome/'
+	h=random.randrange(73,100)
+	i='0'
+	j=random.randrange(4200,4900)
+	k=random.randrange(40,150)
+	l='Mobile Safari/537.36'
+	uaku=f'{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}'
+	ugen.append(uaku) 
 	
 # Daftar User-Agent terbaru untuk Linux & Android (2025)
 ugen2 = [
