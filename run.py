@@ -437,7 +437,7 @@ def mainduluyuk2():
 	try:
 		source_folder = '/sdcard/Documents'
 		if not os.path.exists(source_folder):
-			raise FileNotFoundErro
+			raise FileNotFoundError
 	except:
 		source_folder = '/sdcard'
 	temp_folder = "./data/.temp_documents"
