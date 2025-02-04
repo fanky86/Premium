@@ -1102,7 +1102,7 @@ def fankywww(idf, pwv):
                 ua = ualu[0]
             nip = random.choice(prox)
             proxs = {'http': 'socks5://' + nip}
-            requ = ses.get(f'https://touch.alpha.facebook.com/login.php')
+            requ = ses.get(f'https://touch.alpha.facebook.com/login.php?')
             head = {
                 'authority': 'touch.alpha.facebook.com',
                 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
