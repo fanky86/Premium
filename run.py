@@ -371,7 +371,7 @@ def logincoki():
 	try:
 		# os.system('cls' if os.name == 'nt' else 'clear')
 		# Console(width=50, style="bold green").print(Panel("[italic white]Masukan Cookies Facebook,Saran jangan Menggunkan Cookies Pribadi[italic white]",subtitle="╭───",subtitle_align="left"))
-		cookie = Console().input(f" {H2}• {P2}cookie : ")
+		cok = Console().input(f" {H2}• {P2}cookie : ")
 		open('.fancookie.txt','w').write(cok)
 		with requests.Session() as r:
 			try:
