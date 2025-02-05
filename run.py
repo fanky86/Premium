@@ -137,8 +137,19 @@ for z in range(10000):  # Gantilah 10 dengan jumlah User-Agent yang ingin dibuat
         f"AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.randint(90,115)}.0.{random.randint(0,9999)}.{random.randint(0,999)} "
         f"Mobile Safari/537.36 YandexBrowser/{random.randint(20,24)}.0.{random.randint(0,9999)}.0"
     )
-    ugen.append(user_agent)
-	
+    ugent.append(user_agent)
+
+for fanky in range(10000):
+    rr = random.randint
+    rc = random.choice
+    merek = random.choice(['SM-A405FN','SM-A346M','SM-J415FN','SM-X706B','SM-J337R4','SM-A9000','SM-G532G','SM-J810M','SM-T280'])
+    build = random.choice(['LRX22C','GWK74','R16NW','FROYO','JZO54K','JSS15J','GRWK74','KOT49H','MMB29M','IMM76D','KTU84P','JDQ39','LMY47X','NMF26X','M1AJQ'])
+    u1 = f"Mozilla/5.0 (Linux; Android {str(rr(4,12))}; {merek} Build/{build}) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/4.{str(rr(0,4))} Chrome/{str(rr(73,150))}.0.{str(rr(5500,5900))}.{str(rr(75,150))} Mobile Safari/537.36"
+    u2 = f"Mozilla/5.0 (Linux; Android {str(rr(4,12))}; {merek} Build/{build}.{str(rr(111111,210000))}.012; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(73,150))}.0.{str(rr(5500,5900))}.{str(rr(75,150))} Mobile Safari/537.36"
+    u3 = f"Mozilla/5.0 (iPhone; CPU iPhone OS {str(rr(4,12))}.{str(rr(1,9))}.{str(rr(1,9))}like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/{str(rr(73,150))}.0.{str(rr(5500,5900))}.{str(rr(75,150))} Mobile/14G60 Safari/604.1"
+    heeeee = random.choice([u1, u2, u3])
+    ugen.append(heeeee)
+
 ugent = [
     # User-Agent untuk Windows
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
