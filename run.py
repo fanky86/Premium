@@ -994,7 +994,7 @@ def metcepat():
             for yuzong in id2:
                 idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
                 frs = nmf.split(" ")[0]
-                pwv = ["bismillah123","bismillah","bocilku123"]
+                pwv = [""]
                 if len(nmf)<6:
                     if len(frs)<3:
                         pass
@@ -1004,7 +1004,7 @@ def metcepat():
                         pwv.append(frs+'123')
                         pwv.append(frs+'1234')
                         pwv.append(frs+'12345')
-                        pwv.append(frs+'123456')
+                        
                 else:
                     if len(frs)<3:
                         pwv.append(nmf)
@@ -1014,7 +1014,7 @@ def metcepat():
                         pwv.append(frs+'123')
                         pwv.append(frs+'1234')
                         pwv.append(frs+'12345')
-                        pwv.append(frs+'123456')
+                        
                 if 'ya' in pwpluss: 
                     for xpwd in pwnya:
                         pwv.append(xpwd)
