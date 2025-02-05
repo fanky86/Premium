@@ -123,8 +123,7 @@ ugen = [
     "Mozilla/5.0 (Linux; Android 8.1; Moto G6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.127 Mobile Safari/537.36",
     "Mozilla/5.0 (Linux; Android 12; OnePlus 8T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36"
 ]
-ua = random.choice(ugen)
-print(ua)
+
 
 for xd in range(10000):
     rr = random.randint; rc = random.choice
