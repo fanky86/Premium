@@ -108,6 +108,34 @@ except:simcard = subprocess.check_output("getprop gsm.operator.alpha",shell=True
 #versi_app = str(random.randint(111111111,999999999))
 
 # ------------------[ USER-AGENT ]-------------------#
+def uaku():
+    try:
+        with open("fan.txt", "r") as file:
+            ua = file.read().splitlines()
+        for ub in ua:
+            ugen.append(ub)
+    except:
+        url = "https://raw.githubusercontent.com/fanky86/Premium/main/fan.txt"
+        response = requests.get(url)
+        if response.status_code == 200:
+            with open("fan.txt", "w") as file:
+                aa = re.findall(r'line">(.*?)<', response.text)
+                for un in aa:
+                    file.write(un + "\n")
+            with open("fan.txt", "r") as file:
+                ua = file.read().splitlines()
+            for ub in ua:
+                ugen.append(ub)
+        else:
+            print("Gagal mengambil data dari GitHub")
+try:
+	uasayang = open("fan.txt", "r").read().splitlines()
+	for fn in uasayang:
+		ugen.append(fn)
+except :
+	ugen = "Mozilla/5.0 (Linux; Android 12; SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Mobile Safari/537.36"
+	
+
 for z in range(10000):  # Gantilah 10 dengan jumlah User-Agent yang ingin dibuat
     andro_version = random.choice([
         "4.4", "5.0", "5.1", "6.0", "7.0", "7.1", "8.0", "8.1", "9", "10", "11", "12", "13"
@@ -137,7 +165,7 @@ for z in range(10000):  # Gantilah 10 dengan jumlah User-Agent yang ingin dibuat
         f"AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.randint(90,115)}.0.{random.randint(0,9999)}.{random.randint(0,999)} "
         f"Mobile Safari/537.36 YandexBrowser/{random.randint(20,24)}.0.{random.randint(0,9999)}.0"
     )
-    ugen.append(user_agent)
+    ugent.append(user_agent)
 
 for _ in range(10000):  # Menggunakan `_` karena variabel tidak digunakan
     rr = random.randint
@@ -166,9 +194,9 @@ for _ in range(10000):  # Menggunakan `_` karena variabel tidak digunakan
     u3 = f"Mozilla/5.0 (iPhone; CPU iPhone OS {rr(4,12)}.{rr(1,9)}.{rr(1,9)} like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/{rr(73,150)}.0.{rr(5500,5900)}.{rr(75,150)} Mobile/14G60 Safari/604.1"
     
     heeeee = rc([u1, u2, u3])  # Pilih salah satu secara acak
-    ugen.append(heeeee)  # Tambahkan ke daftar User-Agent
+    ugent.append(heeeee)  # Tambahkan ke daftar User-Agent
 
-ugen = [
+ugent = [
     # User-Agent untuk Windows
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
