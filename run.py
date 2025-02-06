@@ -137,12 +137,12 @@ for z in range(10000):  # Gantilah 10 dengan jumlah User-Agent yang ingin dibuat
         f"AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.randint(90,115)}.0.{random.randint(0,9999)}.{random.randint(0,999)} "
         f"Mobile Safari/537.36 YandexBrowser/{random.randint(20,24)}.0.{random.randint(0,9999)}.0"
     )
-    ugent.append(user_agent)
+    ugen.append(user_agent)
 
-
-for fanky in range(10000):
+for _ in range(10000):  # Menggunakan `_` karena variabel tidak digunakan
     rr = random.randint
     rc = random.choice
+    
     merek = rc([
         'SM-A405FN', 'SM-A346M', 'SM-J415FN', 'SM-X706B', 'SM-J337R4', 'SM-A9000', 
         'SM-G532G', 'SM-J810M', 'SM-T280',  # Merek lama
@@ -151,18 +151,24 @@ for fanky in range(10000):
         'Xiaomi 2201116SG', 'Xiaomi 2109119DG', 'Redmi Note 12',  # Merek terbaru
         'Realme RMX3195', 'Realme RMX3686', 'Vivo V2168A', 'Vivo Y21s'
     ])
+    
     build = rc([
         f"RPA.{rr(100000,999999)}", f"RQ3A.{rr(100000,999999)}", f"RP1A.{rr(100000,999999)}",
         f"QKQ1.{rr(100000,999999)}", f"SP1A.{rr(100000,999999)}", f"TP1A.{rr(100000,999999)}"
     ])
+    
+    # User-Agent Variasi Android
     u1 = f"Mozilla/5.0 (Linux; Android {rr(4,12)}; {merek} Build/{build}) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/4.{rr(0,4)} Chrome/{rr(73,150)}.0.{rr(5500,5900)}.{rr(75,150)} Mobile Safari/537.36"
+    
     u2 = f"Mozilla/5.0 (Linux; Android {rr(4,12)}; {merek} Build/{build}.{rr(111111,210000)}.012; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{rr(73,150)}.0.{rr(5500,5900)}.{rr(75,150)} Mobile Safari/537.36"
+    
+    # User-Agent iPhone (Variasi untuk Safari & Chrome)
     u3 = f"Mozilla/5.0 (iPhone; CPU iPhone OS {rr(4,12)}.{rr(1,9)}.{rr(1,9)} like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/{rr(73,150)}.0.{rr(5500,5900)}.{rr(75,150)} Mobile/14G60 Safari/604.1"
-    heeeee = rc([u1, u2, u3])
-    ugen.append(heeeee)
+    
+    heeeee = rc([u1, u2, u3])  # Pilih salah satu secara acak
+    ugen.append(heeeee)  # Tambahkan ke daftar User-Agent
 
-
-ugent = [
+ugen = [
     # User-Agent untuk Windows
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
