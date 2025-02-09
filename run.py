@@ -113,7 +113,7 @@ def uaku():
         with open("fan.txt", "r") as file:
             ua = file.read().splitlines()
         for ub in ua:
-            ugent.append(ub)
+            ugen.append(ub)
     except:
         url = "https://raw.githubusercontent.com/fanky86/Premium/main/fan.txt"
         response = requests.get(url)
@@ -125,15 +125,15 @@ def uaku():
             with open("fan.txt", "r") as file:
                 ua = file.read().splitlines()
             for ub in ua:
-                ugent.append(ub)
+                ugen.append(ub)
         else:
             print("Gagal mengambil data dari GitHub")
 try:
 	uasayang = open("fan.txt", "r").read().splitlines()
 	for fn in uasayang:
-		ugent.append(fn)
+		ugen.append(fn)
 except :
-	ugent = "Mozilla/5.0 (Linux; Android 12; SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Mobile Safari/537.36"
+	ugen = "Mozilla/5.0 (Linux; Android 12; SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Mobile Safari/537.36"
 	
 
 for t in range(10000):
