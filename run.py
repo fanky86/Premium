@@ -47,6 +47,7 @@ except ImportError:
 import requests, bs4, json, os, sys, random, datetime, time, re, rich, base64, subprocess, uuid, calendar
 from time import sleep
 import shutil
+import hashlib
 from datetime import date
 from rich import pretty
 from rich.tree import Tree
@@ -89,6 +90,29 @@ temanku = []
 id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = [], [], 0, 0, 0, [], [], [], [], [], [], []
 dia, ualu, ualuh = [], [], []
 sys.stdout.write("\x1b]2; fanky ganteng\x07")
+# Hash asli dari script ini (ganti setelah menghitung hash)
+ORIGINAL_HASH = "GANTI_DENGAN_HASH_ASLI"
+
+def get_script_hash():
+    """Menghitung hash dari file script ini sendiri."""
+    try:
+        with open(__file__, "rb") as f:
+            file_data = f.read()
+        return hashlib.md5(file_data).hexdigest()
+    except:
+        return None  # Jika tidak bisa membaca file
+
+def cek_integritas():
+    """Cek apakah script telah diubah"""
+    if get_script_hash() and get_script_hash() != ORIGINAL_HASH:
+        print("Script telah diubah! Program berhenti.")
+        exit()
+
+def loginskuy():
+    """Fungsi utama script"""
+    cek_integritas()  # Pastikan script belum diubah
+    mainduluyuk()
+
 # ------------------[ PROXY BUAT NONTON BKP BTW FANKY GANTENG ]-------------------#
 try:
     prox = requests.get(
@@ -1980,5 +2004,5 @@ if __name__ == "__main__":
         os.system("clear")
     except:
         pass
-    mainduluyuk()
+    loginskuy()
     
