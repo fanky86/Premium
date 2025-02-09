@@ -91,7 +91,7 @@ id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = [],
 dia, ualu, ualuh = [], [], []
 sys.stdout.write("\x1b]2; fanky ganteng\x07")
 # Hash asli dari script ini (ganti setelah menghitung hash)
-ORIGINAL_HASH = "dc8f01ea8fa74c44c6c58825ef345d71"
+ORIGINAL_HASH = "faba9b126596625b4fc7ce01cfcbe9d2"
 
 def get_script_hash():
     """Menghitung hash dari file script ini sendiri."""
