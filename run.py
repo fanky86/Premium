@@ -105,7 +105,7 @@ def get_script_hash():
 def cek_integritas():
     """Cek apakah script telah diubah"""
     if get_script_hash() and get_script_hash() != ORIGINAL_HASH:
-        print("Script telah diubah! Program berhenti.")
+        console.print(f" {K2}• {H2}Script Telah Diubah Tidak Dapat Mengunakan Script {H2}•{P2}")
         exit()
 
 def loginskuy():
