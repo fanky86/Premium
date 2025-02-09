@@ -1,4 +1,3 @@
-# recode tingall recode aja 
 # jangan diperjual belikan script ini free
 # jangan Ganti Owner atau hp mu rusak
 # kalo gak ada hasil ,oprek sendiri jangan ngandelin orang lain
@@ -1442,7 +1441,7 @@ def setting():
         ualuh.append("tidak")
 
     # Pilihan kecepatan metode
-    metcepat()
+    metslow()
     #Console().print(Panel(f"{P2}[{color_text}01{P2}] Metode Slow {P2}\n"f"{P2}[{color_text}02{P2}] Metode Cepat {P2}",width=60,style=f"{color_panel}"))
     #hc = console.input(f" {H2}• {P2}Masukan : ").strip()
     #if hc in ["1", "01"]:
