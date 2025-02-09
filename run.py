@@ -1441,7 +1441,7 @@ def setting():
         ualuh.append("tidak")
 
     # Pilihan kecepatan metode
-    metslow()
+    metcepat()
     #Console().print(Panel(f"{P2}[{color_text}01{P2}] Metode Slow {P2}\n"f"{P2}[{color_text}02{P2}] Metode Cepat {P2}",width=60,style=f"{color_panel}"))
     #hc = console.input(f" {H2}• {P2}Masukan : ").strip()
     #if hc in ["1", "01"]:
@@ -1596,7 +1596,7 @@ def metcepat():
             for yuzong in id2:
                 idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
                 frs = nmf.split(" ")[0]
-                pwv = ["indonesia123","sayangku123","bismillah123"]
+                pwv = ["pantek123","indonesia123","kontol123","domino123","anjing123","sayangku","maling123","sayang123","malang123","bismillah123","sayangku123","bocilku123","galaksi123","hacker123"]
                 if len(nmf)<6:
                     if len(frs)<3:
                         pass
