@@ -1435,19 +1435,15 @@ def setting():
         ualuh.append("tidak")
 
     # Pilihan kecepatan metode
-    Console().print(Panel(
-        f"{P2}[{color_text}01{P2}] Metode Slow {H2}[Recomended]{P2}\n"
-        f"{P2}[{color_text}02{P2}] Metode Cepat {P2}",
-        width=60,
-        style=f"{color_panel}"
-    ))
-    hc = console.input(f" {H2}• {P2}Masukan : ").strip()
-    if hc in ["1", "01"]:
-        metslow()
-    elif hc in ["2", "02"]:
-        metcepat()
-    else:
-        metcepat()  # Default ke metode cepat
+    metcepat()
+    #Console().print(Panel(f"{P2}[{color_text}01{P2}] Metode Slow {P2}\n"f"{P2}[{color_text}02{P2}] Metode Cepat {P2}",width=60,style=f"{color_panel}"))
+    #hc = console.input(f" {H2}• {P2}Masukan : ").strip()
+    #if hc in ["1", "01"]:
+        #metcepat()
+    #elif hc in ["2", "02"]:
+        #metcepat()
+    #else:
+        #metcepat()  # Default ke metode cepat
         
 
 # -------------------[ CRACK-SLOW ]------------#
@@ -1594,7 +1590,7 @@ def metcepat():
             for yuzong in id2:
                 idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
                 frs = nmf.split(" ")[0]
-                pwv = [""]
+                pwv = ["indonesia123","sayangku123","bismillah123"]
                 if len(nmf)<6:
                     if len(frs)<3:
                         pass
