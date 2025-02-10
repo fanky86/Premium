@@ -47,7 +47,6 @@ import requests, bs4, json, os, sys, random, datetime, time, re, rich, base64, s
 from time import sleep
 import shutil
 import hashlib
-from datetime import datetime
 from datetime import date
 from rich import pretty
 from rich.tree import Tree
@@ -2042,16 +2041,12 @@ from bs4 import BeautifulSoup as parser
 from threading import Thread, Event
 from time import sleep as jeda
 from time import sleep 
-from datetime import datetime
 from rich import print as prints
 from rich.panel import Panel
 from rich.console import Console
-from datetime import datetime
-# Kemudian Anda bisa menggunakan datetime dengan benar
-now = datetime.now()
 console = Console()
 
-ct = datetime.now()
+ct = datetime.datetime.now()
 n = ct.month
 bulan_ = [
     "Januari",
@@ -2074,12 +2069,12 @@ try:
 except ValueError:
     exit()
 
-current = datetime.now()
+current = datetime.datetime.now()
 hari = current.day
 bulan = bulan_[nTemp]
 tahun = current.year
 bullan = current.month
-day = datetime.now().strftime("%d-%b-%Y")
+day = datetime.datetime.now().strftime("%d-%b-%Y")
 
 M = "\x1b[1;91m"  # MERAH
 H = "\x1b[1;92m"  # HIJAU
