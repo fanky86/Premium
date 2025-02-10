@@ -47,6 +47,7 @@ import requests, bs4, json, os, sys, random, datetime, time, re, rich, base64, s
 from time import sleep
 import shutil
 import hashlib
+from datetime import datetime
 from datetime import date
 from rich import pretty
 from rich.tree import Tree
@@ -2045,6 +2046,9 @@ from datetime import datetime
 from rich import print as prints
 from rich.panel import Panel
 from rich.console import Console
+from datetime import datetime
+# Kemudian Anda bisa menggunakan datetime dengan benar
+now = datetime.now()
 console = Console()
 
 ct = datetime.now()
