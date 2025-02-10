@@ -1285,10 +1285,8 @@ def massal():
         exit()
 
 def result():
-    console.print(Panel(f"""
-{P2}[{color_text}01{P2}]. Lihat Hasil {K2}CP{P2}
-{P2}[{color_text}02{P2}]. Lihat Hasil {H2}OK{P2}
-""", width=60, title=f"Hasil Crack", style=color_panel))
+    console.print(Panel(f"""{P2}[{color_text}01{P2}]. Lihat Hasil {K2}CP{P2}
+{P2}[{color_text}02{P2}]. Lihat Hasil {H2}OK{P2}""", width=60, title=f"Hasil Crack", style=color_panel))
 
     fankycek = console.input(f" {H2}• {P2}Masukan : ")
 
@@ -1341,7 +1339,7 @@ def pilih_file(file_map, folder, warna_akun):
 
     for line in lines:
         user, password = line.split("|")
-        console.print(Panel(f"{warna_akun} ID : {user} PASSWORD : {password}", width=60, style=warna_akun))
+        console.print(Panel(f" ID : {user} PASSWORD : {password}", width=60, style=warna_akun))
 
     console.input(f" {H2}• {P2}[ {M2}Klik Enter For Exit {P2}]")
     exit()
