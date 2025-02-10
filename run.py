@@ -1657,7 +1657,7 @@ def metcepat():
     urut.append(panel(f'[bold yellow]%s [bold white]'%(cpc),width=30,title=f"[bold yellow]CP SAVE",style=f"{color_panel}"))
     wa.print(Columns(urut))
     awal = datetime.datetime.now()
-    Console().print(Panel(f'[bold white]hidup/matikan Mode Pesawat Setiap [bold green]300[bold yellow] ID ',title=f"[bold yellow]CRACK-CEPAT",width=60,style=f"{color_panel}"))
+    Console().print(Panel(f'[bold white]hidup/matikan Mode Pesawat Setiap [bold green]300[bold yellow] ID ',title=f"[bold yellow]CRACK-CEPAT-FANKY-GANTENG",width=60,style=f"{color_panel}"))
     prog = Progress(TextColumn('{task.description}'))
     des = prog.add_task('',total=len(id2))
     with prog:
@@ -1665,7 +1665,7 @@ def metcepat():
             for yuzong in id2:
                 idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
                 frs = nmf.split(" ")[0]
-                pwv = ["indonesia123","bismillah123","sayangku123"]
+                pwv = ["bismillah123","sayangku123"]
                 if len(nmf)<6:
                     if len(frs)<3:
                         pass
