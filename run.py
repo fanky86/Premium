@@ -1933,7 +1933,7 @@ def fanky_b_api(idf,pwv):
 				tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
 				tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
 				prints(tree)
-				#os.popen('play-audio c.mp3')
+				os.popen('play-audio c.mp3')
 				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
 				break
 			elif "c_user" in ses.cookies.get_dict().keys():
@@ -1946,7 +1946,7 @@ def fanky_b_api(idf,pwv):
 				tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
 				tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
 				prints(tree)
-				#os.popen('play-audio o.mp3')
+				os.popen('play-audio o.mp3')
 				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
 				break
 			else:
