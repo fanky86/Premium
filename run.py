@@ -1458,7 +1458,7 @@ def setting():
 
 
     # Input untuk metode login
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]Touch v1 [bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]Touch v2 [bold white] [/]\n{P2}[{color_text}04{P2}] Login Site [bold green]IP [bold white][[bold green]Recommended [bold white]][bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]Touch v1 [bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]Touch v2 [bold white] [/]\n{P2}[{color_text}04{P2}] Login Site [bold green]IP [bold white][[bold green]Recommended[bold white]][bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
     fankylog = console.input(f" {H2}• {P2}Masukan : ").strip()
     if fankylog in ["1", "01"]:
     	method.append("fankygraph")
@@ -1643,7 +1643,7 @@ def metcepat():
             for yuzong in id2:
                 idf,nmf = yuzong.split('|')[0],yuzong.split('|')[1].lower()
                 frs = nmf.split(" ")[0]
-                pwv = ["bismillah123","sayangku123"]
+                pwv = ["bismillah123","sayangku123","indonesia123"]
                 if len(nmf)<6:
                     if len(frs)<3:
                         pass
