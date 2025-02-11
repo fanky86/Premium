@@ -89,28 +89,6 @@ temanku = []
 id, id2, loop, ok, cp, akun, tokenku, uid, method, pwpluss, pwnya, tokenmu = [], [], 0, 0, 0, [], [], [], [], [], [], []
 dia, ualu, ualuh = [], [], []
 sys.stdout.write("\x1b]2; fanky ganteng\x07")
-# Hash asli dari script ini (ganti setelah menghitung hash)
-ORIGINAL_HASH = "faba9b126596625b4fc7ce01cfcbe9d2"
-
-def get_script_hash():
-    """Menghitung hash dari file script ini sendiri."""
-    try:
-        with open(__file__, "rb") as f:
-            file_data = f.read()
-        return hashlib.md5(file_data).hexdigest()
-    except:
-        return None  # Jika tidak bisa membaca file
-
-def cek_integritas():
-    """Cek apakah script telah diubah"""
-    if get_script_hash() and get_script_hash() != ORIGINAL_HASH:
-        console.print(f" {K2}• {H2}Script Telah Diubah Tidak Dapat Mengunakan Script {H2}•{P2}")
-        exit()
-
-def loginskuy():
-    """Fungsi utama script"""
-    cek_integritas()  # Pastikan script belum diubah
-    mainduluyuk()
 
 # ------------------[ PROXY BUAT NONTON BKP BTW FANKY GANTENG ]-------------------#
 try:
@@ -2298,9 +2276,9 @@ def mengecek(user, pw):
             console.print(f"{H2} > {P2}Login Gagal, Silahkan Cek Kembali ID dan Kata Sandi")
 
     except requests.exceptions.RequestException as e:
-        console.print(f"{H2} > {P2}Error koneksi:[/bold red] {e}")
+        console.print(f"{H2} > {P2}Error koneksi:[bold red] {e}")
     except Exception as e:
-        console.print(f"{H2} > {P2}Kesalahan tidak terduga:[/bold red] {e}")
+        console.print(f"{H2} > {P2}Kesalahan tidak terduga:[bold red] {e}")
 
 # -----------------------[ SYSTEM-CONTROL ]--------------------#
 if __name__ == "__main__":
