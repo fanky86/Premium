@@ -1150,7 +1150,8 @@ def menu():
     elif HaHi in ["3", "03"]:
         result()
     elif HaHi in ["4", "04"]:
-        file_cp()
+        console.print(f" {H2}• {P2}SCRIPT SEDANG MAINTENANCE")
+        exit()
     elif HaHi in ["5", "05"]:
         os.system('rm -rf .fancookie.txt');os.system('rm -rf .fantoken.txt')
         console.print(f" {H2}• {P2}Berhasil Hapus Cookie")
