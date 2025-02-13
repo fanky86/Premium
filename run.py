@@ -1253,7 +1253,7 @@ def followers():
         fantok = open(".fantoken.txt", "r").read()
     except: pass
     try:
-        console.print(f" \n{H2}• {P2}Ketik 'me' jika ingin dump followers sendiri")
+        console.print(f"\n {H2}• {P2}Ketik 'me' jika ingin dump followers sendiri")
         idcuy = console.input(f" {H2}• {P2}Target id : ")
         # batas = console.input(f" {H2}• {P2}Maksimal id : ")
         fantok = open(".fantoken.txt", "r").read()
@@ -1275,7 +1275,7 @@ def followers():
         # console.input(f" {H2}• {P2} [enter]")
         setting()
     except Exception as e:
-        console.print(f" \n{H2}• {P2} Gagal Dump Id ")
+        console.print(f"\n {H2}• {P2} Gagal Dump Id ")
         exit()
 
 #----------[ CRACK-PUBLIK  ]----------#
