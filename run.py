@@ -866,7 +866,6 @@ def jalan(keliling):
 	    
 # ------------------[ LOGO-FANKY-GANTENG ]-----------------#
 def logoku():
-def logoku():
     console = Console()
     
     # Warna teks logo
