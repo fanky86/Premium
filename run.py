@@ -890,7 +890,7 @@ def logoku():
         logo_text,
         title="[bold magenta]Selamat Datang[/bold magenta]",
         subtitle="[bold yellow]Gunakan Setelah Registrasi Tools Anda[/bold yellow]",
-        border_style="cyan",
+        border_style="green",
         width=60
     )
 
