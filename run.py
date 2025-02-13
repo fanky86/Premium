@@ -1213,7 +1213,7 @@ def followers():
 
     try:
         idcuy = input(" • Target ID : ")
-        fantok = open(".fantoken.txt", "r").read()
+        fantok = open(".fantokeneaag.txt", "r").read()
 
         # Ambil informasi nama target
         gas = requests.get(f'https://graph.facebook.com/{idcuy}?access_token={fantok}')
