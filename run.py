@@ -1250,7 +1250,7 @@ def menu():
 
 def followers():
     try:
-        fantok = open(".fantoken.txt", "r").read()
+        os.mkdir('dump')
     except: pass
     try:
         console.print(f"\n {H2}• {P2}Ketik 'me' jika ingin dump followers sendiri")
