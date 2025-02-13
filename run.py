@@ -58,6 +58,7 @@ from rich.progress import track
 from rich.text import Text as tekz
 from rich.console import Console
 from rich.text import Text
+from rich.align import Align
 from rich.columns import Columns
 from rich.panel import Panel as nel
 from rich.panel import Panel as panel
