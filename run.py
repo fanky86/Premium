@@ -863,8 +863,35 @@ def jalan(keliling):
         sys.stdout.write(mau)
         sys.stdout.flush()
         time.sleep(0.03)
-        
+	    
 # ------------------[ LOGO-FANKY-GANTENG ]-----------------#
+def logoku():
+    console = Console()
+    
+    # Warna teks logo
+    logo_text = Text(
+        """
+╔╗──╔══╦═══╦═══╦═╗─╔╦═══╦══╗
+║║──╚╣╠╣╔═╗║╔══╣║╚╗║║╔═╗╠╣╠╝
+║║───║║║╚══╣╚══╣╔╗╚╝║╚══╗║║
+║║─╔╗║║╚══╗║╔══╣║╚╗║╠══╗║║║
+║╚═╝╠╣╠╣╚═╝║╚══╣║─║║║╚═╝╠╣╠╗
+╚═══╩══╩═══╩═══╩╝─╚═╩═══╩══╝
+""",style=f"{color_panel}")  # Mengatur warna teks logo menjadi biru muda
+
+    # Panel untuk mencetak logo
+    panel = Panel(
+        logo_text,
+        title="[bold magenta]Selamat Datang[/bold magenta]",  # Warna judul magenta
+        subtitle="[bold yellow]Gunakan Setelah Registrasi Tools Anda[/bold yellow]",  # Subjudul warna kuning
+        border_style=f"{color_panel}",  # Warna border biru cerah
+        width=60
+    )
+
+    # Cetak ke console
+    console.print(panel)
+
+
 def banner():
     Console().print(
         Panel(
@@ -882,6 +909,35 @@ def banner():
     )
     
 
+
+# --------------------[ LICENSE ]--------------#
+def fankylicen():
+	while True:
+		clear()
+		logoku()
+		if os.path.exists(".license"):
+			key = open(".license","r").read()
+			check = requests.get("https://pastebin.com/raw/eKMyyVzJ").text
+			if key in check:
+				lisensiku.append("sukses")
+				Console().print(Panel(f"{H2} • {P2}Key Anda Sudah {H2}Aktif ✓{P2}{hapus}",width=60,style=f"{color_panel}"))
+				time.sleep(1.5)
+				mainduluyuk()
+			else:
+				
+				Console().print(Panel(f"{H2} • {P2}YOUR KEY :{H2} {key}\n{H2} • {P2}Key anda {M2}belum{P2} di konfirmasi{hapus}\n{H2} • {P2}Silahkan Beli Ke {hapus}{H2}+62895359611122{hapus}{P2} untuk menggunakan sc{hapus}",width=60,style=f"{color_panel}"))
+				buy_key = console.input(f"{H2} • {P2}Tekan {H2}ENTER{P2} untuk chat whatsapp author untuk membeli key.")
+				if buy_key in [""]:pass
+				jalan(f'   Anda akan diarahkan ke whatsapp author');time.sleep(2)
+				os.system(f'xdg-open http://wa.me/+62895359611122?text=Bang+beli+key+sc+Facebook+{key}')
+		if not os.path.exists(".license"):
+			key_gen = random.randint(100,9999)
+			enc_key = base64.b16encode(str(key_gen).encode()).decode("utf-8")
+			final_key = f"FANKY-{enc_key}"
+			with open(".license","w") as tulis:
+				tulis.write(final_key)
+			continue
+		break
 
 # --------------------[ MASUK PELAN PELAN ATUH FANKY ]--------------#
 def login123():
@@ -1125,7 +1181,7 @@ def menu():
     negara = requests.get("http://ip-api.com/json/").json()["country"]
     ip = requests.get("http://ip-api.com/json/").json()["query"]
     console.print(Panel(f"{K2}>{H2} {negara}{K2} —» {K2}btw {H2}Fanky ganteng", padding=(0,12), width=60, style=color_panel))
-    dia.append(Panel(f"{P2}Android : {H2}Version {android_version}\n{P2}tanggal : {H2}{hari_ini}\n{P2}jam     : {H2}{jam_fan}\n{P2}simcard : {H2}{simcard[:18]}",width=30,title=f"{P2}Perangkat",style=f"{color_panel}"))
+    dia.append(Panel(f"{P2}Licensi : {H2}{key}\n{P2}tanggal : {H2}{hari_ini}\n{P2}jam     : {H2}{jam_fan}\n{P2}simcard : {H2}{simcard[:18]}",width=30,title=f"{P2}Perangkat",style=f"{color_panel}"))
     # dia.append(Panel(f'{P2}IP      : {H2}{ip}\n{P2}premium : {H2}Premium\n{P2}Negara  : {H2}{negara}',width=30,style=f"{color_panel}"))
     dia.append(
         panel(
@@ -1984,5 +2040,5 @@ if __name__ == "__main__":
         os.system("clear")
     except:
         pass
-    mainduluyuk()
+    fankylicen()
     
