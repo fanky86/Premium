@@ -1546,7 +1546,7 @@ def setting():
 
     # Validasi jika daftar ID kosong
     if not id or not isinstance(id, list):
-        print("[bold red]Error:[/bold red] Daftar ID tidak ditemukan atau kosong!")
+        console.print(f" {H2}• [bold red]Error:[/bold red] Daftar ID tidak ditemukan atau kosong!")
         return
 
     # Pilihan metode crack
