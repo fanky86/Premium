@@ -877,34 +877,20 @@ def logoku():
 ║║─╔╗║║╚══╗║╔══╣║╚╗║╠══╗║║║
 ║╚═╝╠╣╠╣╚═╝║╚══╣║─║║║╚═╝╠╣╠╗
 ╚═══╩══╩═══╩═══╩╝─╚═╩═══╩══╝
-""",
-        style=f"{color_panel}"
-    )
+""",style=f"{color_panel}")  # Mengatur warna teks logo menjadi biru muda
 
-    # Informasi tambahan di sisi kanan
-    info_text = Text(
-        """
-[bold yellow]NAME   : [bold green]FANKY
-[bold yellow]GitHub : [bold green]github.com/fanky86
-[bold yellow]Harga  : [bold red]Bayar 10K aja
-[bold cyan]Sama-sama untung kok
-[bold cyan]Kamu tinggal make
-[bold cyan]Aku yang update terus
-""",
-        style="bold white"
-    )
-
-    # Panel utama dengan logo dan informasi tambahan
+    # Panel untuk mencetak logo
     panel = Panel(
-        Columns([logo_text, info_text], expand=True),
-        title="[bold magenta]Selamat Datang[/bold magenta]",
-        subtitle="[bold yellow]Gunakan Setelah Registrasi Tools Anda[/bold yellow]",
-        border_style=f"{color_panel}",
-        width=80
+        logo_text,
+        title="[bold magenta]Selamat Datang Di Script Privat Fanky[/bold magenta]",  # Warna judul magenta
+        subtitle="[bold yellow]Gunakan Setelah Registrasi Tools Anda[/bold yellow]",  # Subjudul warna kuning
+        border_style=f"{color_panel}",  # Warna border biru cerah
+        width=60
     )
 
     # Cetak ke console
     console.print(panel)
+
 
 def banner():
     Console().print(
@@ -939,7 +925,7 @@ def fankylicen():
 				mainduluyuk()
 			else:
 				
-				Console().print(Panel(f"{H2} • {P2}YOUR KEY :{H2} {key}\n{H2} • {P2}Key anda {M2}belum{P2} di konfirmasi{hapus}\n{H2} • {P2}Silahkan Beli Ke {hapus}{H2}+62895359611122{hapus}{P2} untuk menggunakan sc{hapus}",width=60,style=f"{color_panel}"))
+				Console().print(Panel(f"{H2} • {P2}YOUR KEY :{H2} {key} {P2}Harga : 10k tanpa waktu\n{H2} • {P2}Key anda {M2}belum{P2} di konfirmasi{hapus}\n{H2} • {P2}Silahkan Beli Ke {hapus}{H2}+62895359611122{hapus}{P2} untuk menggunakan sc{hapus}",width=60,style=f"{color_panel}"))
 				buy_key = console.input(f"{H2} • {P2}Tekan {H2}ENTER{P2} untuk chat whatsapp author untuk membeli key.")
 				if buy_key in [""]:pass
 				jalan(f'   Anda akan diarahkan ke whatsapp author');time.sleep(2)
