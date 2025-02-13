@@ -866,6 +866,7 @@ def jalan(keliling):
 	    
 # ------------------[ LOGO-FANKY-GANTENG ]-----------------#
 def logoku():
+def logoku():
     console = Console()
     
     # Warna teks logo
@@ -877,20 +878,34 @@ def logoku():
 ║║─╔╗║║╚══╗║╔══╣║╚╗║╠══╗║║║
 ║╚═╝╠╣╠╣╚═╝║╚══╣║─║║║╚═╝╠╣╠╗
 ╚═══╩══╩═══╩═══╩╝─╚═╩═══╩══╝
-""",style=f"{color_panel}")  # Mengatur warna teks logo menjadi biru muda
+""",
+        style=f"{color_panel}"
+    )
 
-    # Panel untuk mencetak logo
+    # Informasi tambahan di sisi kanan
+    info_text = Text(
+        """
+[bold yellow]NAME   : [bold green]FANKY
+[bold yellow]GitHub : [bold green]github.com/fanky86
+[bold yellow]Harga  : [bold red]Bayar 10K aja
+[bold cyan]Sama-sama untung kok
+[bold cyan]Kamu tinggal make
+[bold cyan]Aku yang update terus
+""",
+        style="bold white"
+    )
+
+    # Panel utama dengan logo dan informasi tambahan
     panel = Panel(
-        logo_text,
-        title="[bold magenta]Selamat Datang[/bold magenta]",  # Warna judul magenta
-        subtitle="[bold yellow]Gunakan Setelah Registrasi Tools Anda[/bold yellow]",  # Subjudul warna kuning
-        border_style=f"{color_panel}",  # Warna border biru cerah
-        width=60
+        Columns([logo_text, info_text], expand=True),
+        title="[bold magenta]Selamat Datang[/bold magenta]",
+        subtitle="[bold yellow]Gunakan Setelah Registrasi Tools Anda[/bold yellow]",
+        border_style=f"{color_panel}",
+        width=80
     )
 
     # Cetak ke console
     console.print(panel)
-
 
 def banner():
     Console().print(
