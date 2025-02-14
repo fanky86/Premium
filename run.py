@@ -1179,9 +1179,8 @@ def menu():
     prints(Panel(f"""{P2}[{color_text}01{P2}]. crack dari id publik
 [{color_text}02{P2}]. crack dari id Masal
 [{color_text}03{P2}]. Lihat Hasil Crack
-[{color_text}04{P2}]. Crack Dari followers id publik 
-[{color_text}05{P2}]. Logout [[bold red]hapus cookie[bold white]]
-[{color_text}06{P2}]. {M2}EXIT{P2}""",width=60,title="MENU",style=f"{color_panel}"))
+[{color_text}04{P2}]. Logout [[bold red]hapus cookie[bold white]]
+[{color_text}05{P2}]. {M2}EXIT{P2}""",width=60,title="MENU",style=f"{color_panel}"))
     HaHi = console.input(f" {H2}• {P2}pilih menu : ")
     if HaHi in ["1", "01"]:
         dump_publik()
@@ -1190,55 +1189,13 @@ def menu():
     elif HaHi in ["3", "03"]:
         result()
     elif HaHi in ["4", "04"]:
-        followers()
-    elif HaHi in ["5", "05"]:
         os.system('rm -rf .fancookie.txt');os.system('rm -rf .fantoken.txt')
         console.print(f" {H2}• {P2}Berhasil Hapus Cookie")
-    elif HaHi in ["6", "06"]:
+    elif HaHi in ["5", "05"]:
         exit()
     else:
     	console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! btw fanky ganteng ")
 
-
-import os
-import requests
-import json
-import sys
-
-def followers():
-    try:
-        os.mkdir('dump')
-    except:
-        pass
-
-    try:
-        idcuy = input(" • Target ID : ")
-        fantok = open(".fantokeneaag.txt", "r").read()
-
-        # Ambil informasi nama target
-        gas = requests.get(f'https://graph.facebook.com/{idcuy}?access_token={fantok}')
-        nm = json.loads(gas.text)
-        file = f'dump/{nm['first_name']}.json'.replace(' ', '_')
-
-        # Coba ambil daftar followers (TIDAK BERFUNGSI untuk akun pribadi)
-        r = requests.get(f'https://graph.facebook.com/{idcuy}/subscribers?limit=50000&access_token={fantok}')
-        z = json.loads(r.text)
-
-        # Simpan hasil ke file
-        with open(file, 'w') as bff:
-            for a in z.get('data', []):
-                bff.write(f"{a['id']}|{a['name']}\n")
-                print(f"\r • Mengumpulkan ID: {len(z['data'])}", end='')
-                sys.stdout.flush()
-        
-        print(f"\n\n • Berhasil dump ID dari {nm['name']}")
-        
-        # Langsung masuk ke setting() setelah selesai
-        setting()
-        
-    except Exception as e:
-        print("\n • Gagal Dump ID")
-        exit()
 
 #----------[ CRACK-PUBLIK  ]----------#
 def dump_publik():
