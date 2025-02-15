@@ -929,7 +929,7 @@ def banner():
             """
 [bold red]███████████████████████ [bold yellow]NAME  : [bold green]FANKY 
 [bold red]███████████████████████ [bold yellow]Githb : [bold green]github.com/fanky86  
-[bold red]███████████████████████ [bold yellow]Serah : [bold green]BTW GW GANTENG
+[bold red]███████████████████████ [bold yellow]Saran : [bold green]Jangan pake wifi
 [bold white]███████████████████████          
 [bold white]███████████████████████          
 [bold white]███████████████████████ 
