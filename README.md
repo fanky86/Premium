@@ -6,6 +6,7 @@ download aplikasi termux di playstore atau <a href="https://f-droid.org/en/packa
     $ pkg update && pkg upgrade
     $ pkg install python git
     $ pip install requests
+    $ termux-setup-storage #izinkan
     $ rm -rf Premium
     $ git clone https://github.com/fanky86/Premium
     $ cd Premium
