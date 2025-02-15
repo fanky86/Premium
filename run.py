@@ -1828,7 +1828,7 @@ def fanky_b_api(idf, pwv):
     rc = random.choice
     bo = random.choice([m, k, h, b, u, x])
     # ua = random.choice(ugen)
-    ua = random.choice(ugent)
+    ua = random.choice(ugen)
     ses = requests.Session()
     prog.update(des, description=f" {K2}•{H2} FANKY IP {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
