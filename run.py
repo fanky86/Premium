@@ -138,18 +138,28 @@ except :
 	ugent = "Mozilla/5.0 (Linux; Android 12; SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Mobile Safari/537.36"
 	
 
-for fan in range(1000):
-	rc=random.choice
-	rr = random.randint
-	andro = f"{(rr(4,13))}"
-	samsung=rc(['SAMSUNG SM-G532G Build/MMB29T', 'SAMSUNG SM-G532M', 'SAMSUNG SM-G532M', 'SAMSUNG SM-G975F', 'SAMSUNG SM-A515F', 'SAMSUNG SM-A715F', 'SAMSUNG SM-G532G', 'SAMSUNG SM-J200G Build/LMY47X', 'SAMSUNG SM-G610M', 'SM-G532G Build/MMB29T', 'SAMSUNG SM-G610F', 'SAMSUNG SM-G610F', 'SAMSUNG SM-G570M', 'SAMSUNG SM-G532MT', 'SAMSUNG SM-A205G', 'SAMSUNG SM-J700M', 'SAMSUNG SM-N950F', 'SAMSUNG SM-G935F', 'SAMSUNG SM-A217F', 'SAMSUNG SM-G965F', 'SAMSUNG SM-A105M', 'SAMSUNG SM-J500M', 'SAMSUNG SM-G950F', 'SAMSUNG SM-A505F', 'SAMSUNG SM-G532M Build/MMB29T', 'SAMSUNG SM-N975F', 'SAMSUNG SM-J701M', 'SAMSUNG SM-J710MN', 'SAMSUNG SM-N960F', 'SAMSUNG SM-A505F', 'SAMSUNG SM-G532F', 'SAMSUNG SM-A515F', 'SAMSUNG SM-A107M']) 
-	fanky=f'Dalvik/2.1.0 (Linux; U; Android {str(rr(1, 14))}; {samsung}) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/{str(rr(10, 14))}.{str(rr(1, 10))} Chrome/{str(rr(30, 270))}.0.{str(rr(15, 7000))}.{str(rr(20, 275))} Mobile Safari/537.36'
-	d = f"Dalvik/2.1.0 (Linux; U; Android {andro}; V2043_21 Build/RP1A.200720.012) [FBAN/MessengerLite;FBAV/{(rr(100,467))}.0.0.5.119;FBPN/com.facebook.mlite;FBLC/en_GB;FBBV/{(rr(100000000,9000000000))};FBCR/Warid;FBMF/vivo;FBBD/vivo;FBDV/V2043_21;FBSV/{andro};FBCA/arm64-v8a:armeabi-v7a:armeabi;FBDM/"+"{density=2.25,height=,width=};]"
-	a = f"Dalvik/2.1.0 (Linux; U; Android {andro}; moto g52 Build/S1SRS32.38-132-8) [FBAN/MessengerLite;FBAV/{(rr(100,467))}.0.0.7.131;FBPN/com.facebook.mlite;FBLC/en_GB;FBBV/543901789;FBCR/;FBMF/motorola;FBBD/motorola;FBDV/moto g52;FBSV/{andro};FBCA/arm64-v8a:armeabi-v7a:armeabi;FBDM/"+"{density=2.25,height=1024,width=2048};]"
-	n = f"Dalvik/2.1.0 (Linux; U; Android {andro}; SM-J330FN Build/PPR1.180610.011) [FBAN/MessengerLite;FBAV/{(rr(100,467))}.0.0.3.109;FBPN/com.facebook.mlite;FBLC/en_GB;FBBV/{(rr(100000000,9000000000))};FBCR/Grameenphone;FBMF/samsung;FBBD/samsung;FBDV/SM-J330FN;FBSV/{andro};FBCA/armeabi-v7a:armeabi;FBDM/"+"{density=2.25,height=,width=};]"
-	siska = f"Dalvik/2.1.0 (Linux; U; Android {andro}; vivo V3Max Build/LMY47V) [FBAN/Orca-Android;FBAV/{(rr(100,467))}.0.0.16.158;FBPN/com.facebook.orca;FBLC/en_US;FBBV/{(rr(100000000,9000000000))};FBCR/null;FBMF/vivo;FBBD/vivo;FBDV/vivo V3Max;FBSV/{andro};FBCA/armeabi-v7a:armeabi;FBDM/"+"{density=3.0,width=1080,height=1920"
-	ua = random.choice([fanky, d, a, n, siska])
-	ugent.append(ua)
+for t in range(1000):
+    rc = random.choice
+    rr = random.randint
+    andro = f"{rr(4,13)}"
+    samsung = rc([
+        'SAMSUNG SM-G532G Build/MMB29T', 'SAMSUNG SM-G532M', 'SAMSUNG SM-G532M',
+        'SAMSUNG SM-G975F', 'SAMSUNG SM-A515F', 'SAMSUNG SM-A715F', 'SAMSUNG SM-G532G',
+        'SAMSUNG SM-J200G Build/LMY47X', 'SAMSUNG SM-G610M', 'SM-G532G Build/MMB29T',
+        'SAMSUNG SM-G610F', 'SAMSUNG SM-G610F', 'SAMSUNG SM-G570M', 'SAMSUNG SM-G532MT',
+        'SAMSUNG SM-A205G', 'SAMSUNG SM-J700M', 'SAMSUNG SM-N950F', 'SAMSUNG SM-G935F',
+        'SAMSUNG SM-A217F', 'SAMSUNG SM-G965F', 'SAMSUNG SM-A105M', 'SAMSUNG SM-J500M',
+        'SAMSUNG SM-G950F', 'SAMSUNG SM-A505F', 'SAMSUNG SM-G532M Build/MMB29T',
+        'SAMSUNG SM-N975F', 'SAMSUNG SM-J701M', 'SAMSUNG SM-J710MN', 'SAMSUNG SM-N960F',
+        'SAMSUNG SM-A505F', 'SAMSUNG SM-G532F', 'SAMSUNG SM-A515F', 'SAMSUNG SM-A107M'
+    ])
+    fanky = f"Dalvik/2.1.0 (Linux; U; Android {rr(1, 14)}; {samsung}) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/{rr(10, 14)}.{rr(1, 10)} Chrome/{rr(30, 270)}.0.{rr(15, 7000)}.{rr(20, 275)} Mobile Safari/537.36"
+    d = f"Dalvik/2.1.0 (Linux; U; Android {andro}; V2043_21 Build/RP1A.200720.012) [FBAN/MessengerLite;FBAV/{rr(100,467)}.0.0.5.119;FBPN/com.facebook.mlite;FBLC/en_GB;FBBV/{rr(100000000,9000000000)};FBCR/Warid;FBMF/vivo;FBBD/vivo;FBDV/V2043_21;FBSV/{andro};FBCA/arm64-v8a:armeabi-v7a:armeabi;FBDM/{{density=2.25,height=,width=}};]"
+    a = f"Dalvik/2.1.0 (Linux; U; Android {andro}; moto g52 Build/S1SRS32.38-132-8) [FBAN/MessengerLite;FBAV/{rr(100,467)}.0.0.7.131;FBPN/com.facebook.mlite;FBLC/en_GB;FBBV/543901789;FBCR/;FBMF/motorola;FBBD/motorola;FBDV/moto g52;FBSV/{andro};FBCA/arm64-v8a:armeabi-v7a:armeabi;FBDM/{{density=2.25,height=1024,width=2048}};]"
+    n = f"Dalvik/2.1.0 (Linux; U; Android {andro}; SM-J330FN Build/PPR1.180610.011) [FBAN/MessengerLite;FBAV/{rr(100,467)}.0.0.3.109;FBPN/com.facebook.mlite;FBLC/en_GB;FBBV/{rr(100000000,9000000000)};FBCR/Grameenphone;FBMF/samsung;FBBD/samsung;FBDV/SM-J330FN;FBSV/{andro};FBCA/armeabi-v7a:armeabi;FBDM/{{density=2.25,height=,width=}};]"
+    siska = f"Dalvik/2.1.0 (Linux; U; Android {andro}; vivo V3Max Build/LMY47V) [FBAN/Orca-Android;FBAV/{rr(100,467)}.0.0.16.158;FBPN/com.facebook.orca;FBLC/en_US;FBBV/{rr(100000000,9000000000)};FBCR/null;FBMF/vivo;FBBD/vivo;FBDV/vivo V3Max;FBSV/{andro};FBCA/armeabi-v7a:armeabi;FBDM/{{density=3.0,width=1080,height=1920}};]"
+    ua = random.choice([fanky, d, a, n, siska])
+    ugen.append(ua)
 
 for t in range(10000):
 	a=random.choice(['1','1.0','1.5','2','2.0','2.5','3','3.0','3.5','4','4.0','4.5','5','5.0','5.5','6','6.0','6.5','7','7.0','7.5','8','8.0','8.5','9','9.0','9.5','10','10.0','10.5','11','11.0','11.5','12','12.0','12.5','13'])
@@ -722,7 +732,7 @@ for t in range(10000):
 	uaku2=f'{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}'
 	ugen.append(uaku2)
 	
-ugen = [
+ugent = [
     # User-Agent untuk Windows
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
