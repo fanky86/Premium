@@ -1300,8 +1300,11 @@ def pilih_file(file_map, folder, warna_akun):
 
     for line in lines:
         user, password, cookie= line.split("|")
-        console.print(Panel(f" ID : {user} PASSWORD : {password} | {cookie}", width=60, style=warna_akun))
-
+        id, pw = line.split("|")
+        try:
+            console.print(Panel(f" ID : {user} PASSWORD : {password} | {cookie}", width=60, style=warna_akun))
+	except:
+            console.print(Panel(f" ID : {id} PASSWORD : {pw} ", width=60, style=warna_akun))
     console.input(f" {H2}• {P2}[ {M2}Klik Enter For Exit {P2}]")
     exit()
 
