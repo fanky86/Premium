@@ -158,7 +158,7 @@ for t in range(1000):
     a = f"Dalvik/2.1.0 (Linux; U; Android {andro}; moto g52 Build/S1SRS32.38-132-8) [FBAN/MessengerLite;FBAV/{rr(100,467)}.0.0.7.131;FBPN/com.facebook.mlite;FBLC/en_GB;FBBV/543901789;FBCR/;FBMF/motorola;FBBD/motorola;FBDV/moto g52;FBSV/{andro};FBCA/arm64-v8a:armeabi-v7a:armeabi;FBDM/{{density=2.25,height=1024,width=2048}};]"
     n = f"Dalvik/2.1.0 (Linux; U; Android {andro}; SM-J330FN Build/PPR1.180610.011) [FBAN/MessengerLite;FBAV/{rr(100,467)}.0.0.3.109;FBPN/com.facebook.mlite;FBLC/en_GB;FBBV/{rr(100000000,9000000000)};FBCR/Grameenphone;FBMF/samsung;FBBD/samsung;FBDV/SM-J330FN;FBSV/{andro};FBCA/armeabi-v7a:armeabi;FBDM/{{density=2.25,height=,width=}};]"
     siska = f"Dalvik/2.1.0 (Linux; U; Android {andro}; vivo V3Max Build/LMY47V) [FBAN/Orca-Android;FBAV/{rr(100,467)}.0.0.16.158;FBPN/com.facebook.orca;FBLC/en_US;FBBV/{rr(100000000,9000000000)};FBCR/null;FBMF/vivo;FBBD/vivo;FBDV/vivo V3Max;FBSV/{andro};FBCA/armeabi-v7a:armeabi;FBDM/{{density=3.0,width=1080,height=1920}};]"
-    ua = random.choice([fanky, d, a, n, siska])
+    ua = random.choice([fanky])
     ugen.append(ua)
 
 for t in range(10000):
@@ -871,7 +871,7 @@ def banner():
 [bold red]███████████████████████ [bold yellow]NAME  : [bold green]FANKY 
 [bold red]███████████████████████ [bold yellow]Githb : [bold green]github.com/fanky86  
 [bold red]███████████████████████ [bold yellow]Saran : [bold green]Jangan pake wifi
-[bold white]███████████████████████          
+[bold white]███████████████████████ [bold yellow]IG    : [bold green]@fannjha
 [bold white]███████████████████████          
 [bold white]███████████████████████ 
 [bold white]""",
