@@ -1285,28 +1285,25 @@ def lihat_hasil(folder, pesan_tidak_ada, warna_akun):
     pilih_file(file_map, folder, warna_akun)
 
 def pilih_file(file_map, folder, warna_akun):
-    pilihan = console.input(f" {H2}• {P2}Masukan : ")
-
-    if pilihan not in file_map:
-        console.print(f" {H2}• {P2}Pilih Yang Bener Atuhh")
-        exit()
-
-    try:
-        lines = open(f"{folder}/{file_map[pilihan]}", "r").read().splitlines()
-    except:
-        console.print(f" {H2}• {P2}File Tidak Di Temukan ")
-        time.sleep(3)
-        exit()
-
-    for line in lines:
-        user, password, cookie= line.split("|")
-        id, pw = line.split("|")
-        try:
-            console.print(Panel(f" ID : {user} PASSWORD : {password} | {cookie}", width=60, style=warna_akun))
+	pilihan = console.input(f" {H2}• {P2}Masukan : ")
+	if pilihan not in file_map:
+		console.print(f" {H2}• {P2}Pilih Yang Bener Atuhh")
+		exit()
+	try:
+		lines = open(f"{folder}/{file_map[pilihan]}", "r").read().splitlines()
 	except:
-            console.print(Panel(f" ID : {id} PASSWORD : {pw} ", width=60, style=warna_akun))
-    console.input(f" {H2}• {P2}[ {M2}Klik Enter For Exit {P2}]")
-    exit()
+		console.print(f" {H2}• {P2}File Tidak Di Temukan ")
+		time.sleep(3)
+		exit()
+	for line in lines:
+		user, password, cookie= line.split("|")
+		id, pw = line.split("|")
+		try:
+			console.print(Panel(f" ID : {user} PASSWORD : {password} | {cookie}", width=60, style=warna_akun))
+		except:
+			console.print(Panel(f" ID : {id} PASSWORD : {pw} ", width=60, style=warna_akun))
+		console.input(f" {H2}• {P2}[ {M2}Klik Enter For Exit {P2}]")
+		exit()
 
 def convert(cookie):
     cok = "fr=%s;datr=%s;c_user=%s;xs=%s" % (
