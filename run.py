@@ -809,9 +809,10 @@ kom2 = random.choice(["Jadikan Aku Anak Buah Mu Bang @[100043537611609:]","Panut
 storage_path = "/data/data/com.termux/files/home/storage"
 # Cek apakah storage sudah diizinkan
 if not os.path.exists(storage_path):
+    os.system("clear")
     console.print(
         Panel(f"{H2} • {P2}Silakan jalankan '{H2}termux-setup-storage' dan izinkan akses sebelum menjalankan script ini.{P2}",
-              title="{H2}Akses Storage Diperlukan{P2}", width=60, style="bold green")
+              title=f"{H2}Akses Storage Diperlukan{P2}", width=60, style="bold green")
     )
     sys.exit(1) 
 # --------------------[ CONVERTER-BULAN ]--------------#
