@@ -810,8 +810,8 @@ storage_path = "/data/data/com.termux/files/home/storage"
 # Cek apakah storage sudah diizinkan
 if not os.path.exists(storage_path):
     console.print(
-        Panel(f"{H2} • {P2}Silakan jalankan '[green]termux-setup-storage[/green]' dan izinkan akses sebelum menjalankan script ini.[/bold white]",
-              title="[green]Akses Storage Diperlukan[/green]", width=60, style="green")
+        Panel(f"{H2} • {P2}Silakan jalankan '{H2}termux-setup-storage' dan izinkan akses sebelum menjalankan script ini.{P2}",
+              title="{H2}Akses Storage Diperlukan{P2}", width=60, style="bold green")
     )
     sys.exit(1) 
 # --------------------[ CONVERTER-BULAN ]--------------#
