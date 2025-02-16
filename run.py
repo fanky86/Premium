@@ -811,7 +811,7 @@ storage_path = "/data/data/com.termux/files/home/storage"
 if not os.path.exists(storage_path):
     os.system("clear")
     console.print(
-        Panel(f"{H2} • {P2}Silakan jalankan '{H2}termux-setup-storage' dan izinkan akses sebelum menjalankan script ini.{P2}",
+        Panel(f"{H2} • {P2}Silakan jalankan '{H2}termux-setup-storage{P2}' dan izinkan akses sebelum menjalankan script ini.{P2}",
               title=f"{H2}Akses Storage Diperlukan{P2}", width=60, style="bold green")
     )
     sys.exit(1) 
