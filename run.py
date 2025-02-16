@@ -806,7 +806,7 @@ kom2 = random.choice(["Jadikan Aku Anak Buah Mu Bang @[100043537611609:]","Panut
 
 # --------------------[ Izin Storage ]--------------#
 # Path ke internal storage
-storage_path = "/sdcard"
+storage_path = "/data/data/com.termux/files/home/storage"
 # Cek apakah storage sudah diizinkan
 if not os.path.exists(storage_path):
     console.print(
