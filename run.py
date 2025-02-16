@@ -804,6 +804,16 @@ p = '\x1b[0;34m' # BIRU +
 asu = random.choice([m,k,h,u,b])
 kom2 = random.choice(["Jadikan Aku Anak Buah Mu Bang @[100043537611609:]","Panutan Ku","Sebenarnya Aku Suka Sama Kamu, Tetapi Aku Cuma Butuh Waktu Untuk Mengungkapkan Isi Hati Ku"])
 
+# --------------------[ Izin Storage ]--------------#
+# Path ke internal storage
+storage_path = "/sdcard"
+# Cek apakah storage sudah diizinkan
+if not os.path.exists(storage_path):
+    console.print(
+        Panel(f"{H2} • {P2}Silakan jalankan '[green]termux-setup-storage[/green]' dan izinkan akses sebelum menjalankan script ini.[/bold white]",
+              title="[green]Akses Storage Diperlukan[/green]", width=60, style="green")
+    )
+    sys.exit(1) 
 # --------------------[ CONVERTER-BULAN ]--------------#
 dic = {"1": "January", "2": "February", "3": "March", "4": "April", "5": "May", "6": "June", "7": "July", "8": "August", "9": "September", "10": "October", "11": "November", "12": "December"}
 dic2 = {"01": "January", "02": "February", "03": "March", "04": "April", "05": "May", "06": "June", "07": "July", "08": "August", "09": "September", "10": "October", "11": "November", "12": "December"}
