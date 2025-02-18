@@ -732,21 +732,15 @@ for t in range(10000):
 	uaku2=f'{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}'
 	ugen.append(uaku2)
 	
-ugent = [
-    # User-Agent untuk Windows
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/109.0",
-    "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; Edge/116.0.1938.69) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
-
-    # User-Agent untuk Android
-    "Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Mobile Safari/537.36",
-    "Mozilla/5.0 (Linux; Android 11; Pixel 4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Mobile Safari/537.36",
-    "Mozilla/5.0 (Linux; Android 9; Redmi Note 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.152 Mobile Safari/537.36",
-    "Mozilla/5.0 (Linux; Android 8.1; Moto G6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.127 Mobile Safari/537.36",
-    "Mozilla/5.0 (Linux; Android 12; OnePlus 8T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36"
-]
+ugenredmi=[]
+for fanky in range(1000):
+    android_versi = random.choice(["6.0.1", "7.1.2", "8.1.0", "9", "10", "11", "12"])
+    android_build = random.choice(["MRA58K", "NMF26F", "OPM1.171019.026", "PKQ1.181203.001", "QKQ1.200114.002", "RKQ1.201123.002"])
+    redmi_model = random.choice(["Redmi 3", "Redmi 3S", "Redmi 4", "Redmi Note 4", "Redmi 5", "Redmi Note 5","Redmi 6", "Redmi Note 6 Pro", "Redmi 7", "Redmi Note 7", "Redmi 8", "Redmi Note 8","Redmi 9", "Redmi Note 9"])
+    chrome_version = f"{random.randint(80, 120)}.0.{random.randint(4000, 6000)}.{random.randint(100, 500)}"
+    user_agent = f"Mozilla/5.0 (Linux; Android {android_versi}; {redmi_model} Build/{android_build}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{chrome_version} Mobile Safari/537.36"
+    ugenredmi.append(user_agent)
+    
 
 # ------------[ INDICATION ]---------------#
 M2 = "[#FF0000]"  # MERAH
@@ -1839,7 +1833,7 @@ def fanky_b_api(idf, pwv):
     rc = random.choice
     bo = random.choice([m, k, h, b, u, x])
     # ua = random.choice(ugen)
-    ua = random.choice(ugen)
+    ua = random.choice(ugenredmi)
     ses = requests.Session()
     prog.update(des, description=f" {K2}•{H2} FANKY IP {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
