@@ -907,20 +907,45 @@ def login():
 def logincoki():
 	try:
 		cok = Console().input(f" {H2}• {P2}cookie : ")
-		open('.fancookie.txt','w').write(cok)
+		open('.fancookie.txt', 'w').write(cok)
 		with requests.Session() as r:
 			try:
-				r.headers.update({'Accept-Language': 'id,en;q=0.9','User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36','Referer': 'https://www.instagram.com/','Host': 'www.facebook.com','Sec-Fetch-Mode': 'cors','Accept': '*/*','Connection': 'keep-alive','Sec-Fetch-Site': 'cross-site','Sec-Fetch-Dest': 'empty','Origin': 'https://www.instagram.com','Accept-Encoding': 'gzip, deflate',})
-				response = r.get('https://www.facebook.com/x/oauth/status?client_id=124024574287414&wants_cookie_data=true&origin=1&input_token=&sdk=joey&redirect_uri=https://www.instagram.com/brutalid_/', cookies={'cookie':cok})
-				if  '"access_token":' in str(response.headers):
+				r.headers.update({
+					'Accept-Language': 'id,en;q=0.9',
+					'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36',
+					'Referer': 'https://www.instagram.com/',
+					'Host': 'www.facebook.com',
+					'Sec-Fetch-Mode': 'cors',
+					'Accept': '*/*',
+					'Connection': 'keep-alive',
+					'Sec-Fetch-Site': 'cross-site',
+					'Sec-Fetch-Dest': 'empty',
+					'Origin': 'https://www.instagram.com',
+					'Accept-Encoding': 'gzip, deflate',
+				})
+				response = r.get(
+					'https://www.facebook.com/x/oauth/status?client_id=124024574287414&wants_cookie_data=true&origin=1&input_token=&sdk=joey&redirect_uri=https://www.instagram.com/brutalid_/',
+					cookies={'cookie': cok}
+				)
+				if '"access_token":' in str(response.headers):
 					token = re.search('"access_token":"(.*?)"', str(response.headers)).group(1)
-					open('.fantoken.txt','w').write(token)
+					open('.fantoken.txt', 'w').write(token)
 					Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
-				else:Console().print(f" {H2}• {P2}[bold red]Cookie Invalid");exit()
-			except Exception as e:print(e);exit()
+				else:
+					Console().print(f" {H2}• {P2}[bold red]Cookie Invalid")
+					exit()
+			except Exception as e:
+				print(e)
+				exit()
 		Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
-		sleep(2);exit()
-	except Exception as e:os.system('rm -rf .fancookie.txt');os.system('rm -rf .fantoken.txt');print(e);exit()
+		sleep(2)
+		exit()
+	except Exception as e:
+		os.system('rm -rf .fancookie.txt')
+		os.system('rm -rf .fantoken.txt')
+		print(e)
+		exit()
+
 # --------------------[ INI BOT FOLLOW & KOMEN ]--------------#
 def bot_komen(cok, ken):
 	with requests.Session() as r:
