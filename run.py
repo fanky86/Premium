@@ -869,7 +869,7 @@ def login123():
     banner()
     Console().print(
         Panel(
-            f"""{P2}[{color_text}01{P2}].Login Menggunakan Cookie [{K2}Dalam Perbaikan{P2}]\n[{color_text}02{P2}].{M2}Keluar""",
+            f"""{P2}[{color_text}01{P2}].Login Menggunakan Cookie\n[{color_text}02{P2}].{M2}Keluar""",
             width=60,
             style=f"{color_panel}",
             title="[bold green]Login",
