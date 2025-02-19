@@ -731,14 +731,6 @@ for t in range(10000):
 	l='Mobile Safari/537.36'
 	uaku2=f'{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}'
 	ugen.append(uaku2)
-for t in range(10000):
-    android_versi = random.choice(["6.0.1", "7.1.2", "8.1.0", "9", "10", "11", "12"])
-    android_build = random.choice(["MRA58K", "NMF26F", "OPM1.171019.026", "PKQ1.181203.001", "QKQ1.200114.002", "RKQ1.201123.002"])
-    redmi_model = random.choice(["Redmi 3", "Redmi 3S", "Redmi 4", "Redmi Note 4", "Redmi 5", "Redmi Note 5","Redmi 6", "Redmi Note 6 Pro", "Redmi 7", "Redmi Note 7", "Redmi 8", "Redmi Note 8","Redmi 9", "Redmi Note 9"])
-    chrome_version = f"{random.randint(80, 120)}.0.{random.randint(4000, 6000)}.{random.randint(100, 500)}"
-    user_agent = f"Mozilla/5.0 (Linux; Android {android_versi}; {redmi_model} Build/{android_build}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{chrome_version} Mobile Safari/537.36"
-    ugen.append(user_agent)
-    
 
 # ------------[ INDICATION ]---------------#
 M2 = "[#FF0000]"  # MERAH
