@@ -948,7 +948,7 @@ def menu():
         cookie = open(".fancookie.txt", "r").read()
         tokenku.append(token)
     except IOError:
-        Console().print(f" {H2}• {P2}[bold red] Cookies Kadaluarsa tolkon")
+        Console().print(f" {H2}• {P2}[bold red] Cookies Kadaluarsa, masukan ulang cookie")
         os.system("rm -rf .fantoken.txt && rm -rf .fancookie.txt")
         time.sleep(3)
         login()
@@ -1847,5 +1847,5 @@ if __name__ == "__main__":
         os.system("clear")
     except:
         pass
-    login()
+    menu()
     
