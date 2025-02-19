@@ -1864,5 +1864,5 @@ if __name__ == "__main__":
         os.system("clear")
     except:
         pass
-    menu()
+    login()
     
