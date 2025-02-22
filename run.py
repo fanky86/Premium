@@ -1045,7 +1045,7 @@ def menu():
         console.print(Panel(f"""{P2}masukan id target, pastikan id target bersifat publik""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=60,style=f"{color_panel}"))
         idt = console.input(f" {H2}• {P2}Masukan Id Target : ")
         # url = f'https://www.facebook.com/{idt}'
-        dump_publik(idt,"",{"cookie": cookie},token)
+        Dump_Friendlist(idt,"",{"cookie": cookie},token)
         setting()
     elif HaHi in ["2", "02"]:
         massal()
@@ -1059,49 +1059,19 @@ def menu():
     else:
     	console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! btw fanky ganteng ")
 
+def Dump_Friendlist(idt,fields,cookie,token):
+	try:
+		headers = {"connection": "keep-alive", "accept": "*/*", "sec-fetch-dest": "empty", "sec-fetch-mode": "cors","sec-fetch-site": "same-origin", "sec-fetch-user": "?1","sec-ch-ua-mobile": "?1","upgrade-insecure-requests": "1", "user-agent": "Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36","accept-encoding": "gzip, deflate","accept-language": "id-ID,id;q=0.9"}
+		if len(id)==0:
+			params = {"access_token": token,"fields": f"name,friends.fields(id,name,birthday)"}
+		else:
+			params = {"access_token": token,"fields": f"name,friends.fields(id,name,birthday).after({fields})"}
+		url = ses.get(f"https://graph.facebook.com/{idt}", params=params, headers=headers, cookies=cookie).json()
+		for i in url["friends"]["data"]:
+			id.append(i["id"]+"|"+i["name"]); sys.stdout.write(f"\r {K}+{P}•{K}+{P} Total Id : {len(id)}"), sys.stdout.flush()
+		Dump_Friendlist(idt,url["friends"]["paging"]["cursors"]["after"],cookie,token)
+	except: pass
 
-def dump_publik(idt, fields, cookie, token, id=None):
-    # Initialize the list if not provided
-    if id is None:
-        id = []
-    headers = {
-        "connection": "keep-alive",
-        "accept": "*/*",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-origin",
-        "sec-fetch-user": "?1",
-        "sec-ch-ua-mobile": "?1",
-        "upgrade-insecure-requests": "1",
-        "user-agent": "Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36",
-        "accept-encoding": "gzip, deflate",
-        "accept-language": "id-ID,id;q=0.9"
-    }
-    # Define parameters based on whether there is a pagination cursor
-    if not fields:
-        params = {"access_token": token,"fields": "name,friends.fields(id,name,birthday)"}
-    else:
-        params = {"access_token": token,"fields": f"name,friends.fields(id,name,birthday).after({fields})"}
-    try:
-        response = requests.get(f"https://graph.facebook.com/{idt}", params=params, headers=headers, cookies=cookie)
-        data = response.json()
-        if "friends" in data and "data" in data["friends"]:
-            for friend in data["friends"]["data"]:
-                friend_value = friend["id"] + "|" + friend["name"]
-                id.append(friend_value)
-                # Print each value on its own line
-                print('\r • sedang proses mengumpulkan id, berhasil mendapatkan {} ID'.format(id), end='')
-                sys.stdout.flush()
-            # Continue to next page if exists
-            paging = data["friends"].get("paging", {})
-            cursors = paging.get("cursors", {})
-            after_cursor = cursors.get("after")
-            if after_cursor:
-                dump_publik(idt, after_cursor, cookie, token, id)
-    except Exception as e:
-        sys.stderr.write(f"\nError: {e}\n")
-        pass
-    return id
 
 # ----------------[ BAGIAN-DATA-GRAPHQL ]----------------#
 def GetData(req):
