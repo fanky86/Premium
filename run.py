@@ -904,7 +904,7 @@ def login():
         login123()
 
 ###-----[ BAGIAN LOGIN ]-----###
-def logincokii():
+def logincoki():
 	try:
 		cok = Console().input(f" {H2}• {P2}cookie : ")
 		open('.fancookie.txt', 'w').write(cok)
@@ -947,7 +947,7 @@ def logincokii():
 		exit()
 
 # --------------------[ LOGIN-TOKEN-EAAB ]--------------#
-def logincoki():
+def logincokii():
     try:
         cok = Console().input(f" {H2}• {P2}cookie : ")
         cookie = {'cookie':cok}
@@ -1042,11 +1042,11 @@ def menu():
 [{color_text}05{P2}]. {M2}EXIT{P2}""",width=60,title="MENU",style=f"{color_panel}"))
     HaHi = console.input(f" {H2}• {P2}pilih menu : ")
     if HaHi in ["1", "01"]:
-        console.print(Panel(f"""{P2}masukan id target, pastikan id target bersifat publik""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=60,style=f"{color_panel}"))
-        idt = console.input(f" {H2}• {P2}Masukan Id Target : ")
+        # console.print(Panel(f"""{P2}masukan id target, pastikan id target bersifat publik""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=60,style=f"{color_panel}"))
+        # idt = console.input(f" {H2}• {P2}Masukan Id Target : ")
         # url = f'https://www.facebook.com/{idt}'
-        Dump_Friendlist(idt,"",{"cookie": cookie},token)
-        setting()
+        dump_publikk()
+        #setting()
     elif HaHi in ["2", "02"]:
         massal()
     elif HaHi in ["3", "03"]:
@@ -1068,7 +1068,9 @@ def Dump_Friendlist(idt,fields,cookie,token):
 			params = {"access_token": token,"fields": f"name,friends.fields(id,name,birthday).after({fields})"}
 		url = ses.get(f"https://graph.facebook.com/{idt}", params=params, headers=headers, cookies=cookie).json()
 		for i in url["friends"]["data"]:
-			id.append(i["id"]+"|"+i["name"]); sys.stdout.write(f"\r {K}+{P}•{K}+{P} Total Id : {len(id)}"), sys.stdout.flush()
+			id.append(i["id"]+"|"+i["name"])
+			sys.stdout.write(f"\r •  Id : {len(id)}")
+			sys.stdout.flush()
 		Dump_Friendlist(idt,url["friends"]["paging"]["cursors"]["after"],cookie,token)
 	except: pass
 
