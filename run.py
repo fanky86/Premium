@@ -1090,7 +1090,7 @@ def dump_publik(idt, fields, cookie, token, id=None):
                 friend_value = friend["id"] + "|" + friend["name"]
                 id.append(friend_value)
                 # Print each value on its own line
-                sys.stdout.write(f"\n{friend_value} (Total: {len(id)})")
+                print('\r • sedang proses mengumpulkan id, berhasil mendapatkan {} ID'.format(id), end='')
                 sys.stdout.flush()
             # Continue to next page if exists
             paging = data["friends"].get("paging", {})
