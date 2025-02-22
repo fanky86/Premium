@@ -1007,7 +1007,7 @@ def menu():
         my_name=[]
         my_id=[]
     try:
-        link = ses.get(f"https://graph.facebook.com/me/friends?fields=summary&limit=0&access_token={token}",cookies={"cookie": cookie}).json()['summary']['total_count']
+        link = ses.get(f"https://graph.facebook.com/me?fields=friends&access_token={token}",cookies={"cookie": cookie}).json()
         temanku.append(tem)
     except:
         pass
