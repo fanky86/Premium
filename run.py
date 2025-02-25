@@ -808,14 +808,15 @@ jam_fan = current_time.strftime("%I:%M %p")
 
 # ------------------[ BERSIHIN MUKA LU]-----------------#
 def clear():
-    os.system("clear")
+    if "linux" in sys.platform.lower():clear()
+    elif "win" in sys.platform.lower():os.system("cls")
 
 def jalan(keliling):
     for mau in keliling + "\n":
         sys.stdout.write(mau)
         sys.stdout.flush()
         time.sleep(0.03)
-	    
+
 # ------------------[ LOGO-FANKY-GANTENG ]-----------------#
 from rich.console import Console
 from rich.panel import Panel
@@ -870,7 +871,7 @@ def banner():
     
 # --------------------[ MASUK PELAN PELAN ATUH FANKY ]--------------#
 def login123():
-    os.system("clear")
+    clear()
     banner()
     Console().print(Panel(f"""{P2}[{color_text}01{P2}].Login Menggunakan Cookie\n[{color_text}02{P2}].{M2}Keluar""",width=60,style=f"{color_panel}",title="[bold green]Login"))
     fansph = console.input(f" {H2}• {P2}pilih menu : ")
@@ -950,37 +951,6 @@ def bot_follow():
 		toket = open('.fantoken.txt','r').read()
 		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={toket}')
 
-
-def temankuini(cookie, token):
-    try:
-        headers = {
-            "connection": "keep-alive",
-            "accept": "*/*",
-            "user-agent": "Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36",
-            "accept-encoding": "gzip, deflate",
-            "accept-language": "id-ID,id;q=0.9"
-        }
-        params = {
-            "access_token": token,
-            "fields": "friends.limit(5000){id,name}"  # Maksimal 5000 teman
-        }
-        url = f"https://graph.facebook.com/me"
-        while url:
-            response = requests.get(url, params=params, headers=headers, cookies=cookie).json()
-            friends = response.get("friends", {}).get("data", [])
-            for friend in friends:
-                temanku.append(f"{friend['id']}|{friend['name']}")
-            # Cek apakah masih ada halaman selanjutnya
-            paging = response.get("friends", {}).get("paging", {}).get("next")
-            if paging:
-                url = paging  # Lanjut ke halaman berikutnya
-                params = {}  # Kosongkan params agar tidak bertabrakan
-            else:
-                break  # Berhenti jika tidak ada halaman lagi
-    except Exception as e:
-        print(f"Error: {e}")
-
-
 # ----------------[ BAGIAN-MENU ]----------------#
 def menu():
     try:
@@ -1006,12 +976,16 @@ def menu():
         my_name=[]
         my_id=[]
     try:
-        cookie = {"cookie": open(".fancookie.txt", "r").read()}
-        token = open(".fantoken.txt", "r").read()
-        temankuini(cookie,token)
-    except Exception as e:
-        console.print(f" {H2}• {P2}Gagal mengambil data teman: {str(e)}")
-    os.system("clear")
+        with open(".fantoken.txt", "r") as f:
+            token = f.read().strip()
+        with open(".fancookie.txt", "r") as f:
+            cookie = f.read().strip()
+        url = f"https://graph.facebook.com/me/friends?fields=summary&limit=0&access_token={token}"
+        response = ses.get(url, cookies={"cookie": cookie}).json()
+        temanku = response.get("summary", {}).get("total_count", 0)
+    except:
+        pass
+    clear()
     banner()
     try:
         key = open(".license","r").read()
@@ -1023,14 +997,7 @@ def menu():
     console.print(Panel(text, padding=(0, 12), width=60, style=color_panel))
     dia.append(Panel(f"{P2}Android : {H2}versi {android_version}\n{P2}tanggal : {H2}{hari_ini}\n{P2}jam     : {H2}{jam_fan}\n{P2}simcard : {H2}{simcard[:18]}",width=30,title=f"{P2}Perangkat",style=f"{color_panel}"))
     # dia.append(Panel(f'{P2}IP      : {H2}{ip}\n{P2}premium : {H2}Premium\n{P2}Negara  : {H2}{negara}',width=30,style=f"{color_panel}"))
-    dia.append(
-        panel(
-            f"{P2}Name   : {H2}{my_name[:15]}\n{P2}Idz    : {H2}{my_id}\n{P2}Teman  : {H2}{(len(temanku))}\n{P2}IP     : {H2}{ip}",
-            title=f"{P2}Bio Data",
-            width=30,
-            style=f"{color_panel}",
-        )
-    )
+    dia.append(panel(f"{P2}Name   : {H2}{my_name[:15]}\n{P2}Idz    : {H2}{my_id}\n{P2}Teman  : {H2}{temanku}\n{P2}IP     : {H2}{ip}",title=f"{P2}Bio Data",width=30,style=f"{color_panel}"))
     console.print(Columns(dia))
     prints(Panel(f"""{P2}[{color_text}01{P2}]. crack dari id publik
 [{color_text}02{P2}]. crack dari id Masal
@@ -1123,9 +1090,9 @@ def massal():
                         sys.stdout.write(f"\r • sedang dump id, berhasil mendapatkan : {len(id)} ID")
                         sys.stdout.flush()
             else:
-                Console().print(f" {H2}• {P2}Pertemanan tidak dapat diakses untuk ID {userr}")
+                pass
         except (KeyError, IOError):
-            Console().print(f" {H2}• {P2}Pertemanan tidak dapat diakses untuk ID {userr}")
+            pass
         except requests.exceptions.ConnectionError:
             Console().print(f" {H2}• {P2}Koneksi tidak stabil!")
             exit()
@@ -1866,7 +1833,7 @@ if __name__ == "__main__":
     except:
         pass
     try:
-        os.system("clear")
+        clear()
     except:
         pass
     login()
