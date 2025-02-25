@@ -808,7 +808,7 @@ jam_fan = current_time.strftime("%I:%M %p")
 
 # ------------------[ BERSIHIN MUKA LU]-----------------#
 def clear():
-    if "linux" in sys.platform.lower():clear()
+    if "linux" in sys.platform.lower():os.system("clear")
     elif "win" in sys.platform.lower():os.system("cls")
 
 def jalan(keliling):
