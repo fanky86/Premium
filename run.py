@@ -1767,7 +1767,7 @@ def fanky_b_api(idf, pwv):
             time.sleep(31)
     loop += 1
 #-------------------[ CRACK-MAIN ]------------#
-def fankytouch(idf,pwv):
+def fankytouchn(idf,pwv):
 	global loop,ok,cp
 	rr = random.randint
 	rc = random.choice
@@ -1816,7 +1816,7 @@ def fankytouch(idf,pwv):
 	loop+=1
 
 #-------------------[ CRACK-MAIN ]------------#
-def fankym(idf,pwv):
+def fankytouch(idf,pwv):
 	global loop,ok,cp
 	rr = random.randint
 	rc = random.choice
