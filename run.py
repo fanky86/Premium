@@ -1837,13 +1837,13 @@ def fankym(idf,pwv):
 			dtg = ('').join(re.findall('dtsg":\\{"token":"(.*?)"', p.text))
 			data = {}
 			for fannnn in b('input'):
-				if rom.get('value') is None:
+				if fannnn.get('value') is None:
 					if fannnn.get('name') == 'email':
 						data.update({"email":idf})
 					elif fannnn.get("name")=="pass":
 						data.update({"pass":pw})
 					else:
-						data.update({rom.get('name'): ''})
+						data.update({fannnn.get('name'): ''})
 				else:
 					data.update({fannnn.get('name'): fannnn.get('value')})
 			data.update({'fb_dtsg': dtg, 'm_sess': '', '__user': '0', '__req': 'd','__csr': '', '__a': '', '__dyn': '', 'encpass': ''})
