@@ -1457,7 +1457,7 @@ def metslow():
                 elif "fankygraphv2" in method:
                     pool.submit(fankytouch,idf,pwv)
                 elif "fankymfb" in method:
-                    pool.submit(fankymfb,idf,pwv)
+                    pool.submit(fankym,idf,pwv)
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
                 else:
@@ -1530,7 +1530,7 @@ def metcepat():
                 elif "fankygraphv2" in method:
                     pool.submit(fankytouch,idf,pwv)
                 elif "fankymfb" in method:
-                    pool.submit(fankymfb,idf,pwv)
+                    pool.submit(fankym,idf,pwv)
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
                 else:
@@ -1816,7 +1816,7 @@ def fankytouch(idf,pwv):
 	loop+=1
 
 #-------------------[ CRACK-MAIN ]------------#
-def fankymfb(idf,pwv):
+def fankym(idf,pwv):
 	global loop,ok,cp
 	rr = random.randint
 	rc = random.choice
