@@ -1456,6 +1456,8 @@ def metslow():
                     pool.submit(fankywww,idf,pwv)
                 elif "fankygraphv2" in method:
                     pool.submit(fankytouch,idf,pwv)
+                elif "fankymfb" in method:
+                    pool.submit(fankymfb,idf,pwv)
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
                 else:
