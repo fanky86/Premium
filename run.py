@@ -1311,7 +1311,7 @@ def setting():
 
 
     # Input untuk metode login
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]MTOUCH [bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]Touch[bold white] [/]\n{P2}[{color_text}04{P2}] Login Site [bold green]IP [bold white][[bold green]Recommended[bold white]][bold white] [/]\n{P2}[{color_text}05{P2}] Login Site [bold green]m.facebook.com [bold white][[bold green]maintenance[bold white]][bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]MTOUCH [bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]Touch[bold white] [/]\n{P2}[{color_text}04{P2}] Login Site [bold green]IP [bold white][[bold green]Recommended[bold white]][bold white] [/]\n{P2}[{color_text}05{P2}] Login Site [bold green]m.facebook.com [bold white][[bold yellow]maintenance[bold white]][bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
     fankylog = console.input(f" {H2}• {P2}Masukan : ").strip()
     if fankylog in ["1", "01"]:
         method.append("fankygraph")
