@@ -1828,6 +1828,7 @@ def fankym(idf,pwv):
 	prog.update(des, description=f" {K2}•{H2} FANKY MOBILE {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
 	prog.advance(des) 
 	for pw in pwv:
+		pw = pw.lower()
 		try:
 			if 'ya' in ualuh: ua = ualu[0]
 			nip=random.choice(prox)
