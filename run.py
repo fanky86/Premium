@@ -69,6 +69,7 @@ from bs4 import BeautifulSoup as parser
 from rich.columns import Columns as col
 from rich.console import Console as sol
 from rich.console import Console
+from bs4 import BeautifulSoup
 from bs4 import BeautifulSoup as beautifulsoup
 from rich.markdown import Markdown as mark
 from concurrent.futures import ThreadPoolExecutor as tred
