@@ -1559,7 +1559,7 @@ def b_api(idf, pwv):
     rr = random.randint
     rc = random.choice
     ses = requests.Session()
-    prog.update(des, description=f" {K2}•{H2} FANKY GRAPH {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des, description=f" {K2}•{H2} FANKY B-API {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
     #ua = f"Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Mobile Safari/537.36"
     ua = random.choice(ugen)
