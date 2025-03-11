@@ -1559,9 +1559,9 @@ import json
 def b_api(idf, pwv):
     global loop, ok, cp
     ses = requests.Session()
-    
+    prog.update(des, description=f" {K2}•{H2} FANKY GRAPH {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.advance(des)
     ua = 'Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 Mobile Safari/537.36 [FBAN/FB4A;FBAV/300.1.0.58.129;FBBV/247967041;FBLC/en_US;FBRV/0;FBCR/Verizon;FBMF/samsung;FBBD/samsung;FBDV/SM-G973F;FBSV/10;FBCA/arm64-v8a:;FBDM/{density=2.625}]'
-
     headers = {
         'User-Agent': ua,
         'Content-Type': 'application/x-www-form-urlencoded',
