@@ -64,7 +64,7 @@ from rich.panel import Panel as nel
 from rich.panel import Panel as panel
 from bs4 import BeautifulSoup as sop
 from bs4 import BeautifulSoup as par
-
+import urllib.request
 from rich.console import Group as gp
 from bs4 import BeautifulSoup as parser
 from rich.columns import Columns as col
