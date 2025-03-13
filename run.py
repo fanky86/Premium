@@ -153,7 +153,8 @@ uren = [
     'Mozilla/5.0 (Linux; Android 10; Xiaomi Redmi Note 8 Build/QKQ1.190828.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.105 Mobile Safari/537.36[FBAN/EMA;FBLC/en_IN;FBAV/340.0.0.50.123;]',
     'Mozilla/5.0 (Linux; Android 12; Samsung Galaxy Note 20 Build/SP1A.210812.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/90.0.4430.212 Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/350.0.0.40.125;]'
 ]
-ugen = random.choice(uren)
+fanugenhehe = random.choice([uren])
+ugen.append(fanugenhehe)
 for t in range(10000):
 	a=random.choice(['1','1.0','1.5','2','2.0','2.5','3','3.0','3.5','4','4.0','4.5','5','5.0','5.5','6','6.0','6.5','7','7.0','7.5','8','8.0','8.5','9','9.0','9.5','10','10.0','10.5','11','11.0','11.5','12','12.0','12.5','13'])
 	udin=random.choice(['R111-','R108-','R110-','R109-'])
