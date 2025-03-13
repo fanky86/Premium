@@ -1293,7 +1293,7 @@ def setting():
             xx = random.randint(0, len(id2))
             id2.insert(xx, bacot)  # Masukkan secara acak
     else:
-        print("[bold red]Error:[/bold red] Pilihan tidak valid, coba lagi.")
+        console.print(f" {H2}• {P2}Pilih Yg bener etdahh, coba lagi.")
         return setting()  # Rekursi untuk mengulang input
 
 
