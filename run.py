@@ -930,9 +930,9 @@ def logincoki():
 def loginuserpass():
     try:
         console = Console()
-        Console().print(f"{white}Masukan username/email/idf dan password")
-        email = console.input(" [bold green]• [white]Email : ")
-        password = console.input(" [bold green]• [white]Password : ")
+        Console().print(f"{P2}Masukan username/email/idf dan password")
+        email = console.input(" [green]• [white]Email : ")
+        password = console.input(" [green]• [white]Password : ")
         api_key = '882a8490361da98702bf97a021ddc14d'
         api_secret = '62f8ce9f74b12f84c123cc23437a4a32'
         data = {"api_key": api_key,"credentials_type": "password","email": email,"format": "JSON","generate_machine_id": "1","generate_session_cookies": "1","locale": "en_US","method": "auth.login","password": password,"return_ssl_resources": "0","v": "1.0"}
