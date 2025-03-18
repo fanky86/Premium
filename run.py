@@ -885,7 +885,7 @@ def banner():
 def login123():
     clear()
     banner()
-    Console().print(Panel(f"""{P2}[{color_text}01{P2}].Login Menggunakan Cookie\n{P2}[{color_text}02{P2}].Login Menggunakan email dan password [{K2}Dump Perbaikan{P2}]\n[{color_text}03{P2}].{M2}Keluar""",width=60,style=f"{color_panel}",title="[bold green]Login"))
+    Console().print(Panel(f"""{P2}[{color_text}01{P2}].Login Menggunakan Cookie\n{P2}[{color_text}02{P2}].Login Menggunakan email dan password [{K2}Perbaikan{P2}]\n[{color_text}03{P2}].{M2}Keluar""",width=60,style=f"{color_panel}",title="[bold green]Login"))
     fansph = console.input(f" {H2}• {P2}pilih menu : ")
     if fansph in ["1", "01"]:
         logincoki()
