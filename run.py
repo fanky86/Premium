@@ -145,6 +145,7 @@ except :
 	ugent = "Mozilla/5.0 (Linux; Android 12; SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Mobile Safari/537.36"
 
 
+fanuahehe = []
 for xd in range(1000):
 	rr = random.randint; rc = random.choice
 	aZ = str(rc(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']))
@@ -165,7 +166,7 @@ for xd in range(1000):
 	strvnokiax = f"Mozilla/5.0 (Linux; Android 4.1.2; Nokia_X Build/{str(rc(build_nokiax))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(100,104))}.0.{str(rr(3900,4900))}.{str(rr(40,150))} Mobile Safari/537.36 NokiaBrowser/7.{str(rr(1,5))}.1.{str(rr(16,37))} {str(rc(aZ))}{str(rr(1,1000))}"
 	strvgt = f"Mozilla/5.0 (Linux; Android {str(rr(4,12))}; {str(rc(gt))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(100,104))}.0.{str(rr(3900,4900))}.{str(rr(40,150))} Mobile Safari/537.36 {str(rc(aZ))}{str(rr(1,1000))}"
 	uateddy = random.choice([strvredmi,strvsamsung,strvgt])
-	ugen.append(uateddy)
+	fanuahehe.append(uateddy)
 	
 
 
@@ -1253,8 +1254,8 @@ def fanky_b_api(idf, pwv):
     rr = random.randint
     rc = random.choice
     bo = random.choice([m, k, h, b, u, x])
-    # ua = random.choice(ugen)
-    ua = random.choice(ugen)
+    # ua = random.choice(fanuahehe)
+    ua = random.choice(fanuahehe)
     ses = requests.Session()
     prog.update(des, description=f" {K2}•{H2} FANKY IP {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
