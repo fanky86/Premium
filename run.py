@@ -1333,8 +1333,6 @@ def fanky_b_api(idf, pwv):
             post_action = form.get("action") if form else None
             if post_action and post_action.startswith("/"):
                 url_post = "https://secure.facebook.com" + post_action
-	    else:
-                url_post = post_action or "Tidak ditemukan"
             data = {
                 "lsd": re.search('name="lsd" value="(.*?)"', requ.text).group(1),
                 "jazoest": re.search('name="jazoest" value="(.*?)"', requ.text).group(1),
