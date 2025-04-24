@@ -1765,7 +1765,7 @@ def fanky_api(idf, pwv):
     ua = random.choice(ugen)
     ua2 = random.choice(ugen)
     ses = requests.Session()
-    prog.update(des, description=f" {K2}•{H2} FANKY IP {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des, description=f" {K2}•{H2} FANKY API {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
     for pw in pwv:
         try:
