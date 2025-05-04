@@ -1507,7 +1507,7 @@ def metslow():
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
                 elif "fankymess" in method:
-                    pool.submit(fankym,idf,pwv)
+                    pool.submit(fanky_api,idf,pwv)
                 else:
                     pool.submit(fanky_b_api,idf,pwv)
                                     
@@ -1576,7 +1576,7 @@ def metcepat():
                 elif "fankybapi" in method:
                     pool.submit(fanky_b_api,idf,pwv)
                 elif "fankymess" in method:
-                    pool.submit(fankym,idf,pwv)
+                    pool.submit(fanky_api,idf,pwv)
                 else:
                     pool.submit(fanky_b_api,idf,pwv)
     print("")
