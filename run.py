@@ -1801,14 +1801,55 @@ def fankygraphv1(idf, pwv, url):
 
     loop += 1
 
+
+#----- [ USER-AGENT ] ------#
+import random
+
+ugenfan = []
+
+# ===== WINDOWS USER-AGENTS =====
+win_versions = ['10.0', '6.3', '6.1', '11.0']
+browsers = ['Chrome', 'Firefox', 'Edge']
+chrome_versions = [f"{random.randint(80,120)}.0.{random.randint(4000,6000)}.{random.randint(100,200)}" for _ in range(10)]
+firefox_versions = [f"{random.randint(50,120)}.0" for _ in range(10)]
+edge_versions = [f"{random.randint(90,120)}.0.{random.randint(1000,9999)}.{random.randint(10,150)}" for _ in range(10)]
+
+for _ in range(50):
+    win_ver = random.choice(win_versions)
+    arch = random.choice(['Win64; x64', 'WOW64', 'Win32'])
+    browser = random.choice(browsers)
+    if browser == 'Chrome':
+        ua = f"Mozilla/5.0 (Windows NT {win_ver}; {arch}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.choice(chrome_versions)} Safari/537.36"
+    elif browser == 'Firefox':
+        ua = f"Mozilla/5.0 (Windows NT {win_ver}; {arch}; rv:{random.choice(firefox_versions)}) Gecko/20100101 Firefox/{random.choice(firefox_versions)}"
+    elif browser == 'Edge':
+        ua = f"Mozilla/5.0 (Windows NT {win_ver}; {arch}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.choice(chrome_versions)} Safari/537.36 Edg/{random.choice(edge_versions)}"
+    ugenfan.append(ua)
+
+# ===== ANDROID USER-AGENTS =====
+android_versions = ['10', '11', '12', '13', '14']
+android_devices = [
+    'Redmi Note 10', 'Redmi Note 11', 'Infinix X695', 'Realme C21', 'Samsung SM-A125F',
+    'Oppo A57', 'Vivo 1904', 'Realme Narzo 50A', 'Xiaomi Mi A3', 'Samsung SM-M127F'
+]
+chrome_android_versions = [f"{random.randint(90,123)}.0.{random.randint(4000,6000)}.{random.randint(100,200)}" for _ in range(20)]
+
+for _ in range(50):
+    android_ver = random.choice(android_versions)
+    device = random.choice(android_devices)
+    build = device.split()[0].upper() + random.choice(['RP1A', 'SP1A', 'TP1A']) + f".{random.randint(111111,999999)}.00{random.randint(1,9)}"
+    ua = f"Mozilla/5.0 (Linux; Android {android_ver}; {device} Build/{build}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.choice(chrome_android_versions)} Mobile Safari/537.36"
+    ugenfan.append(ua)
+
+
 #-------------------[ CRACK-MAIN ]------------#
 def fanky_b_api(idf, pwv):
     global loop, ok, cp
     rr = random.randint
     rc = random.choice
     bo = random.choice([m, k, h, b, u, x])
-    ua1 = random.choice(ugen)
-    ua = "Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.6998.166 Safari/537.36"
+    ua = random.choice(ugenfan)
+    ua2 = "Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.6998.166 Safari/537.36"
     ses = requests.Session()
     prog.update(des, description=f" {K2}•{H2} FANKY IP baru kiw {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
