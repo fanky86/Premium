@@ -1058,8 +1058,9 @@ def menu():
     prints(Panel(f"""{P2}[{color_text}01{P2}]. crack dari id publik
 [{color_text}02{P2}]. crack dari id Masal
 [{color_text}03{P2}]. Lihat Hasil Crack
-[{color_text}04{P2}]. Logout [[bold red]hapus cookie[bold white]]
-[{color_text}05{P2}]. {M2}EXIT{P2}""",width=60,title="MENU",style=f"{color_panel}"))
+[{color_text}04{P2}]. Lihat Hasil Crack
+[{color_text}05{P2}]. Logout [[bold red]hapus cookie[bold white]]
+[{color_text}06{P2}]. {M2}EXIT{P2}""",width=60,title="MENU",style=f"{color_panel}"))
     HaHi = console.input(f" {H2}• {P2}pilih menu : ")
     if HaHi in ["1", "01"]:
         prints(Panel(f"""{P2}masukan id target, pastikan id target bersifat publik""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=60,style=f"{color_panel}"))
@@ -1069,18 +1070,18 @@ def menu():
         setting()
     elif HaHi in ["2", "02"]:
         massal()
-    elif HaHi in ["1", "01"]:
+    elif HaHi in ["3", "03"]:
         prints(Panel(f"""{P2}masukan id target, pastikan id target bersifat publik""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=60,style=f"{color_panel}"))
         idfac = console.input(f" {H2}• {P2}Masukan Id Target :{U2} ")
         dump_id_publik(idfac,"",{"cookie":cookie},token)
         print('\n')
         exit()
-    elif HaHi in ["3", "03"]:
-        result()
     elif HaHi in ["4", "04"]:
+        result()
+    elif HaHi in ["5", "05"]:
         os.system('rm -rf .fancookie.txt');os.system('rm -rf .fantoken.txt')
         console.print(f" {H2}• {P2}Berhasil Hapus Cookie")
-    elif HaHi in ["5", "05"]:
+    elif HaHi in ["6", "06"]:
         exit()
     else:
     	console.print(f" {H2}• {P2}[bold red]Masukan Yang Bener Tolol!!! btw fanky ganteng ")
@@ -1844,7 +1845,7 @@ def fanky_b_api(idf, pwv):
     index = [i for i, ua in enumerate(["Redmi 9T", "Infinix X682B", "RMX2185", "M2003J15SC"]) if ua in user_agent][0]
     device = device_info_list[index]
     ses = requests.Session()
-    prog.update(des, description=f" {K2}•{H2} FANKY IP baru kiw {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
+    prog.update(des, description=f" {K2}•{H2} FANKY B-API {P2}{idf} [bold blue]{loop}[bold white]/[bold blue]{len(id)} [bold green]OK : [bold green]{ok}  [bold white]-  [bold yellow]CP : [bold yellow]{cp}[white]")
     prog.advance(des)
     for pw in pwv:
         try:
