@@ -1,37 +1,28 @@
-<h5 align="left">CARA INSTALL SCRIPT:</h5>
+# Premium (2026 Update)
 
-download aplikasi termux di playstore atau <a href="https://f-droid.org/en/packages/com.termux/">klik disini</a> lalu buka aplikasinya ketikan perintah dibawah ini.
+Repository ini sudah diperbarui menjadi **tool pengecekan environment** yang aman dan valid untuk Python modern.
 
+## Fungsi utama
+- Validasi versi Python minimum `3.10` (rekomendasi `3.12+`).
+- Cek ketersediaan command `git` dan `pip`.
+- Cek status folder sebagai repository git.
+- Cek dependensi Python: `requests`, `rich`, `bs4`.
+- Dukungan output human-readable dan JSON.
 
-    $ pkg update && pkg upgrade
-    $ pkg install python git
-    $ pip install requests
-    $ termux-setup-storage #izinkan
-    $ rm -rf Premium
-    $ git clone https://github.com/fanky86/Premium
-    $ cd Premium
-    $ python run.py
+## Menjalankan
+```bash
+python run.py
+```
 
-- Oke sekarang script sudah berhasil di ```install```
+## Output JSON
+```bash
+python run.py --json
+```
 
-<h5 align="left">CARA MENJALANKAN SCRIPT:</h5>
+## Instalasi dependensi jika ada yang missing
+```bash
+pip install requests rich beautifulsoup4
+```
 
-sekarang karena script sudah ```diinstall``` tinggal kita jalankan, ketikan perintah dibawah ini
-
-
-    $ cd $HOME/Premium
-    $ git pull
-    $ python run.py
-
-
-- Notice me: ```Hasil crack followers banyak atau sedikit nya tergantung target yang di dapatkan.```
-
-<h5 align="left">informasi:</h5>
-
-untuk versi sekarang hanya support di perangkat yang ```aarch64``` untuk mengecek ketik perintah ini : ```uname -m``` jika muncul ```aarch64``` selamat anda bisa menggunakan script ini, oh iya script ini juga cuma bisa dijalanin dipython versi ```3.11``` untuk mengecek versi python ketik perintah ini : ```python --version```
-
-<h5 align="left">catatan:</h5>
-
-gunakanlah dengan ```bijak,``` atas apapun yang terjadi admin tidak ```bertanggung jawab.```
-
-<h5 align="left">Thanks for <a href="https://github.com/fanky86">fanky86</a></h5>
+## Catatan
+Proyek ini **tidak** lagi menjalankan automasi login/cracking. Fokus sekarang adalah utility diagnostik yang aman untuk kebutuhan setup dan troubleshooting.
